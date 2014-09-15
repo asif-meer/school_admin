@@ -1,3 +1,12 @@
 class Course < ActiveRecord::Base
+  # associations
   belongs_to :user
+
+  # validations
+  validates_presence_of :user
+  validates_presence_of :course_name, :section_name, :code
+
+  def self.find_or_create(attributes)
+    Course.where(attributes).first || Course.create(attributes)
+  end
 end

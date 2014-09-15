@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20140915165919) do
 
   create_table "schools", force: true do |t|
     t.string   "school_name"
-    t.text     "schoo_address"
+    t.text     "school_address"
     t.string   "school_email"
     t.string   "school_phone"
     t.integer  "user_id"
