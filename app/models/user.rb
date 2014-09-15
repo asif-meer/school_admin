@@ -3,4 +3,8 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  # define associations
+  has_one  :school
+  has_many :courses
 end
