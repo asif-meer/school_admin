@@ -107,6 +107,8 @@ GEM
     json (1.8.1)
     launchy (2.4.2)
       addressable (~> 2.3)
+    letter_opener (1.2.0)
+      launchy (~> 2.2)
     libv8 (3.16.14.7)
     listen (2.7.9)
       celluloid (>= 0.15.2)
@@ -249,6 +251,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   launchy
+  letter_opener
   quiet_assets
   rails (= 4.1.6)
   rails_layout
