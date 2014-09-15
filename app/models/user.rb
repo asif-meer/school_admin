@@ -7,4 +7,13 @@ class User < ActiveRecord::Base
   # define associations
   has_one  :school
   has_many :courses
+
+  def self.find_or_create(attributes)
+    User.where(attributes).first || User.create(attributes)
+  end
+
+  def school
+    @school   = School.find_by_user_id(self.id)
+    @school ||= School.new(:user_id => self.id)
+  end
 end
