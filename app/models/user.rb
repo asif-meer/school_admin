@@ -16,7 +16,8 @@ class User < ActiveRecord::Base
   def school
     @school   = School.find_by_user_id(self.id)
     @school ||= School.new(:user_id => self.id)
-
+  end
+  
   def admin?
     self.has_role? :admin
   end
