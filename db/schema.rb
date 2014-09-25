@@ -11,15 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20140915165919) do
-
-  create_table "courses", force: true do |t|
-    t.string   "course_name"
-    t.string   "section_name"
-    t.string   "code"
-    t.integer  "user_id"
-  end
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -32,19 +24,18 @@ ActiveRecord::Schema.define(version: 20140915165919) do
     t.datetime "updated_at"
   end
 
-  create_table "schools", force: true do |t|
-    t.string   "school_name"
-    t.text     "school_address"
-    t.string   "school_email"
-    t.string   "school_phone"
+  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
+  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace"
+  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
+
+  create_table "courses", force: true do |t|
+    t.string   "course_name"
+    t.string   "section_name"
+    t.string   "code"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
-  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace"
-  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
 
   create_table "roles", force: true do |t|
     t.string   "name"
@@ -56,6 +47,16 @@ ActiveRecord::Schema.define(version: 20140915165919) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], name: "index_roles_on_name"
+
+  create_table "schools", force: true do |t|
+    t.string   "school_name"
+    t.text     "school_address"
+    t.string   "school_email"
+    t.string   "school_phone"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
