@@ -4,6 +4,9 @@ class Role < ActiveRecord::Base
   
   scopify
 
+  # validations
+  validates_presence_of :name
+
   def self.find_or_create(attributes)
     Role.where(attributes).first || Role.create(attributes)
   end
