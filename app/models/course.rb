@@ -7,6 +7,10 @@ class Course < ActiveRecord::Base
   # validates_presence_of :user
   validates_presence_of :course_name, :code
 
+  def to_s
+    course_name
+  end
+
   def self.find_or_create(attributes)
     Course.where(attributes).first || Course.create(attributes)
   end
