@@ -10,6 +10,10 @@
   <tbody>
     <% @batches.each do |batch| %>
       <tr>
+        <%= batch.batch_name %>
+        <%= batch.course %>
+        <%= batch.start_date %>
+        <%= batch.end_date %>
         <td><%= link_to 'Show', batch %></td>
         <td><%= link_to 'Edit', edit_batch_path(batch) %></td>
         <td><%= link_to 'Destroy', batch, method: :delete, data: { confirm: 'Are you sure?' } %></td>

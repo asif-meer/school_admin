@@ -69,6 +69,6 @@ class BatchesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def batch_params
-      params[:batch]
+      params.require(:batch).permit(:course_id, :batch_name, :start_date,:end_date)
     end
 end
