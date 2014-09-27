@@ -7,4 +7,7 @@ class Batch < ActiveRecord::Base
   validates_presence_of :start_date, :end_date
   validates_presence_of :course_id
   
+  def to_s
+    batch_name
+  end
 end
