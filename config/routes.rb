@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :employee_positions
+
   resources :student_categories
 
   resources :departments
