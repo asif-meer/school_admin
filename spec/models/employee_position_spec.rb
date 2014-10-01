@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: employee_positions
+#
+#  id         :integer          not null, primary key
+#  name       :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 require 'rails_helper'
 
 RSpec.describe EmployeePosition, :type => :model do

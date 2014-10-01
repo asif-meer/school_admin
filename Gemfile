@@ -30,6 +30,7 @@ group :development do
   gem 'rb-fsevent', :require=>false
   gem 'rb-inotify', :require=>false
   gem 'letter_opener'
+  gem 'annotate', '~> 2.6.5'
 end
 group :development, :test do
   gem 'factory_girl_rails'

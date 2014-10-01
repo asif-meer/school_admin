@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: batches
+#
+#  id         :integer          not null, primary key
+#  batch_name :string(255)
+#  start_date :date
+#  end_date   :date
+#  course_id  :integer
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 class Batch < ActiveRecord::Base
   # associations
   belongs_to :course
