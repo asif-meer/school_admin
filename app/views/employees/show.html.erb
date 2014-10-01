@@ -1,0 +1,79 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @employee.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @employee.last_name %>
+</p>
+
+<p>
+  <strong>Date of birth:</strong>
+  <%= @employee.date_of_birth %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @employee.gender %>
+</p>
+
+<p>
+  <strong>Employee number:</strong>
+  <%= @employee.employee_number %>
+</p>
+
+<p>
+  <strong>Joining date:</strong>
+  <%= @employee.joining_date %>
+</p>
+
+<p>
+  <strong>Department:</strong>
+  <%= @employee.department %>
+</p>
+
+<p>
+  <strong>Employee position:</strong>
+  <%= @employee.employee_position %>
+</p>
+
+<p>
+  <strong>Job title:</strong>
+  <%= @employee.job_title %>
+</p>
+
+<p>
+  <strong>Qualification:</strong>
+  <%= @employee.qualification %>
+</p>
+
+<p>
+  <strong>Total experience:</strong>
+  <%= @employee.total_experience %>
+</p>
+
+<p>
+  <strong>Present address:</strong>
+  <%= @employee.present_address %>
+</p>
+
+<p>
+  <strong>Perminent address:</strong>
+  <%= @employee.perminent_address %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @employee.phone %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @employee.email %>
+</p>
+
+<%= link_to 'Edit', edit_employee_path(@employee) %> |
+<%= link_to 'Back', employees_path %>

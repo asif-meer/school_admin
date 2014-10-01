@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140929112858) do
+ActiveRecord::Schema.define(version: 20141001072407) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -46,6 +46,12 @@ ActiveRecord::Schema.define(version: 20140929112858) do
     t.datetime "updated_at"
   end
 
+  create_table "departments", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "emergency_contacts", force: true do |t|
     t.string   "name"
     t.string   "phone"
@@ -54,6 +60,35 @@ ActiveRecord::Schema.define(version: 20140929112858) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "employee_positions", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "employees", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "date_of_birth"
+    t.string   "gender",               limit: 1
+    t.string   "employee_number"
+    t.date     "joining_date"
+    t.integer  "department_id"
+    t.integer  "employee_position_id"
+    t.string   "job_title"
+    t.string   "qualification"
+    t.string   "total_experience"
+    t.text     "present_address"
+    t.text     "perminent_address"
+    t.string   "phone"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "employees", ["department_id"], name: "index_employees_on_department_id"
+  add_index "employees", ["employee_position_id"], name: "index_employees_on_employee_position_id"
 
   create_table "roles", force: true do |t|
     t.string   "name"
@@ -72,6 +107,12 @@ ActiveRecord::Schema.define(version: 20140929112858) do
     t.string   "school_email"
     t.string   "school_phone"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "student_categories", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

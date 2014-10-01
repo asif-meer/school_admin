@@ -1,0 +1,25 @@
+<%= simple_form_for(@employee) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :date_of_birth %>
+    <%= f.input :gender %>
+    <%= f.input :employee_number %>
+    <%= f.input :joining_date %>
+    <%= f.association :department %>
+    <%= f.association :employee_position %>
+    <%= f.input :job_title %>
+    <%= f.input :qualification %>
+    <%= f.input :total_experience %>
+    <%= f.input :present_address %>
+    <%= f.input :perminent_address %>
+    <%= f.input :phone %>
+    <%= f.input :email %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
