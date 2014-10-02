@@ -1,19 +1,29 @@
 <%= simple_form_for(@course) do |f| %>
   <%= f.error_notification %>
+  <div class="authform">
+    <div class="row">
+      <div class="col-sm-5">
+        <div class="form-inputs">
+          <%= f.input :course_name, input_html: {class: "form-control"}, autofocus: true %>
+        </div>
 
-  <div class="form-inputs">
-    <%= f.input :course_name %>
-  </div>
 
- <div class="form-inputs">
-    <%= f.input :section_name %>
-  </div>
+        <div class="form-inputs">
+          <%= f.input :section_name, input_html: {class: "form-control"} %>
+        </div>
 
- <div class="form-inputs">
-    <%= f.input :code %>
-  </div>
+        <div class="form-inputs">
+          <%= f.input :code, input_html: {class: "form-control"} %>
+        </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+        <div class="form-group"></div>
+
+        <div class="form-actions">
+          <%= f.button :submit, class: "btn btn-app" %>
+        </div>
+        
+        <div class="form-group"></div>
+      </div>
+    </div>
   </div>
 <% end %>

@@ -24,6 +24,10 @@ img {
     font-size: 16px;
   }
 
+  .navbar-nav {
+    margin:0 auto;
+  }
+
   .navbar-toggle {
     border-color: rgb(116, 114, 114);
   }
@@ -127,7 +131,14 @@ section {
   margin-bottom: 13px;
   font-weight: bold;
 }
-
+//App Panel
+.panel-app {
+  .panel-heading {
+    color: #fff;
+    background-color: #353535;
+    border-color: #353535;
+  }
+}
 @media(max-width:480px) {
   .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
     background-color: #000;

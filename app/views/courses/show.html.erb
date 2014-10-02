@@ -1,8 +1,25 @@
-<p id="notice"><%= notice %></p>
-
-Course Name: <%= @course.course_name %>
-Section Name: <%= @course.section_name %>
-Code:        <%= @course.code %>
-
+<br />
+<div class="panel panel-app">
+  <div class="panel-heading">
+    <h1>Course Detail</h1>
+  </div>
+  <div class="panel-body">
+    <table class="table table-bordered table-hover">
+      <tr>
+        <td><strong>Course Name: </strong></td>
+        <td><%= @course.course_name %></td>
+      </td>
+      <tr>
+        <td><strong>Section Name: </strong></td>
+        <td><%= @course.section_name %></td>
+      </tr>
+      <tr>
+        <td><strong>Code: </strong></td>
+        <td><%= @course.code %></td>
+      </tr>
+    </table>
+  </div>
+</div>
+ 
 <%= link_to 'Edit', edit_course_path(@course) %> |
 <%= link_to 'Back', courses_path %>
