@@ -1,18 +1,43 @@
-// Body
+/***body***/
 
 .checkbox input[type="checkbox"], .checkbox-inline input[type="checkbox"] {
   margin-left: 0px;
 }
 
-main {
-  background-color: #eee;
+.btn-app {
+  background-color: #636363;
+  color:#fff;
+  font-size: 18px;
+}
+//Main
+
+#bottom {
+  
   margin-top:0;
-  -webkit-box-shadow: -1px 1px 35px 3px rgba(0,0,0,0.75);
-  -moz-box-shadow: -1px 1px 35px 3px rgba(0,0,0,0.75);
-  box-shadow: -1px 1px 35px 3px rgba(0,0,0,0.75);
-  width:88%;
-  padding-top: 80px;
-  border-radius: 8px;
+  margin:0 auto;
+  -webkit-box-shadow: 2px 1px 25px 9px rgba(0,0,0,0.75);
+  -moz-box-shadow: 2px 1px 25px 9px rgba(0,0,0,0.75);
+  box-shadow: 2px 1px 25px 9px rgba(0,0,0,0.75);
+  width:96%;
+  padding-top: 65px;
+  .main-height {
+    min-height:50px;
+  }
+
+  main {
+    background-color: #eee;
+    width: 90%;
+    margin-top:0;
+    border-radius: 6px;
+    padding:0px 50px 15px 50px;
+    p {
+      font-size: 17px;
+    }
+    //Inset box shadow
+      //-webkit-box-shadow: inset 2px 1px 25px -1px rgba(0,0,0,0.75);
+      //-moz-box-shadow: inset 2px 1px 25px -1px rgba(0,0,0,0.75);
+      //box-shadow: inset 2px 1px 25px -1px rgba(0,0,0,0.75);
+  }
 }
 
 //Footer 
@@ -31,7 +56,18 @@ footer {
 
 // Index
 
-.index {
-  margin: 0 auto;
-  width: 80%;
+//.index {
+  //margin: 0 auto;
+  //width: 80%;
+//}
+
+//Media
+
+@media(max-width:480px) {
+  #bottom main {
+    padding:0px 20px 0px 20px;
+    p {
+      font-size: 14px;
+    }
+  }
 }
