@@ -31,6 +31,14 @@ describe CoursesController do
     it { should render_template :show }
   end
 
+  describe "GET #edit" do
+    before { get :edit, id: @course.id }
+
+    it { should respond_with :success }
+    it { assigns(:course).id.should == @course.id }
+    it { should render_template :edit }
+  end
+
   describe "POST #create" do
 
     context "with valid attributes" do
@@ -43,12 +51,12 @@ describe CoursesController do
     end
 
     context "with invalid attributes" do
-      # it "doesn't create a record and renders template" do
-      #   expect do
-      #     post :create, course: FactoryGirl.attributes_for(:course,course_name: nil)
-      #   end.to_not change(Course, :count).by(1)
-      #   should render_template :new
-      # end
+      it "doesn't create a record and renders template" do
+        expect do
+          post :create, course: FactoryGirl.attributes_for(:course,course_name: nil)
+        end.to_not change(Course, :count)
+        should render_template :new
+      end
     end
   end
 end

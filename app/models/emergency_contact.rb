@@ -13,5 +13,8 @@
 
 class EmergencyContact < ActiveRecord::Base
   belongs_to :student
+# validations
+  validates_presence_of :name
+  validates_presence_of :relationship
 
 end

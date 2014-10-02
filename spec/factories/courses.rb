@@ -19,4 +19,9 @@ FactoryGirl.define do
     section_name "Morning"
     code "cs"
   end
+  factory :it_course, :class => "Course" do
+    course_name "Information technology"
+    section_name "A"
+    code "it"
+  end
 end

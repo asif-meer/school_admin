@@ -25,4 +25,7 @@
 class Employee < ActiveRecord::Base
   belongs_to :department
   belongs_to :employee_position
+  # validations
+  validates_presence_of :employee_number,:first_name,:last_name
+
 end
