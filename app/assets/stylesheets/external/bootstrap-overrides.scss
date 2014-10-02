@@ -1,0 +1,161 @@
+@media (min-width: 1200px) {
+  .row {
+    *zoom: 1;
+  }
+  .row:before,
+  .row:after {
+    display: table;
+    line-height: 0;
+    content: "";
+  }
+  .row:after {
+    clear: both;
+  }
+  .container,
+  .navbar-static-top .container,
+  .navbar-fixed-top .container,
+  .navbar-fixed-bottom .container {
+   /* width: 940px; */
+  }
+}
+
+.thumbnail {
+  display: block;
+  padding: 4px;
+  margin-bottom: 20px;
+  line-height: 1.428571429;
+  background-color: #6FB1C7;
+  box-shadow: 0 3px 1px #39636B;
+  border: 1px solid #6FB1C7;
+  border-radius: 12px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  height: 148px;
+  width:  331px;
+}
+
+/* 
+  Bootstrap 3 by default keeps the navbar visible on tablets.
+  From here onwards it's to get the navbar to collapse starting on 991px - tablets
+*/
+
+$grid-float-breakpoint: 992px;
+
+.form-control {
+    /*
+      width:346px;
+    */
+    color:#818285 !important;
+    height:36px;
+    border-radius:12px;
+    background-color:#F7F7F7;
+    box-shadow: 0 3px 0px #D2D2D2;
+    font-family: 'oxygenregular' !important;
+
+}
+.form-control:focus {
+  background-color:#F7F7F7 !important;
+  box-shadow: 0 3px 1px #D2D2D2 !important;
+  border-color: #D2D2D2 !important;
+  color:#818285 !important;
+}
+.btn{
+   border-radius:5px;
+   background-color:#6FB1C7;
+   box-shadow: 0 3px 1px #39636B;
+   color:white;
+   font-weight:bold;
+   font-size:17px;
+}
+.btn:hover{
+  background-color:#2190DB !important;
+  -webkit-transition: background-color .2s linear !important;
+  -moz-transition: background-color .2s linear  !important;
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+color: #777777;
+background:none;
+}
+
+.nav.navbar-nav {
+  margin-top: 30px;
+  margin-left: 68px;
+}
+
+.navbar-nav {
+  @media (max-width: 991px) {
+    .open .dropdown-menu {
+      position: static;
+      float: none;
+      width: auto;
+      margin-top: 0;
+      background-color: transparent;
+      border: 0;
+      box-shadow: none;
+      > li > a,
+      .dropdown-header {
+        padding: 5px 15px 5px 25px;
+      }
+      > li > a {
+        &:hover,
+        &:focus {
+          background-image: none;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $grid-float-breakpoint) { 
+  .navbar {
+    .collapse {
+      display: block !important;
+    }    
+  }
+}
+@media (max-width: 991px) { 
+  .navbar {
+    .navbar-header {
+      float: none;
+    }
+    .navbar-toggle {
+      display: block;
+    }
+    .collapse {
+      display: none !important;
+    }
+    .navbar-collapse {
+      max-height: 340px;
+      overflow-x: visible;
+      border-top: 1px solid transparent;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      -webkit-overflow-scrolling: touch;
+
+      &.in {
+        overflow-y: auto;
+      }
+    }
+    ul.navbar-nav {
+      padding: 0px 20px;
+      &.navbar-right {
+        float: left !important;
+      }
+      > li {
+        float: none;
+      }
+      .open .dropdown-menu > li > a {
+        color: #999;
+        line-height: 25px;
+        font-weight: bold;
+        padding: 5px 15px 5px 35px;
+        font-size: 15px;
+
+        &:hover {
+          color: #fff;
+          background: none;
+        }
+      }
+    }
+  }
+}

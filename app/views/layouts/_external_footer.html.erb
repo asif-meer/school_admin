@@ -1,0 +1,130 @@
+<div id="border-gradient">
+  <div class="footer1"></div>
+</div>
+
+<footer id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 recent_posts">
+        <% if @feed and @feed != 0 %>
+        <h3>Recent Posts</h3>
+          <% for i in 0..1 %>
+            <div class="col-sm-2">
+              <a href="<%= @feed.entries[i].url %>">
+                <img src="/assets/external/recent_post1.png" class="img-circle" />
+              </a>
+            </div>
+            <div class="col-sm-9">
+              <div class="date">
+                <%= @feed.entries[i].published.strftime("%d %B") %>
+              </div>
+              <a href="<%= @feed.entries[i].url %>" class="">
+                <%= @feed.entries[i].title %>
+              </a>
+              <div><%= @feed.entries[i].summary.scan(/[^\.!?]+[\.!?]/).map(&:strip)[0,2].join(" ")%>
+                <a href="<%= @feed.entries[i].url %>" >
+                  more...
+                </a>
+              </div>
+            </div>
+            <div class="row">&nbsp;</div>
+            <div class="row">&nbsp;</div>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="col-sm-4 contact">
+         <h3>Contact Us</h3>
+        <form id="contact-form" action="contact" method="post">
+          <%= csrf_meta_tags %>
+          <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %> 
+
+          <input type="text" class="form-control" name="name" placeholder="Your name" /><br>
+          <input type="text" class="form-control"  name="email" placeholder="Your email" /><br>
+          <input type="text" class="form-control" name="subject" required="true" placeholder="Subject" /><br>
+          <textarea class="form-control" rows="3" name="message" placeholder="Message"></textarea><br>
+          <%= image_tag("http://captchator.com/captcha/image/#{request.session_options[:id]}", :class=>'captcha-image') %>
+          <input type="text" class="form-control" name="captcha" required="true" placeholder="Please enter the value above"</input><br>
+          <input type="submit" class="btn cus-btn pull-right" value="Send" />
+        </form>
+      </div>
+      <!-- <div class="col-sm-8 testimonials">
+        <h3 class="footer_header">
+          Testimonials
+        </h3>
+        <div class="wrapper">
+          <div class="author">
+            
+            <div class="name">Richard R.</div>
+            <div class="info">
+              Professional
+            </div>
+          </div>
+          <div class="quote">
+            <span>“</span>
+            SmarterSkin saved me lots of time and helped me with my acne. It's much easier to follow up when I can get evaluated without having to take time off of work. Cheers!
+            <span></span>
+          </div>
+        </div>
+      </div> -->
+    </div>
+<!--       <div class="row credits">
+      <div class="col-md-12"> -->
+      <!-- <div class="row social">
+          <div class="col-md-12">
+              <a href="#" class="facebook">
+                  <span class="socialicons ico1"></span>
+                  <span class="socialicons_h ico1h"></span>
+              </a>
+              <a href="#" class="twitter">
+                  <span class="socialicons ico2"></span>
+                  <span class="socialicons_h ico2h"></span>
+              </a>
+              <a href="#" class="gplus">
+                  <span class="socialicons ico3"></span>
+                  <span class="socialicons_h ico3h"></span>
+              </a>
+              <a href="#" class="flickr">
+                  <span class="socialicons ico4"></span>
+                  <span class="socialicons_h ico4h"></span>
+              </a>
+              <a href="#" class="pinterest">
+                  <span class="socialicons ico5"></span>
+                  <span class="socialicons_h ico5h"></span>
+              </a>
+              <a href="#" class="dribble">
+                  <span class="socialicons ico6"></span>
+                  <span class="socialicons_h ico6h"></span>
+              </a>
+              <a href="#" class="behance">
+                  <span class="socialicons ico7"></span>
+                  <span class="socialicons_h ico7h"></span>
+              </a>
+          </div>
+        </div> -->
+<!--           <div class="row copyright">
+          <div class="col-md-12">
+            © 2013 SmarterSkin. All rights reserved. 
+          </div>
+        </div> -->
+<!--         </div>            
+    </div> -->
+
+  </div>
+</footer>
+<div id="border-gradient">
+  <div class="footer2"></div>
+</div>
+<div class="row footer2">
+  <br>
+  <div class="container">
+    <div class="col-sm-12">
+       <div class="col-sm-8">
+          <p class="muted pull-left">© 2014 . All rights reserved</p>
+      </div>
+      <div class="col-sm-4">
+        <p class="muted pull-right">Built By <%= image_tag "copyright-img.png" %></p>
+      </div>
+    </div>
+  </div>
+</div>
+

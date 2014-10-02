@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html language="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= yield :title %>SmarterSkin</title>
+  <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "SmarterSkin" %>">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Styles -->
+  <%= stylesheet_link_tag    "external", media: "all", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag    "application", media: "all" %>
+  
+  <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css' />
+
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body class="pull_top">
+    <%= render 'layouts/external_navigation' %>
+ 
+   <%= yield %>
+ 
+  <!-- starts footer -->
+  <%= render 'layouts/external_footer' %>
+
+  <%= javascript_include_tag "external", "data-turbolinks-track" => true %>
+  
+</body>
+</html>
