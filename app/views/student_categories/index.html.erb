@@ -1,25 +1,34 @@
-<h1>Listing student_categories</h1>
+<h1>Subject Catagories</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @student_categories.each do |student_category| %>
-      <tr>
-        <td><%= student_category.name %></td>
-        <td><%= link_to 'Show', student_category %></td>
-        <td><%= link_to 'Edit', edit_student_category_path(student_category) %></td>
-        <td><%= link_to 'Destroy', student_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="table-responsive">
+      <table class= "table table-striped table-bordered table-hover ">
+        <thead >
+          <tr>
+            <th class="col-sm-2">Name</th>
+            <th colspan="3" align="center">Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @student_categories.each do |student_category| %>
+            <tr>
+              <td><%= student_category.name %></td>
+              <td><%= link_to 'Show', student_category %></td>
+              <td><%= link_to 'Edit', edit_student_category_path(student_category) %></td>
+              <td><%= link_to 'Destroy', student_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
 <br>
 
-<%= link_to 'New Student category', new_student_category_path %>
+<%= link_to 'New Student category', new_student_category_path, class: "btn btn-app" %>
+
+

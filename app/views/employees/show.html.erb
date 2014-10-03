@@ -1,79 +1,75 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>First name:</strong>
-  <%= @employee.first_name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @employee.last_name %>
-</p>
-
-<p>
-  <strong>Date of birth:</strong>
-  <%= @employee.date_of_birth %>
-</p>
-
-<p>
-  <strong>Gender:</strong>
-  <%= @employee.gender %>
-</p>
-
-<p>
-  <strong>Employee number:</strong>
-  <%= @employee.employee_number %>
-</p>
-
-<p>
-  <strong>Joining date:</strong>
-  <%= @employee.joining_date %>
-</p>
-
-<p>
-  <strong>Department:</strong>
-  <%= @employee.department %>
-</p>
-
-<p>
-  <strong>Employee position:</strong>
-  <%= @employee.employee_position %>
-</p>
-
-<p>
-  <strong>Job title:</strong>
-  <%= @employee.job_title %>
-</p>
-
-<p>
-  <strong>Qualification:</strong>
-  <%= @employee.qualification %>
-</p>
-
-<p>
-  <strong>Total experience:</strong>
-  <%= @employee.total_experience %>
-</p>
-
-<p>
-  <strong>Present address:</strong>
-  <%= @employee.present_address %>
-</p>
-
-<p>
-  <strong>Perminent address:</strong>
-  <%= @employee.perminent_address %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @employee.phone %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @employee.email %>
-</p>
-
+<br />
+<div class="panel panel-app">
+  <div class="panel-heading">
+    <h1>Employee Detail</h1>
+  </div>
+  <div class="panel-body">
+    <table class="table table-bordered table-hover">
+      <tr>
+        <td><strong>First name:</strong>></td>
+        <td><%= @employee.first_name %></td>
+      </td>
+      <tr>
+        <td><strong>Last name:</strong></td>
+        <td><%= @employee.last_name %></td>
+      </tr>
+      <tr>
+  
+        <td><strong>Date of birth:</strong></td>
+        <td><%= @employee.date_of_birth.strftime("%d/%b/%Y") %></td>
+      </tr>
+      <tr>
+        <td><strong>Gender:</strong></td>
+        <td><%= @employee.gender %></td>
+      </tr>
+      <tr>
+        <td><strong>Employee number:</strong></td>
+        <td><%= @employee.employee_number %></td>
+      </tr>
+      <tr>
+        <td><strong>Joining date:</strong></td>
+        <td><%= @employee.joining_date %></td>
+      </tr>
+      <tr>
+        <td><strong>Department:</strong></td>
+        <td><%= @employee.department %></td>
+      </tr>
+      <tr>
+        <td><strong>Employee position:</strong></td>
+        <td><%= @employee.employee_position %></td>
+      </tr>
+      <tr>
+        <td><strong>Job title:</strong></td>
+        <td><%= @employee.job_title %></td>
+      </tr>
+      <tr>
+        <td><strong>Qualification:</strong></td>
+        <td><%= @employee.qualification %></td>
+      </tr>
+      <tr>
+        <td><strong>Total experience:</strong></td>
+        <td><%= @employee.total_experience %></td>
+      </tr>
+      <tr>
+        <td><strong>Present address:</strong></td>
+        <td><%= @employee.present_address %></td>
+      </tr>
+      <tr>
+        <td><strong>Perminent address:</strong></td>
+        <td><%= @employee.perminent_address %></td>
+      </tr>
+      <tr>
+        <td><strong>Phone:</strong></td>
+        <td><%= @employee.phone %></td>
+      </tr>
+      <tr>
+        <td><strong>Email:</strong></td>
+        <td><%= @employee.email %></td>
+      </tr>
+    </table>
+  </div>
+</div>
+ 
 <%= link_to 'Edit', edit_employee_path(@employee) %> |
 <%= link_to 'Back', employees_path %>
+

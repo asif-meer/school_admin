@@ -1,27 +1,39 @@
 <h1>Listing batches</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @batches.each do |batch| %>
-      <tr>
-        <%= batch.batch_name %>
-        <%= batch.course %>
-        <%= batch.start_date %>
-        <%= batch.end_date %>
-        <td><%= link_to 'Show', batch %></td>
-        <td><%= link_to 'Edit', edit_batch_path(batch) %></td>
-        <td><%= link_to 'Destroy', batch, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="table-responsive">
+      <table class= "table table-striped table-bordered table-hover ">
+        <thead >
+          <tr>
+            <th class="col-sm-2">Name</th>
+            <th>Course</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th colspan="3" align="center">Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @batches.each do |batch| %>
+            <tr>
+              <td><%= batch.batch_name %></td>
+              <td><%= batch.course %></td>
+              <td><%= batch.start_date.strftime("%d/%b/%Y") %></td>
+              <td><%= batch.end_date.strftime("%d/%b/%Y") %></td>
+              <td><%= link_to 'Show', batch %></td>
+              <td><%= link_to 'Edit', edit_batch_path(batch) %></td>
+              <td><%= link_to 'Destroy', batch, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
 <br>
 
-<%= link_to 'New Batch', new_batch_path %>
+<%= link_to 'New Batch', new_batch_path, class: "btn btn-app" %>
+

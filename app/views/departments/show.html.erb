@@ -1,9 +1,19 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @department.name %>
-</p>
-
+<br />
+<div class="panel panel-app">
+  <div class="panel-heading">
+    <h1>Batch Detail</h1>
+  </div>
+  <div class="panel-body">
+    <table class="table table-bordered table-hover">
+      <tr>
+        <td><strong>Name:</strong></td>
+        <td><%= @department.name %></td>
+      </td>
+    </table>
+  </div>
+</div>
+ 
 <%= link_to 'Edit', edit_department_path(@department) %> |
 <%= link_to 'Back', departments_path %>
+
+

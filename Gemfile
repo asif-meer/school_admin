@@ -17,6 +17,7 @@ gem 'simple_form'
 gem 'therubyracer', :platform=>:ruby
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem "rolify", :git => "git://github.com/EppO/rolify.git"
+gem 'jquery-turbolinks'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]

@@ -1,9 +1,19 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @employee_position.name %>
-</p>
-
+<br />
+<div class="panel panel-app">
+  <div class="panel-heading">
+    <h1>Employee Position Detail</h1>
+  </div>
+  <div class="panel-body">
+    <table class="table table-bordered table-hover">
+      <tr>
+        <td><strong>Name:</strong></td>
+        <td><%= @employee_position.name %></td>
+      </tr>
+    </table>
+  </div>
+</div>
+ 
 <%= link_to 'Edit', edit_employee_position_path(@employee_position) %> |
 <%= link_to 'Back', employee_positions_path %>
+
+

@@ -28,4 +28,5 @@ class Employee < ActiveRecord::Base
   # validations
   validates_presence_of :employee_number,:first_name,:last_name
 
+  GENDER = ["Male", "Female"]
 end

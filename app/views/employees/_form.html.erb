@@ -1,25 +1,89 @@
-<%= simple_form_for(@employee) do |f| %>
-  <%= f.error_notification %>
+<div class="authform">
+  <%= simple_form_for(@employee) do |f| %>
+    <%= f.error_notification %>
+    <div class="row">
+      <div class="col-sm-12">
+        <h3>Bio:</h3>
+        <fieldset>
+          <div class="form-inputs">
+            <%= f.input :first_name, input_html: {class: "form-control"}, autofocus: true %>
+          </div>
 
-  <div class="form-inputs">
-    <%= f.input :first_name %>
-    <%= f.input :last_name %>
-    <%= f.input :date_of_birth %>
-    <%= f.input :gender %>
-    <%= f.input :employee_number %>
-    <%= f.input :joining_date %>
-    <%= f.association :department %>
-    <%= f.association :employee_position %>
-    <%= f.input :job_title %>
-    <%= f.input :qualification %>
-    <%= f.input :total_experience %>
-    <%= f.input :present_address %>
-    <%= f.input :perminent_address %>
-    <%= f.input :phone %>
-    <%= f.input :email %>
-  </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
+          <div class="form-inputs">
+            <%= f.input :last_name, input_html: {class: "form-control"} %>
+          </div>
+
+          <div class="form-inline">
+            <%= f.input :date_of_birth, input_html: {class: "form-control"}, as: :date %>
+          </div>
+
+          <div class="form-inputs">
+            <%= f.input :gender, input_html: {class: "form-control"}, as: :select, collection: Employee::GENDER, prompt: "Choose your Gender" %>
+          </div>
+        </fieldset>
+
+        <h3>Employee Information:</h3>
+        <fieldset>
+          <div class="form-inputs">
+            <%= f.input :employee_number, input_html: {class: "form-control"} %>
+          </div>
+
+          <div class="form-inline">
+            <%= f.input :joining_date, input_html: {class: "form-control"} %>
+          </div>
+
+          <div class="form-inputs">
+            <%= f.association :department, input_html: {class: "form-control"}, prompt: "Choose a Department" %>
+          </div>
+
+          <div class="form-inputs">
+            <%= f.association :employee_position, input_html: {class: "form-control"}, prompt: "Your Position" %>
+          </div>
+
+          <div class="form-inputs">
+            <%= f.input :job_title, input_html: {class: "form-control"} %>
+          </div>
+        </fieldset>
+
+        <h3>Qualification and Experience:</h3>
+        <fieldset>
+          <div class="form-inputs">
+            <%= f.input :qualification, input_html: {class: "form-control"} %>
+          </div>
+
+          <div class="form-inputs">
+            <%= f.input :total_experience, input_html: {class: "form-control"} %>
+          </div>
+        </fieldset>
+
+        <h3>Address:</h3>
+        <fieldset>
+          <div class="form-inputs">
+            <%= f.input :present_address, input_html: {class: "form-control"} %>
+          </div>
+
+          <div class="form-inputs">
+            <%= f.input :perminent_address, input_html: {class: "form-control"} %>
+          </div>
+
+          <div class="form-inputs">
+            <%=  f.input :phone, input_html: {class: "form-control"} %>
+          </div>
+
+          <div class="form-inputs">
+            <%=  f.input :email, input_html: {class: "form-control"} %>
+          </div>
+        </fieldset>
+
+        <div class="form-group"></div>
+
+        <div class="form-actions">
+          <%= f.button :submit, class: "btn btn-app" %>
+        </div>
+        
+        <div class="form-group"></div>
+      </div>
+    </div>
+  <% end %>
+</div>

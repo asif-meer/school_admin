@@ -1,8 +1,27 @@
-<p id="notice"><%= notice %></p>
-
-<% @subject.attributes.each do |key, value| %>
-  <strong><%= key %></strong> : <%= value %></br>
-<% end %>
-
+<br />
+<div class="panel panel-app">
+  <div class="panel-heading">
+    <h1>Subject Detail</h1>
+  </div>
+  <div class="panel-body">
+    <table class="table table-bordered table-hover">
+      <tr>
+        <td><strong>Bacth Name: </strong></td>
+        <td><%= @subject.batch %></td>
+      </td>
+      <tr>
+        <td><strong>Course: </strong></td>
+        <td><%= @subject.course %></td>
+      </tr>
+      <tr>
+        <td><strong>Subject Name: </strong></td>
+        <td><%= @subject.subject_name %></td>
+      </tr>
+    </table>
+  </div>
+</div>
+ 
 <%= link_to 'Edit', edit_subject_path(@subject) %> |
 <%= link_to 'Back', subjects_path %>
+
+

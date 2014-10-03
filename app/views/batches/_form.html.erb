@@ -1,23 +1,32 @@
 <%= simple_form_for(@batch) do |f| %>
   <%= f.error_notification %>
+  <div class="row">
+    <div class="col-sm-5">
+      <div class="form-inputs">
+        <%= f.association :course, input_html: {class: "form-control"}, autofocus: true, prompt: "Choose a Course" %>
+      </div>
 
- <div class="form-inputs">
-    <%= f.association :course %>
-  </div>
+      <div class="form-group"></div>
+      <div class="form-inputs">
+        <%= f.input :batch_name, input_html: {class: "form-control"} %>
+      </div>
+      <div class="form-group"></div>
+      <div class="form-inline">
+        <%= f.input :start_date, input_html: {class: "form-control"} %>
+      </div>
+      <div class="form-group"></div>
+      <div class="form-inline">
+        <%= f.input :end_date, input_html: {class: "form-control"} %>
+      </div>
 
- <div class="form-inputs">
-    <%= f.input :batch_name %>
-  </div>
+      <div class="form-group"></div>
 
-<div class="form-inputs">
-    <%= f.input :start_date %>
-  </div>
-
-<div class="form-inputs">
-    <%= f.input :end_date %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
+      <div class="form-actions">
+        <%= f.button :submit, class: "btn btn-app" %>
+      </div>
+      
+      <div class="form-group"></div>
+    </div>
   </div>
 <% end %>
+

@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+  get "visitors/contact_us", to: "visitors#contact_us"
+  get "visitors/about_us", to: "visitors#about_us"
+
   resources :employees
 
   resources :employee_positions

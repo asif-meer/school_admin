@@ -8,12 +8,21 @@
   background-color: #636363;
   color:#fff !important;
   font-size: 18px;
+  border-radius: 6px 6px 6px 6px;
+  -moz-border-radius: 6px 6px 6px 6px;
+  -webkit-border-radius: 6px 6px 6px 6px;
+  border: 3px solid #807e80;
+}
+.btn-app:hover {
+  color: #636363 !important;
+  background-color:#fff;
 }
 //Main
 
 #bottom {
   
   margin-top:0;
+  margin-bottom: 20px !important;
   margin:0 auto;
   -webkit-box-shadow: 2px 1px 25px 9px rgba(0,0,0,0.75);
   -moz-box-shadow: 2px 1px 25px 9px rgba(0,0,0,0.75);
@@ -29,6 +38,7 @@
     width: 90%;
     margin-top:0;
     border-radius: 6px;
+    border: 1px solid;
     padding:0px 50px 15px 50px;
     p {
       font-size: 17px;
@@ -56,10 +66,12 @@ footer {
 
 // Index
 
-//.index {
-  //margin: 0 auto;
-  //width: 80%;
-//}
+.index {
+  img {
+    float: right;
+    height: 271px;
+  }
+}
 
 //Media
 
@@ -70,4 +82,29 @@ footer {
       font-size: 14px;
     }
   }
+  .index {
+    img {
+      float:center;
+      height: 177px;
+    }
+  }
+}
+
+
+//Horizontol Line 
+
+hr {
+  border-top: 1px solid #D4D0D0;
+}
+//Heading
+h1,h2,h3 {
+  font-weight:bold;
+}
+
+//Contact Page
+.contact-form {
+    margin-top:70px;
+}
+address {
+  font-size: 24px;
 }

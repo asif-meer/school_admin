@@ -1,9 +1,30 @@
-<p id="notice"><%= notice %></p>
-
-<% @batch.attributes.each do |key, value| %>
-  <strong><%= key %></strong> : <%= value %></br>
-<% end %>
-
-
+<br />
+<div class="panel panel-app">
+  <div class="panel-heading">
+    <h1>Batch Detail</h1>
+  </div>
+  <div class="panel-body">
+    <table class="table table-bordered table-hover">
+      <tr>
+        <td><strong>Bacth Name: </strong></td>
+        <td><%= @batch.batch_name %></td>
+      </td>
+      <tr>
+        <td><strong>Course: </strong></td>
+        <td><%= @batch.course %></td>
+      </tr>
+      <tr>
+        <td><strong>Start Date: </strong></td>
+        <td><%= @batch.start_date.strftime("%d/%b/%Y") %></td>
+      </tr>
+      <tr>
+        <td><strong>End Date: </strong></td>
+        <td><%= @batch.end_date.strftime("%d/%b/%Y") %></td>
+      </tr>
+    </table>
+  </div>
+</div>
+ 
 <%= link_to 'Edit', edit_batch_path(@batch) %> |
 <%= link_to 'Back', batches_path %>
+
