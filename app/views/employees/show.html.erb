@@ -15,7 +15,7 @@
       <tr>
   
         <td><strong>Date of birth:</strong></td>
-        <td><%= @employee.date_of_birth.strftime("%d/%b/%Y") %></td>
+        <td><%= @employee.date_of_birth %></td>
       </tr>
       <tr>
         <td><strong>Gender:</strong></td>
@@ -27,15 +27,15 @@
       </tr>
       <tr>
         <td><strong>Joining date:</strong></td>
-        <td><%= @employee.joining_date %></td>
+        <td><%= @employee.joining_date.strftime("%d/%b/%Y") %></td>
       </tr>
       <tr>
         <td><strong>Department:</strong></td>
-        <td><%= @employee.department %></td>
+        <td><%= @employee.department.name %></td>
       </tr>
       <tr>
         <td><strong>Employee position:</strong></td>
-        <td><%= @employee.employee_position %></td>
+        <td><%= @employee.employee_position.name %></td>
       </tr>
       <tr>
         <td><strong>Job title:</strong></td>

@@ -4,16 +4,13 @@ Rails.application.routes.draw do
   get "visitors/about_us", to: "visitors#about_us"
 
   resources :employees
-
   resources :employee_positions
-
   resources :student_categories
-
   resources :departments
-
   resources :courses
   resources :batches
   resources :subjects
+  
   # student admission routes here
   get "admission/index" => "admission#index"
   get "/admission" => "admission#new", as: :new_admission
