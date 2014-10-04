@@ -1,50 +1,59 @@
-
-  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :role => 'form'}) do |f| %>
-    <h3>Sign in</h3>
-    <%= devise_error_messages! %>
-    <div class="row">&nbsp;</div>
-    <div class='row'>
-      <div class="col-md-1">
-        <%= f.label :email %>
-      </div>
-      <div class="col-md-4">
-        <%#- if devise_mapping.registerable? %>
-          <%#= link_to 'Sign up', new_registration_path(resource_name), class: 'right'  %>
-        <%# end -%>
-      
-      <%= f.email_field :email, :autofocus => true, class: 'form-control' %>
-      </div>
-    </div>
-    <div class="form-group"> </div>
-    <div class='row'>
-      <div class="col-md-1">
-        <%= f.label :password %>
-      </div>
-      <div class="col-md-4">
-        <%= f.password_field :password, class: 'form-control' %>
-      </div>
-    </div>
-    <div class="form-group"> </div>
-    <div class='row'>
-      <div class="col-md-4 col-md-offset-1">
-        <% if devise_mapping.rememberable? -%>
-          <div class="checkbox">
-            <%= f.check_box :remember_me %> <%= f.label :remember_me %>
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :role => 'form'}) do |f| %>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="panel panel-app">
+        <div class="panel-heading">
+          <h3>Sign in</h3>
+        </div>
+        <div class="panel-body">
+          <%= devise_error_messages! %>
+          <div class="row">&nbsp;</div>
+          <div class='row'>
+            <div class="col-md-1">
+              <%= f.label :email %>
+            </div>
+            <div class="col-md-4">
+              <%#- if devise_mapping.registerable? %>
+                <%#= link_to 'Sign up', new_registration_path(resource_name), class: 'right'  %>
+              <%# end -%>
+            
+            <%= f.email_field :email, :autofocus => true, class: 'form-control' %>
+            </div>
           </div>
-        <% end -%>
+          <div class="form-group"> </div>
+          <div class='row'>
+            <div class="col-md-1">
+              <%= f.label :password %>
+            </div>
+            <div class="col-md-4">
+              <%= f.password_field :password, class: 'form-control' %>
+            </div>
+          </div>
+          <div class="form-group"> </div>
+          <div class='row'>
+            <div class="col-md-4 col-md-offset-1">
+              <% if devise_mapping.rememberable? -%>
+                <div class="checkbox">
+                  <%= f.check_box :remember_me %> <%= f.label :remember_me %>
+                </div>
+              <% end -%>
+            </div>
+          </div>
+          <div class="form-group"></div>
+          <div class='row'>
+            <div class="col-md-1 col-md-offset-1">
+              <%= f.submit 'Sign in', :class => 'btn btn-app' %>
+            </div>
+            <div class="col-md-2">
+              <%- if devise_mapping.recoverable? %>
+                <%= link_to ("<u>Forgot password??</u>").html_safe, new_password_path(resource_name) %>
+              <% end -%>
+            </div>
+          </div>
+          <div class="form-group"> </div>
+        </div>
       </div>
     </div>
-    <div class="form-group"></div>
-    <div class='row'>
-      <div class="col-md-1 col-md-offset-1">
-        <%= f.submit 'Sign in', :class => 'btn btn-app' %>
-      </div>
-      <div class="col-md-2">
-        <%- if devise_mapping.recoverable? %>
-          <%= link_to ("<u>Forgot password??</u>").html_safe, new_password_path(resource_name) %>
-        <% end -%>
-      </div>
-    </div>
-    <div class="form-group"> </div>
-  <% end %>
+  </div>
+<% end %>
 
