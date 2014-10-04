@@ -39,7 +39,7 @@
     margin-top:0;
     border-radius: 6px;
     border: 1px solid;
-    padding:0px 50px 15px 50px;
+    padding:15px 50px 15px 50px;
     p {
       font-size: 17px;
     }
@@ -71,6 +71,21 @@ footer {
     float: right;
     height: 271px;
   }
+  .about_us {
+    background:  url("polocy1.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: -11px -46px -11px -46px;
+    border-radius: 6px;
+    padding: 9px;
+    h1 {
+      color:#fff;
+    }
+    p{
+      color:#fff;
+    }
+  }
 }
 
 //Media
@@ -83,9 +98,16 @@ footer {
     }
   }
   .index {
-    img {
-      float:center;
-      height: 177px;
+    .about_us {
+      margin:0;
+      padding:0;
+      background: none;
+      h1 {
+      color:inherit;
+      }
+      p{
+        color:inherit;
+      }
     }
   }
 }

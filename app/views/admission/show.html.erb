@@ -1,0 +1,51 @@
+<div class="panel panel-app">
+  <div class="panel-heading">
+    <h1>Student Detail</h1>
+  </div>
+  <div class="panel-body">
+    <table class="table table-bordered table-hover">
+      <tr>
+        <td><strong>First Name: </strong></td>
+        <td><%= @student.first_name %></td>
+      </td>
+      <tr>
+        <td><strong>Last Name: </strong></td>
+        <td><%= @student.last_name %></td>
+      </tr>
+      <tr>
+        <td><strong>NIC: </strong></td>
+        <td><%= @student.nic %></td>
+      </tr>
+      <tr>
+        <td><strong>Date of Birth: </strong></td>
+        <td><%= @student.date_of_birth.strftime("%d/%b/%Y") %></td>
+      </tr>
+      <tr>
+        <td><strong>Address: </strong></td>
+        <td><%= @student.address %></td>
+      </tr>
+      <tr>
+        <td><strong>Gender: </strong></td>
+        <td><%= @student.gender %></td>
+      </tr>
+    </table>
+    <table class="table table-bordered table-hover">
+      <tr>
+        <td><strong>Name: </strong></td>
+        <td><%= @student.emergency_contacts.map(&:name).join(", ") %></td>
+      </tr>
+      <tr>
+        <td><strong>Phone: </strong></td>
+        <td><%= @student.emergency_contacts.map(&:phone).join(", ") %></td>
+      </tr>
+      <tr>
+        <td><strong>Relationship: </strong></td>
+        <td><%= @student.emergency_contacts.map(&:relationship).join(", ") %></td>
+      </tr>
+    </table>
+  </div>
+</div>
+ 
+<%= link_to 'Edit', edit_student_path(@student) %> |
+<%= link_to 'Back', admission_index_path %>
+

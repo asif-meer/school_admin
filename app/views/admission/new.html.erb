@@ -1,0 +1,58 @@
+<div class="authform">
+  <%= simple_form_for @student, url: admission_path, method: :post do |f| %>
+    <%= f.error_notification %>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="form-inputs">
+          <%= f.input :first_name, input_html: {class: "form-control"}, autofocus: true %>
+        </div>
+
+        <div class="form-group"></div>
+        <div class="form-inputs">
+          <%= f.input :last_name, input_html: {class: "form-control"}, autofocus: true %>
+        </div>
+
+        <div class="form-group"></div>
+        <div class="form-inline">
+          <%= f.input :date_of_birth, input_html: {class: "form-control"} %>
+        </div>
+
+        <div class="form-group"></div>
+        <div class="form-inputs">
+          <%= f.input :nic, input_html: {class: "form-control"} %>
+        </div>
+
+        <div class="form-inputs">
+          <%= f.input :address, input_html: {class: "form-control"} %>
+        </div>
+
+        <div class="form-inputs">
+          <%= f.input :gender, input_html: {class: "form-control"} %>
+        </div>
+
+        <div class="form-group"></div>
+        <h3> Contact Information </h3>
+        <div class="form-inputs">
+          <%= f.simple_fields_for :emergency_contacts  do |p| %>
+             <fieldset id="<%= p %>">
+              <%= p.input :name, input_html: {class: "form-control"} %>
+
+              <%= p.input :phone, input_html: {class: "form-control"} %>
+
+              <%= p.input :relationship, input_html: {class: "form-control"} %>
+            </fieldset>
+          <%end%>
+          
+        </div>
+
+        <div class="form-group"></div>
+
+        <div class="form-actions">
+          <%= f.button :submit, class: "btn btn-app" %>
+        </div>
+        
+        <div class="form-group"></div>
+      </div>
+    </div>
+  <% end %>
+</div>
