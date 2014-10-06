@@ -16,7 +16,7 @@
           <% @student_categories.each do |student_category| %>
             <tr>
               <td><%= student_category.name %></td>
-              <td><%= link_to 'Show', student_category %></td>
+              <td><%= link_to 'View Details', student_category %></td>
               <td><%= link_to 'Edit', edit_student_category_path(student_category) %></td>
               <td><%= link_to 'Destroy', student_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>

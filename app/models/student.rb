@@ -20,5 +20,5 @@ class Student < ActiveRecord::Base
   accepts_nested_attributes_for :emergency_contacts
   # validates_associated :emergency_contacts
 
-  
+  GENDER = ["Male", "Female"]
 end

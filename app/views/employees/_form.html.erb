@@ -6,12 +6,12 @@
         <h3>Bio:</h3>
         <fieldset>
           <div class="form-inputs">
-            <%= f.input :first_name, input_html: {class: "form-control"}, autofocus: true %>
+            <%= f.input :first_name, input_html: {class: "form-control"}, autofocus: true, placeholder: "First Name" %>
           </div>
 
 
           <div class="form-inputs">
-            <%= f.input :last_name, input_html: {class: "form-control"} %>
+            <%= f.input :last_name, input_html: {class: "form-control"}, placeholder: "Last Name" %>
           </div>
 
           <div class="form-inputs">
@@ -26,7 +26,7 @@
         <h3>Employee Information:</h3>
         <fieldset>
           <div class="form-inputs">
-            <%= f.input :employee_number, input_html: {class: "form-control"} %>
+            <%= f.input :employee_number, input_html: {class: "form-control"}, placeholder: "Employee Number" %>
           </div>
 
           <div class="form-inline">
@@ -42,37 +42,37 @@
           </div>
 
           <div class="form-inputs">
-            <%= f.input :job_title, input_html: {class: "form-control"} %>
+            <%= f.input :job_title, input_html: {class: "form-control"}, placeholder: "Job Title" %>
           </div>
         </fieldset>
 
         <h3>Qualification and Experience:</h3>
         <fieldset>
           <div class="form-inputs">
-            <%= f.input :qualification, input_html: {class: "form-control"} %>
+            <%= f.input :qualification, input_html: {class: "form-control"}, placeholder: "Qualification" %>
           </div>
 
           <div class="form-inputs">
-            <%= f.input :total_experience, input_html: {class: "form-control"} %>
+            <%= f.input :total_experience, input_html: {class: "form-control"}, placeholder: "Total Experience" %>
           </div>
         </fieldset>
 
         <h3>Address:</h3>
         <fieldset>
           <div class="form-inputs">
-            <%= f.input :present_address, input_html: {class: "form-control"} %>
+            <%= f.input :present_address, input_html: {class: "form-control"}, placeholder: "Current Address" %>
           </div>
 
           <div class="form-inputs">
-            <%= f.input :perminent_address, input_html: {class: "form-control"} %>
+            <%= f.input :perminent_address, input_html: {class: "form-control"}, placeholder: "Permenent Address" %>
           </div>
 
           <div class="form-inputs">
-            <%=  f.input :phone, input_html: {class: "form-control"} %>
+            <%=  f.input :phone, input_html: {class: "form-control"}, placeholder: "Contact Number" %>
           </div>
 
           <div class="form-inputs">
-            <%=  f.input :email, input_html: {class: "form-control"} %>
+            <%=  f.input :email, input_html: {class: "form-control"}, placeholder: "Email Address" %>
           </div>
         </fieldset>
 
