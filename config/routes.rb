@@ -21,6 +21,9 @@ Rails.application.routes.draw do
   post "/admission/update/:id" => "admission#update", as: :update_student
 
 
+  get "general/settings", as: :school_edit
+  match '/general/settings/update', to: 'school#update', :via => :post, as: :school_update
+
   ActiveAdmin.routes(self)
   root to: 'visitors#index'
   devise_for :users
