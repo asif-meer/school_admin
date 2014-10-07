@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.1.1'
 gem 'rails', '4.1.6'
+gem 'sqlite3'
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
@@ -37,12 +38,6 @@ group :development, :test do
   gem 'faker'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
-  gem 'sqlite3'
-end
-group :production do
-  gem 'passenger'
-  gem 'pg'
-  gem 'rails_12factor'
 end
 group :test do
   gem 'cucumber-rails', :require => false
