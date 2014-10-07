@@ -39,6 +39,11 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
 end
+group :production do
+  gem 'passenger'
+  gem 'pg'
+  gem 'rails_12factor'
+end
 group :test do
   gem 'cucumber-rails', :require => false
   gem 'capybara'
