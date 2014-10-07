@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   delete "/admission/destroy/:id" => "admission#destroy", :as => :delete_student
   post "/admission/update/:id" => "admission#update", as: :update_student
 
-
+  # routes for school information
   get "general/settings", as: :school_edit
   match '/general/settings/update', to: 'school#update', :via => :post, as: :school_update
 
