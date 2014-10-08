@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141001072407) do
+ActiveRecord::Schema.define(version: 20141008082601) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -127,6 +127,22 @@ ActiveRecord::Schema.define(version: 20141001072407) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "subject_allocations", force: true do |t|
+    t.integer  "department_id"
+    t.integer  "employee_id"
+    t.integer  "course_id"
+    t.integer  "batch_id"
+    t.integer  "subject_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "subject_allocations", ["batch_id"], name: "index_subject_allocations_on_batch_id"
+  add_index "subject_allocations", ["course_id"], name: "index_subject_allocations_on_course_id"
+  add_index "subject_allocations", ["department_id"], name: "index_subject_allocations_on_department_id"
+  add_index "subject_allocations", ["employee_id"], name: "index_subject_allocations_on_employee_id"
+  add_index "subject_allocations", ["subject_id"], name: "index_subject_allocations_on_subject_id"
 
   create_table "subjects", force: true do |t|
     t.integer  "course_id"

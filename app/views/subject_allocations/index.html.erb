@@ -1,0 +1,25 @@
+<h1>Allocated Subjects</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="6"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @subject_allocations.each do |subject_allocation| %>
+      <tr>
+        <td><%= subject_allocation.department %></td>
+        <td><%= subject_allocation.employee %></td>
+        <td><%= link_to 'Show', subject_allocation %></td>
+        <td><%= link_to 'Edit', edit_subject_allocation_path(subject_allocation) %></td>
+        <td><%= link_to 'Destroy', subject_allocation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Subject allocation', new_subject_allocation_path %>

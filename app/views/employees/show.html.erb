@@ -15,7 +15,7 @@
       <tr>
   
         <td><strong>Date of birth:</strong></td>
-        <td><%= @employee.date_of_birth.strftime("%d/%b/%Y") %></td>
+        <td><%= @employee.date_of_birth.strftime("%d/%b/%Y") unless @employee.date_of_birth.nil? %></td>
       </tr>
       <tr>
         <td><strong>Gender:</strong></td>

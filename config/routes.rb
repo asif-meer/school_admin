@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   resources :students
+  resources :subject_allocations
 
   get "visitors/contact_us", to: "visitors#contact_us"
   get "visitors/about_us", to: "visitors#about_us"

@@ -18,4 +18,8 @@ class Subject < ActiveRecord::Base
   # validations
   validates_presence_of :subject_name
   validates_presence_of :course_id, :batch_id
+
+  def to_s
+    subject_name
+  end
 end
