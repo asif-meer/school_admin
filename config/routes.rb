@@ -15,13 +15,13 @@ Rails.application.routes.draw do
   resources :subjects
   
   # student admission routes here
-  # get "admission/index" => "admission#index"
+  get "admission/index" => "admission#index"
   get "/admission" => "admission#new", as: :new_admission
   post "/admission" => "admission#create"
-  # get "/admission/show/:id" => "admission#show", :as => :student_detail
-  # get "/admission/edit/:id" => "admission#edit", :as => :edit_student
-  # delete "/admission/destroy/:id" => "admission#destroy", :as => :delete_student
-  # post "/admission/update/:id" => "admission#update", as: :update_student
+  get "/admission/show/:id" => "admission#show", :as => :student_detail
+  get "/admission/edit/:id" => "admission#edit", :as => :student_edit
+  delete "/admission/destroy/:id" => "admission#destroy", :as => :delete_student
+  post "/admission/update/:id" => "admission#update", as: :update_student
 
   # routes for school information
   get "general/settings", as: :school_edit
