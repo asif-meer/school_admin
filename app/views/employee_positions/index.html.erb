@@ -16,7 +16,7 @@
           <% @employee_positions.each do |employee_position| %>
             <tr>
               <td><%= employee_position.name %></td>
-              <td><%= link_to 'Show', employee_position %></td>
+              <td><%= link_to 'View Details', employee_position %></td>
               <td><%= link_to 'Edit', edit_employee_position_path(employee_position) %></td>
               <td><%= link_to 'Destroy', employee_position, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>

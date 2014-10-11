@@ -17,7 +17,7 @@ class School < ActiveRecord::Base
   belongs_to :user
 
   # validations
-  validates_presence_of :user
+  # validates_presence_of :user
   validates_presence_of :school_name, :school_address, :school_phone
 
   def self.find_or_create(attributes)
