@@ -27,7 +27,6 @@ unless User.find_by_email("user@example.com")
   @user1 = User.new(:email => 'user@example.com',
                   :password => "admin123", 
                   :password_confirmation => "admin123")
-  @user1.add_role :admin
   @user1.name = "user"
   @user1.confirm!
   @user1.save
@@ -59,17 +58,5 @@ course3 =  Course.find_or_create(:course_name => 'Computer science', :section_na
 #Roles
 puts "Creating Roles"
 Role.find_or_create(:name => 'admin')
-
-#Admin
-puts "Creating admin user"
-unless User.find_by_email("superadmin@example.com")
-  admin_user = User.new(:email => 'superadmin@example.com',
-                  :password => "superadmin123", 
-                  :password_confirmation => "superadmin123")
-  admin_user.add_role :admin
-  admin_user.name = "superadmin"
-  admin_user.confirm!
-  admin_user.save
-end
 
 
