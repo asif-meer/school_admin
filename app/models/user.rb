@@ -41,13 +41,10 @@ class User < ActiveRecord::Base
   has_one  :school
   has_many :courses
 
+  accepts_nested_attributes_for :school, update_only: true
+
   def self.find_or_create(attributes)
     User.where(attributes).first || User.create(attributes)
-  end
-
-  def school
-    @school   = School.find_by_user_id(self.id)
-    @school ||= School.new(:user_id => self.id)
   end
   
   def admin?

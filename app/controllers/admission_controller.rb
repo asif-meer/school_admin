@@ -1,11 +1,11 @@
 class AdmissionController < ApplicationController
+  before_filter :authenticate_user!
   def index
     @students = Student.all
   end
 
   def new
     @student = Student.new
-
     2.times { @student.emergency_contacts.build }
   end
 
@@ -23,8 +23,8 @@ class AdmissionController < ApplicationController
       flash[:notice] = "Student Successfully Saved"
       redirect_to admission_index_path
     else
+      render :new
       flash[:alert] = @student.errors.full_messages.to_sentence
-      render new
     end
   end
 
@@ -35,8 +35,8 @@ class AdmissionController < ApplicationController
       flash[:notice] = "Student Successfully Updated"
       redirect_to admission_index_path
     else
+      render :new
       flash[:alert] = @student.errors.full_messages.to_sentence
-      render new
     end
   end
 

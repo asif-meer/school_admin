@@ -13,6 +13,14 @@ img {
   }
 
 .navbar-inverse {
+  background: #666666; /* Old browsers */
+  background: -moz-linear-gradient(top, #666666 -2%, #2c2c2c -1%, #2c2c2c 0%, #4c4c4c 0%, #666666 1%, #595959 12%, #474747 39%, #2b2b2b 76%, #1c1c1c 91%, #111111 100%, #131313 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(-2%,#666666), color-stop(-1%,#2c2c2c), color-stop(0%,#2c2c2c), color-stop(0%,#4c4c4c), color-stop(1%,#666666), color-stop(12%,#595959), color-stop(39%,#474747), color-stop(76%,#2b2b2b), color-stop(91%,#1c1c1c), color-stop(100%,#111111), color-stop(100%,#131313)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #666666 -2%,#2c2c2c -1%,#2c2c2c 0%,#4c4c4c 0%,#666666 1%,#595959 12%,#474747 39%,#2b2b2b 76%,#1c1c1c 91%,#111111 100%,#131313 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #666666 -2%,#2c2c2c -1%,#2c2c2c 0%,#4c4c4c 0%,#666666 1%,#595959 12%,#474747 39%,#2b2b2b 76%,#1c1c1c 91%,#111111 100%,#131313 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #666666 -2%,#2c2c2c -1%,#2c2c2c 0%,#4c4c4c 0%,#666666 1%,#595959 12%,#474747 39%,#2b2b2b 76%,#1c1c1c 91%,#111111 100%,#131313 100%); /* IE10+ */
+  background: linear-gradient(to bottom, #666666 -2%,#2c2c2c -1%,#2c2c2c 0%,#4c4c4c 0%,#666666 1%,#595959 12%,#474747 39%,#2b2b2b 76%,#1c1c1c 91%,#111111 100%,#131313 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#666666', endColorstr='#131313',GradientType=0 ); /* IE6-9 */
   .navbar-brand {
     color: rgb(240, 240, 240);
     font-size: 25px;
@@ -24,7 +32,7 @@ img {
     font-size: 16px;
     margin-bottom: 7px;
     &:hover {
-      background-color:#555454;
+      background-color:#000;
       padding-bottom: 8px;
     }
   }
@@ -146,24 +154,66 @@ section {
 }
 //App Panel
 .panel-app {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 7px;
   .panel-heading {
+    margin: 11px 11px 0px 11px;
+    border-radius: 7px;
     color: #fff;
     background-color: #353535;
     border-color: #353535;
   }
 }
-@media(max-width:480px) {
-  .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
-    background-color: #000;
-  }
-}
+
 //Form
 .form-control:focus {
   border-color: transparent;
   outline: 0;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(9, 9, 9, 0.6);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(28, 28, 29, 0.6);
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #0044cc;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #0044cc;
 }
 
 //Carousel
-
+#myCarousel{
+  margin: -9px -44px -9px -44px;
+  .carousel-inner > .item > img, .carousel-inner > .item > a > img {
+    width: 100%;
+    height: 440px;
+    @media(max-width:480px) {
+      height: inherit;
+    }
+  }
+  .carousel-inner {
+    .carousel-caption {
+      bottom: 42px;
+      left:2%;
+      right:2%;
+      text-align:left;
+      padding-bottom: 0px;
+    }
+  }
+  .carousel-control {
+    width: 2%;
+  }
+}
+//Media Queries for Devise
+@media only screen 
+and (min-width : 320px) 
+and (max-width : 480px){
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+    background-color: #000;
+  }
+  .carousel {
+    margin: 0;
+  }
+}
+@media only screen 
+and (max-width : 1024px){
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+    background-color: #000;
+  }
+  .carousel {
+    margin: 0;
+  }
+}

@@ -1,4 +1,4 @@
-<h1>Listing courses</h1>
+<h1>Courses</h1>
 
 
 <div class="row">
@@ -10,7 +10,6 @@
             <th class="col-sm-2">Name</th>
             <th>Section</th>
             <th>Code</th>
-            <th>City</th>
             <th colspan="3" align="center">Actions</th>
           </tr>
         </thead>
@@ -21,7 +20,7 @@
               <td><%= course.course_name %></td>
               <td><%= course.section_name %></td>
               <td><%= course.code %></td>
-              <td><%= link_to 'Show', course %></td>
+              <td><%= link_to 'View Details', course %></td>
               <td><%= link_to 'Edit', edit_course_path(course) %></td>
               <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>

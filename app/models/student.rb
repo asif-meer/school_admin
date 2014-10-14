@@ -14,9 +14,11 @@
 #
 
 class Student < ActiveRecord::Base
+  validates_presence_of :first_name, :last_name, :address, :nic, :gender
+
   has_many :emergency_contacts, :dependent => :destroy
-  accepts_nested_attributes_for :emergency_contacts, reject_if: lambda { |a| a[:name].blank? }, allow_destroy: true
+  accepts_nested_attributes_for :emergency_contacts
   # validates_associated :emergency_contacts
 
-  # validates_presence_of :first_name, :last_name, :address, :nic
+  GENDER = ["Male", "Female"]
 end
