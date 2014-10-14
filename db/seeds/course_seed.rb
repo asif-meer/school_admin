@@ -3,4 +3,6 @@
 # course2 =  Course.find_or_create(:course_name => 'Course B', :section_name => 'Section B', :code => "BB1" ,:user => @user1)
 # course3 =  Course.find_or_create(:course_name => 'Computer science', :section_name => '', :code => "CS" ,:user => @user1)
 
-
+FeesCategory.find_or_create(:name => "Tuition Fee")
+FeesCategory.find_or_create(:name => "Admission Fee")
+FeesCategory.find_or_create(:name => "Examination Fee")
