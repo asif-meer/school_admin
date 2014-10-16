@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     
   end
   
-  
+  resources :employee_attendence
   resources :employee_positions
   resources :student_categories
   resources :departments
