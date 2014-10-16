@@ -1,14 +1,14 @@
-<%= simple_form_for @student, url: admission_path, method: :post do |f| %>
+<%= simple_form_for @student do |f| %>
   <%#= f.error_notification %>
   <div class="row">
     <div class="col-sm-12">
       <div class="form-inputs">
-        <%= f.input :first_name, input_html: {class: "form-control"}, autofocus: true, placeholder: "First Name" %>
+        <%= f.input :first_name, input_html: {class: "form-control"}, autofocus: true %>
       </div>
 
       <div class="form-group"></div>
       <div class="form-inputs">
-        <%= f.input :last_name, input_html: {class: "form-control"}, placeholder: "Last Name" %>
+        <%= f.input :last_name, input_html: {class: "form-control"}, autofocus: true %>
       </div>
 
       <div class="form-group"></div>
@@ -18,11 +18,11 @@
 
       <div class="form-group"></div>
       <div class="form-inputs">
-        <%= f.input :nic, input_html: {class: "form-control"}, placeholder: "XXXX-XXXXXX-X" %>
+        <%= f.input :nic, input_html: {class: "form-control"} %>
       </div>
 
       <div class="form-inputs">
-        <%= f.input :address, input_html: {class: "form-control"}, placeholder: "Your current address" %>
+        <%= f.input :address, input_html: {class: "form-control"} %>
       </div>
 
       <div class="form-inputs">
@@ -30,15 +30,15 @@
       </div>
 
       <div class="form-group"></div>
-      <h3> Contact Information </h3>
+
       <div class="form-inputs">
-        <%= f.simple_fields_for :emergency_contacts  do |p| %>
-            
-           <fieldset>
-            <%= render "emergency_contacts_fields",  :f => p  %>
-          </fieldset>
-        <% end %>
+        <h3>Contact Info</h3>
         
+        <%= f.simple_fields_for :emergency_contacts do |p| %>
+          <fieldset>
+            <%= render "/admission/emergency_contacts_fields",  :f => p  %>
+          </fieldset>
+        <%end%>
       </div>
 
       <div class="form-group"></div>
@@ -51,4 +51,3 @@
     </div>
   </div>
 <% end %>
-
