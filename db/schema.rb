@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141014130848) do
+ActiveRecord::Schema.define(version: 20141014134554) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -85,6 +85,10 @@ ActiveRecord::Schema.define(version: 20141014130848) do
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_index "employees", ["department_id"], name: "index_employees_on_department_id"
@@ -93,6 +97,16 @@ ActiveRecord::Schema.define(version: 20141014130848) do
   create_table "fees_categories", force: true do |t|
     t.string   "name"
     t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "fees_periods", force: true do |t|
+    t.integer  "fees_category_id"
+    t.integer  "batch_id"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.date     "due_date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -139,9 +153,13 @@ ActiveRecord::Schema.define(version: 20141014130848) do
     t.date     "date_of_birth"
     t.string   "nic"
     t.text     "address"
-    t.string   "gender",        limit: 1
+    t.string   "gender",              limit: 1
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "subject_allocations", force: true do |t|

@@ -45,6 +45,13 @@ class EmployeesController < InheritedResources::Base
     @employee.destroy
   end
 
+  def remove_avatar
+    @employee = Employee.find(params[:id])
+    @employee.avatar = nil
+    @employee.save
+    redirect_to :back
+  end
+  
   private
 
   def employees_params

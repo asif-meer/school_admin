@@ -1,12 +1,16 @@
 Rails.application.routes.draw do
 
   resources :students
+  post "students/remove-avatar", to: "students#remove_avatar"
+
   resources :subject_allocations
 
   get "visitors/contact_us", to: "visitors#contact_us"
   get "visitors/about_us", to: "visitors#about_us"
 
   resources :employees
+  post "employees/remove-avatar", to: "employees#remove_avatar"
+  
   resources :employee_positions
   resources :student_categories
   resources :departments
@@ -15,13 +19,13 @@ Rails.application.routes.draw do
   resources :subjects
   
   # student admission routes here
-  get "admission/index" => "admission#index"
+  # get "admission/index" => "admission#index"
   get "/admission" => "admission#new", as: :new_admission
   post "/admission" => "admission#create"
-  get "/admission/show/:id" => "admission#show", :as => :student_detail
-  get "/admission/edit/:id" => "admission#edit", :as => :student_edit
-  delete "/admission/destroy/:id" => "admission#destroy", :as => :delete_student
-  post "/admission/update/:id" => "admission#update", as: :update_student
+  # get "/admission/show/:id" => "admission#show", :as => :student_detail
+  # get "/admission/edit/:id" => "admission#edit", :as => :student_edit
+  # delete "/admission/destroy/:id" => "admission#destroy", :as => :delete_student
+  # post "/admission/update/:id" => "admission#update", as: :update_student
 
   # routes for school information
   get "general/settings", as: :school_edit
