@@ -1,4 +1,4 @@
-<%= simple_form_for @student, url: update_student_path, method: :post do |f| %>
+<%= simple_form_for @student, url: update_admission_path, method: :post do |f| %>
   <%#= f.error_notification %>
   <div class="row">
     <div class="col-sm-12">
@@ -34,7 +34,7 @@
       <div class="form-inputs">
         <h3>Contact Info</h3>
         
-        <%= f.simple_fields_for :emergency_contacts, url: update_student_path, method: :post  do |p| %>
+        <%= f.simple_fields_for :emergency_contacts, url: update_admission_path, method: :post  do |p| %>
           <fieldset>
             <%= render "emergency_contacts_fields",  :f => p  %>
           </fieldset>

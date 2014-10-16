@@ -21,7 +21,7 @@ class AdmissionController < ApplicationController
     @student = Student.new(admission_params)
     if @student.save
       flash[:notice] = "Student Successfully Saved"
-      redirect_to admission_index_path
+      redirect_to admissions_path
     else
       render :new
       flash[:alert] = @student.errors.full_messages.to_sentence
@@ -33,7 +33,7 @@ class AdmissionController < ApplicationController
     @student.emergency_contacts.destroy_all
     if @student.update_attributes(admission_params)
       flash[:notice] = "Student Successfully Updated"
-      redirect_to admission_index_path
+      redirect_to admissions_path
     else
       render :new
       flash[:alert] = @student.errors.full_messages.to_sentence
@@ -43,7 +43,7 @@ class AdmissionController < ApplicationController
   def destroy
     @student = Student.find(params[:id])
     @student.destroy
-    redirect_to admission_index_path
+    redirect_to admissions_path
   end
 
   private

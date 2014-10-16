@@ -26,9 +26,9 @@
               <td><%= student.date_of_birth.strftime("%d/%b/%Y") %></td>
               <td><%= student.address %></td>
               <td><%= student.gender %></td>
-              <td><%= link_to 'View Details', student_detail_path(student) %></td>
-              <td><%= link_to 'Edit', edit_student_path(student) %></td>
-              <td><%= link_to 'Destroy', delete_student_path(student), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to 'View Details', admission_detail_path(student) %></td>
+              <td><%= link_to 'Edit', admission_edit_path(student) %></td>
+              <td><%= link_to 'Destroy', delete_admission_path(student), method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
           <% end %>
         </tbody>
