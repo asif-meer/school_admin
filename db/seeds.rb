@@ -47,12 +47,12 @@ end
  # require './db/seeds/course_seed.rb'
 
 puts "creating school information..."
-school1 =  School.find_or_create(:school_name => 'abc school name', :school_address => 'abc area , xyz city pakistan', :school_phone => "01010101",:user_id => @user1.id)
+# school1 =  School.find_or_create(:school_name => 'abc school name', :school_address => 'abc area , xyz city pakistan', :school_phone => "01010101",:user_id => @user1.id)
 
 puts "creating course information..."
-course1 =  Course.find_or_create(:course_name => 'Course A', :section_name => 'Section A', :code => "AA1" ,:user_id => @user1.id)
-course2 =  Course.find_or_create(:course_name => 'Course B', :section_name => 'Section B', :code => "BB1" ,:user_id => @user1.id)
-course3 =  Course.find_or_create(:course_name => 'Computer science', :section_name => '', :code => "CS" ,:user_id => @user1.id)
+course1 =  Course.find_or_create(:course_name => 'Course A', :section_name => 'Section A', :code => "AA1" )
+course2 =  Course.find_or_create(:course_name => 'Course B', :section_name => 'Section B', :code => "BB1" )
+course3 =  Course.find_or_create(:course_name => 'Computer science', :section_name => '', :code => "CS" )
 
 
 #Roles
