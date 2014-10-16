@@ -1,15 +1,24 @@
 Rails.application.routes.draw do
 
-  resources :students
-  post "students/remove_avatar", to: "students#remove_avatar"
+  resources :students do
+    collection do
+      post "remove_avatar/:id", to: "students#remove_avatar", as: :delete_avatar
+    end
+  end
+  
 
   resources :subject_allocations
 
   get "visitors/contact_us", to: "visitors#contact_us"
   get "visitors/about_us", to: "visitors#about_us"
 
-  resources :employees
-  post "employees/remove_avatar", to: "employees#remove_avatar"
+  resources :employees do
+    collection do
+      post "remove_avatar/:id", to: "employees#remove_avatar", as: :delete_avatar
+    end
+    
+  end
+  
   
   resources :employee_positions
   resources :student_categories

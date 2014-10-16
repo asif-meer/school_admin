@@ -49,7 +49,7 @@ class EmployeesController < InheritedResources::Base
     @employee = Employee.find(params[:id])
     @employee.avatar = nil
     @employee.save
-    redirect_to @employee
+    redirect_to employee_path(@employee)
   end
 
   private
@@ -57,6 +57,6 @@ class EmployeesController < InheritedResources::Base
   def employees_params
     params.require(:employee).permit(:first_name, :last_name, :date_of_birth, :gender, :employee_number,
                                      :joining_date, :job_title, :qualification, :total_experience, :present_address,
-                                     :perminent_address, :phone, :email, :department_id, :employee_position_id)
+                                     :perminent_address, :phone, :email, :department_id, :employee_position_id, :avatar)
   end
 end

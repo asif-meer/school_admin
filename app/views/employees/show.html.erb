@@ -6,22 +6,12 @@
     <div class="fileinput fileinput-new" data-provides="fileinput">
       <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
         <% unless @employee.avatar.present? %>
-          <%= image_tag("user.png") %>
+          <%= image_tag("school.png") %>
         <% else %>
           <%= image_tag @employee.avatar.url %>
         <% end %>
       </div>
       <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
-      <div>
-        <%# unless current_user.avatar.present? %>
-          <!-- <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a> -->
-        <%# else %>
-          <%# if f.file_field nil, :class => "fileinput-exists" %>
-            <!-- <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a> -->
-          <%# end %>
-          <%= link_to "Remove Picture", users_remove_avatar_path, :method => :post, class: "btn btn-default", data: {confirm: "Are you sure?"} %>
-        <%# end %>
-      </div> 
     </div>
     <table class="table table-bordered table-hover">
       <tr>
@@ -33,7 +23,7 @@
         <td><%= @employee.last_name %></td>
       </tr>
         <td><strong>Date of birth:</strong></td>
-        <td><%= @employee.date_of_birth.strftime("%d/%b/%Y") unless @employee.date_of_birth.nil? %></td>
+        <td><%= @employee.date_of_birth unless @employee.date_of_birth.nil? %></td>
       </tr>
       <tr>
         <td><strong>Gender:</strong></td>
@@ -49,11 +39,11 @@
       </tr>
       <tr>
         <td><strong>Department:</strong></td>
-        <td><%= @employee.department.name %></td>
+        <td><%= @employee.department.name unless @employee.department.nil? %></td>
       </tr>
       <tr>
         <td><strong>Employee position:</strong></td>
-        <td><%= @employee.employee_position.name %></td>
+        <td><%= @employee.employee_position.name unless @employee.employee_position.nil? %></td>
       </tr>
       <tr>
         <td><strong>Job title:</strong></td>

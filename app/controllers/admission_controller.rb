@@ -20,6 +20,6 @@ class AdmissionController < ApplicationController
   private
 
   def admission_params
-    params.require(:student).permit(:first_name, :last_name, :date_of_birth, :nic, :address, :gender, emergency_contacts_attributes: [:name, :phone, :relationship])
+    params.require(:student).permit(:first_name, :last_name, :date_of_birth, :nic, :address, :gender, :avatar, emergency_contacts_attributes: [:name, :phone, :relationship])
   end
 end
