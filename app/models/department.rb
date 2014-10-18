@@ -17,4 +17,8 @@ class Department < ActiveRecord::Base
   def to_s
     name
   end
+
+  def self.find_or_create(attributes)
+    Department.where(attributes).first || Department.create(attributes)
+  end
 end

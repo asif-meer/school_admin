@@ -47,12 +47,32 @@ end
  # require './db/seeds/course_seed.rb'
 
 puts "creating school information..."
-# school1 =  School.find_or_create(:school_name => 'abc school name', :school_address => 'abc area , xyz city pakistan', :school_phone => "01010101",:user_id => @user1.id)
+school1 =  School.find_or_create(:school_name => 'abc school name', :school_address => 'abc area , xyz city pakistan', :school_phone => "01010101",:user_id => @user1.id)
 
 puts "creating course information..."
-course1 =  Course.find_or_create(:course_name => 'Course A', :section_name => 'Section A', :code => "AA1" )
-course2 =  Course.find_or_create(:course_name => 'Course B', :section_name => 'Section B', :code => "BB1" )
-course3 =  Course.find_or_create(:course_name => 'Computer science', :section_name => '', :code => "CS" )
+@course1 =  Course.find_or_create(:course_name => 'Course A', :section_name => 'Section A', :code => "AA1" )
+@course2 =  Course.find_or_create(:course_name => 'Course B', :section_name => 'Section B', :code => "BB1" )
+@course3 =  Course.find_or_create(:course_name => 'Computer science', :section_name => '', :code => "CS" )
+
+puts "creating departments..."
+depart1 =  Department.find_or_create(:name => "Electronics")
+depart2 =  Department.find_or_create(:name => "Computer")
+depart3 =  Department.find_or_create(:name => "Psychology")
+depart3 =  Department.find_or_create(:name => "Calculas")
+
+puts "creating positions..."
+position1 =  EmployeePosition.find_or_create(:name => "Security Guard")
+position2 =  EmployeePosition.find_or_create(:name => "Programmer")
+position3 =  EmployeePosition.find_or_create(:name => "Office Incharge")
+position4 =  EmployeePosition.find_or_create(:name => "Wise Pricipal")
+position5 =  EmployeePosition.find_or_create(:name => "Pricipal")
+
+puts "creating batches..."
+batch1 =  Batch.find_or_create(:batch_name => "2009", :course_id => @course1.id, :start_date => "7/Jan/2009", :end_date => "13/Nov/2013")
+batch2 =  Batch.find_or_create(:batch_name => "2010", :course_id => @course3.id, :start_date => "7/Jan/2010", :end_date => "13/Nov/2014")
+batch3 =  Batch.find_or_create(:batch_name => "2011", :course_id => @course2.id, :start_date => "7/Jan/2011", :end_date => "13/Nov/2015")
+batch4 =  Batch.find_or_create(:batch_name => "2012", :course_id => @course2.id, :start_date => "7/Jan/2012", :end_date => "13/Nov/2016")
+batch5 =  Batch.find_or_create(:batch_name => "2013", :course_id => @course3.id, :start_date => "7/Jan/2013", :end_date => "13/Nov/2017")
 
 
 #Roles

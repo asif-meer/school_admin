@@ -12,8 +12,9 @@
       </div>
 
       <div class="form-group"></div>
-      <div class="form-inline">
-        <%= f.input :date_of_birth, input_html: {class: "form-control"} %>
+      <div class="form-inputs">
+        <%= f.label :date_of_birth, required: true %>
+        <%= f.text_field :date_of_birth, class: "form-control", placeholder: "dd-mm-yy" %>
       </div>
 
       <div class="form-group"></div>

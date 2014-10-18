@@ -15,4 +15,9 @@ class EmployeePosition < ActiveRecord::Base
   def to_s
     name
   end
+
+  def self.find_or_create(attributes)
+    EmployeePosition.where(attributes).first || EmployeePosition.create(attributes)
+  end
+
 end

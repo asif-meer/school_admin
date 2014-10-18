@@ -23,4 +23,8 @@ class Batch < ActiveRecord::Base
   def to_s
     batch_name
   end
+
+  def self.find_or_create(attributes)
+    Batch.where(attributes).first || Batch.create(attributes)
+  end
 end
