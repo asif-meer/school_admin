@@ -1,8 +1,19 @@
 <div class="panel panel-app">
+  <div class="panel-body">
   <div class="panel-heading">
     <h1>Student Detail</h1>
   </div>
   <div class="panel-body">
+    <div class="fileinput fileinput-new" data-provides="fileinput">
+      <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+        <% unless @student.avatar.present? %>
+          <%= image_tag("school.png") %>
+        <% else %>
+          <%= image_tag @student.avatar.url %>
+        <% end %>
+      </div>
+      <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
+    </div>
     <table class="table table-bordered table-hover">
       <tr>
         <td><strong>First Name: </strong></td>

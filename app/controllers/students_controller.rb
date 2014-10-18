@@ -36,13 +36,13 @@ class StudentsController < ApplicationController
     @student = Student.find(params[:id])
     @student.avatar = nil
     @student.save
-    redirect_to :back
+    redirect_to student_path(@student)
   end
 
   private
 
   def student_params
-    params.require(:student).permit(:first_name, :last_name, :date_of_birth, :nic, :address, :gender, emergency_contacts_attributes: [:name, :phone, :relationship])
+    params.require(:student).permit(:first_name, :last_name, :date_of_birth, :nic, :address, :gender, :avatar, emergency_contacts_attributes: [:name, :phone, :relationship])
   end
 
 end

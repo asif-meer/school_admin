@@ -27,8 +27,8 @@
               <td><%= employee.gender %></td>
               <td><%= employee.employee_number %></td>
               <td><%= employee.joining_date.strftime("%d/%b/%Y") %></td>
-              <td><%= employee.department.name %></td>
-              <td><%= employee.employee_position.name %></td>
+              <td><%= employee.department.name  unless employee.department.nil? %></td>
+              <td><%= employee.employee_position.name  unless employee.employee_position.nil? %></td>
               <td><%= employee.job_title %></td>
               <td><%= link_to 'View Details', employee %></td>
               <td><%= link_to 'Edit', edit_employee_path(employee) %></td>

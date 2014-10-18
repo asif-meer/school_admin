@@ -28,7 +28,7 @@ class SubjectAllocationsController < ApplicationController
 
     respond_to do |format|
       if @subject_allocation.save
-        format.html { redirect_to @subject_allocation, notice: 'Subject allocation was successfully created.' }
+        format.html { redirect_to subject_allocations_path, notice: 'Subject allocation was successfully created.' }
         format.json { render :show, status: :created, location: @subject_allocation }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class SubjectAllocationsController < ApplicationController
   def update
     respond_to do |format|
       if @subject_allocation.update(subject_allocation_params)
-        format.html { redirect_to @subject_allocation, notice: 'Subject allocation was successfully updated.' }
+        format.html { redirect_to subject_allocations_path, notice: 'Subject allocation was successfully updated.' }
         format.json { render :show, status: :ok, location: @subject_allocation }
       else
         format.html { render :edit }
