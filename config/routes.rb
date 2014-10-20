@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   resources :employee_attendence, only: [:index]
 
   match "edit_attendence/:id" => "employee_attendence#edit_attendence", :via => :get, as: :edit_attendence
-  match "update_attendence/:id", to: "employee_attendence#update_attendence", :via => :post, as: :update_attendence
+  match "attendence/:id", to: "employee_attendence#attendence", :via => :post, as: :update_attendence
 
   resources :employee_positions
   resources :student_categories

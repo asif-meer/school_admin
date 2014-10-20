@@ -1,11 +1,20 @@
 class EmployeeAttendenceController < ApplicationController
   def index
     @attendences = EmployeeAttendence.all
-    @employees = Employee.all
+    @employees = Employee.where(created_at: (Date.today.beginning_of_month)..Date.today.end_of_month)
+    # @label = @employees.map{ |m| m.employee_attendences.select(:label)
+    @employees.each do |emp|
+      @employee = Employee.find(emp.id)
+      if @employee.employee_attendences.present?
+        @employee.employee_attendences 
+      else
+        @employee.employee_attendences.new
+      end
+    end
+    
   end
 
   def edit_attendence
-    # @attendence = EmployeeAttencence.find(params[:id])
     @employee = Employee.find(params[:id])
     if @employee.employee_attendences.present?
       @employee.employee_attendences 
@@ -14,7 +23,7 @@ class EmployeeAttendenceController < ApplicationController
     end
   end
 
-  def update_attendence
+  def attendence
     @employee = Employee.find(params[:id])
     @employee.employee_attendences.destroy_all
     @employee.update_attributes(attendence_params)

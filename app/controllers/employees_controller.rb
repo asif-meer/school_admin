@@ -5,6 +5,10 @@ class EmployeesController < InheritedResources::Base
     @employees = Employee.all
   end
 
+  def attendance
+    
+  end
+
   def new
     @employee = Employee.new
   end

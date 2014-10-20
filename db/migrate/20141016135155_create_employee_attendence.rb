@@ -4,6 +4,8 @@ class CreateEmployeeAttendence < ActiveRecord::Migration
       t.references :employee
       t.date :date
       t.integer :label, :limit => 1
+
+      t.timestamps
     end
   end
 end

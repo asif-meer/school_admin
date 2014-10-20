@@ -4,13 +4,16 @@
 <div class="row">
   <div class="col-sm-12">
     <div class="table-responsive">
-      <table class= "table table-striped table-bordered table-hover ">
+      <table class= "table table-striped table-bordered table-hover" style="font-size: 11px;">
         <thead >
           <tr>
-            <th class="col-sm-2">Employees</th>
-            <th>Status</th>
-            <th>Date</th>
-            <th align="center">Actions</th>
+            <th>Employees</th>
+            <% (Date.today.beginning_of_month..Date.today.end_of_month).each do |i| %>
+              
+              <th><%= i.strftime("%d") %></th>
+              
+            <% end %>
+            <!-- <th></th>           -->
           </tr>
         </thead>
 
@@ -18,8 +21,16 @@
           <% @employees.each do |emp| %>
             <tr>
               <td><%= emp.to_s %></td>
-              <td><%= attendence_label(emp) unless emp.employee_attendences.blank? %></td>
-              <td><%= emp.employee_attendences.first.date unless emp.employee_attendences.blank? %></td>
+              <% (Date.today.beginning_of_month..Date.today.end_of_month).each do |i, m| %>
+                <td>
+                  <%= link_to "-", '#' , :id => '#attendence_modal_'+i.to_s+'_'+emp.id.to_s, "data-toggle" => "modal", 'data-target' => '#attendence_modal_'+i.to_s+'_'+emp.id.to_s %>
+                  <%= render partial: "attendence_modal", locals: {i: i, emp: emp} %>
+                </td>
+              <% end %>
+              <%#= emp.employee_attendences[0].label unless emp.employee_attendences.blank? %>
+              
+              
+              <!-- <td><%#= emp.employee_attendences.first.date unless emp.employee_attendences.blank? %></td> -->
               <!-- <td><%#= link_to 'View Details', batch %></td> -->
               <td><%= link_to 'Edit', edit_attendence_path(emp) %></td>
               <!-- <td><%#= link_to 'Destroy', batch, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
