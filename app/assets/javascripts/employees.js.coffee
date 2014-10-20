@@ -15,3 +15,10 @@ jQuery ->
 		changeMonth: true
 		showOtherMonths: true
 		dateFormat: "dd/mm/yy"
+
+	$("#employee_employee_attendences_attributes_0_date").datepicker
+		changeYear: true
+		yearRange: "1950:2025"
+		changeMonth: true
+		showOtherMonths: true
+		dateFormat: "dd/mm/yy"

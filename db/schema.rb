@@ -62,9 +62,9 @@ ActiveRecord::Schema.define(version: 20141016135155) do
   end
 
   create_table "employee_attendences", force: true do |t|
-    t.integer "employee_id_id"
-    t.date    "month"
-    t.integer "label",          limit: 1
+    t.integer "employee_id"
+    t.date    "date"
+    t.integer "label",       limit: 1
   end
 
   create_table "employee_positions", force: true do |t|
