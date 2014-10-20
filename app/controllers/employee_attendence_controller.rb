@@ -15,12 +15,15 @@ class EmployeeAttendenceController < ApplicationController
   end
 
   def edit_attendence
-    @employee = Employee.find(params[:id])
-    if @employee.employee_attendences.present?
-      @employee.employee_attendences 
-    else
-      @employee.employee_attendences.build
-    end
+    @employee = Employee.find(params[:employee_id])
+    @employee_attendence =  EmployeeAttendence.new(:date => params[:dated])
+
+    # @employee = Employee.find(params[:id])
+    # if @employee.employee_attendences.present?
+    #   @employee.employee_attendences 
+    # else
+    #   @employee.employee_attendences.build
+    # end
   end
 
   def attendence

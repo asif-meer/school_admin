@@ -23,8 +23,9 @@
               <td><%= emp.to_s %></td>
               <% (Date.today.beginning_of_month..Date.today.end_of_month).each do |i, m| %>
                 <td>
-                  <%= link_to "-", '#' , :id => '#attendence_modal_'+i.to_s+'_'+emp.id.to_s, "data-toggle" => "modal", 'data-target' => '#attendence_modal_'+i.to_s+'_'+emp.id.to_s %>
-                  <%= render partial: "attendence_modal", locals: {i: i, emp: emp} %>
+                  <%#= link_to "-", '#' , :id => '#attendence_modal_'+i.to_s+'_'+emp.id.to_s, "data-toggle" => "modal", 'data-target' => '#attendence_modal_'+i.to_s+'_'+emp.id.to_s %>
+                  <%#= render partial: "attendence_modal", locals: {i: i, emp: emp} %>
+                  <%= link_to "-", employee_attendence_path(emp,:dated => i.to_s) %>
                 </td>
               <% end %>
               <%#= emp.employee_attendences[0].label unless emp.employee_attendences.blank? %>
@@ -32,7 +33,7 @@
               
               <!-- <td><%#= emp.employee_attendences.first.date unless emp.employee_attendences.blank? %></td> -->
               <!-- <td><%#= link_to 'View Details', batch %></td> -->
-              <td><%= link_to 'Edit', edit_attendence_path(emp) %></td>
+              <td><%#= link_to 'Edit', edit_attendence_path(emp) %></td>
               <!-- <td><%#= link_to 'Destroy', batch, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
             </tr>
           <% end %>
@@ -43,6 +44,6 @@
 </div>
 
 <br>
-
+<div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
 <%#= link_to 'New Batch', new_batch_path, class: "btn btn-app" %>
 

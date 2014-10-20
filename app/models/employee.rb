@@ -27,7 +27,7 @@ class Employee < ActiveRecord::Base
   belongs_to :employee_position
 
   has_many :employee_attendences, :dependent => :destroy
-  accepts_nested_attributes_for :employee_attendences 
+  # accepts_nested_attributes_for :employee_attendences 
 
 
   enum label: { present: 0, absent: 1, blank: 2}
