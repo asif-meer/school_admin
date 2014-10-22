@@ -16,9 +16,9 @@
           <% @employee_positions.each do |employee_position| %>
             <tr>
               <td><%= employee_position.name %></td>
-              <td><%= link_to 'View Details', employee_position %></td>
-              <td><%= link_to 'Edit', edit_employee_position_path(employee_position) %></td>
-              <td><%= link_to 'Destroy', employee_position, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to 'View Details', employee_position, class: "btn btn-link" %></td>
+              <td><%= link_to 'Edit', edit_employee_position_path(employee_position), class: "btn btn-link", class: "btn btn-link" %></td>
+              <td><%= link_to 'Destroy', employee_position, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %></td>
             </tr>
           <% end %>
         </tbody>
@@ -29,5 +29,5 @@
 
 <br>
 
-<%= link_to 'New Employee position', new_employee_position_path, class: "btn btn-app" %>
+<%= link_to 'New Employee position', new_employee_position_path, class: "btn btn-default btn-lg" %>
 

@@ -1,34 +1,34 @@
-<%= simple_form_for(@batch) do |f| %>
-  <%= f.error_notification %>
-  <div class="row">
-    <div class="col-sm-5">
-      <div class="form-inputs">
-        <%= f.association :course, input_html: {class: "form-control"}, autofocus: true, prompt: "Choose a Course" %>
-      </div>
+<fieldset>
+  <%= simple_form_for @batch, class: "form-horizontal" do |f| %>
+    <%= yield f %>
+    <%= f.error_notification %>
 
-      <div class="form-group"></div>
-      <div class="form-inputs">
-        <%= f.input :batch_name, input_html: {class: "form-control"}, placeholder: "Bactch Name" %>
-      </div>
-      <div class="form-group"></div>
-      <div class="form-inputs">
-        <%= f.label :start_date, required: true %>
-        <%= f.text_field :start_date, class: "form-control", :placeholder => "dd-mm-yy" %>
-      </div>
-      <div class="form-group"></div>
-      <div class="form-inputs">
-        <%= f.label :end_date, required: true %>
-        <%= f.text_field :end_date, class: "form-control", :placeholder => "dd-mm-yy" %>
-      </div>
-
-      <div class="form-group"></div>
-
-      <div class="form-actions">
-        <%= f.button :submit, class: "btn btn-app" %>
-      </div>
-      
-      <div class="form-group"></div>
+    <div class="form-inputs">
+      <%= f.association :course, input_html: {class: "form-control"}, autofocus: true, prompt: "Choose a Course" %>
     </div>
-  </div>
-<% end %>
+
+    <div class="form-group"></div>
+    <div class="form-inputs">
+      <%= f.input :batch_name, input_html: {class: "form-control"}, placeholder: "Bactch Name" %>
+    </div>
+    <div class="form-group"></div>
+    <div class="form-inputs">
+      <%= f.label :start_date, required: true %>
+      <%= f.text_field :start_date, class: "form-control", :placeholder => "dd-mm-yy" %>
+    </div>
+    <div class="form-group"></div>
+    <div class="form-inputs">
+      <%= f.label :end_date, required: true %>
+      <%= f.text_field :end_date, class: "form-control", :placeholder => "dd-mm-yy" %>
+    </div>
+
+    <div class="form-group"></div>
+
+    <div class="form-actions">
+      <%= f.button :submit, class: "btn btn-primary" %>
+    </div>
+    
+    <div class="form-group"></div>
+  <% end %>
+</fieldset>
 

@@ -16,9 +16,9 @@
           <% @departments.each do |department| %>
             <tr>
               <td><%= department.name %></td>
-              <td><%= link_to 'View Details', department %></td>
-              <td><%= link_to 'Edit', edit_department_path(department) %></td>
-              <td><%= link_to 'Destroy', department, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to 'View Details', department, class: "btn btn-link" %></td>
+              <td><%= link_to 'Edit', edit_department_path(department), class: "btn btn-link" %></td>
+              <td><%= link_to 'Destroy', department, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %></td>
             </tr>
           <% end %>
         </tbody>
@@ -29,5 +29,5 @@
 
 <br>
 
-<%= link_to 'New Department', new_department_path, class: "btn btn-app" %>
+<%= link_to 'New Department', new_department_path, class: "btn btn-default btn-lg" %>
 

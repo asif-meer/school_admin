@@ -20,9 +20,9 @@
               <td><%= subject.batch %></td>
               <td><%= subject.course %></td>
               <td><%= subject.subject_name %></td>
-              <td><%= link_to 'View Details', subject %></td>
-              <td><%= link_to 'Edit', edit_subject_path(subject) %></td>
-              <td><%= link_to 'Destroy', subject, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to 'View Details', subject, class: "btn btn-link" %></td>
+              <td><%= link_to 'Edit', edit_subject_path(subject), class: "btn btn-link" %></td>
+              <td><%= link_to 'Destroy', subject, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %></td>
             </tr>
           <% end %>
         </tbody>
@@ -33,6 +33,6 @@
 
 <br>
 
-<%= link_to 'New Subject', new_subject_path, class: "btn btn-app" %>
+<%= link_to 'New Subject', new_subject_path, class: "btn btn-default btn-lg" %>
 
 

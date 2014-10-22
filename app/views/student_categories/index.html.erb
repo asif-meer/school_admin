@@ -16,9 +16,9 @@
           <% @student_categories.each do |student_category| %>
             <tr>
               <td><%= student_category.name %></td>
-              <td><%= link_to 'View Details', student_category %></td>
-              <td><%= link_to 'Edit', edit_student_category_path(student_category) %></td>
-              <td><%= link_to 'Destroy', student_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to 'View Details', student_category, class: "btn btn-link" %></td>
+              <td><%= link_to 'Edit', edit_student_category_path(student_category), class: "btn btn-link" %></td>
+              <td><%= link_to 'Destroy', student_category, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %></td>
             </tr>
           <% end %>
         </tbody>
@@ -29,6 +29,6 @@
 
 <br>
 
-<%= link_to 'New Student category', new_student_category_path, class: "btn btn-app" %>
+<%= link_to 'New Student category', new_student_category_path, class: "btn btn-default btn-lg" %>
 
 

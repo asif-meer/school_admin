@@ -18,9 +18,9 @@
             <tr>
               <td><%= subject_allocation.department %></td>
               <td><%= subject_allocation.employee %></td>
-              <td><%= link_to 'Show', subject_allocation %></td>
-              <td><%= link_to 'Edit', edit_subject_allocation_path(subject_allocation) %></td>
-              <td><%= link_to 'Destroy', subject_allocation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to 'View Details', subject_allocation, class: "btn btn-link" %></td>
+              <td><%= link_to 'Edit', edit_subject_allocation_path(subject_allocation), class: "btn btn-link" %></td>
+              <td><%= link_to 'Destroy', subject_allocation, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %></td>
             </tr>
           <% end %>
         </tbody>
@@ -31,6 +31,6 @@
 
 <br>
 
-<%= link_to 'New Subject allocation', new_subject_allocation_path, class: "btn btn-app" %>
+<%= link_to 'New Subject allocation', new_subject_allocation_path, class: "btn btn-default btn-lg" %>
 
 

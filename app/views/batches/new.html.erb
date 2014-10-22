@@ -1,5 +1,5 @@
-<h1>Create a new Batch</h1>
-
-<%= render 'form' %>
-
+<%= render :layout => 'form' do |f| %>
+  <legend><h1>Create a new Batch</h1></legend>
+<% end %>
 <%= link_to 'Back', batches_path %>
+
