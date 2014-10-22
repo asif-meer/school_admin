@@ -1,6 +1,8 @@
-<h1>Editing employee_position</h1>
 
-<%= render 'form' %>
+
+<%= render :layout => 'form' do |f| %>
+  <legend><h1>Editing employee_position</h1></legend>
+<% end %>
 
 <%= link_to 'Show', @employee_position %> |
 <%= link_to 'Back', employee_positions_path %>

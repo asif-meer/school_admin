@@ -1,6 +1,7 @@
 
 <%= simple_form_for(@student_category) do |f| %>
   <%= f.error_notification %>
+  <%= yield f %>
   <div class="row">
     <div class="col-sm-5">
       

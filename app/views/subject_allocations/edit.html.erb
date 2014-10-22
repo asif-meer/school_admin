@@ -1,6 +1,6 @@
-<h1>Editing subject_allocation</h1>
-
-<%= render 'form' %>
+<%= render :layout => 'form' do |f| %>
+  <legend><h1>Editing subject_allocation</h1></legend>
+<% end %>
 
 <%= link_to 'Show', @subject_allocation %> |
 <%= link_to 'Back', subject_allocations_path %>

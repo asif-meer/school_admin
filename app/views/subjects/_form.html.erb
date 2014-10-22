@@ -1,6 +1,6 @@
 <%= simple_form_for(@subject) do |f| %>
   <%= f.error_notification %>
-  
+  <%= yield f %>
   <div class="form-inputs">
     <%= f.association :course, input_html: {class: "form-control"}, autofocus: true, prompt: "Choose a Course" %>
   </div>

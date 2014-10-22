@@ -1,18 +1,20 @@
-<%= simple_form_for(@department) do |f| %>
-  <%= f.error_notification %>
-  
-      
-  <div class="form-inputs">
-    <%= f.input :name, input_html: {class: "form-control"}, placeholder: "Department Name" %>
-  </div>
-  <div class="form-group"></div>
-  
-  <div class="form-actions">
-    <%= f.button :submit, class: "btn btn-primary" %>
-  </div>
-  
-  <div class="form-group"></div>
+<fieldset>
+  <%= simple_form_for(@department) do |f| %>
+    <%= f.error_notification %>
+    <%= yield f %>
+        
+    <div class="form-inputs">
+      <%= f.input :name, input_html: {class: "form-control"}, placeholder: "Department Name" %>
+    </div>
+    <div class="form-group"></div>
     
-<% end %>
+    <div class="form-actions">
+      <%= f.button :submit, class: "btn btn-primary" %>
+    </div>
+    
+    <div class="form-group"></div>
+      
+  <% end %>
+</fieldset>
 
 

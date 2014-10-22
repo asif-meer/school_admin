@@ -1,5 +1,5 @@
-<h1>Allocate Subject</h1>
-
-<%= render 'form' %>
+<%= render :layout => 'form' do |f| %>
+  <legend><h1>Allocate Subject</h1></legend>
+<% end %>
 
 <%= link_to 'Back', subject_allocations_path %>

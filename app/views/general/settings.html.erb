@@ -1,7 +1,6 @@
-
 <%= simple_form_for(@user, url: school_update_path, :method => :post) do |f| %>
   <%= f.error_notification %>
-  <h2>Settings</h2>
+  <legend><h2>Settings</h2></legend>
   <div class="row">
     <div class="col-sm-12">
       <div class="form-inputs">
@@ -42,4 +41,5 @@
     </div>
   </div>
 <% end %>
+
 

@@ -1,7 +1,8 @@
-<h1>Editing department</h1>
-<div class="form-horizontal">
-  <%= render 'form' %>
 
-  <%= link_to 'Show', @department %> |
-  <%= link_to 'Back', departments_path %>
-</div>
+<%= render :layout => 'form' do |f| %>
+  <legend><h1>Editing department</h1></legend>
+<% end %>
+
+<%= link_to 'Show', @department %> |
+<%= link_to 'Back', departments_path %>
+
