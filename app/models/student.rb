@@ -18,6 +18,9 @@ class Student < ActiveRecord::Base
 
   has_many :emergency_contacts, :dependent => :destroy
   accepts_nested_attributes_for :emergency_contacts
+  belongs_to :course
+  belongs_to :batch
+  
   # validates_associated :emergency_contacts
 
   # File Upload
