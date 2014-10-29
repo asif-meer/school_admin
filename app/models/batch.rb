@@ -14,6 +14,7 @@
 class Batch < ActiveRecord::Base
   # associations
   belongs_to :course
+  has_many   :students
 
   # validations
   validates_presence_of :batch_name

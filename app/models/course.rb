@@ -15,6 +15,7 @@ class Course < ActiveRecord::Base
   # associations
   # belongs_to :user
   has_many   :batches
+  has_many   :students
 
   # validations
   # validates_presence_of :user

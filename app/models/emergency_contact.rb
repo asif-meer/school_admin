@@ -16,5 +16,5 @@ class EmergencyContact < ActiveRecord::Base
   # validations
   validates_presence_of :name
   validates_presence_of :phone
-  
+
 end

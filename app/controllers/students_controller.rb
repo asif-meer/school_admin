@@ -8,6 +8,8 @@ class StudentsController < ApplicationController
 
   def edit
     @student = Student.find(params[:id])
+    @courses = Course.all
+    @batches_all = []
   end
 
   def show
@@ -17,7 +19,8 @@ class StudentsController < ApplicationController
   def update
     @student = Student.find(params[:id])
     @student.emergency_contacts.destroy_all
-    if @student.update_attributes(student_params)
+    @student.update_attributes(student_params)
+    if @student.save
       flash[:notice] = "Student Successfully Updated"
       redirect_to student_path(@student)
     else
@@ -42,7 +45,7 @@ class StudentsController < ApplicationController
   private
 
   def student_params
-    params.require(:student).permit(:first_name, :last_name, :date_of_birth, :nic, :address, :gender, :avatar, emergency_contacts_attributes: [:name, :phone, :relationship])
+    params.require(:student).permit(:first_name, :last_name, :date_of_birth, :nic, :address, :gender, :avatar, :course_id, :batch_id, :joining_date, :general_register_number, :_destroy, emergency_contacts_attributes: [:name, :phone, :relationship])
   end
 
 end

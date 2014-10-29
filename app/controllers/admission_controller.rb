@@ -3,7 +3,19 @@ class AdmissionController < ApplicationController
 
   def new
     @student = Student.new
-    2.times { @student.emergency_contacts.build }
+
+    @courses = Course.all
+    @batches_all = []
+
+    2.times { @student.emergency_contacts.new }
+  end
+
+  def update_course
+    @course = Course.find(params[:course_id])
+    @batches = @course.batches
+    respond_to do |format|
+      format.js
+    end
   end
   
   def create
@@ -20,6 +32,6 @@ class AdmissionController < ApplicationController
   private
 
   def admission_params
-    params.require(:student).permit(:first_name, :last_name, :date_of_birth, :nic, :address, :gender, :avatar, emergency_contacts_attributes: [:name, :phone, :relationship])
+    params.require(:student).permit(:first_name, :last_name, :date_of_birth, :nic, :address, :gender, :avatar, :course_id, :batch_id, :joining_date, :general_register_number, emergency_contacts_attributes: [:name, :phone, :relationship])
   end
 end

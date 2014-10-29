@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   # get "admission" => "admission#index", as: :admissions
   get "/admission/new" => "admission#new", as: :new_admission
   post "/admission" => "admission#create"
+  get "/admission/update_course"
   # get "/admission/show/:id" => "admission#show", :as => :admission_detail
   # get "/admission/edit/:id" => "admission#edit", :as => :admission_edit
   # delete "/admission/destroy/:id" => "admission#destroy", :as => :delete_admission

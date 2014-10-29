@@ -16,6 +16,14 @@
     </div>
     <table class="table table-bordered table-hover">
       <tr>
+        <td><strong>Registraton Number: </strong></td>
+        <td><%= @student.general_register_number %></td>
+      </td>
+      <tr>
+        <td><strong>Joining Date: </strong></td>
+        <td><%= @student.joining_date.strftime("%d/%b/%Y") %></td>
+      </td>
+      <tr>
         <td><strong>First Name: </strong></td>
         <td><%= @student.first_name %></td>
       </td>
@@ -38,6 +46,14 @@
       <tr>
         <td><strong>Gender: </strong></td>
         <td><%= @student.gender %></td>
+      </tr>
+      <tr>
+        <td><strong>Course: </strong></td>
+        <td><%= @student.course unless @student.course.blank? %></td>
+      </tr>
+      <tr>
+        <td><strong>Batch: </strong></td>
+        <td><%= @student.batch unless @student.batch.blank? %></td>
       </tr>
     </table>
     <div class="panel-heading">
