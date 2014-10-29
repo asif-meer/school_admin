@@ -1,8 +1,5 @@
 <% if @batches %>
-  <%#= label_tag :batch %>
-  <%#= select_tag :batch_id, options_for_select(@batches.map{|m| [m.batch_name, m.id]}), class: "form-control", prompt: "--Select Batch--" %>
   <%= select("student", "batch_id", @batches.map{|m| [m.batch_name, m.id]}, { :prompt => "--Select a Course--"}, {class: "form-control"}) %>
 <% else %>
-  <%#= select_tag :batch_id, options_for_select(@batches_all.map{|m| [m.batch_name, m.id]}), class: "form-control", prompt: "--Select Batch--" %>
-  <%= select("student", "batch_id", @batches_all.map{|m| [m.batch_name, m.id]}, { :prompt => "--Select a Course--"}, {class: "form-control"}) %>
+  <%= select("student", "batch_id", [], { :prompt => "--Select a Course--"}, {class: "form-control"}) %>
 <% end %>

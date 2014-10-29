@@ -30,7 +30,11 @@ Rails.application.routes.draw do
   resources :departments
   resources :courses
   resources :batches
-  resources :subjects
+  resources :subjects do
+    collection do
+      get "update_course"
+    end
+  end
 
   # get "admission" => "admission#index", as: :admissions
   get "/admission/new" => "admission#new", as: :new_admission

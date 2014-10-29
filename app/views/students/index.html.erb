@@ -7,7 +7,9 @@
       <table class= "table table-striped table-bordered table-hover ">
         <thead >
           <tr>
-            <th class="col-sm-2">First name</th>
+            <th class="col-sm-1">Registeration Number</th>
+            <th>joining Date</th>
+            <th>First name</th>
             <th>Last Name</th>
             <th>Nic</th>
             <th>Birth Date</th>
@@ -20,6 +22,8 @@
         <tbody>
           <% @students.each do |student| %>
             <tr>
+              <td><%= student.general_register_number %></td>
+              <td><%= student.joining_date.strftime("%d/%b/%Y") %></td>
               <td><%= student.first_name %></td>
               <td><%= student.last_name %></td>
               <td><%= student.nic %></td>

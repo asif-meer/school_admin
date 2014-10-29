@@ -6,7 +6,7 @@
       <div class="form-group"></div>
       <h3> Student Information </h3>
       <div class="form-inputs">
-        <%= f.input :general_register_number, input_html: {class: "form-control"}, autofocus: true, placeholder: "General Register Number" %>
+        <%= f.input :general_register_number, input_html: {class: "form-control", :value => @student.increment_register_no}, autofocus: true, placeholder: "General Register Number", disabled: true %>
       </div>
       <div class="form-group"></div>
       <div class="form-inputs">
@@ -16,12 +16,13 @@
 
       <div class="form-group"></div>
       <div class="form-inputs">
-        <%= select("student", "course_id", @courses.map{|m| [m.course_name, m.id]}, { :prompt => "--Select a Course--"}, {class: "form-control"}) %>
+        <%= f.label :course_id %>
+        <%= select("student", "course_id", Course.all.map{|m| [m.course_name, m.id]}, { :prompt => "--Select a Course--"}, {class: "form-control"}) %>
       </div>
       <div class="form-group"></div>
       <div class="form-inputs">
+        <%= f.label :batch_id %>
         <div class="batches"> 
-          <%= f.label :batch %>
           <%= render :partial => 'batches_all', :f => p %>
         </div> 
       </div>

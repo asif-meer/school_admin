@@ -1,0 +1,5 @@
+<% if @batches %>
+  <%= select("subject", "batch_id", @batches.map{|m| [m.batch_name, m.id]}, { :prompt => "--Select a Course--"}, {class: "form-control"}) %>
+<% else %>
+  <%= select("subject", "batch_id", [], { :prompt => "--Select a Course--"}, {class: "form-control"}) %>
+<% end %>

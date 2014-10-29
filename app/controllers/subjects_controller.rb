@@ -37,6 +37,14 @@ class SubjectsController < ApplicationController
     end
   end
 
+  def update_course
+    @course = Course.find(params[:course_id])
+    @batches = @course.batches
+    respond_to do |format|
+      format.js
+    end
+  end
+  
   # PATCH/PUT /subjects/1
   # PATCH/PUT /subjects/1.json
   def update

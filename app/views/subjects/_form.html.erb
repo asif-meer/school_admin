@@ -2,12 +2,16 @@
   <%= f.error_notification %>
   <%= yield f %>
   <div class="form-inputs">
-    <%= f.association :course, input_html: {class: "form-control"}, autofocus: true, prompt: "Choose a Course" %>
+    <%= f.label :course_id %>
+    <%= select("subject", "course_id", Course.all.map{|m| [m.course_name, m.id]}, { :prompt => "--Select a Course--"}, {class: "form-control"}) %>
   </div>
 
   <div class="form-group"></div>
   <div class="form-inputs">
-    <%= f.association :batch, input_html: {class: "form-control"}, prompt: "Choose a Batch" %>
+    <%= f.label :batch_id %>
+    <div class="batches"> 
+      <%= render :partial => 'batches_all', :f => p %>
+    </div>
   </div>
   <div class="form-group"></div>
   <div class="form-inputs">
@@ -21,7 +25,6 @@
   </div>
   
   <div class="form-group"></div>
-    </div>
 <% end %>
 
 

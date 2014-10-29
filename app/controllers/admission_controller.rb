@@ -3,11 +3,9 @@ class AdmissionController < ApplicationController
 
   def new
     @student = Student.new
-
     @courses = Course.all
     @batches_all = []
-
-    2.times { @student.emergency_contacts.new }
+    2.times { @student.emergency_contacts.build }
   end
 
   def update_course
