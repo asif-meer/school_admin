@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141030114033) do
+ActiveRecord::Schema.define(version: 20141030134351) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -171,7 +171,7 @@ ActiveRecord::Schema.define(version: 20141030114033) do
     t.date     "joining_date"
     t.integer  "course_id"
     t.integer  "batch_id"
-    t.string   "nic"
+    t.integer  "nic"
   end
 
   create_table "subject_allocations", force: true do |t|
