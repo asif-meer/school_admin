@@ -1,3 +1,8 @@
+// import the CSS framework
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
 .dropdown-menu:before {
   position: absolute;
   top: -7px;
