@@ -15,8 +15,7 @@
 
 class Student < ActiveRecord::Base
   validates_presence_of :first_name, :last_name, :address, :nic, :gender,
-                        :course_id, :batch_id, :general_register_number,
-                        :joining_date, :date_of_birth
+                        :course_id, :batch_id, :joining_date, :date_of_birth
   validates_uniqueness_of :general_register_number
 
   has_many :emergency_contacts, :dependent => :destroy
@@ -40,4 +39,6 @@ class Student < ActiveRecord::Base
   def increment_register_no
       self.general_register_number = (self.class.last.nil?) ? "1000" : ((self.class.last.general_register_number.to_i) + 1).to_s
   end
+
+  
 end

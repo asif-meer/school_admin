@@ -19,8 +19,10 @@ Rails.application.routes.draw do
     
   end
   
-  resources :employee_attendence, only: [:index]
-  match "employee/:employee_id/attendence" => "employee_attendence#edit_attendence", :via => :get, as: :employee_attendence
+  match "attendences/employee_attendence" => "attendences#employee_attendence", via: :get, as: :employee_attendence
+  match "attendences/edit/:id" => "attendences#edit", via: :get, as: :emp_attendence_edit
+  match "attendences/update/:id" => "attendences#update", via: :post, as: :emp_attendence_update
+  # match "employee/:employee_id/attendence" => "employee_attendence#edit_attendence", :via => :get, as: :employee_attendence
 
   # match "edit_attendence/:id" => "employee_attendence#edit_attendence", :via => :get, as: :edit_attendence
   match "attendence/:id", to: "employee_attendence#attendence", :via => :post, as: :update_attendence

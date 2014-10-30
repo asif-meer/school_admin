@@ -27,10 +27,9 @@ class Employee < ActiveRecord::Base
   belongs_to :employee_position
 
   has_many :employee_attendences, :dependent => :destroy
-  # accepts_nested_attributes_for :employee_attendences 
+  accepts_nested_attributes_for :employee_attendences 
 
 
-  enum label: { present: 0, absent: 1, blank: 2}
   # validations
   validates_presence_of :employee_number,:first_name,:last_name
 
@@ -45,4 +44,23 @@ class Employee < ActiveRecord::Base
   def to_s
     "#{first_name} #{last_name}"
   end
+
+  def check_attendence?(dated)
+
+    if self.employee_attendences.present?
+      emp = self.employee_attendences.first
+      if emp.date > dated.to_date || emp.date < dated.to_date
+        "x"
+      else
+        if emp.Absent?
+          "A"
+        else
+          "P"
+        end
+      end
+    else
+      "x"
+    end
+  end
+
 end

@@ -4,10 +4,12 @@ class AddFiledsToStdents < ActiveRecord::Migration
     add_column :students, :joining_date, :date
     add_reference :students, :course
     add_reference :students, :batch
+    add_column :students, :nic, :string
   end
 
   def down
     remove_column :students, :course_id
     remove_column :students, :batch_id
+    remove_column :students, :nic
   end
 end
