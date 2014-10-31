@@ -58,11 +58,11 @@ fieldset {
   
   margin-top:0;
   margin-bottom: 20px !important;
-  //margin:0 auto;
-  //-webkit-box-shadow: 2px 1px 25px 9px rgba(0,0,0,0.75);
-  //-moz-box-shadow: 2px 1px 25px 9px rgba(0,0,0,0.75);
-  //box-shadow: 2px 1px 25px 9px rgba(0,0,0,0.75);
-  //width:96%;
+  margin:0 auto;
+  -webkit-box-shadow: 2px 1px 25px 9px rgba(0,0,0,0.75);
+  -moz-box-shadow: 2px 1px 25px 9px rgba(0,0,0,0.75);
+  box-shadow: 2px 1px 25px 9px rgba(0,0,0,0.75);
+  width:96%;
   padding-top: 22px;
   .main-height {
     min-height:50px;

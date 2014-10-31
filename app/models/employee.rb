@@ -46,9 +46,8 @@ class Employee < ActiveRecord::Base
   end
 
   def check_attendence?(dated)
-
     if self.employee_attendences.present?
-      emp = self.employee_attendences.first
+      emp = self.employee_attendences.last
       if emp.date > dated.to_date || emp.date < dated.to_date
         "x"
       else
@@ -63,4 +62,20 @@ class Employee < ActiveRecord::Base
     end
   end
 
+  # def set_atten
+  #   if self.employee_attendences.present?
+  #     emp = self.employee_attendences.first
+  #     if emp.date > dated.to_date || emp.date < dated.to_date
+  #       "x"
+  #     else
+  #       if emp.Absent?
+  #         "A"
+  #       else
+  #         "P"
+  #       end
+  #     end
+  #   else
+  #     "x"
+  #   end
+  # end
 end

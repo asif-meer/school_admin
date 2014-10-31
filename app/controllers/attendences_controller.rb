@@ -11,6 +11,7 @@ class AttendencesController < ApplicationController
 
   def update
     @employee = Employee.find(params[:id])
+    @employee.employee_attendences.destroy_all
     @employee.update_attributes(attendence_params)
     if @employee.save
       redirect_to employee_attendence_path
