@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'home/index'
+
+  match "/log/" => 'home#log', :via => [:post]
+  match "/logEvent/" => 'home#log_event', :via => [:post]
+  match "/logException/" => 'home#log_exception', :via => [:post]
+  # match "/events/" => 'home#events', :via => [:get]
+  match "/redis/" => 'home#redis', :via => [:get], :as => :redis
+
   resources :students do
     collection do
       post "remove_avatar/:id", to: "students#remove_avatar", as: :delete_avatar
@@ -52,7 +60,7 @@ Rails.application.routes.draw do
   match '/general/settings/update', to: 'school#update', :via => :post, as: :school_update
 
   ActiveAdmin.routes(self)
-  root to: 'visitors#index'
+  root to: 'home#index'
   devise_for :users
   resources :users
 end

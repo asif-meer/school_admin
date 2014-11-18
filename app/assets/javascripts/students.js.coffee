@@ -25,6 +25,9 @@ jQuery ->
     showOtherMonths: true
     dateFormat: "dd/mm/yy"
 
+jQuery ->
+  $("#students_datatable").dataTable()
+
   
 
   

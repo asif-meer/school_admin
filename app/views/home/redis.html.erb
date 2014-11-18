@@ -1,0 +1,32 @@
+<h4>Logs</h4>
+
+<table id="log-list" class="table table-striped log-list">
+  <thead>
+    <tr>
+      <td> Title </td>
+      <td> Details </td>
+      <td> Event Type </td>
+      <td> Occurred at </td>
+      <td> User </td>
+      <td> Level </td>
+      <td> Data 1 </td>
+      <td> Data 2 </td>
+      <td> Data 3 </td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @events.each do |value| %>
+      <tr>
+        <td> <%= value["title"] %> </td>
+        <td> <%= value["details"] %> </td>
+        <td> <%= value["event_type"] %> </td>
+        <td> <%= value["occurred_at"] %> </td>
+        <td> <%= value["user"].values_at('email')[0] if value["user"] %> </td>
+        <td> <%= value["level"] %> </td>
+        <td> <%= value["data1"] %> </td>
+        <td> <%= value["data2"] %> </td>
+        <td> <%= value["data3"] %> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

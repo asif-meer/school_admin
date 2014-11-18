@@ -19,7 +19,8 @@ gem "rolify", :git => "git://github.com/EppO/rolify.git"
 gem 'jquery-turbolinks'
 gem "paperclip", "~> 4.1"
 gem "jquery-ui-rails"
-
+gem 'redis', '2.1.1'
+gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
 
 group :development do
   gem 'better_errors'
