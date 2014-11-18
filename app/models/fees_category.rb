@@ -1,5 +1,6 @@
 class FeesCategory < ActiveRecord::Base
-
+  has_many :fees_particulars
+  
   def to_s
     name
   end

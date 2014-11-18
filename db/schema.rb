@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141030144505) do
+ActiveRecord::Schema.define(version: 20141118121031) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -108,6 +108,21 @@ ActiveRecord::Schema.define(version: 20141030144505) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "fees_particulars", force: true do |t|
+    t.integer  "fees_category_id"
+    t.string   "name"
+    t.text     "description"
+    t.boolean  "all",              default: false
+    t.string   "roll_no"
+    t.integer  "batch_id"
+    t.string   "amount"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "fees_particulars", ["batch_id"], name: "index_fees_particulars_on_batch_id"
+  add_index "fees_particulars", ["fees_category_id"], name: "index_fees_particulars_on_fees_category_id"
 
   create_table "fees_periods", force: true do |t|
     t.integer  "fees_category_id"

@@ -1,0 +1,163 @@
+<h2>Edit</h2>
+<fieldset>
+  <%= simple_form_for @fees_particular, class: "form-horizontal" do |f| %>
+    <%#= yield f %>
+    <%= f.error_notification %>
+
+    
+    <div class="form-inputs">
+      <%= f.label :fees_category_id %>
+      <%= f.text_field :fees_category_id, class: "form-control", value: @fees_particular.fees_category.name, autofocus: true, placeholder: "Category Name", disabled: true %>
+    </div>
+
+    <div class="form-group"></div>
+
+    <div class="form-inputs">
+      <%= f.input :name, input_html: {class: "form-control"}, autofocus: true, placeholder: "Particular Name" %>
+    </div>
+
+    <div class="form-group"></div>
+
+    <div class="form-inputs">
+      <%= f.input :description, input_html: {class: "form-control"}, placeholder: "Description" %>
+    </div>
+
+    <% if @fees_particular.all.present? %>
+      <div class="form-group"></div>
+
+      <%= hidden_field_tag 'fees_particular_id', nil, :value => @fees_particular.id %>
+      <div class="form-inputs">
+        <%= f.label :choose_types %>
+        <%= f.input :all, collection: [['All', true], ['Roll No', 2], ['Batches', 3]],:input_html => { :id => "choose-category",  :prompt => "--Choose any Type--", class: "form-control"} %>
+      </div>
+      <div id="fees_particular_all">
+        <div id="roll_no_particular">
+          <div class="form-group"></div>
+
+          <div class="form-inputs">
+            <%= f.input :roll_no, input_html: {class: "form-control"}, placeholder: "Roll No." %>
+          </div>
+        </div>
+
+        <div id="batches_particular">
+          <div class="form-group"></div>
+
+          <div class="form-inputs">
+            <%= f.grouped_collection_select(:batch_id, Course.order(:course_name), :batches, :course_name, :id, :batch_name, { :prompt => "--Select a Batch--"}, {class: "form-control"}) %>
+          </div>
+        </div>
+      </div>
+
+    <% elsif @fees_particular.roll_no.present? %>
+
+      <%= hidden_field_tag 'fees_particular_id', nil, :value => @fees_particular.id %>
+
+      <div class="form-group"></div>
+
+      <div class="form-inputs">
+        <%= f.label :choose_types %>
+        <%= f.input :all, collection: [['All', true], ['Roll No', 2], ['Batches', 3]],:input_html => { :id => "choose-category",  :prompt => "--Choose any Type--", class: "form-control"} %>
+      </div>
+
+      <div id="roll_no_particular">
+        <div class="form-group"></div>
+
+        <div class="form-inputs">
+          <%= f.input :roll_no, input_html: {class: "form-control"}, placeholder: "Roll No." %>
+        </div>
+      </div>
+
+      <div id="batches_particular">
+        <div class="form-group"></div>
+
+        <div class="form-inputs">
+          <%= f.grouped_collection_select(:batch_id, Course.order(:course_name), :batches, :course_name, :id, :batch_name, { :prompt => "--Select a Batch--"}, {class: "form-control"}) %>
+        </div>
+      </div>
+      <div class="edit_particular_field">
+        <div class="form-group"></div>
+
+        <div class="form-inputs">
+          <%= f.input :roll_no, input_html: {class: "form-control"}, placeholder: "Roll No." %>
+        </div>
+        <div class="form-group"></div>
+
+        <div class="form-inputs">
+          <%= f.grouped_collection_select(:batch_id, Course.order(:course_name), :batches, :course_name, :id, :batch_name, { :prompt => "--Select a Batch--"}, {class: "form-control"}) %>
+        </div>
+      </div>
+
+    <% elsif @fees_particular.batch.present? %>
+
+      <div class="form-group"></div>
+      <%= hidden_field_tag 'fees_particular_id', nil, :value => @fees_particular.id %>
+      <%= f.label :choose_types %>
+      <%= f.input :all, collection: [['All', true], ['Roll No', 2], ['Batches', 3]],:input_html => { :id => "choose-category",  :prompt => "--Choose any Type--", class: "form-control"} %>
+
+      
+      <div id="roll_no_particular">
+        <div class="form-group"></div>
+
+        <div class="form-inputs">
+          <%= f.input :roll_no, input_html: {class: "form-control"}, placeholder: "Roll No." %>
+        </div>
+      </div>
+
+      <div id="batches_particular">
+        <div class="form-group"></div>
+
+        <div class="form-inputs">
+          <%= f.grouped_collection_select(:batch_id, Course.order(:course_name), :batches, :course_name, :id, :batch_name, { :prompt => "--Select a Batch--"}, {class: "form-control"}) %>
+        </div>
+      </div>
+      
+      <div class="edit_particular_field">
+        <div class="form-group"></div>
+
+        <div class="form-inputs">
+          <%= f.grouped_collection_select(:batch_id, Course.order(:course_name), :batches, :course_name, :id, :batch_name, { :prompt => "--Select a Batch--"}, {class: "form-control"}) %>
+        </div>
+      </div>
+
+    <% else %>
+      <%= hidden_field_tag 'fees_particular_id', nil, :value => @fees_particular.id %>
+      <div class="form-inputs">
+        <%= f.label :choose_types %>
+        <%= f.input :all, collection: [['All', true], ['Roll No', 2], ['Batches', 3]],:input_html => { :id => "choose-category",  :prompt => "--Choose any Type--", class: "form-control"} %>
+      </div>
+
+      
+      <div id="roll_no_particular">
+        <div class="form-group"></div>
+
+        <div class="form-inputs">
+          <%= f.input :roll_no, input_html: {class: "form-control"}, placeholder: "Roll No." %>
+        </div>
+      </div>
+
+      <div id="batches_particular">
+        <div class="form-group"></div>
+
+        <div class="form-inputs">
+          <%= f.grouped_collection_select(:batch_id, Course.order(:course_name), :batches, :course_name, :id, :batch_name, { :prompt => "--Select a Batch--"}, {class: "form-control"}) %>
+        </div>
+      </div>
+
+
+    <% end %>
+
+    <div class="form-group"></div>
+
+    <div class="form-inputs">
+      <%= f.input :amount, input_html: {class: "form-control"}, placeholder: "Amount" %>
+    </div>
+
+    <div class="form-group"></div>
+
+    <div class="form-actions">
+      <%= f.button :submit, class: "btn btn-primary", id: :edit_fees_particular_submit %>
+    </div>
+    
+    <div class="form-group"></div>
+  <% end %>
+</fieldset>

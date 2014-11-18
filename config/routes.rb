@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
 
+  resources :fees_particulars, only: [:destroy, :edit, :update, :show] do
+    collection do
+      post "types"
+    end
+  end
+  resources :fees_categories
+  match 'fees_particulars/new/:id' => 'fees_particulars#new', :via => :get, as: :new_fees_particulars
+  match 'fees_particulars/create/:id' => 'fees_particulars#create', :via => :post, as: :create_fees_particulars
+  match 'fees_particulars/update/:id' => 'fees_particulars#update', :via => :post, as: :update_fees_particulars
   get 'home/index'
 
   match "/log/" => 'home#log', :via => [:post]

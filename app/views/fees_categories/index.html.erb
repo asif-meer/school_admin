@@ -1,0 +1,38 @@
+<h1>Fees Categories</h1>
+
+
+<div class="row">
+  <div class="col-sm-12">
+    <div class="table-responsive">
+      <table class= "table table-striped table-bordered table-hover ">
+        <thead >
+          <tr>
+            <th class="col-sm-2">Name</th>
+            <th>Description</th>
+            <th>Particular</th>
+            <th colspan="3" align="center">Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @fees_categories.each do |fees_category| %>
+            <tr>
+              <td><%= fees_category.name %></td>
+              <td><%= fees_category.description %></td>
+              <%= hidden_field_tag :fees_category_id, fees_category.id %>
+              <td><%= link_to 'Add<br />Particular'.html_safe, new_fees_particulars_path(fees_category), class: "btn btn-link", locals: {:fees_category => fees_category} %></td>
+              <td><%= link_to 'View Details', fees_category, class: "btn btn-link" %></td>
+              <td><%= link_to 'Edit', edit_fees_category_path(fees_category), class: "btn btn-link" %></td>
+              <td><%= link_to 'Destroy', fees_category, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<%= link_to 'New Category', new_fees_category_path, class: "btn btn-default btn-lg" %>
+

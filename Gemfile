@@ -22,6 +22,7 @@ gem "jquery-ui-rails"
 gem 'redis', '2.1.1'
 gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
 
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]
@@ -36,6 +37,7 @@ group :development do
   gem 'rb-inotify', :require=>false
   gem 'letter_opener'
   gem 'annotate', '~> 2.6.5'
+  gem 'debugger'
 end
 group :development, :test do
   gem 'factory_girl_rails'

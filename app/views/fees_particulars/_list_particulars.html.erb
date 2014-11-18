@@ -1,0 +1,44 @@
+<h1>Fees Particulars</h1>
+
+
+<div class="row">
+  <div class="col-sm-12">
+    <div class="table-responsive">
+      <table id="particulars_datatable" class= "table table-striped table-bordered table-hover ">
+        <thead >
+          <tr>
+            <th class="col-sm-1">Name</th>
+            <th class="col-sm-4">Description</th>
+            <th>Fees Category</th>
+            <th class="col-sm-1">All</th>
+            <th class="col-sm-1">Roll No:</th>
+            <th class="col-sm-1">Batch</th>
+            <th>Amount</th>
+            <th align="center">Actions</th>
+          </tr>
+        </thead>
+
+        <tbody class="datables">
+          <% @fees_particulars.each do |fees_particular| %>
+            <tr>
+              <td><%= fees_particular.name %></td>
+              <td><%= fees_particular.description %></td>
+              <td><%= fees_particular.fees_category.name %></td>
+              <td><%= fees_particular.all ? "All" : "-" %></td>
+              <td><%= fees_particular.roll_no? %></td>
+              <td><%= fees_particular.batch_name? %></td>
+              <td><%= fees_particular.amount %></td>
+              <!-- <td><%#= link_to 'View Details', fees_category, class: "btn btn-link" %></td>-->
+              <td>
+                <%= link_to 'Details', fees_particular, class: "btn btn-link" %> |
+                <%= link_to 'Destroy', fees_particular, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<br>

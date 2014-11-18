@@ -1,0 +1,21 @@
+<div class="panel panel-app">
+  <div class="panel-heading">
+    <h1>Fees Category Details</h1>
+  </div>
+  <div class="panel-body">
+    <table class="table table-bordered table-hover">
+      <tr>
+        <td><strong>Name: </strong></td>
+        <td><%= @fees_category.name %></td>
+      </td>
+      <tr>
+        <td><strong>Description: </strong></td>
+        <td><%= @fees_category.description %></td>
+      </tr>
+    </table>
+  </div>
+</div>
+ 
+<%= link_to 'Edit', edit_fees_category_path(@fees_category), class: "btn btn-link" %> |
+<%= link_to 'Back', fees_categories_path, class: "btn btn-link" %>
+

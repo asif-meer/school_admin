@@ -1,0 +1,49 @@
+<div class="panel panel-app">
+  <div class="panel-heading">
+    <h1>
+      <strong><%= @fees_particular.fees_category.name %>'s</strong> Particular Detail
+    </h1>
+  </div>
+  <div class="panel-body">
+    <table class="table table-bordered table-hover">
+      <tr>
+        <td><strong>Name: </strong></td>
+        <td><%= @fees_particular.name %></td>
+      </td>
+      <tr>
+        <td><strong>Description: </strong></td>
+        <td><%= @fees_particular.description %></td>
+      </tr>
+      <tr>
+        <td><strong>Type: </strong></td>
+        <td>
+          <%= @fees_particular.types? %>
+        </td>
+      </tr>
+      <% if @fees_particular.all %>
+        <tr>
+          <td><strong>All: </strong></td>
+          <td><%= @fees_particular.all ? "Yes" : "No" %></td>
+        </tr>
+      <% elsif @fees_particular.roll_no %>
+        <tr>
+          <td><strong>Roll No: </strong></td>
+          <td><%= @fees_particular.roll_no %></td>
+        </tr>
+        <tr>
+          <td><strong>Batch: </strong></td>
+          <td><%= @fees_particular.batch_name? %></td>
+        </tr>
+      <% elsif @fees_particular.batch.present? %>
+        <tr>
+          <td><strong>Batch: </strong></td>
+          <td><%= @fees_particular.batch_name? %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+ 
+<%= link_to 'Edit', edit_fees_particular_path(@fees_particular), class: "btn btn-link" %> |
+<%= link_to 'Back', new_fees_particulars_path(@fees_particular.fees_category.id), class: "btn btn-link" %>
+
