@@ -25,7 +25,7 @@
           <td><strong>All: </strong></td>
           <td><%= @fees_particular.all ? "Yes" : "No" %></td>
         </tr>
-      <% elsif @fees_particular.roll_no %>
+      <% elsif !@fees_particular.roll_no.blank? %>
         <tr>
           <td><strong>Roll No: </strong></td>
           <td><%= @fees_particular.roll_no %></td>
@@ -34,7 +34,7 @@
           <td><strong>Batch: </strong></td>
           <td><%= @fees_particular.batch_name? %></td>
         </tr>
-      <% elsif @fees_particular.batch.present? %>
+      <% elsif @fees_particular.roll_no.blank? %>
         <tr>
           <td><strong>Batch: </strong></td>
           <td><%= @fees_particular.batch_name? %></td>

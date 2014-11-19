@@ -1,0 +1,33 @@
+<div class="panel panel-app">
+  <div class="panel-heading">
+    <h1>Fees Period Detail</h1>
+  </div>
+  <div class="panel-body">
+    <table class="table table-bordered table-hover">
+      <tr>
+        <td><strong>Fees Category: </strong></td>
+        <td><%= @fees_period.fees_category.name unless @fees_period.fees_category.blank? %></td>
+      </td>
+      <tr>
+        <td><strong>Fees Particular: </strong></td>
+        <td><%= @fees_period.fees_particular.name unless @fees_period.fees_particular.blank? %></td>
+      </tr>
+      <tr>
+        <td><strong>Start Date: </strong></td>
+        <td><%= @fees_period.start_date.strftime("%d/%b/%Y") %></td>
+      </tr>
+      <tr>
+        <td><strong>End Date: </strong></td>
+        <td><%= @fees_period.end_date.strftime("%d/%b/%Y") %></td>
+      </tr>
+      <tr>
+        <td><strong>Due Date: </strong></td>
+        <td><%= @fees_period.end_date.strftime("%d/%b/%Y") %></td>
+      </tr>
+    </table>
+  </div>
+</div>
+ 
+<%= link_to 'Edit', edit_fees_period_path(@fees_period), class: "btn btn-link" %> |
+<%= link_to 'Back', fees_periods_path, class: "btn btn-link" %>
+

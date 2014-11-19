@@ -1,0 +1,7 @@
+<% if @fees_particulars %>
+  <%= select("fees_period", "fees_particular_id", @fees_particulars.map{|m| [m.name, m.id]}, { :prompt => "--Select a Fees Particular--"}, {class: "form-control"}) %>
+<% elsif @fees_particulars_edit %>
+  <%= select("fees_period", "fees_particular_id", @fees_particulars_edit.map{|m| [m.name, m.id]}, { :prompt => "--Select a Fees Category--"}, {class: "form-control"}) %>
+<% else %>
+  <%= select("fees_period", "fees_particular_id", [], { :prompt => "--Select a Fees Category--"}, {class: "form-control"}) %>
+<% end %>

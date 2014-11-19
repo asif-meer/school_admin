@@ -22,14 +22,16 @@
       <%= f.input :description, input_html: {class: "form-control"}, placeholder: "Description" %>
     </div>
 
-    <% if @fees_particular.all.present? %>
-      <div class="form-group"></div>
+    <div class="form-group"></div>
 
-      <%= hidden_field_tag 'fees_particular_id', nil, :value => @fees_particular.id %>
-      <div class="form-inputs">
-        <%= f.label :choose_types %>
-        <%= f.input :all, collection: [['All', true], ['Roll No', 2], ['Batches', 3]],:input_html => { :id => "choose-category",  :prompt => "--Choose any Type--", class: "form-control"} %>
-      </div>
+    <%= hidden_field_tag 'fees_particular_id', nil, :value => @fees_particular.id %>
+    <div class="form-inputs">
+      <%= f.label :choose_types %>
+      <%= f.input :all, collection: [['All', true], ['Roll No', 2], ['Batches', 3]],:input_html => { :id => "choose-category", class: "form-control"},  :prompt => "--Choose any Type--" %>
+    </div>
+    
+    <% if @fees_particular.all.present? %>
+      
       <div id="fees_particular_all">
         <div id="roll_no_particular">
           <div class="form-group"></div>
@@ -49,15 +51,6 @@
       </div>
 
     <% elsif @fees_particular.roll_no.present? %>
-
-      <%= hidden_field_tag 'fees_particular_id', nil, :value => @fees_particular.id %>
-
-      <div class="form-group"></div>
-
-      <div class="form-inputs">
-        <%= f.label :choose_types %>
-        <%= f.input :all, collection: [['All', true], ['Roll No', 2], ['Batches', 3]],:input_html => { :id => "choose-category",  :prompt => "--Choose any Type--", class: "form-control"} %>
-      </div>
 
       <div id="roll_no_particular">
         <div class="form-group"></div>
@@ -88,13 +81,6 @@
       </div>
 
     <% elsif @fees_particular.batch.present? %>
-
-      <div class="form-group"></div>
-      <%= hidden_field_tag 'fees_particular_id', nil, :value => @fees_particular.id %>
-      <%= f.label :choose_types %>
-      <%= f.input :all, collection: [['All', true], ['Roll No', 2], ['Batches', 3]],:input_html => { :id => "choose-category",  :prompt => "--Choose any Type--", class: "form-control"} %>
-
-      
       <div id="roll_no_particular">
         <div class="form-group"></div>
 
@@ -120,13 +106,6 @@
       </div>
 
     <% else %>
-      <%= hidden_field_tag 'fees_particular_id', nil, :value => @fees_particular.id %>
-      <div class="form-inputs">
-        <%= f.label :choose_types %>
-        <%= f.input :all, collection: [['All', true], ['Roll No', 2], ['Batches', 3]],:input_html => { :id => "choose-category",  :prompt => "--Choose any Type--", class: "form-control"} %>
-      </div>
-
-      
       <div id="roll_no_particular">
         <div class="form-group"></div>
 

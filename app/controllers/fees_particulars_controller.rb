@@ -1,9 +1,5 @@
 class FeesParticularsController < ApplicationController
 
-  def index
-    @fees_particulars = FeesParticular.all
-  end
-
   def new 
     @fees_particulars = FeesParticular.all
     @fees_category = FeesCategory.find(params[:id])
@@ -43,9 +39,6 @@ class FeesParticularsController < ApplicationController
     @fees_particular.batch_id = nil
     @fees_particular.roll_no = nil
     @fees_particular.save
-
-    # render nothing: false
-    # redirect_to new_fees_particulars_path(@fees_particular.fees_category.id) 
   end
 
   def destroy

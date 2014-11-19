@@ -2,6 +2,8 @@ $ ->
   $("#all_particular").hide()
   $("#roll_no_particular").hide()
   $("#batches_particular").hide()
+
+  # Dropdown, dynamic change of fields
   $("#fees_particular_all").change ->
     if $("#fees_particular_all").val() is "true"
       $("#roll_no_particular").hide()
@@ -27,6 +29,7 @@ $ ->
 jQuery ->
   $('#particulars_datatable').dataTable()
 
+  # Dropdown, when All is selected then others are removed
   $('#choose-category').change ->
     fees_particular_id = $("#fees_particular_id").val()
     if $("#choose-category").val() is "true"

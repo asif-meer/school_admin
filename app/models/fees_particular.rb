@@ -1,5 +1,6 @@
 class FeesParticular < ActiveRecord::Base
   belongs_to :fees_category
+  has_many :fees_periods
   belongs_to :batch
 
   def batch_name?
