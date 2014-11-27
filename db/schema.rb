@@ -125,13 +125,14 @@ ActiveRecord::Schema.define(version: 20141118230525) do
   add_index "fees_particulars", ["fees_category_id"], name: "index_fees_particulars_on_fees_category_id"
 
   create_table "fees_periods", force: true do |t|
+    t.integer  "fees_category_id"
+    t.integer  "batch_id"
     t.date     "start_date"
     t.date     "end_date"
     t.date     "due_date"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "fees_particular_id"
-    t.integer  "fees_category_id"
   end
 
   create_table "roles", force: true do |t|
@@ -174,6 +175,7 @@ ActiveRecord::Schema.define(version: 20141118230525) do
     t.string   "first_name"
     t.string   "last_name"
     t.date     "date_of_birth"
+    t.string   "nic"
     t.text     "address"
     t.string   "gender"
     t.datetime "created_at"
@@ -186,7 +188,6 @@ ActiveRecord::Schema.define(version: 20141118230525) do
     t.date     "joining_date"
     t.integer  "course_id"
     t.integer  "batch_id"
-    t.string   "nic"
   end
 
   create_table "subject_allocations", force: true do |t|
