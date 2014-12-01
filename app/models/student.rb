@@ -37,7 +37,7 @@ class Student < ActiveRecord::Base
   before_create :increment_register_no
 
   def increment_register_no
-      self.general_register_number = (self.class.last.nil?) ? "1000" : ((self.class.last.general_register_number.to_i) + 1).to_s
+    self.general_register_number = (self.class.last.nil?) ? "1" : ((self.class.last.general_register_number.to_i) + 1).to_s
   end
 
   

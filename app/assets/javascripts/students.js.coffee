@@ -28,6 +28,8 @@ jQuery ->
 jQuery ->
   $("#students_datatable").dataTable()
 
+  #$("#student_nic").mask('0000-000000-0')
+
   
 
   

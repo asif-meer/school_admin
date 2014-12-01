@@ -8,6 +8,8 @@ class StudentsController < ApplicationController
 
   def edit
     @student = Student.find(params[:id])
+    @course_edit = @student.course
+    @batches_edit = @course_edit.batches
     @courses = Course.all
     @batches_all = []
   end

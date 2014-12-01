@@ -11,4 +11,8 @@
 class StudentCategory < ActiveRecord::Base
   # validations
   validates_presence_of :name
+
+  def self.find_or_create(attributes)
+    StudentCategory.where(attributes).first || StudentCategory.create(attributes)
+  end
 end

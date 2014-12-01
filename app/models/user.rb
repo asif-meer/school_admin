@@ -47,7 +47,7 @@ class User < ActiveRecord::Base
     User.where(attributes).first || User.create(attributes)
   end
   
-  def admin?
-    self.has_role? :admin
+  def super_admin?
+    self.has_role? :superadmin
   end
 end

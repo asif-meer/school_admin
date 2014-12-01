@@ -68,6 +68,10 @@ fieldset {
     min-height:50px;
   }
 
+  @media(max-width:767px) {
+    margin-top:40px;
+  }
+
   main {
     //background-color: #eee;
     //width: 90%;
@@ -135,7 +139,7 @@ footer {
 
 //Media
 
-@media(max-width:480px) {
+/*@media(max-width:480px) {
   #bottom main {
     padding:0px 20px 0px 20px;
     p {
@@ -173,7 +177,7 @@ footer {
       }
     }
   }
-}
+}*/
 
 
 //Horizontol Line 
@@ -198,5 +202,6 @@ address {
 .datables {
   a {
     padding:0px;
+    font-size: 13px;
   }
 }

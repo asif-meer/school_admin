@@ -17,5 +17,6 @@
 //= require dataTables/jquery.dataTables
 //= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
 //= require turbolinks
+//= require maskedinput
 //= require bootstrap-sprockets
 //= require_tree .

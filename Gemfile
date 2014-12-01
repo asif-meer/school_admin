@@ -21,6 +21,7 @@ gem "paperclip", "~> 4.1"
 gem "jquery-ui-rails"
 gem 'redis', '2.1.1'
 gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
+gem 'maskedinput-rails'
 
 
 group :development do

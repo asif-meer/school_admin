@@ -66,13 +66,13 @@ class ApplicationController < ActionController::Base
   end
 
   def current_admin_user
-    return nil if user_signed_in? && !current_user.admin?
+    return nil if user_signed_in? && !current_user.super_admin?
     current_user
   end
 
   def after_sign_in_path_for(resource_or_scope)
     if resource_or_scope.is_a?(User)
-      if resource_or_scope.admin?
+      if resource_or_scope.super_admin?
         admin_dashboard_path
       else
         root_path

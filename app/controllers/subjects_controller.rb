@@ -19,6 +19,8 @@ class SubjectsController < ApplicationController
 
   # GET /subjects/1/edit
   def edit
+    @course_edit = @subject.course
+    @batches_edit = @course_edit.batches
   end
 
   # POST /subjects

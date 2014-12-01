@@ -22,4 +22,8 @@ class Subject < ActiveRecord::Base
   def to_s
     subject_name
   end
+
+  def self.find_or_create(attributes)
+    Subject.where(attributes).first || Subject.create(attributes)
+  end
 end
