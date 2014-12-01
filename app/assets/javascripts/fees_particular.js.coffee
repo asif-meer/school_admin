@@ -51,12 +51,25 @@ jQuery ->
       $("#fees_particular_roll_no").val('')
       $("#fees_particular_batch_id").val('')
       $(".edit_particular_field").hide()
+      $.ajax
+        type: "POST"
+        url: "/fees_particulars/types"
+        data: "id=" + fees_particular_id
+        success: ->
+          #alert 'success'
     else if $("#choose-category").val() is "3"
       $("#batches_particular").show()
+      $("#fees_particular_roll_no").val('')
       $("#fees_particular_batch_id").val('')
       $("#all_particular").hide()
       $("#roll_no_particular").hide()
       $(".edit_particular_field").hide()
+      $.ajax
+        type: "POST"
+        url: "/fees_particulars/types"
+        data: "id=" + fees_particular_id
+        success: ->
+          #alert 'success'
     return
 
   return
