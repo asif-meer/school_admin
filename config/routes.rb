@@ -6,7 +6,11 @@ Rails.application.routes.draw do
       post "types"
     end
   end
-  resources :fees_categories
+  resources :fees_categories do
+    collection do
+      get "fees_index"
+    end
+  end
   resources :fees_periods do
     collection do
       get "update_fees_particulars"
@@ -31,6 +35,7 @@ Rails.application.routes.draw do
   resources :students do
     collection do
       post "remove_avatar/:id", to: "students#remove_avatar", as: :delete_avatar
+      get "admissions"
     end
   end
   
@@ -39,13 +44,14 @@ Rails.application.routes.draw do
   resources :subjects do
     collection do
       get "update_course"
+      get "list"
     end
   end
   resources :student_categories
 
   # Visitors
-  get "visitors/contact_us", to: "visitors#contact_us"
-  get "visitors/about_us", to: "visitors#about_us"
+  # get "visitors/contact_us", to: "visitors#contact_us"
+  # get "visitors/about_us", to: "visitors#about_us"
   
 
   # Employee Attendance
@@ -62,6 +68,7 @@ Rails.application.routes.draw do
   resources :employees do
     collection do
       post "remove_avatar/:id", to: "employees#remove_avatar", as: :delete_avatar
+      get "human_resources"
     end
     
   end
@@ -90,7 +97,27 @@ Rails.application.routes.draw do
   match '/general/settings/update', to: 'school#update', :via => :post, as: :school_update
 
   ActiveAdmin.routes(self)
-  root to: 'home#index'
-  devise_for :users
+  authenticated :user do
+    root :to => "home#index"
+  end
+  unauthenticated :user do
+    devise_scope :user do 
+      get "/" => "devise/sessions#new"
+    end
+  end
+
+  devise_scope :user do
+
+  end
+  # root to: 'devise/sessions#new '
+  devise_for :users, :controllers => { :registrations => "registrations" } 
   resources :users
 end
+
+
+# For Production Enviroment
+# if Rails.env.production?
+#   devise_for :users, :controllers => { :registrations => "registrations" } 
+# else
+#   devise_for :users
+# end

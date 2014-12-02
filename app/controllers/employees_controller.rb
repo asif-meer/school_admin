@@ -1,8 +1,14 @@
 class EmployeesController < InheritedResources::Base
   before_filter :authenticate_user!
   
+  def human_resources
+    add_breadcrumb "Human Resources"
+  end
+
   def index
     @employees = Employee.all
+    add_breadcrumb "Human Resources", human_resources_employees_path
+    add_breadcrumb "Employees"
   end
 
   def attendance
@@ -11,14 +17,26 @@ class EmployeesController < InheritedResources::Base
 
   def new
     @employee = Employee.new
+
+    add_breadcrumb "Human Resources", human_resources_employees_path
+    add_breadcrumb "Employees", employees_path
+    add_breadcrumb "New Employee"
   end
 
   def edit
     @employee = Employee.find(params[:id])
+
+    add_breadcrumb "Human Resources", human_resources_employees_path
+    add_breadcrumb "Employees", employees_path
+    add_breadcrumb "Edit Employee Informations"
   end
 
   def show
     @employee = Employee.find(params[:id])
+
+    add_breadcrumb "Human Resources", human_resources_employees_path
+    add_breadcrumb "Employees", employees_path
+    add_breadcrumb "Details"
   end
 
   def create

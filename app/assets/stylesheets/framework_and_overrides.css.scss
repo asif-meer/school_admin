@@ -1,7 +1,7 @@
 .dropdown-menu:before {
   position: absolute;
   top: -7px;
-  left: 9px;
+  left: 138px;
   display: inline-block;
   border-right: 7px solid transparent;
   border-bottom: 7px solid #ccc;
@@ -13,7 +13,7 @@
 .dropdown-menu:after {
   position: absolute;
   top: -6px;
-  left: 10px;
+  left: 138px;
   display: inline-block;
   border-right: 6px solid transparent;
   border-bottom: 6px solid #ffffff;
@@ -21,13 +21,25 @@
   content: '';
 }
 
+.nav > li > a:hover, .nav > li > a:focus {
+  background-color: rgba(55, 213, 250, 0.46) !important;
+  border-radius: 8px !important;
+}
+
 .dropdown-menu {
   border-radius:7px 7px 7px 7px !important;
 }
-
+.navbar-brand {
+  color: #fff !important;
+}
+.navbar-nav > li {
+    a {
+      color: #fff !important;
+    }
+}
 .alert {
-  margin: 16px 24px 0px 24px;
-  padding: 8px;
+  margin: 32px 44px 0px !important;
+  padding: 7px 23px 7px 23px !important;
 }
 
 @media(max-width:767px) {

@@ -9,6 +9,8 @@ Bundler.require(*Rails.groups)
 module SchoolAdmin
   class Application < Rails::Application
 
+     config.assets.precompile = config.assets.precompile + %w(*.png *.jpg *.jpeg *.gif *.woff *.ttf *.svg *.eot)
+    
     config.generators do |g|
       g.test_framework :rspec,
         fixtures: true,

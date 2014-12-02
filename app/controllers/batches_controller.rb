@@ -1,24 +1,33 @@
 class BatchesController < ApplicationController
   before_action :set_batch, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
+  
   # GET /batches
   # GET /batches.json
   def index
     @batches = Batch.all
+    add_breadcrumb "Batches"
   end
 
   # GET /batches/1
   # GET /batches/1.json
   def show
+    add_breadcrumb "Batches", batches_url
+    add_breadcrumb "Details"
+    
   end
 
   # GET /batches/new
   def new
     @batch = Batch.new
+    add_breadcrumb "Batches", batches_url
+    add_breadcrumb "New Batch"
   end
 
   # GET /batches/1/edit
   def edit
+    add_breadcrumb "Batches", batches_url
+    add_breadcrumb "Edit Batch"
   end
 
   # POST /batches
@@ -65,6 +74,8 @@ class BatchesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_batch
       @batch = Batch.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+      redirect_to batches_url, :flash => { :error => "Record not found." }
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

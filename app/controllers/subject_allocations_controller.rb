@@ -1,24 +1,37 @@
 class SubjectAllocationsController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_subject_allocation, only: [:show, :edit, :update, :destroy]
-
+  # add_breadcrumb "Dashboard", :root_path, :options => { :title => "Home" }
   # GET /subject_allocations
   # GET /subject_allocations.json
   def index
     @subject_allocations = SubjectAllocation.all
+    add_breadcrumb "Subjects Design", subjects_path
+    add_breadcrumb "Subjects Allocation", subject_allocations_path
   end
 
   # GET /subject_allocations/1
   # GET /subject_allocations/1.json
   def show
+    add_breadcrumb "Subjects Design", subjects_path, :title => "Back to the Index"
+    add_breadcrumb "Subjects Allocation", subject_allocations_path
+    add_breadcrumb "Details"
   end
 
   # GET /subject_allocations/new
   def new
     @subject_allocation = SubjectAllocation.new
+
+    add_breadcrumb "Subjects Design", subjects_path, :title => "Back to the Index"
+    add_breadcrumb "Subjects Allocation", subject_allocations_path
+    add_breadcrumb "New Subject Allocation"
   end
 
   # GET /subject_allocations/1/edit
   def edit
+    add_breadcrumb "Subjects Design", subjects_path, :title => "Back to the Index"
+    add_breadcrumb "Subjects Allocation", subject_allocations_path
+    add_breadcrumb "Edit Subject Allocation"
   end
 
   # POST /subject_allocations

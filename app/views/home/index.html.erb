@@ -1,19 +1,76 @@
-<div class="index">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="our-mission">
-        <%#= render "index_carousel" %>
-        <h1><b>Our Policy</b></h1>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p><br />
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p><br />
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+<div class="container">
+  <div id="dashboard">
+    <div id="upar">
+      <h4>Welcome Admin!</h4>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="col-md-2 dashboard-width">
+          <div class="course dashboard-icon">
+            <%= link_to image_tag("course.png"), {:action => 'index', :controller => 'courses'} %>
+            <br />
+            Courses
+          </div>
+        </div>
+        <div class="col-md-2 dashboard-width">
+          <div class="batches dashboard-icon">
+            <%= link_to image_tag("batches.png"), {:action => 'index', :controller => 'batches'} %>
+            <br />
+            Batches
+          </div>
+        </div>
+        <div class="col-md-2 dashboard-width">
+          <div class="subjects dashboard-icon">
+            <%= link_to image_tag("subjects.png"), {:action => 'index', :controller => 'subjects'} %>
+            <br />
+            Subjects
+          </div>
+        </div>
+        <div class="col-md-2 dashboard-width">
+          <div class="employees dashboard-icon">
+            <%= link_to image_tag("employees2.png"), human_resources_employees_path %>
+            <br />
+            Human Resources
+          </div>
+        </div>
+        <div class="col-md-2 dashboard-width">
+          <div class="departments dashboard-icon">
+            <%= link_to image_tag("departments.png"), {:action => 'index', :controller => 'departments'} %>
+            <br />
+            Departments
+          </div>
+        </div>
       </div>
-      <div class="our-mission2">
-        <h1><b>Our Policy</b></h1>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p><br />
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p><br />
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="lower">
+          <div class="col-sm-3 lower-width"></div>
+          <div class="col-md-2 dashboard-width">
+            <div class="students dashboard-icon">
+              <%= link_to image_tag("students.png"), {:action => 'admissions', :controller => 'students'} %>
+              <br />
+              Students
+            </div>
+          </div>
+          <div class="col-md-2 dashboard-width">
+            <div class="fees dashboard-icon">
+              <%= link_to image_tag("fees.png"), {:action => 'fees_index', :controller => 'fees_categories'} %>
+              <br />
+              Fees
+            </div>
+          </div>
+          <div class="col-md-2 dashboard-width">
+            <div class="settings dashboard-icon">
+              <%= link_to image_tag("settings.png"), {:action => 'settings', :controller => 'general'} %>
+              <br />
+              Settings
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+

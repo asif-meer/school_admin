@@ -1,26 +1,45 @@
 class SubjectsController < ApplicationController
   before_action :set_subject, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
+  # add_breadcrumb "Dashboard", :root_path, :options => { :title => "Home" }
   # GET /subjects
   # GET /subjects.json
+
   def index
+    add_breadcrumb "Subjects Design", subjects_path, :title => "Back to the Index"
+  end
+
+  def list
     @subjects = Subject.all
+    add_breadcrumb "Subjects Design", subjects_path, :title => "Back to the Index"
+    add_breadcrumb "Subjects", list_subjects_path, :title => "Back to the Index"
   end
 
   # GET /subjects/1
   # GET /subjects/1.json
   def show
+    add_breadcrumb "Subjects Design", subjects_path, :title => "Back to the Index"
+    add_breadcrumb "Subjects", list_subjects_path
+    add_breadcrumb "Details"
   end
 
   # GET /subjects/new
   def new
     @subject = Subject.new
+
+    add_breadcrumb "Subjects Design", subjects_path, :title => "Back to the Index"
+    add_breadcrumb "Subjects", list_subjects_path
+    add_breadcrumb "New Subject"
   end
 
   # GET /subjects/1/edit
   def edit
     @course_edit = @subject.course
     @batches_edit = @course_edit.batches
+
+    add_breadcrumb "Subjects Design", subjects_path, :title => "Back to the Index"
+    add_breadcrumb "Subjects", list_subjects_path
+    add_breadcrumb "Edit Subject"
   end
 
   # POST /subjects
@@ -66,7 +85,7 @@ class SubjectsController < ApplicationController
   def destroy
     @subject.destroy
     respond_to do |format|
-      format.html { redirect_to subjects_url, notice: 'Subject was successfully destroyed.' }
+      format.html { redirect_to list_subjects_path, notice: 'Subject was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

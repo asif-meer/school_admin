@@ -1,38 +1,12 @@
-<h1>Subjects</h1>
-
-
 <div class="row">
-  <div class="col-sm-12">
-    <div class="table-responsive">
-      <table class= "table table-striped table-bordered table-hover ">
-        <thead >
-          <tr>
-            <th class="col-sm-2">Batch</th>
-            <th>Course</th>
-            <th>Subject Name</th>
-            <th colspan="3" align="center">Actions</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <% @subjects.each do |subject| %>
-            <tr>
-              <td><%= subject.batch %></td>
-              <td><%= subject.course %></td>
-              <td><%= subject.subject_name %></td>
-              <td><%= link_to 'View Details', subject, class: "btn btn-link" %></td>
-              <td><%= link_to 'Edit', edit_subject_path(subject), class: "btn btn-link" %></td>
-              <td><%= link_to 'Destroy', subject, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-  </div>
+	<div class="col-sm-3">
+		<h1>
+			<%= link_to "Subjects", list_subjects_path %>
+		</h1>
+	</div>
+	<div class="col-sm-4">
+		<h1>
+			<%= link_to "Subjects Allocations", subject_allocations_path %>
+		</h1>
+	</div>
 </div>
-
-<br>
-
-<%= link_to 'New Subject', new_subject_path, class: "btn btn-default btn-lg" %>
-
-

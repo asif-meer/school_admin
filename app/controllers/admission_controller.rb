@@ -6,6 +6,10 @@ class AdmissionController < ApplicationController
     @courses = Course.all
     @batches_all = []
     2.times { @student.emergency_contacts.build }
+
+    add_breadcrumb "Admissions", admissions_students_path
+    add_breadcrumb "Admissions list", students_path
+    add_breadcrumb "New Admission"
   end
 
   def update_course

@@ -6,20 +6,27 @@ class CoursesController < ApplicationController
   # GET /courses.json
   def index
     @courses = Course.all
+    add_breadcrumb "Course"
   end
 
   # GET /courses/1
   # GET /courses/1.json
   def show
+    add_breadcrumb "Courses", courses_url
+    add_breadcrumb "Details"
   end
 
   # GET /courses/new
   def new
     @course = Course.new
+    add_breadcrumb "Courses", courses_url
+    add_breadcrumb "New Course"
   end
 
   # GET /courses/1/edit
   def edit
+    add_breadcrumb "Courses", courses_url
+    add_breadcrumb "Edit Course"
   end
 
   # POST /courses
@@ -66,6 +73,8 @@ class CoursesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_course
       @course = Course.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+      redirect_to courses_url, :flash => { :error => "Record not found." }
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

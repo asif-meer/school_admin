@@ -17,13 +17,16 @@
     <header>
       <%= render 'layouts/navigation' %>
     </header>
-    <div id="bottom">
-        <%= render 'layouts/messages' %>
-        <main role="main">
-          <%= yield %>
-        </main>
-       <div class="main-height"></div>
-       <footer>
+
+    <div class="container">
+      
+      <%= render 'layouts/messages' %>
+      <main role="main">
+        <%= render 'layouts/breadcrumbs' %>
+        <%= yield %>
+      </main>
+      <div class="main-height"></div>
+      <footer>
         <%= render 'layouts/footer' %>
       </footer>
     </div>

@@ -1,18 +1,34 @@
 class FeesParticularsController < ApplicationController
+  before_filter :authenticate_user!
 
+  
   def new 
     @fees_particulars = FeesParticular.all
     @fees_category = FeesCategory.find(params[:id])
     @fees_particular = @fees_category.fees_particulars.build
+
+    add_breadcrumb "Fees", fees_index_fees_categories_path
+    add_breadcrumb "Fees Categories", fees_categories_url
+    add_breadcrumb "Fees particular"
   end
 
   def edit
     @fees_particular = FeesParticular.find(params[:id])
+
+    add_breadcrumb "Fees", fees_index_fees_categories_path
+    add_breadcrumb "Fees Categories", fees_categories_url
+    add_breadcrumb "Fees Particulars", new_fees_particulars_url
+    add_breadcrumb "Edit Fees particular"
   end
 
   def show
     # @fees_category = FeesCategory.find(params[:id])
     @fees_particular = FeesParticular.find(params[:id])
+
+    add_breadcrumb "Fees", fees_index_fees_categories_path
+    add_breadcrumb "Fees Categories", fees_categories_url
+    add_breadcrumb "Fees Particulars", new_fees_particulars_url
+    add_breadcrumb "Details"
   end
 
   def create

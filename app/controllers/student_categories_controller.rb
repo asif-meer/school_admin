@@ -3,18 +3,26 @@ class StudentCategoriesController < InheritedResources::Base
   
   def index
     @student_categories = StudentCategory.all
+    add_breadcrumb "Admissions", admissions_students_path
+    add_breadcrumb "Student categories"
   end
 
   def new
     @student_category = StudentCategory.new
+    add_breadcrumb "Student categories", student_categories_url
+    add_breadcrumb "New Category"
   end
 
   def edit
     @student_category = StudentCategory.find(params[:id])
+    add_breadcrumb "Student categories", student_categories_url
+    add_breadcrumb "Edit Category"
   end
 
   def show
     @student_category = StudentCategory.find(params[:id])
+    add_breadcrumb "Student categories", student_categories_url
+    add_breadcrumb "Details"
   end
 
   def create

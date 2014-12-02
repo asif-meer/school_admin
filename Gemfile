@@ -10,6 +10,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'bootstrap-sass'
+# gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'devise'
 gem 'devise_invitable'
 gem 'simple_form'
@@ -22,6 +23,8 @@ gem "jquery-ui-rails"
 gem 'redis', '2.1.1'
 gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
 gem 'maskedinput-rails'
+gem "breadcrumbs_on_rails"
+
 
 
 group :development do

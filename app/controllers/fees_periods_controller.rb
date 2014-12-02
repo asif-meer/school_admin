@@ -1,11 +1,16 @@
 class FeesPeriodsController < ApplicationController
-
+  before_filter :authenticate_user!
+  
   def index
     @fees_periods = FeesPeriod.all
+    add_breadcrumb "Fees", fees_index_fees_categories_path
+    add_breadcrumb "Fees Periods"
   end
 
   def new
     @fees_period = FeesPeriod.new
+    add_breadcrumb "Fees Periods", fees_periods_path
+    add_breadcrumb "New Fees Period"
   end
 
   def update_fees_particulars
@@ -20,10 +25,14 @@ class FeesPeriodsController < ApplicationController
     @fees_period = FeesPeriod.find(params[:id])
     @fees_category_edit = @fees_period.fees_category
     @fees_particulars_edit = @fees_category_edit.fees_particulars
+    add_breadcrumb "Fees Periods", fees_periods_path
+    add_breadcrumb "Edit Fees Period"
   end
 
   def show
     @fees_period = FeesPeriod.find(params[:id])
+    add_breadcrumb "Fees Periods", fees_periods_path
+    add_breadcrumb "Details"
   end
 
   def create

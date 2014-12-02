@@ -1,9 +1,16 @@
 class StudentsController < ApplicationController
   before_filter :authenticate_user!
 
+  def admissions
+    add_breadcrumb "Admissions"
+  end
+
   def index
     # @TODO display students after the user select course and batch.
     @students = Student.all
+
+    add_breadcrumb "Admissions", admissions_students_path
+    add_breadcrumb "Admissions list"
   end
 
   def edit
@@ -12,10 +19,18 @@ class StudentsController < ApplicationController
     @batches_edit = @course_edit.batches
     @courses = Course.all
     @batches_all = []
+
+    add_breadcrumb "Admissions", admissions_students_path
+    add_breadcrumb "Admissions list", students_path
+    add_breadcrumb "Edit Student Information"
   end
 
   def show
     @student = Student.find(params[:id])
+
+    add_breadcrumb "Admissions", admissions_students_path
+    add_breadcrumb "Admissions list", students_path
+    add_breadcrumb "Details"
   end
 
   def update

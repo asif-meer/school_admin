@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_filter :log_controller_event
+  add_breadcrumb "Dashboard", :root_path, :options => { :title => "Home" }
   # before_filter :log_controller_error
 
   def authenticate_admin_user!
@@ -14,7 +15,7 @@ class ApplicationController < ActionController::Base
       redirect_to root_path
     end
   end
-   
+
   def log_controller_event
     return if params[:controller].include? "admin"
     # e = Event.new(
@@ -81,5 +82,6 @@ class ApplicationController < ActionController::Base
       super
     end
   end
+
 
 end

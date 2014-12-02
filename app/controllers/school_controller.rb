@@ -1,4 +1,6 @@
 class SchoolController < ApplicationController
+  before_filter :authenticate_user!
+  
   def update
     @user = User.find(current_user)
     @user.update_attributes(school_params)

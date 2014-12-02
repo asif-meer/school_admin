@@ -1,11 +1,23 @@
 class FeesCategoriesController < ApplicationController
+  before_filter :authenticate_user!
+
   
+  def fees_index
+    add_breadcrumb "Fees"
+  end
+
   def index
     @fees_categories = FeesCategory.all
+    add_breadcrumb "Fees", fees_index_fees_categories_path
+    add_breadcrumb "Fees Categories"
   end
 
   def new
     @fees_category = FeesCategory.new
+
+    add_breadcrumb "Fees", fees_index_fees_categories_path
+    add_breadcrumb "Fees Categories", fees_categories_path
+    add_breadcrumb "New Fees Category"
   end
 
   def fees_particulars
@@ -25,10 +37,18 @@ class FeesCategoriesController < ApplicationController
 
   def edit
     @fees_category = FeesCategory.find(params[:id])
+
+    add_breadcrumb "Fees", fees_index_fees_categories_path
+    add_breadcrumb "Fees Categories", fees_categories_path
+    add_breadcrumb "Edit Fees Category"
   end
 
   def show
     @fees_category = FeesCategory.find(params[:id])
+
+    add_breadcrumb "Fees", fees_index_fees_categories_path
+    add_breadcrumb "Fees Categories", fees_categories_path
+    add_breadcrumb "Details"
   end
 
   def create
