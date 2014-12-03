@@ -19,8 +19,9 @@
     </header>
 
     <div class="container">
-      
-      <%= render 'layouts/messages' %>
+      <div id="notice">
+        <%= render 'layouts/messages' %>
+      </div>
       <main role="main">
         <%= render 'layouts/breadcrumbs' %>
         <%= yield %>

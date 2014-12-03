@@ -65,17 +65,31 @@ class BatchesController < ApplicationController
   def destroy
     @batch.destroy
     respond_to do |format|
-      format.html { redirect_to batches_url, notice: 'Batch was successfully destroyed.' }
+      format.html { redirect_to batches_url }
+      flash.now[:notice] = "Batch was successfully destroyed."
       format.json { head :no_content }
+      format.js   { render :layout => false }
+    end
+  end
+
+  def destroy_multiple
+    Batch.destroy(params[:batch_destroy_id])
+    flash[:notice] = "Batches were successfully destroyed."
+    respond_to do |format|
+      format.html { redirect_to batches_url }
+      format.json { head :no_content }
+      format.js   { render :layout => false }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_batch
-      @batch = Batch.find(params[:id])
+      begin
+        @batch = Batch.find(params[:id])
       rescue ActiveRecord::RecordNotFound
-      redirect_to batches_url, :flash => { :error => "Record not found." }
+        redirect_to batches_url, :flash => { :error => "Record not found." }
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

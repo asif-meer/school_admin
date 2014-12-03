@@ -40,11 +40,16 @@ Rails.application.routes.draw do
   end
   
   # Subjects Criteria
-  resources :subject_allocations
+  resources :subject_allocations do
+    collection do
+      delete 'destroy_multiple'
+    end
+  end
   resources :subjects do
     collection do
       get "update_course"
       get "list"
+      delete 'destroy_multiple'
     end
   end
   resources :student_categories
@@ -77,10 +82,19 @@ Rails.application.routes.draw do
   resources :departments
 
   # Courses
-  resources :courses
+  resources :courses do
+    collection do
+      delete 'destroy_multiple'
+    end
+  end
+  # match "courses/destroy/:id" => "courses#destroy", via: :delete, as: :destroy_course
 
   # Batches
-  resources :batches
+  resources :batches do
+    collection do
+      delete 'destroy_multiple'
+    end
+  end
   
   # Admissions
   # get "admission" => "admission#index", as: :admissions

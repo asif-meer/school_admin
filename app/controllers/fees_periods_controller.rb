@@ -1,6 +1,6 @@
 class FeesPeriodsController < ApplicationController
   before_filter :authenticate_user!
-  
+  before_filter :set_fees_period_id, only: [:show, :edit, :update, :delete]
   def index
     @fees_periods = FeesPeriod.all
     add_breadcrumb "Fees", fees_index_fees_categories_path
@@ -22,7 +22,6 @@ class FeesPeriodsController < ApplicationController
   end
 
   def edit
-    @fees_period = FeesPeriod.find(params[:id])
     @fees_category_edit = @fees_period.fees_category
     @fees_particulars_edit = @fees_category_edit.fees_particulars
     add_breadcrumb "Fees Periods", fees_periods_path
@@ -30,7 +29,6 @@ class FeesPeriodsController < ApplicationController
   end
 
   def show
-    @fees_period = FeesPeriod.find(params[:id])
     add_breadcrumb "Fees Periods", fees_periods_path
     add_breadcrumb "Details"
   end
@@ -46,7 +44,6 @@ class FeesPeriodsController < ApplicationController
   end
 
   def update
-    @fees_period = FeesPeriod.find(params[:id])
     if @fees_period.update_attributes(fees_periods_params)
       redirect_to @fees_period, notice: "Fees Period Updated"
     else
@@ -56,7 +53,6 @@ class FeesPeriodsController < ApplicationController
   end
 
   def destroy
-    @fees_period = FeesPeriod.find(params[:id])
     @fees_period.destroy
     redirect_to :back
   end
@@ -65,5 +61,13 @@ class FeesPeriodsController < ApplicationController
 
   def fees_periods_params
     params.require(:fees_period).permit(:start_date, :end_date, :due_date, :fees_category_id, :fees_particular_id)
+  end
+
+  def set_fees_period_id
+    begin
+      @fees_period = FeesPeriod.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      redirect_to fees_periods_url, :flash => { :error => "Request Page not found." }
+    end
   end
 end

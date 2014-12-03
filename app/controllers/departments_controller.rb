@@ -13,13 +13,11 @@ class DepartmentsController < InheritedResources::Base
   end
 
   def edit
-    @department = Department.find(params[:id])
     add_breadcrumb "Departments", departments_path
     add_breadcrumb "Edit Department"
   end
 
   def show
-    @department = Department.find(params[:id])
     add_breadcrumb "Departments", departments_path
     add_breadcrumb "Details"
   end
@@ -36,7 +34,6 @@ class DepartmentsController < InheritedResources::Base
   end
 
   def update
-    @department = Department.find(params[:id])
     @department.update_attributes(department_params)
     if @department.save
       redirect_to @department
@@ -48,16 +45,17 @@ class DepartmentsController < InheritedResources::Base
   end
 
   def destroy
-    @department = Department.find(params[:id])
     @department.destroy
   end
 
   private
 
   def set_department_id
-    @department = Department.find(params[:id])
+    begin
+      @department = Department.find(params[:id])
     rescue ActiveRecord::RecordNotFound
-    redirect_to courses_url, :flash => { :error => "Request Page not found." }
+      redirect_to courses_url, :flash => { :error => "Request Page not found." }
+    end
   end
 
   def department_params

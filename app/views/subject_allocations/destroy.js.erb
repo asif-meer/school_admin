@@ -1,0 +1,4 @@
+$('.destroy_subject_allocation').bind('ajax:success', function() {  
+    $(this).closest('tr').fadeOut();
+    $("#notice").html("<%= escape_javascript(render :partial => 'layouts/messages' , :locals => { :flash => flash }).html_safe %>")
+}); 

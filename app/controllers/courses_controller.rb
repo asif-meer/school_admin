@@ -63,18 +63,33 @@ class CoursesController < ApplicationController
   # DELETE /courses/1.json
   def destroy
     @course.destroy
+
     respond_to do |format|
-      format.html { redirect_to courses_url, notice: 'Course was successfully destroyed.' }
+      format.html { redirect_to courses_url }
+      flash.now[:notice] = "Course Destroyed Successfully"
       format.json { head :no_content }
+      format.js   { render :layout => false }
+    end
+  end
+
+  def destroy_multiple
+    Course.destroy(params[:course_destroy_id])
+    flash[:notice] = "Courses were successfully destroyed."
+    respond_to do |format|
+      format.html { redirect_to courses_url }
+      format.json { head :no_content }
+      format.js   { render :layout => false }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_course
-      @course = Course.find(params[:id])
+      begin
+        @course = Course.find(params[:id])
       rescue ActiveRecord::RecordNotFound
-      redirect_to courses_url, :flash => { :error => "Record not found." }
+        redirect_to courses_url, :flash => { :error => "Record not found." }
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

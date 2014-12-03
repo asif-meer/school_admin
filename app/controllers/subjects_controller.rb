@@ -85,15 +85,31 @@ class SubjectsController < ApplicationController
   def destroy
     @subject.destroy
     respond_to do |format|
-      format.html { redirect_to list_subjects_path, notice: 'Subject was successfully destroyed.' }
+      format.html { redirect_to list_subjects_url }
+      flash.now[:notice] = "Subject was successfully destroyed."
       format.json { head :no_content }
+      format.js   { render :layout => false }
+    end
+  end
+
+  def destroy_multiple
+    Subject.destroy(params[:subject_destroy_id])
+    flash[:notice] = "Subjects were successfully destroyed."
+    respond_to do |format|
+      format.html { redirect_to list_subjects_url }
+      format.json { head :no_content }
+      format.js   { render :layout => false }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_subject
-      @subject = Subject.find(params[:id])
+      begin
+        @subject = Subject.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+        redirect_to list_subjects_url, :flash => { :error => "Request Page not found." }
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

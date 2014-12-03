@@ -10,3 +10,15 @@ $ ->
     return
 
   return
+
+jQuery ->
+  $(".destroy-all").click ->
+    if !$(":checkbox").is(':checked')
+        $("#select_notice").html("Select atleast one checkbox")
+        return false
+    else 
+      if $(":checkbox").is(':checked')
+     
+        $("#select_notice").html("")
+        return true   
+    return false

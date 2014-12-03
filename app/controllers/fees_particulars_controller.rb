@@ -1,6 +1,6 @@
 class FeesParticularsController < ApplicationController
   before_filter :authenticate_user!
-
+  before_filter :set_fees_particular_id, only: [:show, :edit, :update, :delete, :types]
   
   def new 
     @fees_particulars = FeesParticular.all
@@ -13,8 +13,6 @@ class FeesParticularsController < ApplicationController
   end
 
   def edit
-    @fees_particular = FeesParticular.find(params[:id])
-
     add_breadcrumb "Fees", fees_index_fees_categories_path
     add_breadcrumb "Fees Categories", fees_categories_url
     add_breadcrumb "Fees Particulars", new_fees_particulars_url
@@ -22,9 +20,6 @@ class FeesParticularsController < ApplicationController
   end
 
   def show
-    # @fees_category = FeesCategory.find(params[:id])
-    @fees_particular = FeesParticular.find(params[:id])
-
     add_breadcrumb "Fees", fees_index_fees_categories_path
     add_breadcrumb "Fees Categories", fees_categories_url
     add_breadcrumb "Fees Particulars", new_fees_particulars_url
@@ -42,7 +37,6 @@ class FeesParticularsController < ApplicationController
   end
 
   def update
-    @fees_particular = FeesParticular.find(params[:id])
     if @fees_particular.update_attributes(fees_particulars_params)
       redirect_to new_fees_particulars_path(@fees_particular.fees_category.id), notice: "Fees Particular Updated"
     else
@@ -51,14 +45,12 @@ class FeesParticularsController < ApplicationController
   end
 
   def types
-    @fees_particular = FeesParticular.find(params[:id])
     @fees_particular.batch_id = nil
     @fees_particular.roll_no = nil
     @fees_particular.save
   end
 
   def destroy
-    @fees_particular = FeesParticular.find(params[:id])
     @fees_particular.destroy
     flash[:alert] = "Particular Removed"
     redirect_to new_fees_particulars_path(@fees_particular.fees_category.id)
@@ -68,5 +60,13 @@ class FeesParticularsController < ApplicationController
 
     def fees_particulars_params
       params.require(:fees_particular).permit(:name, :description, :fees_category_id, :all, :roll_no, :batch_id, :amount)
+    end
+
+    def set_fees_particular_id
+      begin
+        @fees_particular = FeesParticular.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+        redirect_to new_fees_particulars_url, :flash => { :error => "Request Page not found." }
+      end
     end
 end

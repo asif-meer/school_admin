@@ -1,6 +1,6 @@
 class EmployeesController < InheritedResources::Base
   before_filter :authenticate_user!
-  
+  before_filter :set_employee_id, only: [:show, :edit, :update, :delete, :remove_avatar]
   def human_resources
     add_breadcrumb "Human Resources"
   end
@@ -24,16 +24,12 @@ class EmployeesController < InheritedResources::Base
   end
 
   def edit
-    @employee = Employee.find(params[:id])
-
     add_breadcrumb "Human Resources", human_resources_employees_path
     add_breadcrumb "Employees", employees_path
     add_breadcrumb "Edit Employee Informations"
   end
 
   def show
-    @employee = Employee.find(params[:id])
-
     add_breadcrumb "Human Resources", human_resources_employees_path
     add_breadcrumb "Employees", employees_path
     add_breadcrumb "Details"
@@ -51,7 +47,6 @@ class EmployeesController < InheritedResources::Base
   end
 
   def update
-    @employee = Employee.find(params[:id])
     @employee.update_attributes(employees_params)
     if @employee.save
       redirect_to @employee
@@ -63,17 +58,24 @@ class EmployeesController < InheritedResources::Base
   end
 
   def destroy
-    @employee = Employee.find(params[:id])
     @employee.destroy
   end
 
   def remove_avatar
-    @employee = Employee.find(params[:id])
     @employee.avatar = nil
     @employee.save
     redirect_to employee_path(@employee)
   end
+  
   private
+
+  def set_employee_id
+    begin
+      @employee = Employee.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      redirect_to employes_url, :flash => { :error => "Request Page not found." }
+    end
+  end
 
   def employees_params
     params.require(:employee).permit(:first_name, :last_name, :date_of_birth, :gender, :employee_number,

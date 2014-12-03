@@ -1,6 +1,7 @@
 class FeesCategoriesController < ApplicationController
   before_filter :authenticate_user!
-
+  before_filter :set_fees_category_id, only: [:show, :edit, :update, :destroy, :fees_particulars,
+                                              :create_fees_particulars]
   
   def fees_index
     add_breadcrumb "Fees"
@@ -21,12 +22,10 @@ class FeesCategoriesController < ApplicationController
   end
 
   def fees_particulars
-    @fees_category = FeesCategory.find(params[:id])
     @fees_category.fees_particulars.build
   end
 
   def create_fees_particulars
-    @fees_category = FeesCategory.find(params[:id])
     @fees_category.fees_particulars.build(fees_particulars_params)
     if @fees_particular
       redirect_to fees_categories_path, notice: "Particular Added"
@@ -36,16 +35,12 @@ class FeesCategoriesController < ApplicationController
   end
 
   def edit
-    @fees_category = FeesCategory.find(params[:id])
-
     add_breadcrumb "Fees", fees_index_fees_categories_path
     add_breadcrumb "Fees Categories", fees_categories_path
     add_breadcrumb "Edit Fees Category"
   end
 
   def show
-    @fees_category = FeesCategory.find(params[:id])
-
     add_breadcrumb "Fees", fees_index_fees_categories_path
     add_breadcrumb "Fees Categories", fees_categories_path
     add_breadcrumb "Details"
@@ -61,7 +56,6 @@ class FeesCategoriesController < ApplicationController
   end
 
   def update
-    @fees_category = FeesCategory.find(params[:id])
     if @fees_category.update_attributes(fees_categories_params)
       redirect_to fees_categories_path, notice: "Fees Category Updated"
     else
@@ -70,8 +64,8 @@ class FeesCategoriesController < ApplicationController
   end
 
   def destroy
-    @fees_category = FeesCategory.find(params[:id])
     @fees_category.destroy
+    redirect_to :back
   end
 
   private
@@ -82,5 +76,13 @@ class FeesCategoriesController < ApplicationController
 
     def fees_particulars_params
       params.require(:fees_particular).permit(:name, :description, :fees_category_id, :all, :roll_no, :batch_id, :amount)
+    end
+
+    def set_fees_category_id
+      begin
+         @fees_category = FeesCategory.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+        redirect_to fees_categories_url, :flash => { :error => "Request Page not found." }
+      end
     end
 end

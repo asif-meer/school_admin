@@ -17,16 +17,12 @@ class EmployeePositionsController < InheritedResources::Base
   end
 
   def edit
-    @employee_position = EmployeePosition.find(params[:id])
-
     add_breadcrumb "Human Resources", human_resources_employees_path
     add_breadcrumb "Employee Positions", employee_positions_path
     add_breadcrumb "Edit Employee Position"
   end
 
   def show
-    @employee_position = EmployeePosition.find(params[:id])
-
     add_breadcrumb "Human Resources", human_resources_employees_path
     add_breadcrumb "Employee Positions", employee_positions_path
     add_breadcrumb "Details"
@@ -44,7 +40,6 @@ class EmployeePositionsController < InheritedResources::Base
   end
 
   def update
-    @employee_position = EmployeePosition.find(params[:id])
     @employee_position.update_attributes(employee_position_params)
     if @employee_position.save
       redirect_to @employee_position
@@ -56,16 +51,17 @@ class EmployeePositionsController < InheritedResources::Base
   end
 
   def destroy
-    @employee_position = EmployeePosition.find(params[:id])
     @employee_position.destroy
   end
 
   private
 
   def set_employee_position_id
-    @employee_position = EmployeePosition.find(params[:id])
+    begin
+      @employee_position = EmployeePosition.find(params[:id])
     rescue ActiveRecord::RecordNotFound
-    redirect_to employee_positions_path, :flash => { :error => "Request Page not found." }
+      redirect_to employee_positions_path, :flash => { :error => "Request Page not found." }
+    end
   end
 
   def employee_position_params

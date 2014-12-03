@@ -1,6 +1,6 @@
-<h2>Create a new Particular</h2>
+<h2>Create a new Particular for <u><%= @fees_particular.fees_category.name %></u></h2>
 
-<%= link_to "Fees Categories", fees_categories_path %>
+<%#= link_to "Fees Categories", fees_categories_path %>
 <fieldset>
   <%= simple_form_for @fees_particular, :url => create_fees_particulars_path(@fees_category), :method => :post, class: "form-horizontal" do |f| %>
     <%#= yield f %>

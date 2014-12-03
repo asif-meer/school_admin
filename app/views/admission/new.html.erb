@@ -79,11 +79,7 @@
   <div class="col-sm-4"> 
     <div class="fileinput fileinput-new" data-provides="fileinput">
       <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
-        <%# unless @student.avatar.present? %>
-          <%= image_tag("school.png") %>
-        <%# else %>
-          <%#= image_tag @student.avatar.url %>
-        <%# end %>
+        <%= image_tag("school.png") %>
       </div>
       <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
       <div>

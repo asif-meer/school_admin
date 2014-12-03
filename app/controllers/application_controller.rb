@@ -3,7 +3,6 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   # layout 'external'
   protect_from_forgery with: :exception
-
   before_filter :log_controller_event
   add_breadcrumb "Dashboard", :root_path, :options => { :title => "Home" }
   # before_filter :log_controller_error
@@ -15,6 +14,8 @@ class ApplicationController < ActionController::Base
       redirect_to root_path
     end
   end
+
+  
 
   def log_controller_event
     return if params[:controller].include? "admin"
