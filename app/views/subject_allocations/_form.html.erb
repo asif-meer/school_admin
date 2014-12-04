@@ -1,25 +1,38 @@
 <%= simple_form_for(@subject_allocation) do |f| %>
   <%= f.error_notification %>
   <%= yield f %>
+  <div class="form-group"></div>
   <div class="form-inputs">
-    <%= f.association :department, input_html: {class: "form-control"}, prompt: "Choose a Department" %>
+    <%= f.label :department_id %>
+    <%= select("subject_allocation", "department_id", Department.all.map{|m| [m.name, m.id]}, { :prompt => "--Select a Department--"}, {class: "form-control"}) %>
+  </div>
+  <div class="form-group"></div>
+  <div class="form-inputs">
+    <%= f.label :employee_id %>
+    <div class="departments"> 
+      <%= render :partial => 'employees_all', :f => p %>
+    </div> 
   </div>
 
   <div class="form-group"></div>
   <div class="form-inputs">
-    <%= f.association :employee, input_html: {class: "form-control"}, prompt: "Choose a Employee" %>
+    <%= f.label :course_id %>
+    <%= select("subject_allocation", "course_id", Course.all.map{|m| [m.course_name, m.id]}, { :prompt => "--Select a Course--"}, {class: "form-control"}) %>
   </div>
   <div class="form-group"></div>
   <div class="form-inputs">
-    <%= f.association :course, input_html: {class: "form-control"}, prompt: "Choose a course" %>
+    <%= f.label :batch_id %>
+    <div class="batches"> 
+      <%= render :partial => 'batches_all', :f => p %>
+    </div> 
   </div>
+
   <div class="form-group"></div>
   <div class="form-inputs">
-    <%= f.association :batch, input_html: {class: "form-control"}, prompt: "Choose a batch" %>
-  </div>
-  <div class="form-group"></div>
-  <div class="form-inputs">
-    <%= f.association :subject, input_html: {class: "form-control"}, prompt: "Choose a subject" %>
+    <%= f.label :subject_id %>
+    <div class="subjects"> 
+      <%= render :partial => 'subjects_all', :f => p %>
+    </div> 
   </div>
 
   <div class="form-group"></div>

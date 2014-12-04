@@ -26,7 +26,7 @@ class AdmissionController < ApplicationController
       flash[:notice] = "Student Successfully Saved"
       redirect_to students_path
     else
-      render :new
+      redirect_to :back
       flash[:alert] = @student.errors.full_messages.to_sentence
     end
   end

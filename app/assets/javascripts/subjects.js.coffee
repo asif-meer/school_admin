@@ -6,3 +6,7 @@ jQuery ->
         data: "course_id=" + this.value
         success: ->
           #alert 'success'
+
+
+
+

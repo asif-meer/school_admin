@@ -73,19 +73,30 @@
   </div>
   <div class="form-group"></div>
   <div class="col-sm-4"> 
+    
+
+
     <div class="fileinput fileinput-new" data-provides="fileinput">
       <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
-        <%# unless @student.avatar.present? %>
+        <% unless @student.avatar.present? %>
           <%= image_tag("school.png") %>
-        <%# else %>
-          <%#= image_tag @student.avatar.url %>
-        <%# end %>
+        <% else %>
+          <%= image_tag @student.avatar.url %>
+        <% end %>
       </div>
       <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
       <div>
         <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><%= f.file_field :avatar, label: false %></span>
-        <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+        <% unless @student.avatar.present? %>
+          <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+        <% else %>
+          <% if f.file_field nil, :class => "fileinput-exists" %>
+            <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+          <% end %>
+          <%= link_to "Remove Picture", delete_avatar_students_path, :method => :post, class: "btn btn-default", data: {confirm: "Are you sure?"} %>
+        <% end %>
       </div>
-    </div> 
+    </div>
+
   </div>
 <% end %>

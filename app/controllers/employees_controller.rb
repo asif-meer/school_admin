@@ -36,25 +36,56 @@ class EmployeesController < InheritedResources::Base
   end
 
   def create
+    add_breadcrumb "Human Resources", human_resources_employees_path
+    add_breadcrumb "Employees", employees_path
+    add_breadcrumb "New Employee"
     @employee = Employee.new(employees_params)
-    if @employee.save
-      redirect_to @employee
-      flash[:notice] = "Employee Created Successfully"
-    else
-      render :new
-      flash[:alert] = @employee.errors.full_messages.to_sentence
-    end
+    # if @employee.save
+    #   redirect_to @employee
+    #   flash[:notice] = "Employee Created Successfully"
+
+    # else
+    #   redirect_to :back
+    #   flash[:alert] = @employee.errors.full_messages.to_sentence
+    # end
+    respond_to do |format|
+       if @employee.save
+         format.html { redirect_to @employee, notice: 'Employee Created Successfully' }
+         format.json { render action: 'show', status: :created, location: @employee }
+         format.json { render json: @employee }
+       else
+         format.html { render action: 'new' }
+         flash[:alert] = @employee.errors.full_messages.to_sentence
+         format.json { render json: @employee.errors, status: :unprocessable_entity }
+         format.json { render json: @employee.errors.full_messages, status: :unprocessable_entity }
+       end
+     end
   end
 
   def update
-    @employee.update_attributes(employees_params)
-    if @employee.save
-      redirect_to @employee
-      flash[:notice] = "Employee Updated Successfully"
-    else
-      render :edit
-      flash[:alert] = @employee.errors.full_messages.to_sentence
-    end
+    add_breadcrumb "Human Resources", human_resources_employees_path
+    add_breadcrumb "Employees", employees_path
+    add_breadcrumb "Edit Employee Informations"
+    # @employee.update_attributes(employees_params)
+    # if @employee.save
+    #   redirect_to @employee
+    #   flash[:notice] = "Employee Updated Successfully"
+    # else
+    #   redirect_to :back
+    #   flash[:alert] = @employee.errors.full_messages.to_sentence
+    # end
+    respond_to do |format|
+       if @employee.update(employees_params)
+         format.html { redirect_to @employee, notice: 'Employee Updated Successfully' }
+         format.json { head :no_content }
+         format.json { render json: @employee }
+       else
+         format.html { render action: 'edit' }
+         flash[:alert] = @employee.errors.full_messages.to_sentence
+         format.json { render json: @employee.errors, status: :unprocessable_entity }
+         format.json { render json: @employee.errors.full_messages, status: :unprocessable_entity }
+       end
+     end
   end
 
   def destroy

@@ -34,13 +34,15 @@ class BatchesController < ApplicationController
   # POST /batches.json
   def create
     @batch = Batch.new(batch_params)
-
+    add_breadcrumb "Batches", batches_url
+    add_breadcrumb "New Batch"
     respond_to do |format|
       if @batch.save
         format.html { redirect_to @batch, notice: 'Batch was successfully created.' }
         format.json { render :show, status: :created, location: @batch }
       else
         format.html { render :new }
+        flash[:alert] = @batch.errors.full_messages.to_sentence
         format.json { render json: @batch.errors, status: :unprocessable_entity }
       end
     end
@@ -49,12 +51,15 @@ class BatchesController < ApplicationController
   # PATCH/PUT /batches/1
   # PATCH/PUT /batches/1.json
   def update
+    add_breadcrumb "Batches", batches_url
+    add_breadcrumb "Edit Batch"
     respond_to do |format|
       if @batch.update(batch_params)
         format.html { redirect_to @batch, notice: 'Batch was successfully updated.' }
         format.json { render :show, status: :ok, location: @batch }
       else
         format.html { render :edit }
+        flash[:alert] = @batch.errors.full_messages.to_sentence
         format.json { render json: @batch.errors, status: :unprocessable_entity }
       end
     end

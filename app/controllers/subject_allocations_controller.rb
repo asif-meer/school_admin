@@ -10,6 +10,30 @@ class SubjectAllocationsController < ApplicationController
     add_breadcrumb "Subjects Allocation", subject_allocations_path
   end
 
+  def update_course
+    @course = Course.find(params[:course_id])
+    @batches = @course.batches
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def update_batch
+    @batch = Batch.find(params[:batch_id])
+    @subjects = @batch.subjects
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def update_department
+    @department = Department.find(params[:department_id])
+    @employees = @department.employees
+    respond_to do |format|
+      format.js
+    end
+  end
+  
   # GET /subject_allocations/1
   # GET /subject_allocations/1.json
   def show
@@ -29,6 +53,17 @@ class SubjectAllocationsController < ApplicationController
 
   # GET /subject_allocations/1/edit
   def edit
+    @course_edit = @subject_allocation.course
+    @batches_edit = @course_edit.batches
+
+    if @batches_edit
+      @batch_edit = @subject_allocation.batch
+      @subjects_edit = @batch_edit.subjects
+    end
+
+    @department_edit = @subject_allocation.department
+    @employees_edit = @department_edit.employees
+
     add_breadcrumb "Subjects Design", subjects_path, :title => "Back to the Index"
     add_breadcrumb "Subjects Allocation", subject_allocations_path
     add_breadcrumb "Edit Subject Allocation"

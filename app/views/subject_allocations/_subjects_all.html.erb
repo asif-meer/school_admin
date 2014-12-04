@@ -1,0 +1,7 @@
+<% if @subjects %>
+  <%= select("subject_allocation", "subject_id", @subjects.map{|m| [m.subject_name, m.id]}, { :prompt => "--Select a Subject--"}, {class: "form-control"}) %>
+<% elsif @subjects_edit %>
+ <%= select("subject_allocation", "subject_id", @subjects_edit.map{|m| [m.subject_name, m.id]}, { :prompt => "--Select a Subject--"}, {class: "form-control"}) %>
+<% else %>
+  <%= select("subject_allocation", "subject_id", [], { :prompt => "--Select a Batch--"}, {class: "form-control"}) %>
+<% end %>
