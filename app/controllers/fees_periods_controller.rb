@@ -1,6 +1,6 @@
 class FeesPeriodsController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :set_fees_period_id, only: [:show, :edit, :update, :delete]
+  before_filter :set_fees_period_id, only: [:show, :edit, :update, :destroy]
   def index
     @fees_periods = FeesPeriod.all
     add_breadcrumb "Fees", fees_index_fees_categories_path

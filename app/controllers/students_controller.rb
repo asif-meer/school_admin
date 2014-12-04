@@ -1,6 +1,6 @@
 class StudentsController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :set_student_id, :only => [:show, :edit, :update, :delete, :remove_avatar]
+  before_filter :set_student_id, :only => [:show, :edit, :update, :destroy, :remove_avatar]
 
 
   def admissions

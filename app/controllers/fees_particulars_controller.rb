@@ -1,6 +1,6 @@
 class FeesParticularsController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :set_fees_particular_id, only: [:show, :edit, :update, :delete, :types]
+  before_filter :set_fees_particular_id, only: [:show, :edit, :update, :destroy, :types]
   
   def new 
     @fees_particulars = FeesParticular.all

@@ -1,6 +1,6 @@
 class StudentCategoriesController < InheritedResources::Base
   before_filter :authenticate_user!
-  before_filter :set_student_category_id, only: [:show, :edit, :update, :delete]
+  before_filter :set_student_category_id, only: [:show, :edit, :update, :destroy]
   def index
     @student_categories = StudentCategory.all
     add_breadcrumb "Admissions", admissions_students_path

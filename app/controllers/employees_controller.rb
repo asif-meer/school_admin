@@ -1,6 +1,6 @@
 class EmployeesController < InheritedResources::Base
   before_filter :authenticate_user!
-  before_filter :set_employee_id, only: [:show, :edit, :update, :delete, :remove_avatar]
+  before_filter :set_employee_id, only: [:show, :edit, :update, :destroy, :remove_avatar]
   def human_resources
     add_breadcrumb "Human Resources"
   end
