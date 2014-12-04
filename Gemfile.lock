@@ -6,11 +6,7 @@ GIT
 
 GIT
   remote: git://github.com/gregbell/active_admin.git
-<<<<<<< HEAD
-  revision: 7d968c2898cb4dd86e283511c7cc04d8b469c888
-=======
   revision: 5af560b2b6cd18526d397331c0c5cca90dfcbaeb
->>>>>>> a30990601d06f5e9001d5a9d165bb1c4cef6905a
   specs:
     activeadmin (1.0.0.pre)
       arbre (~> 1.0, >= 1.0.2)
@@ -123,15 +119,6 @@ GEM
     daemon_controller (1.2.0)
     database_cleaner (1.3.0)
     debug_inspector (0.0.2)
-<<<<<<< HEAD
-    debugger (1.6.8)
-      columnize (>= 0.3.1)
-      debugger-linecache (~> 1.2.0)
-      debugger-ruby_core_source (~> 1.3.5)
-    debugger-linecache (1.2.0)
-    debugger-ruby_core_source (1.3.7)
-=======
->>>>>>> a30990601d06f5e9001d5a9d165bb1c4cef6905a
     devise (3.4.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
