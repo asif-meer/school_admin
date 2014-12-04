@@ -12,13 +12,26 @@ $ ->
   return
 
 jQuery ->
-  $(".destroy-all").click ->
+
+  $("#select_all").hide()  if !$("#checkArray").length
+
+  $(".destroy-all").on "click", ->
     if !$(":checkbox").is(':checked')
         $("#select_notice").html("Select atleast one checkbox")
-        return false
-    else 
-      if $(":checkbox").is(':checked')
+        
+        if !$("#checkArray").length
+          $("#select_notice").html("There is no record present")
+          #$(this).attr('disabled','disabled');
+          return false
+    else if $(":checkbox").is(':checked')
      
         $("#select_notice").html("")
-        return true   
+        return true
     return false
+
+    
+  $(window).click ->
+      $("#select_notice").html("")
+  
+      
+  
