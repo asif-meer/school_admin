@@ -24,11 +24,11 @@ Rails.application.routes.draw do
 
 
   # Test logs with Redis
-  match "/log/" => 'home#log', :via => [:post]
-  match "/logEvent/" => 'home#log_event', :via => [:post]
-  match "/logException/" => 'home#log_exception', :via => [:post]
-  # match "/events/" => 'home#events', :via => [:get]
-  match "/redis/" => 'home#redis', :via => [:get], :as => :redis
+  # match "/log/" => 'home#log', :via => [:post]
+  # match "/logEvent/" => 'home#log_event', :via => [:post]
+  # match "/logException/" => 'home#log_exception', :via => [:post]
+  # # match "/events/" => 'home#events', :via => [:get]
+  # match "/redis/" => 'home#redis', :via => [:get], :as => :redis
 
 
   # Students Criteria
@@ -43,6 +43,9 @@ Rails.application.routes.draw do
   resources :subject_allocations do
     collection do
       delete 'destroy_multiple'
+      get "update_course"
+      get "update_batch"
+      get "update_department"
     end
   end
   resources :subjects do

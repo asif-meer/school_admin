@@ -31,7 +31,9 @@ class Employee < ActiveRecord::Base
 
 
   # validations
-  validates_presence_of :employee_number,:first_name,:last_name
+  validates_presence_of :employee_number,:first_name,:last_name, :department_id,
+                        :job_title, :employee_position_id, :email, :phone, :date_of_birth,
+                        :joining_date, :qualification, :total_experience, :present_address
 
   # File Upload
   has_attached_file :avatar, :styles => { :medium => "200x200>", :thumb => "100x100>"}, :default_url => "/images/:style/missing.png"

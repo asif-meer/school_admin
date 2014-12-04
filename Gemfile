@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.1.1'
+ruby '2.1.5'
 gem 'rails', '4.1.5'
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
@@ -20,7 +20,7 @@ gem "rolify", :git => "git://github.com/EppO/rolify.git"
 gem 'jquery-turbolinks'
 gem "paperclip", "~> 4.1"
 gem "jquery-ui-rails"
-gem 'redis', '2.1.1'
+# gem 'redis', '2.1.1'
 gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
 gem 'maskedinput-rails'
 gem "breadcrumbs_on_rails"
@@ -41,7 +41,7 @@ group :development do
   gem 'rb-inotify', :require=>false
   gem 'letter_opener'
   gem 'annotate', '~> 2.6.5'
-  gem 'debugger'
+  # gem 'debugger'
 end
 group :development, :test do
   gem 'factory_girl_rails'

@@ -1,4 +1,32 @@
-
+<div class="panel panel-app">
+  <div class="panel-heading">
+    <h1>Allocation Detail</h1>
+  </div>
+  <div class="panel-body">
+    <table class="table table-bordered table-hover">
+      <tr>
+        <td><strong>Department: </strong></td>
+        <td><%= @subject_allocation.department unless @subject_allocation.department.blank? %></td>
+      </td>
+      <tr>
+        <td><strong>Employee: </strong></td>
+        <td><%= @subject_allocation.employee unless  @subject_allocation.employee.blank? %></td>
+      </tr>
+      <tr>
+        <td><strong>Course: </strong></td>
+        <td><%= @subject_allocation.course unless @subject_allocation.course.blank? %></td>
+      </tr>
+      <tr>
+        <td><strong>Batch: </strong></td>
+        <td><%= @subject_allocation.batch unless @subject_allocation.batch.blank? %></td>
+      </tr>
+      <tr>
+        <td><strong>Subject: </strong></td>
+        <td><%= @subject_allocation.subject unless @subject_allocation.subject.blank? %></td>
+      </tr>
+    </table>
+  </div>
+</div>
 
 <%= link_to 'Edit', edit_subject_allocation_path(@subject_allocation), class: "btn btn-link" %> |
 <%= link_to 'Back', subject_allocations_path, class: "btn btn-link" %>

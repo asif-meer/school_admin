@@ -1,0 +1,7 @@
+<% if @employees %>
+  <%= select("subject_allocation", "employee_id", @employees.map{|m| [m.to_s, m.id]}, { :prompt => "--Select an Employee--"}, {class: "form-control"}) %>
+<% elsif @employees_edit %>
+ <%= select("subject_allocation", "employee_id", @employees_edit.map{|m| [m.to_s, m.id]}, { :prompt => "--Select an Employee--"}, {class: "form-control"}) %>
+<% else %>
+  <%= select("subject_allocation", "employee_id", [], { :prompt => "--Select a Department--"}, {class: "form-control"}) %>
+<% end %>
