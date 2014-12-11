@@ -14,6 +14,9 @@
 //= require jquery-ui
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require bootstrapValidator.min
+//= require moment
+//= require bootstrap-datetimepicker
 //= require dataTables/jquery.dataTables
 //= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
 //= require turbolinks

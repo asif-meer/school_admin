@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="/path/to/dist/css/bootstrapValidator.min.css"/>
+
+
+    <script type="text/javascript" src="/path/to/jquery/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="/path/to/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/path/to/dist/js/bootstrapValidator.js"></script>
+    <script type="text/javascript" src="/path/to/src/js/language/languagecode_COUNTRYCODE.js"></script>
+    
     <link href="assets/favicon.ico" rel="shortcut icon" />
     <title><%= content_for?(:title) ? yield(:title) : "School Admin" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "School Admin" %>">
@@ -14,9 +22,11 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <header>
-      <%= render 'layouts/navigation' %>
-    </header>
+    <% if user_signed_in? %>
+      <header>
+        <%= render 'layouts/navigation' %>
+      </header>
+    <% end %>
 
     <div class="container">
       <div id="notice">

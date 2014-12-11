@@ -24,7 +24,10 @@ gem "jquery-ui-rails"
 gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
 gem 'maskedinput-rails'
 gem "breadcrumbs_on_rails"
-
+gem 'bootstrap-validator-rails'
+gem 'momentjs-rails', '>= 2.8.1'
+gem 'bootstrap3-datetimepicker-rails', '~> 3.1.3'
+gem 'bootstrap_form'
 
 
 group :development do

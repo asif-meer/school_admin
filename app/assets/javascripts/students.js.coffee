@@ -11,19 +11,11 @@ jQuery ->
           #alert 'success'
       
 jQuery ->
-  $("#student_date_of_birth").datepicker
-    changeYear: true
-    yearRange: "1950:2025"
-    changeMonth: true
-    showOtherMonths: true
-    dateFormat: "dd/mm/yy"
+  $("#student_date_of_birth").datetimepicker
+    pickTime: false
 
-  $("#student_joining_date").datepicker
-    changeYear: true
-    yearRange: "1950:2025"
-    changeMonth: true
-    showOtherMonths: true
-    dateFormat: "dd/mm/yy"
+  $("#student_joining_date").datetimepicker
+    pickTime: false
 
 jQuery ->
   $("#students_datatable").dataTable()
