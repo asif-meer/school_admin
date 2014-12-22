@@ -21,13 +21,22 @@ class AdmissionController < ApplicationController
   end
   
   def create
+    add_breadcrumb "Admissions", admissions_students_path
+    add_breadcrumb "Admissions list", students_path
+    add_breadcrumb "New Admission"
     @student = Student.new(admission_params)
-    if @student.save
-      flash[:notice] = "Student Successfully Saved"
-      redirect_to students_path
-    else
-      redirect_to :back
-      flash[:alert] = @student.errors.full_messages.to_sentence
+    respond_to do |format|
+      if @student.save
+        format.html { redirect_to students_path, notice: 'Student Successfully Saved' }
+        format.json { render :show, status: :created, location: @student }
+      else
+        @course = @student.course
+        @batches = @course.batches
+        format.html { render :new }
+        flash[:alert] = @student.errors.full_messages.to_sentence
+        format.json { render json: @student.errors, status: :unprocessable_entity  }
+        
+      end
     end
   end
 

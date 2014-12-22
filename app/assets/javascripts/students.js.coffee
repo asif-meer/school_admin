@@ -17,6 +17,8 @@ jQuery ->
   $("#student_joining_date").datetimepicker
     pickTime: false
 
+
+
 jQuery ->
   $("#students_datatable").dataTable()
 

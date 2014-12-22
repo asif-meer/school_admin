@@ -11,8 +11,7 @@
       </div>
       <div class="form-group"></div>
       <div class="form-inputs">
-        <%= f.label :joining_date, required: true %>
-        <%= f.text_field :joining_date, class: "form-control", placeholder: "dd-mm-yy" %>
+        <%= f.input :joining_date, input_html: {class: "form-control", :data => {'date-format' => 'YYYY/MM/DD'}}, placeholder: "dd-mm-yy", :as => :string %>
       </div>
 
       <div class="form-group"></div>
@@ -41,8 +40,7 @@
 
       <div class="form-group"></div>
       <div class="form-inputs">
-        <%= f.label :date_of_birth, required: true %>
-        <%= f.text_field :date_of_birth, class: "form-control", placeholder: "dd-mm-yy" %>
+        <%= f.input :date_of_birth, input_html: {class: "form-control", :data => {'date-format' => 'YYYY/MM/DD'}}, placeholder: "dd-mm-yy", :as => :string %>
       </div>
 
     <div class="form-group"></div>
@@ -55,7 +53,7 @@
     </div>
 
     <div class="form-inputs">
-      <%= f.input :gender, input_html: {class: "form-control"}, as: :select, collection: Student::GENDER, prompt: "Choose your Gender" %>
+      <%= f.input :gender, as: :radio_buttons, collection: Student::GENDER %>
     </div>
 
     <div class="form-group"></div>
