@@ -31,20 +31,24 @@
       <%= f.select(:all, options_for_select([['All', true], ['Roll No', 2], ['Batches', 3]]), { :prompt => "--Choose any Type--"}, {class: "form-control"}) %>
     </div>
     
+    <div id="batches_particular">
+      <div class="form-group"></div>
+
+      <div class="form-inputs">
+        <%= f.label :batch_id %>
+        <%= f.grouped_collection_select(:batch_id, Course.order(:course_name), :batches, :course_name, :id, :batch_name, { :prompt => "--Select a Batch--"}, {class: "form-control"}) %>
+      </div>
+    </div>
 
     <div id="roll_no_particular">
       <div class="form-group"></div>
 
       <div class="form-inputs">
-        <%= f.input :roll_no, input_html: {class: "form-control"}, placeholder: "Roll No." %>
-      </div>
-    </div>
-
-    <div id="batches_particular">
-      <div class="form-group"></div>
-
-      <div class="form-inputs">
-        <%= f.grouped_collection_select(:batch_id, Course.order(:course_name), :batches, :course_name, :id, :batch_name, { :prompt => "--Select a Batch--"}, {class: "form-control"}) %>
+        <%= f.label :roll_no %>
+        <div class='particular_students'> 
+          <%= render :partial => 'students_all', :f => p %>
+        </div>
+        <%#= f.input :roll_no, input_html: {class: "form-control"}, placeholder: "Roll No." %>
       </div>
     </div>
 

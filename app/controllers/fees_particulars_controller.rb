@@ -17,6 +17,11 @@ class FeesParticularsController < ApplicationController
     add_breadcrumb "Fees Categories", fees_categories_url
     add_breadcrumb "Fees Particulars", new_fees_particulars_url
     add_breadcrumb "Edit Fees particular"
+
+    @batch_edit = @fees_particular.batch
+    @students_edit = @batch_edit.students
+    @batches = Batch.all
+    @batches_all = []
   end
 
   def show
@@ -33,6 +38,14 @@ class FeesParticularsController < ApplicationController
       redirect_to new_fees_particulars_path, notice: "Fees Particular Added"
     else
       render :new
+    end
+  end
+
+  def update_students
+    @batch = Batch.find(params[:batch_id])
+    @students = @batch.students
+    respond_to do |format|
+      format.js
     end
   end
 

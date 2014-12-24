@@ -13,7 +13,8 @@
     <script type="text/javascript" src="/path/to/dist/js/bootstrapValidator.js"></script>
     <script type="text/javascript" src="/path/to/src/js/language/languagecode_COUNTRYCODE.js"></script>
     
-    <link href="assets/favicon.ico" rel="shortcut icon" />
+    <!-- <link href="assets/favicon.ico" rel="shortcut icon" /> -->
+    <%= favicon_link_tag "favicon.ico" %>
     <title><%= content_for?(:title) ? yield(:title) : "School Admin" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "School Admin" %>">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>

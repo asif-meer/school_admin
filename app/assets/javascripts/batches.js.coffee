@@ -17,4 +17,21 @@ jQuery ->
 
 		return
 
+jQuery ->
+	$("#search").keyup ->
+		$.get $("#batches_search_form").attr("action"), $("#batches_search_form").serialize(), null, "script"
+		false
+
+	$("#search_by_course").change ->
+		$.get $("#batches_search_form").attr("action"), $("#batches_search_form").serialize(), null, "script"
+		false
+
+	return
+
+
+
+
+	  # alert($("#search_by_category option:nth-child(1)").text())
+
+
 	

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :fees_particulars, only: [:destroy, :edit, :update, :show] do
     collection do
       post "types"
+      get "update_students"
     end
   end
   resources :fees_categories do

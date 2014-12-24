@@ -10,7 +10,32 @@ class SubjectsController < ApplicationController
   end
 
   def list
-    @subjects = Subject.all
+    if params[:search_by_batch]
+      # @subjects = Subject.all
+      @subjects = Subject.where("batch_id = ?", "#{params[:search_by_batch]}")
+    # elsif params[:search_by_course] && params[:search_by_batch]
+    #   @subjects = Subject.where("batch_id = ? AND course_id = ?", "#{params[:search_by_batch]}", "#{params[:search_by_course]}")
+    # elsif params[:search_by_course] || params[:search_by_batch]
+    #   @subjects = Subject.where("batch_id = ? OR course_id = ?", "#{params[:search_by_batch]}", "#{params[:search_by_course]}")
+    else
+      @subjects = Subject.all
+    end
+
+    # if params[:search_by_course] == "" || params[:search_by_batch] == ""
+    #   @subjects = Subject.all
+    #   @subjects = Subject.where("subject_name LIKE ?", "%#{params[:search]}%")
+    # elsif params[:search_by_course] && params[:search] && params[:search_by_batch]
+    #   @subjects = Subject.where("subject_name LIKE ? AND course_id = ? AND batch_id = ?", "%#{params[:search]}%", "#{params[:search_by_course]}", "#{params[:search_by_batch]}")
+    # elsif params[:search_by_course] || params[:search] || params[:search_by_batch]
+    #   @subjects = Subject.where("subject_name LIKE ? OR course_id = ? OR batch_id = ?", "%#{params[:search]}%", "#{params[:search_by_course]}", "#{params[:search_by_batch]}")
+    # elsif params[:search_by_course]
+    #   @subjects = Subject.where("course_id = ?","#{params[:search_by_course]}")
+    # else
+    #   @subjects = Subject.all
+    # end
+
+
+    # @subjects = SubjectSearch.search_subjects(params)
     add_breadcrumb "Subjects Design", subjects_path, :title => "Back to the Index"
     add_breadcrumb "Subjects", list_subjects_path, :title => "Back to the Index"
   end

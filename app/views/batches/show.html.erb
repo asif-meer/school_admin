@@ -1,7 +1,10 @@
 <div class="panel panel-app">
   <div class="panel-heading">
     <h1>Batch Detail</h1>
+    <%= link_to 'Edit', edit_batch_path(@batch), class: "label label-info" %> |
+    <%= link_to 'Back', batches_path, class: "label label-default" %>
   </div>
+  
   <div class="panel-body">
     <table class="table table-bordered table-hover">
       <tr>
@@ -24,6 +27,4 @@
   </div>
 </div>
  
-<%= link_to 'Edit', edit_batch_path(@batch), class: "btn btn-link" %> |
-<%= link_to 'Back', batches_path, class: "btn btn-link" %>
 

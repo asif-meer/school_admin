@@ -1,11 +1,10 @@
 class BatchesController < ApplicationController
   before_action :set_batch, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
-  
   # GET /batches
   # GET /batches.json
   def index
-    @batches = Batch.all
+    @batches = BatchSearch.search_batches(params)
     add_breadcrumb "Batches"
   end
 

@@ -39,6 +39,4 @@ class Student < ActiveRecord::Base
   def increment_register_no
     self.general_register_number = (self.class.last.nil?) ? "1" : ((self.class.last.general_register_number.to_i) + 1).to_s
   end
-
-  
 end
