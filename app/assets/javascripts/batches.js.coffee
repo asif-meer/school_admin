@@ -18,20 +18,29 @@ jQuery ->
 		return
 
 jQuery ->
-	$("#search").keyup ->
+
+	$(".update_batches").change ->
+		value = $(this).find("#subject_allocation_batch_id").val()
 		$.get $("#batches_search_form").attr("action"), $("#batches_search_form").serialize(), null, "script"
 		false
 
 	$("#search_by_course").change ->
-		$.get $("#batches_search_form").attr("action"), $("#batches_search_form").serialize(), null, "script"
-		false
+		
+		$.ajax
+	        type: "GET"
+	        url: "/batches/update_batches"
+	        data: "course_id=" + this.value
+	        success: ->
+	          #alert 'success'
 
+      	$.get $("#batches_search_form").attr("action"), $("#batches_search_form").serialize(), null, "script"
+		false
 	return
 
 
 
 
-	  # alert($("#search_by_category option:nth-child(1)").text())
+  	# alert($("#search_by_category option:nth-child(1)").text())
 
 
 	

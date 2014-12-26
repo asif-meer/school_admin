@@ -13,7 +13,14 @@ class BatchesController < ApplicationController
   def show
     add_breadcrumb "Batches", batches_url
     add_breadcrumb "Details"
-    
+  end
+
+  def update_batches
+    @course = Course.find(params[:course_id])
+    @batches_update = @course.batches
+    respond_to do |format|
+      format.js
+    end
   end
 
   # GET /batches/new

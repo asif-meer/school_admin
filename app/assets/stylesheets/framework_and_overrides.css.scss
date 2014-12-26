@@ -66,7 +66,7 @@ body {
 }
 
 .nav > li > a:hover, .nav > li > a:focus {
-  background-color: rgba(55, 213, 250, 0.46) !important;
+  background-color: #0ce3ac !important;
   border-radius: 8px !important;
 }
 
@@ -92,8 +92,10 @@ body {
   .navbar-brand {
     padding: 20px;
     font-size: 25px;
-  }
+  }  
+}
 
-  
+.nav-tabs > li > a, .nav-pills > li > a:active {
+  background-color: #0ce3ac !important;
 }
 

@@ -3,11 +3,12 @@ class BatchSearch
 		batch = ""
 		if params[:search_by_course] == ""
 	      batch = Batch.all
-	      batch = Batch.where("batch_name LIKE ?", "%#{params[:search]}%")
+      	elsif params[:search] == ""
+      		batch = Batch.where("course_id = ?", "#{params[:search_by_course]}")
 	    elsif params[:search_by_course] && params[:search]
-	      batch = Batch.where("batch_name LIKE ? AND course_id = ?", "%#{params[:search]}%", "#{params[:search_by_course]}")
+	      batch = Batch.where("id = ? AND course_id = ?", "#{params[:search]}", "#{params[:search_by_course]}")
 	    elsif params[:search_by_course] || params[:search]
-	      batch = Batch.where("batch_name LIKE ? OR course_id = ?", "%#{params[:search]}%", "#{params[:search_by_course]}")
+	      batch = Batch.where("id = ? OR course_id = ?", "#{params[:search]}", "#{params[:search_by_course]}")
 	    else
 	      batch = Batch.all
 	    end
@@ -25,4 +26,9 @@ end
 #     else
 #       all
 #     end
+# end
+# if params[:search_by_course]
+# 	batch = Batch.where("course_id = ?", "#{params[:search_by_course]}")
+# else
+# 	batch = Batch.all
 # end

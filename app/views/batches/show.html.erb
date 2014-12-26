@@ -24,7 +24,23 @@
         <td><%= @batch.end_date.strftime("%d/%b/%Y") %></td>
       </tr>
     </table>
+    <hr />
+    <div class="col-sm-4">
+      <ul class="nav nav-pills nav-stacked">
+        <li><a href="">Students</a></li>
+        <li><a href="">Subjects</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-8">
+      <div class="batch_students">
+        <%= render :partial => "/batches/details/students" %>
+      </div>
+      <div class="batch_subjects">
+        <%= render :partial => "/batches/details/subjects" %>
+      </div>
+    </div>
   </div>
+  
 </div>
  
 

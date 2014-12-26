@@ -1,13 +1,13 @@
 $ ->
-	$("#search").keyup ->
+	$("#search.").keyup ->
 		$.get $("#subjects_search_form").attr("action"), $("#subjects_search_form").serialize(), null, "script"
 		false
 
-	$("#search_by_course").change ->
+	$("#search_by_course.").change ->
 		$.get $("#subjects_search_form").attr("action"), $("#subjects_search_form").serialize(), null, "script"
 		false
 
-	$("#search_by_batch").change ->
+	$("#search_by_batch.").change ->
 		$.get $("#subjects_search_form").attr("action"), $("#subjects_search_form").serialize(), null, "script"
 		false
 

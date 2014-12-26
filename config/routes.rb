@@ -99,6 +99,7 @@ Rails.application.routes.draw do
   resources :batches do
     collection do
       delete 'destroy_multiple'
+      get 'update_batches'
     end
   end
   
