@@ -51,11 +51,11 @@ puts "creating school information..."
 school1 =  School.find_or_create(:school_name => 'abc school name', :school_email => "abc@schooladmin.com", :school_address => 'abc area , xyz city pakistan', :school_phone => "(999)-9999-99",:user_id => User.last.id)
 
 puts "creating course information..."
-@course1 =  Course.find_or_create(:course_name => 'Course A', :section_name => 'Section A', :code => "AA1" )
-@course2 =  Course.find_or_create(:course_name => 'Course B', :section_name => 'Section B', :code => "BB1" )
-@course3 =  Course.find_or_create(:course_name => 'Course C', :section_name => 'Section C', :code => "CC1" )
-@course4 =  Course.find_or_create(:course_name => 'Course D', :section_name => 'Section D', :code => "DD1" )
-@course5 =  Course.find_or_create(:course_name => 'Course E', :section_name => 'Section E', :code => "EE1" )
+@course1 =  Course.find_or_create(:course_name => 'B-Tech', :section_name => 'Section A', :code => "AA1" )
+@course2 =  Course.find_or_create(:course_name => 'BS CS', :section_name => 'Section B', :code => "BB1" )
+@course3 =  Course.find_or_create(:course_name => 'BE', :section_name => 'Section C', :code => "CC1" )
+@course4 =  Course.find_or_create(:course_name => 'IT', :section_name => 'Section D', :code => "DD1" )
+@course5 =  Course.find_or_create(:course_name => 'Diploma', :section_name => 'Section E', :code => "EE1" )
 
 puts "creating departments..."
 depart1 =  Department.find_or_create(:name => "Electronics")

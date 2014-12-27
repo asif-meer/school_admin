@@ -1,12 +1,14 @@
 <h3>Subjects</h3>
 <% if @batch.subjects.present? %>
 	<% for subject in @batch.subjects %>
-	  <table class="table table-bordered table-hover">
-	    <tr>
-	      <td><strong>Subject Name: </strong></td>
-	      <td><%= subject.subject_name %></td>
-	    </tr>
-	  </table>
+		<div class="table-responsive">
+		  <table class="table table-bordered table-hover">
+		    <tr>
+		      <td><strong>Subject Name: </strong></td>
+		      <td><%= subject.subject_name %></td>
+		    </tr>
+		  </table>
+	  </div>
 	<% end %>
 <% else %>
 	<div class="alert alert-dismissable alert-info" style="margin:0px !important;">

@@ -16,8 +16,14 @@ jQuery ->
 
   $(".destroy-all").on "click", ->
     if !$(":checkbox").is(':checked')
-        $("#select_notice").html("Select atleast one checkbox")
+        url = window.location.href
+        host = window.location.host
+        if url.indexOf('http://' + host + '/subjects/list') != -1
         
+          $("#select_notice").html("Select atleast one Subject")
+        else if url.indexOf('http://' + host + '/batches') != -1
+          $("#select_notice").html("Select atleast one Batch")
+
         if !$("#checkArray").length
           $("#select_notice").html("There is no record present")
           #$(this).attr('disabled','disabled');

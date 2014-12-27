@@ -8,7 +8,6 @@ class AdmissionController < ApplicationController
     2.times { @student.emergency_contacts.build }
 
     add_breadcrumb "Admissions", admissions_students_path
-    add_breadcrumb "Admissions list", students_path
     add_breadcrumb "New Admission"
   end
 
@@ -22,7 +21,6 @@ class AdmissionController < ApplicationController
   
   def create
     add_breadcrumb "Admissions", admissions_students_path
-    add_breadcrumb "Admissions list", students_path
     add_breadcrumb "New Admission"
     @student = Student.new(admission_params)
     respond_to do |format|
@@ -31,7 +29,9 @@ class AdmissionController < ApplicationController
         format.json { render :show, status: :created, location: @student }
       else
         @course = @student.course
-        @batches = @course.batches
+        if @course
+          @batches = @course.batches
+        end
         format.html { render :new }
         flash[:alert] = @student.errors.full_messages.to_sentence
         format.json { render json: @student.errors, status: :unprocessable_entity  }
