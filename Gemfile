@@ -28,6 +28,7 @@ gem 'bootstrap-validator-rails'
 gem 'momentjs-rails', '>= 2.8.1'
 gem 'bootstrap3-datetimepicker-rails', '~> 3.1.3'
 gem 'bootstrap_form'
+gem 'rails-jasny-bootstrap-extension', '~> 0.0.1'
 
 
 group :development do
