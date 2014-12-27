@@ -1,7 +1,15 @@
-<% if @batches %>
-  <%= select("subject", "batch_id", @batches.map{|m| [m.batch_name, m.id]}, { :prompt => "--Select a Course--"}, {class: "form-control"}) %>
-<% elsif @batches_edit %>
-  <%= select("subject", "batch_id", @batches_edit.map{|m| [m.batch_name, m.id]}, { :prompt => "--Select a Course--"}, {class: "form-control"}) %>
+<% unless current_page?(list_subjects_path) %>
+	<% if @update_batches %>
+		<%= select_tag :search_by_batch_in_subjects, options_for_select(@update_batches.all.collect{|m| [m.batch_name, m.id]}, :selected => params[:search]), :class => 'form-control', prompt: "--Select Batch--"  %>
+	<% else %>
+		<%= select_tag :search_by_batch_in_subjects, options_for_select([]), :class => 'form-control', prompt: "--Select Course--"  %>
+	<% end %>
 <% else %>
-  <%= select("subject", "batch_id", [], { :prompt => "--Select a Course--"}, {class: "form-control"}) %>
+	<% if @batches %>
+	  <%= select("subject", "batch_id", @batches.map{|m| [m.batch_name, m.id]}, { :prompt => "--Select a Batch--"}, {class: "form-control"}) %>
+	<% elsif @batches_edit %>
+	  <%= select("subject", "batch_id", @batches_edit.map{|m| [m.batch_name, m.id]}, { :prompt => "--Select a Course--"}, {class: "form-control"}) %>
+	<% else %>
+	  <%= select("subject", "batch_id", [], { :prompt => "--Select a Course--"}, {class: "form-control"}) %>
+	<% end %>
 <% end %>

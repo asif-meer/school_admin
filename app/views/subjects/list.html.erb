@@ -7,14 +7,14 @@
       </div>
       <div class="panel-body">
         <%= form_tag list_subjects_path, :method => "get", id: "subjects_search_form" do %>
-          <%#= label_tag "Course Name" %>
-          <%#= select_tag :search_by_course, options_for_select(Course.all.collect{|m| [m.course_name, m.id]}, :selected => params[:search_by_course]), :class => 'form-control', prompt: "--Select Course--"  %>
+          <%= label_tag "Course Name" %>
+          <%= select_tag :search_by_course_in_subjects, options_for_select(Course.all.collect{|m| [m.course_name, m.id]}, :selected => params[:search_by_course_in_subjects]), :class => 'form-control', prompt: "--Select Course--"  %>
           <%= label_tag "Batch Name" %>
-          <%= select_tag :search_by_batch, options_for_select(Batch.all.collect{|m| [m.batch_name, m.id]}, :selected => params[:search_by_batch]), :class => 'form-control', prompt: "--Select Batch--"  %>
-          <%#= label_tag "Subject Name" %>
-          <%#= text_field_tag :search, params[:search], :class => "form-control" %>
-
-          <%#= submit_tag "Search" %>
+          <div class="batches">
+            <%= render :partial => "batches_all" %>
+          </div>
+          <%#= submit_tag "Search", :name => nil, :class => "btn btn-info btn-sm pull-right" %>
+          <br />
         <% end %>
       </div>
     </div>

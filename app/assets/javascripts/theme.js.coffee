@@ -12,7 +12,6 @@ $ ->
   return
 
 jQuery ->
-
   $("#select_all").hide()  if !$("#checkArray").length
 
   $(".destroy-all").on "click", ->
