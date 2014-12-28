@@ -3,7 +3,7 @@
   <%#= Array.new(20){[*"A".."Z", *"0".."9"].sample}.join %>
   <legend><h1>New Student</h1></legend>
   <div class="row">
-    <div class="col-sm-8">
+    <div class="col-sm-6">
       <div class="form-group"></div>
       <h3> Student Information </h3>
       <div class="form-inputs">
@@ -45,48 +45,51 @@
         <%= f.input :date_of_birth, input_html: {class: "form-control", :data => {'date-format' => 'YYYY/MM/DD'}}, placeholder: "dd-mm-yy", :as => :string %>
       </div>
 
-    <div class="form-group"></div>
-    <div class="form-inputs">
-      <%= f.input :nic, input_html: {class: "form-control", :"data-mask" => "999-999-9999"}, placeholder: "XXX-XXX-XXXX" %>
-    </div>
+      <div class="form-group"></div>
+      <div class="form-inputs">
+        <%= f.input :nic, input_html: {class: "form-control", :"data-mask" => "999-999-9999"}, placeholder: "XXX-XXX-XXXX" %>
+      </div>
 
-    <div class="form-inputs">
-      <%= f.input :address, input_html: {class: "form-control"}, placeholder: "Your current address" %>
-    </div>
+      <div class="form-inputs">
+        <%= f.input :address, input_html: {class: "form-control"}, placeholder: "Your current address" %>
+      </div>
 
-    <div class="form-inputs">
-      <%= f.input :gender, as: :radio_buttons, collection: Student::GENDER %>
-    </div>
+      <div class="form-inputs">
+        <%= f.input :gender, as: :radio_buttons, collection: Student::GENDER %>
+      </div>
 
-    <div class="form-group"></div>
-    <h3> Contact Information </h3>
-    <div class="form-inputs">
-      <%= f.simple_fields_for :emergency_contacts  do |p| %>    
-         <fieldset>
-          <%= render "emergency_contacts_fields",  :f => p  %>
-        </fieldset>
-      <% end %>
+      
       
     </div>
-
     <div class="form-group"></div>
-
-    <div class="form-actions">
-      <%= f.button :submit, class: "btn btn-primary" %>
+    <div class="col-sm-6"> 
+      <div class="form-group"></div>
+      <h3> Contact Information </h3>
+      <div class="form-inputs">
+        <%= f.simple_fields_for :emergency_contacts  do |p| %>    
+           <fieldset>
+            <%= render "emergency_contacts_fields",  :f => p  %>
+          </fieldset>
+        <% end %>
+        
+      </div>
+      <legend><h3>Student Picture</h3></legend>
+      <div class="fileinput fileinput-new" data-provides="fileinput">
+        <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+          <%= image_tag("school.png") %>
+        </div>
+        <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
+        <div>
+          <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><%= f.file_field :avatar, label: false %></span>
+          <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+        </div>
+      </div> 
     </div>
   </div>
   <div class="form-group"></div>
-  <div class="col-sm-4"> 
-    <div class="fileinput fileinput-new" data-provides="fileinput">
-      <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
-        <%= image_tag("school.png") %>
-      </div>
-      <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
-      <div>
-        <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><%= f.file_field :avatar, label: false %></span>
-        <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
-      </div>
-    </div> 
+
+  <div class="form-actions">
+    <%= f.button :submit, class: "btn btn-primary" %>
   </div>
 <% end %>
 

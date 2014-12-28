@@ -9,10 +9,10 @@ class StudentsController < ApplicationController
 
   def index
     # @TODO display students after the user select course and batch.
-    @students = Student.all
+    @students = Student.order(created_at: :desc)
 
     add_breadcrumb "Admissions", admissions_students_path
-    add_breadcrumb "Admissions list"
+    add_breadcrumb "Students list"
   end
 
   def edit
@@ -22,14 +22,14 @@ class StudentsController < ApplicationController
     @batches_all = []
 
     add_breadcrumb "Admissions", admissions_students_path
-    add_breadcrumb "Admissions list", students_path
+    add_breadcrumb "Students list", students_path
     add_breadcrumb "Edit Student Information"
   end
 
   def show
 
     add_breadcrumb "Admissions", admissions_students_path
-    add_breadcrumb "Admissions list", students_path
+    add_breadcrumb "Students list", students_path
     add_breadcrumb "Details"
   end
 
@@ -40,6 +40,10 @@ class StudentsController < ApplicationController
       flash[:notice] = "Student Successfully Updated"
       redirect_to student_path(@student)
     else
+      @course = @student.course
+      if @course
+        @batches = @course.batches
+      end
       render :new
       flash[:alert] = @student.errors.full_messages.to_sentence
     end

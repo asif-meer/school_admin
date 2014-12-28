@@ -18,6 +18,23 @@
     <script type="text/javascript" src="/vendor/bootstrapvalidator/dist/js/bootstrapValidator.min.js"></script>
 </head>
 <body>
+
+    <script type="text/javascript">
+      $(function(){
+        $(".box a").mouseover(function(){
+          $(".box_1").show();
+        })
+        $(".box a").mouseout(function(){
+            $(".box_1").hide();
+        });
+      });
+    </script>
+    <div class="box">
+      <a href="">View Me</a>
+    </div>
+    <div class="box_1">
+      <div class="alert alert-info">Hi</div>
+    </div>
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">

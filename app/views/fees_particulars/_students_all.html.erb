@@ -1,7 +1,7 @@
 <% if @students %>
-  <%= select("fees_particular", "roll_no", @students.map{|m| [m.general_register_number, m.id]}, { :prompt => "--Select a Student--"}, {class: "form-control"}) %>
+  <%= select("fees_particular", "roll_no", @students.map{|m| [m.roll_number, m.roll_number]}, { :prompt => "--Select a Student--"}, {class: "form-control"}) %>
 <% elsif @students_edit %>
- <%= select("fees_particular", "roll_no", @students.map{|m| [m.general_register_number, m.id]}, { :prompt => "--Select a Student--"}, {class: "form-control"}) %>
+ <%= select("fees_particular", "roll_no", @students.map{|m| [m.roll_number, m.roll_number]}, { :prompt => "--Select a Student--"}, {class: "form-control"}) %>
 <% else %>
   <%= select("fees_particular", "roll_no", [], { :prompt => "--Select a Batch--"}, {class: "form-control"}) %>
 <% end %>
