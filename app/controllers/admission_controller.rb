@@ -24,7 +24,9 @@ class AdmissionController < ApplicationController
     add_breadcrumb "New Admission"
     @student = Student.new(admission_params)
     respond_to do |format|
+      @student.roll_number = @student.generate_roll_number
       if @student.save
+
         format.html { redirect_to students_path, notice: 'Student Successfully Saved' }
         format.json { render :show, status: :created, location: @student }
       else
@@ -43,6 +45,9 @@ class AdmissionController < ApplicationController
   private
 
   def admission_params
-    params.require(:student).permit(:first_name, :last_name, :date_of_birth, :nic, :address, :gender, :avatar, :course_id, :batch_id, :joining_date, :general_register_number, emergency_contacts_attributes: [:name, :phone, :relationship])
+    params.require(:student).permit(:first_name, :last_name, :date_of_birth, :nic, 
+                                    :address, :gender, :avatar, :course_id, :batch_id, 
+                                    :joining_date, :general_register_number, :roll_number, 
+                                    emergency_contacts_attributes: [:name, :phone, :relationship])
   end
 end

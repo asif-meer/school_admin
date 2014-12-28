@@ -9,6 +9,8 @@
       <div class="form-inputs">
         <%= f.input :general_register_number, input_html: {class: "form-control", :value => @student.increment_register_no}, autofocus: true, placeholder: "General Register Number", disabled: true %>
       </div>
+      
+      
       <div class="form-group"></div>
       <div class="form-inputs">
         <%= f.input :joining_date, input_html: {class: "form-control", :data => {'date-format' => 'YYYY/MM/DD'}}, placeholder: "dd-mm-yy", :as => :string %>

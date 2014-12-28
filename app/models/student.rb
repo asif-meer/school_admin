@@ -15,8 +15,9 @@
 
 class Student < ActiveRecord::Base
   validates_presence_of :first_name, :last_name, :address, :nic, :gender,
-                        :course_id, :batch_id, :joining_date, :date_of_birth
+                        :course_id, :batch_id, :joining_date, :date_of_birth, :roll_number
   validates_uniqueness_of :general_register_number
+  validates_uniqueness_of :roll_number
 
   has_many :emergency_contacts, :dependent => :destroy
   accepts_nested_attributes_for :emergency_contacts
@@ -36,6 +37,22 @@ class Student < ActiveRecord::Base
 
   before_create :increment_register_no
 
+  after_create :generate_roll_number
+
+  def generate_roll_number
+    unless self.class.last.nil?
+      unless self.batch.students.blank?
+        if self.batch.students.first.batch_id == self.batch_id
+          self.roll_number = ("#{(self.batch.students.last.roll_number.to_i) + 1}-#{self.batch.batch_name}").to_s 
+        end
+      else
+        self.roll_number = "1-"+self.batch.batch_name
+      end
+    else
+      self.roll_number = "1-"+self.batch.batch_name unless self.batch.blank? 
+    end
+  end
+  
   def increment_register_no
     self.general_register_number = (self.class.last.nil?) ? "1" : ((self.class.last.general_register_number.to_i) + 1).to_s
   end

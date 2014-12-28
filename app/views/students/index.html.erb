@@ -7,6 +7,7 @@
         <thead>
           <tr>
             <th>Joining Date</th>
+            <th>Roll No.</th>
             <th>First name</th>
             <th>Last Name</th>
             <th>Birth Date</th>
@@ -20,6 +21,7 @@
           <% @students.each do |student| %>
             <tr>
               <td><%= student.joining_date.strftime("%d/%b/%Y") %></td>
+              <td><%= student.roll_number %></td>
               <td><%= student.first_name %></td>
               <td><%= student.last_name %></td>
               <td><%= student.date_of_birth.strftime("%d/%b/%Y") %></td>

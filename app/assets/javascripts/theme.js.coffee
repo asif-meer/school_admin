@@ -23,6 +23,8 @@ jQuery ->
           $("#select_notice").html("Select atleast one Subject")
         else if url.indexOf('http://' + host + '/batches') != -1
           $("#select_notice").html("Select atleast one Batch")
+        else if url.indexOf('http://' + host + '/courses') != -1
+          $("#select_notice").html("Select atleast one Course")
 
         if !$("#checkArray").length
           $("#select_notice").html("There is no record present")

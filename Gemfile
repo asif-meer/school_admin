@@ -61,10 +61,12 @@ group :test do
   gem 'launchy'
   gem 'selenium-webdriver'
   gem 'simplecov', :require => false
+  gem 'guard-rspec'
 end
+
 group :production do
   gem 'passenger'
-  gem 'pg'
+  gem 'pg'  
   gem 'rails_12factor'
 end
 

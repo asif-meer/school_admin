@@ -3,7 +3,7 @@
     Courses
     <div class="pull-right">
       <span id="select_notice" style="font-size:13px;"></span>
-      <%= button_tag "Delete selected", :remote => true, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger destroy-all" %>
+      <%= button_tag "Delete selected", :remote => true, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm  destroy-all" %>
     </div>
   </h1>
 
@@ -30,7 +30,7 @@
                 <td><%= course.code %></td>
                 <td><%= link_to 'View Details', course, class: "btn btn-link" %></td>
                 <td><%= link_to 'Edit', edit_course_path(course), class: "btn btn-link" %></td>
-                <td><%= link_to 'Destroy',course , method: :delete, remote: true, data: { confirm: 'Are you sure?' }, class: "btn btn-link", class: "delete_course", 'course_id' => course.id %></td>
+                <td><%= link_to 'Destroy',  course , method: :delete, remote: true, data: { confirm: 'Are you sure?' }, class: "btn btn-link delete_course" %></td>
               </tr>
             <% end %>
           </tbody>

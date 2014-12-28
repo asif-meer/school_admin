@@ -3,7 +3,9 @@
 .checkbox input[type="checkbox"], .checkbox-inline input[type="checkbox"] {
   margin-left: 0px;
 }
-
+.my_class {
+  background-color: rgba(36, 202, 133, 1) !important;
+}
 //Field Set
 fieldset {
   min-height: 20px;
