@@ -56,6 +56,7 @@ Rails.application.routes.draw do
       get "update_course"
       get "list"
       delete 'destroy_multiple'
+      get "update_course_for_search"
     end
   end
   resources :student_categories

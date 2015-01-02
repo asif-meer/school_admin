@@ -10,8 +10,8 @@
           <%= label_tag "Course Name" %>
           <%= select_tag :search_by_course_in_subjects, options_for_select(Course.all.collect{|m| [m.course_name, m.id]}, :selected => params[:search_by_course_in_subjects]), :class => 'form-control', prompt: "--Select Course--"  %>
           <%= label_tag "Batch Name" %>
-          <div class="batches">
-            <%= render :partial => "batches_all" %>
+          <div class="batches_for_search">
+            <%= render :partial => "/subjects/partials/batches_search" %>
           </div>
           <%#= submit_tag "Search", :name => nil, :class => "btn btn-info btn-sm pull-right" %>
           <br />
@@ -22,10 +22,13 @@
 </div>
 <%= form_tag destroy_multiple_subjects_path, method: :delete do %>
   <div class="row">
-    <div class="col-sm-6 pull-right">
+    <div class="col-sm-12">
+      <div class="pull-left">
+        <%= link_to 'New Subject', new_subject_path, class: "btn btn-default btn-lblock" %>
+      </div>
       <div class="pull-right">
-        <span id="select_notice" style="font-size:13px;"></span>
-        <%= button_tag "Delete selected", :remote => true, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm destroy-all" %>
+        <%= button_tag "Delete selected", :remote => true, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm destroy-all pull-right" %><br />
+        <span id="select_notice" style="font-size:13px;" class="pull-right"></span>
       </div>
     </div>
   </div>
@@ -36,15 +39,13 @@
     <div class="col-sm-12">
       <div class="table-responsive">
         <div id="subjects_search">
-          <%= render :partial => "subjects" %>
+          <%= render :partial => "/subjects/partials/subjects" %>
         </div>
       </div>
     </div>
   </div>
 <% end %>
 
-<br>
 
-<%= link_to 'New Subject', new_subject_path, class: "btn btn-default btn-lg" %>
 
 

@@ -45,6 +45,10 @@ class SubjectsController < ApplicationController
   # POST /subjects
   # POST /subjects.json
   def create
+    add_breadcrumb "Subjects Design", subjects_path, :title => "Back to the Index"
+    add_breadcrumb "Subjects", list_subjects_path
+    add_breadcrumb "New Subject"
+
     @subject = Subject.new(subject_params)
 
     respond_to do |format|
@@ -52,6 +56,11 @@ class SubjectsController < ApplicationController
         format.html { redirect_to @subject, notice: 'Subject was successfully created.' }
         format.json { render :show, status: :created, location: @subject }
       else
+        @course = @subject.course
+        if @course
+          @batches = @course.batches
+        end
+        flash[:alert] = @subject.errors.full_messages.to_sentence
         format.html { render :new }
         format.json { render json: @subject.errors, status: :unprocessable_entity }
       end
@@ -61,6 +70,13 @@ class SubjectsController < ApplicationController
   def update_course
     @course = Course.find(params[:course_id])
     @batches = @course.batches
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def update_course_for_search
+    @course = Course.find(params[:course_id])
     @update_batches = @course.batches
     respond_to do |format|
       format.js
@@ -70,6 +86,10 @@ class SubjectsController < ApplicationController
   # PATCH/PUT /subjects/1
   # PATCH/PUT /subjects/1.json
   def update
+    add_breadcrumb "Subjects Design", subjects_path, :title => "Back to the Index"
+    add_breadcrumb "Subjects", list_subjects_path
+    add_breadcrumb "Edit Subject"
+    
     respond_to do |format|
       if @subject.update(subject_params)
         format.html { redirect_to @subject, notice: 'Subject was successfully updated.' }
