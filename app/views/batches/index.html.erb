@@ -23,10 +23,13 @@
 </div>
 <%= form_tag destroy_multiple_batches_path, method: :delete do %>
   <div class="row">
-    <div class="col-sm-6 pull-right">
+    <div class="col-sm-12">
+      <div class="pull-left">
+        <%= link_to 'New Batch', new_batch_path, class: "btn btn-default btn-lblock" %>
+      </div>
       <div class="pull-right">
-        <span id="select_notice" style="font-size:13px;"></span>
-        <%= button_tag "Delete selected", :remote => true, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm destroy-all", id: "my" %>
+        <%= button_tag "Delete selected", :remote => true, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm destroy-all pull-right", id: "my" %><br />
+        <span id="select_notice" style="font-size:13px;" class="pull-right"></span>
       </div>
     </div>
   </div>
@@ -45,5 +48,5 @@
 
 <br>
 
-<%= link_to 'New Batch', new_batch_path, class: "btn btn-default btn-lg" %>
+
 

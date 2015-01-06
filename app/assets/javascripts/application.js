@@ -21,5 +21,7 @@
 //= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
 //= require turbolinks
 //= require maskedinput
+//= require highcharts
+//= require highcharts/highcharts-more 
 //= require bootstrap-sprockets
 //= require_tree .

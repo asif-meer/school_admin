@@ -71,6 +71,262 @@
       </div>
     </div>
   </div>
+  <br />
+  <div class="row">
+    <div class="col-lg-3 col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fa fa-graduation-cap fa-5x"></i>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div class="huge"><%= Student.count %></div>
+                        <div><h4>Students!</h4></div>
+                    </div>
+                </div>
+            </div>
+            <a href="#">
+                <div class="panel-footer">
+                    <%= link_to students_path, :style => "color: #228CEA;" do %>
+                      <span class="pull-left">View Details</span>
+                      <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <% end %>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="panel panel-green">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fa fa-users fa-5x"></i>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div class="huge"><%= Employee.count %></div>
+                        <div><h4>Employees!</h4></div>
+                    </div>
+                </div>
+            </div>
+            <a href="#">
+                <div class="panel-footer">
+                    <%= link_to employees_path do %>
+                      <span class="pull-left">View Details</span>
+                      <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <% end %>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="panel panel-yellow">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fa fa-tasks fa-5x"></i>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div class="huge"><%= Subject.count %></div>
+                        <div><h4>Subjects!</h4></div>
+                    </div>
+                </div>
+            </div>
+            <a href="#">
+                <div class="panel-footer">
+                    <%= link_to list_subjects_path do %>
+                      <span class="pull-left">View Details</span>
+                      <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <% end %>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="panel panel-red">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fa fa-building-o fa-5x"></i>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div class="huge"><%= Department.count %></div>
+                        <div><h4>Departments</h4></div>
+                    </div>
+                </div>
+            </div>
+            <a href="#">
+                <div class="panel-footer">
+                    <%= link_to departments_path do %>
+                      <span class="pull-left">View Details</span>
+                      <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <% end %>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6">
+        <div id="high-bar-chart"></div>
+    </div>
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+            <i class="fa fa-bell fa-fw"></i> Notifications Panel
+        </div>
+        <!-- /.panel-heading -->
+        <div class="panel-body">
+            <div class="list-group">
+                <a href="#" class="list-group-item">
+                    <i class="fa fa-comment fa-fw"></i> New Comment
+                    <span class="pull-right text-muted small"><em>4 minutes ago</em>
+                    </span>
+                </a>
+                <a href="#" class="list-group-item">
+                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                    <span class="pull-right text-muted small"><em>12 minutes ago</em>
+                    </span>
+                </a>
+                <a href="#" class="list-group-item">
+                    <i class="fa fa-envelope fa-fw"></i> Message Sent
+                    <span class="pull-right text-muted small"><em>27 minutes ago</em>
+                    </span>
+                </a>
+                <a href="#" class="list-group-item">
+                    <i class="fa fa-tasks fa-fw"></i> New Task
+                    <span class="pull-right text-muted small"><em>43 minutes ago</em>
+                    </span>
+                </a>
+                <a href="#" class="list-group-item">
+                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                    <span class="pull-right text-muted small"><em>11:32 AM</em>
+                    </span>
+                </a>
+                <a href="#" class="list-group-item">
+                    <i class="fa fa-bolt fa-fw"></i> Server Crashed!
+                    <span class="pull-right text-muted small"><em>11:13 AM</em>
+                    </span>
+                </a>
+                <a href="#" class="list-group-item">
+                    <i class="fa fa-warning fa-fw"></i> Server Not Responding
+                    <span class="pull-right text-muted small"><em>10:57 AM</em>
+                    </span>
+                </a>
+                <a href="#" class="list-group-item">
+                    <i class="fa fa-shopping-cart fa-fw"></i> New Order Placed
+                    <span class="pull-right text-muted small"><em>9:49 AM</em>
+                    </span>
+                </a>
+                <a href="#" class="list-group-item">
+                    <i class="fa fa-money fa-fw"></i> Payment Received
+                    <span class="pull-right text-muted small"><em>Yesterday</em>
+                    </span>
+                </a>
+            </div>
+            <!-- /.list-group -->
+            <a href="#" class="btn btn-default btn-block">View All Alerts</a>
+        </div>
+        <!-- /.panel-body -->
+    </div>
+    </div>
+  </div>
 </div>
 
+<script type="text/javascript">
+  $(function () {
+    $('#high-bar-chart').highcharts({
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Students by Batches'
+        },
+        subtitle: {
+            text: ''
+        },
+        xAxis: {
+            // categories: [
+            //     'Jan',
+            //     'Feb',
+            //     'Mar',
+            //     'Apr',
+            //     'May',
+            //     'Jun',
+            //     'Jul',
+            //     'Aug',
+            //     'Sep',
+            //     'Oct',
+            //     'Nov',
+            //     'Dec'
+            // ]
+            type: "integer"
+        },
+        yAxis: {
+            title: {
+                text: 'Students'
+            }
+        },
+        // tooltip: {
+        //     headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+        //     pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+        //         '<td style="padding:0"><b>{point.y}</b></td></tr>',
+        //     footerFormat: '</table>',
+        //     shared: true,
+        //     useHTML: true
+        // },
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
+        },
+        series: [
+        {
+            name: '2009',
+            data: [<%= Student.joins(:batch).where(:batches => {:batch_name => "2009"}).count %>]
+        }, {
+            name: '2010',
+            data: [<%= Student.joins(:batch).where(:batches => {:batch_name => "2010"}).count %>]
+        }, {
+            name: '2011',
+            data: [<%= Student.joins(:batch).where(:batches => {:batch_name => "2011"}).count %>]
+        }, {
+            name: '2012',
+            data: [<%= Student.joins(:batch).where(:batches => {:batch_name => "2012"}).count %>]
+        }, {
+            name: '2013',
+            data: [<%= Student.joins(:batch).where(:batches => {:batch_name => "2013"}).count %>]
+        }, {
+            name: '2014',
+            data: [<%= Student.joins(:batch).where(:batches => {:batch_name => "2014"}).count %>]
+        }
+
+
+                // , {
+        //     name: 'Tokyo',
+        //     data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+
+        // }, {
+        //     name: 'New York',
+        //     data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5, 106.6, 92.3]
+        // }
+        // }, {
+        //     name: 'London',
+        //     data: [48.9, 38.8, 39.3, 41.4, 47.0, 48.3, 59.0, 59.6, 52.4, 65.2, 59.3, 51.2]
+
+        // }, {
+        //     name: 'Berlin',
+        //     data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4, 60.4, 47.6, 39.1, 46.8, 51.1]
+
+        // }
+        ]
+    });
+  });
+
+</script>
 

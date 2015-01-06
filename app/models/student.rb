@@ -25,6 +25,14 @@ class Student < ActiveRecord::Base
   belongs_to :course
   belongs_to :batch
   
+  # scope :by_baches, -> { joins(:batches).where(:batches => {:batch_name =>}) }
+
+  def self.by_baches(batch)
+    joins(:batches).where(:batches => {:batch_name => batch})
+  end
+
+
+
   # validates_associated :emergency_contacts
 
   # File Upload
