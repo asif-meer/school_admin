@@ -8,7 +8,7 @@ $(function(){
 		// }
 		$('.batch_students').show()
 		$('.batch_subjects').hide()
-		$('.nav-pills li:first-child a').css("background-color", "#0ce3ac")
+		$('.nav-pills li:first-child a').css("background-color", "#25458B")
 		$('.nav-pills li:last-child a').css("background-color", "transparent")
 		e.preventDefault();
 	});
@@ -16,10 +16,10 @@ $(function(){
 		$('.batch_subjects').show()
 		$('.batch_students').hide()
 		$('.nav-pills li:first-child a').css("background-color", "transparent")
-		$('.nav-pills li:last-child a').css("background-color", "#0ce3ac")
+		$('.nav-pills li:last-child a').css("background-color", "#25458B")
 		e.preventDefault();
 	});
-	$('.nav-pills li:first-child a').css("background-color", "#0ce3ac")
+	$('.nav-pills li:first-child a').css("background-color", "#25458B")
 
 
 	// $("#subjects_students").hide()

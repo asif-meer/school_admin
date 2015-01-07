@@ -20,18 +20,32 @@
     <% end %>
 
     <div class="container">
-      <div id="notice">
-        <%= render 'layouts/messages' %>
+      <div class="row">
+        <% if user_signed_in? %>
+          <%= render :partial => "layouts/left_navigation" %>
+        
+          <div class="col-md-10">
+            <div id="notice">
+              <%= render 'layouts/messages' %>
+            </div>
+            <main role="main">
+              <%= render 'layouts/breadcrumbs' %>
+              <%= yield %>
+            </main>
+          </div>
+        <% else %>
+          <div id="notice">
+            <%= render 'layouts/messages' %>
+          </div>
+          <%= yield %>
+        <% end %>
       </div>
-      <main role="main">
-        <%= render 'layouts/breadcrumbs' %>
-        <%= yield %>
-      </main>
-      <div class="main-height"></div>
-      <footer>
-        <%= render 'layouts/footer' %>
-      </footer>
     </div>
+
+    <footer>
+      <%= render 'layouts/footer' %>
+    </footer>
+    
     
   </body>
 </html>
