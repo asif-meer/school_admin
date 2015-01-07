@@ -6,7 +6,8 @@
       <%= button_tag "Delete selected", :remote => true, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger destroy-all" %>
     </div>
   </h1>
-
+  <%= link_to 'New Subject allocation', new_subject_allocation_path, class: "btn btn-success" %>
+  <div class="row">&nbsp;</div>
   <div class="row">
     <div class="col-sm-12">
       <div class="table-responsive">
@@ -45,6 +46,6 @@
 <% end %>
 <br>
 
-<%= link_to 'New Subject allocation', new_subject_allocation_path, class: "btn btn-default btn-lg" %>
+
 
 

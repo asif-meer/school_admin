@@ -7,7 +7,7 @@
     <%= favicon_link_tag "favicon.ico" %>
     <title><%= content_for?(:title) ? yield(:title) : "School Admin" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "School Admin" %>">
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag 'application', 'external', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     
     <%= csrf_meta_tags %>
@@ -18,13 +18,11 @@
         <%= render 'layouts/navigation' %>
       </header>
     <% end %>
-
     <div class="container">
       <div class="row">
         <% if user_signed_in? %>
           <%= render :partial => "layouts/left_navigation" %>
-        
-          <div class="col-md-10">
+          <div class="col-md-9">
             <div id="notice">
               <%= render 'layouts/messages' %>
             </div>
@@ -34,18 +32,27 @@
             </main>
           </div>
         <% else %>
-          <div id="notice">
-            <%= render 'layouts/messages' %>
+          <div class="col-md-12">
+            <div id="notice">
+              <%= render 'layouts/messages' %>
+            </div>
+            <%= yield %>
           </div>
-          <%= yield %>
         <% end %>
       </div>
+      <div class="row">
+        <div class="col-md-12">
+          <hr>
+          <div class="col-md-7">
+            <a href="#">Terms of Service</a>    
+            <a href="#">Privacy</a>    
+            <a href="#">Security</a>
+          </div>
+          <div class="col-md-5">
+            <p class="muted pull-right">© 2014 School Admin. All rights reserved</p>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <footer>
-      <%= render 'layouts/footer' %>
-    </footer>
-    
-    
   </body>
 </html>
