@@ -1,28 +1,41 @@
-.dropdown-menu:before {
+.student_profile_hover:before {
   position: absolute;
-  top: 150px;
+  top: 145px;
   left: 44px;
   display: inline-block;
   border-right: 7px solid transparent;
-  border-top: 7px solid #ccc;
+  border-top: 7px solid #6F6767;
   border-left: 7px solid transparent;
   border-bottom-color: rgba(0, 0, 0, 0.2);
   content: '';
 }
 
-.dropdown-menu:after {
+.student_profile_hover:after {
   position: absolute;
-  top: 150px;
+  top: 145px;
   left: 44px;
   display: inline-block;
   border-right: 7px solid transparent;
-  border-top: 7px solid #ccc;
+  border-top: 7px solid #6F6767;
   border-left: 7px solid transparent;
   border-bottom-color: rgba(0, 0, 0, 0.2);
   content: '';
 }
 
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+  background-color: #1E7AE3;
+  color: #fff;
+}
 
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+  background-color: #e8e8e8;
+  background-image: -webkit-linear-gradient(top, whitesmoke 0%, #e8e8e8 100%);
+  background-image: -o-linear-gradient(top, whitesmoke 0%, #e8e8e8 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(whitesmoke), to(#e8e8e8));
+  background-image: linear-gradient(to bottom, rgb(101, 176, 249) 0%, #3E8BDA 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff5f5f5',endColorstr='#ffe8e8e8',GradientType=0);
+  background-repeat: repeat-x;
+}
 
 
 .navbar-inverse .navbar-nav > li > a {
@@ -55,11 +68,6 @@
 .navbar-toggle {
   margin-bottom: 0px;
   margin-top: 12px;
-}
-
-.nav > li > a:hover, .nav > li > a:focus {
-  background-color: #25458B !important;
-  border-radius: 4px !important;
 }
 
 .panel-app {
@@ -101,9 +109,5 @@
     padding: 20px;
     font-size: 25px;
   }  
-}
-
-.nav-tabs > li > a, .nav-pills > li > a:active {
-  background-color: #25458B !important;
 }
 

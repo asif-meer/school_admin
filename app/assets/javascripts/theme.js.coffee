@@ -12,8 +12,12 @@ $ ->
   return
 
 jQuery ->
-  $("#select_all").hide()  if !$("#checkArray").length
+  $("#select_all").hide()  if !$(".selectedId").length
 
+  $(document).on "click", "#select_all", ->
+    $(this).closest("table").find(":checkbox").prop "checked", @checked
+    return
+    
   $(".destroy-all").on "click", ->
     if !$(":checkbox").is(':checked')
         url = window.location.href
@@ -26,7 +30,7 @@ jQuery ->
         else if url.indexOf('http://' + host + '/courses') != -1
           $("#select_notice").html("Select atleast one Course")
 
-        if !$("#checkArray").length
+        if !$(".selectedId").length
           $("#select_notice").html("There is no record present")
           #$(this).attr('disabled','disabled');
           return false

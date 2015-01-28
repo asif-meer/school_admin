@@ -2756,7 +2756,6 @@ select[multiple].form-group-lg .form-control {
   -ms-touch-action: manipulation;
       touch-action: manipulation;
   cursor: pointer;
-  background-image: none;
   border: 1px solid transparent;
   white-space: nowrap;
   padding: 8px 12px;
@@ -2767,6 +2766,7 @@ select[multiple].form-group-lg .form-control {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  text-shadow: none !important;
 }
 .btn:focus,
 .btn:active:focus,
@@ -3184,7 +3184,7 @@ tbody.collapse.in {
   clear: both;
   font-weight: normal;
   line-height: 1.42857143;
-  color: #333333;
+  /*color: #333333;*/
   white-space: nowrap;
 }
 .dropdown-menu > li > a:hover,

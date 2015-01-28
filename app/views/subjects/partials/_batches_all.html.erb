@@ -1,9 +1,11 @@
 <% if @batches %>
+  <%= label_tag :batch_id%>
   <%= select("subject", "batch_id", @batches.map{|m| [m.batch_name, m.id]}, { :prompt => "--Select a Batch--"}, {class: "form-control"}) %>
 <% elsif @batches_edit %>
+  <%= label_tag :batch_id%>
   <%= select("subject", "batch_id", @batches_edit.map{|m| [m.batch_name, m.id]}, { :prompt => "--Select a Course--"}, {class: "form-control"}) %>
 <% else %>
-  <%= select("subject", "batch_id", [], { :prompt => "--Select a Course--"}, {class: "form-control"}) %>
+  <%= f.select("batch_id", [], { :prompt => "--Select a Course--"}, {class: "form-control"}) %>
 <% end %>
 
 

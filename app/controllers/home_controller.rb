@@ -2,12 +2,14 @@ class HomeController < ApplicationController
   before_filter :authenticate_user!, except: [:bootstrap_form_test]
 
   def index
-    
   end
 
   def bootstrap_form_test
     
   end
+
+  
+
   # def log
   #   # logger.debug params
   #   # e = Event.new(

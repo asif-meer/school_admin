@@ -5,6 +5,11 @@ class BatchesController < ApplicationController
   # GET /batches.json
   def index
     @batches = BatchSearch.search_batches(params)
+    # Return Batches after Search
+    # @batches.each do |m|
+    #   @course = m.course
+    # end
+    # @batches_update = @course.batches if @course.present?
     add_breadcrumb "Batches"
   end
 

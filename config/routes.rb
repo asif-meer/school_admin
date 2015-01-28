@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :sessions
+
   # Fees Criteria
   resources :fees_particulars, only: [:destroy, :edit, :update, :show] do
     collection do
@@ -67,13 +69,11 @@ Rails.application.routes.draw do
   
 
   # Employee Attendance
-  match "attendences/employee_attendence" => "attendences#employee_attendence", via: :get, as: :employee_attendence
-  match "attendences/edit/:id" => "attendences#edit", via: :get, as: :emp_attendence_edit
-  match "attendences/update/:id" => "attendences#update", via: :post, as: :emp_attendence_update
-  # match "employee/:employee_id/attendence" => "employee_attendence#edit_attendence", :via => :get, as: :employee_attendence
-
-  # match "edit_attendence/:id" => "employee_attendence#edit_attendence", :via => :get, as: :edit_attendence
-  match "attendence/:id", to: "employee_attendence#attendence", :via => :post, as: :update_attendence
+  resources :employee_attendance, only: [:employee_attendance_details] do
+    collection do
+      get "employee_attendance_details"
+    end
+  end
 
   # Employees
   resources :employee_positions

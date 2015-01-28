@@ -32,8 +32,8 @@
               <td><%= student.batch unless student.batch.blank? %></td>
               <td><%= student.gender %></td>
               <td>
-                <%= link_to 'Details', student_path(student), class: "btn btn-link" %> |
-                <%= link_to 'Edit', edit_student_path(student), class: "btn btn-link" %> |
+                <%= link_to 'Details', student_path(student), class: "btn btn-link" %><br />
+                <%= link_to 'Edit', edit_student_path(student), class: "btn btn-link" %><br />
                 <%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %>
               </td>
             </tr>

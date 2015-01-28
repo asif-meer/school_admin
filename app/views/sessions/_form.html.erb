@@ -1,0 +1,27 @@
+<fieldset>
+  <%= bootstrap_form_for @session, label_errors: true, class: "form-horizontal" do |f| %>
+    <%= yield f %>
+    <%#= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.text_field :name, class: "form-control", placeholder: "Session Name" %>
+    </div>
+
+    <div class="form-group"></div>
+    <div class="form-inputs">
+      <%= f.datetime_field :start_date, class: "form-control", :data => {'date-format' => 'YYYY/MM/DD'}, :placeholder => "dd-mm-yy" %>
+    </div>
+    <div class="form-group"></div>
+    <div class="form-inputs">
+      <%= f.datetime_field :end_date, class: "form-control", :data => {'date-format' => 'YYYY/MM/DD'}, :placeholder => "dd-mm-yy" %>
+    </div>
+
+    <div class="form-group"></div>
+
+    <div class="form-actions">
+      <%= f.submit "Submit", class: "btn btn-primary" %>
+    </div>
+    
+    <div class="form-group"></div>
+  <% end %>
+</fieldset>

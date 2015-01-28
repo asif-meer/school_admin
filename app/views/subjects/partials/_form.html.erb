@@ -1,27 +1,27 @@
-<%= simple_form_for(@subject) do |f| %>
-  <%= f.error_notification %>
+<%= bootstrap_form_for(@subject, label_errors: true) do |f| %>
+  <%#= f.error_notification %>
   <%= yield f %>
   <div class="form-inputs">
-    <%= f.label :course_id %>
-    <%= select("subject", "course_id", Course.all.map{|m| [m.course_name, m.id]}, { :prompt => "--Select a Course--"}, {class: "form-control"}) %>
+    <%#= f.label :course_id %>
+    <%= f.select("course_id", Course.all.map{|m| [m.course_name, m.id]}, { :prompt => "--Select a Course--"}, {class: "form-control"}) %>
   </div>
 
   <div class="form-group"></div>
   <div class="form-inputs">
-    <%= f.label :batch_id %>
+    <%#= f.label :batch_id %>
     <div class="batches"> 
-      <%= render :partial => '/subjects/partials/batches_all', :f => p %>
+      <%= render :partial => '/subjects/partials/batches_all', :locals => {:f => f} %>
     </div>
   </div>
   <div class="form-group"></div>
   <div class="form-inputs">
-    <%= f.input :subject_name, input_html: {class: "form-control"}, placeholder: "Subject Name" %>
+    <%= f.text_field :subject_name, class: "form-control", placeholder: "Subject Name" %>
   </div>
 
   <div class="form-group"></div>
 
   <div class="form-actions">
-    <%= f.button :submit, class: "btn btn-primary" %> 
+    <%= f.submit "Create", class: "btn btn-primary" %> 
   </div>
   
   <div class="form-group"></div>

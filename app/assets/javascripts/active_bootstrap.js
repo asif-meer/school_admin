@@ -43,7 +43,7 @@ $(function(){
 });
 
 $(function(){
-$(".dropdown").hover(            
+$(".student_dropdown").hover(            
         function() {
             $('.student_profile_hover', this).stop( true, true ).fadeIn("fast");
             $(this).toggleClass('open');

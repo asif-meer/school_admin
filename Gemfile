@@ -45,7 +45,7 @@ group :development do
   gem 'rb-fsevent', :require=>false
   gem 'rb-inotify', :require=>false
   gem 'letter_opener'
-  gem 'annotate', '~> 2.6.5'
+  gem 'annotate', github: 'ctran/annotate_models'
   # gem 'debugger'
 end
 group :development, :test do
@@ -62,7 +62,6 @@ group :test do
   gem 'launchy'
   gem 'selenium-webdriver'
   gem 'simplecov', :require => false
-  gem 'guard-rspec'
 end
 
 group :production do
