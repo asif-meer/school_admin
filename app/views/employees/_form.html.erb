@@ -1,80 +1,79 @@
-<%= simple_form_for(@employee) do |f| %>
-  <%= f.error_notification %>
+<%= bootstrap_form_for @employee, label_errors: true, class: "form-horizontal", :html => {:multipart => true} do |f| %>
+  <%#= f.error_notification %>
   <div class="row">
-    <div class="col-sm-7">
+    <div class="col-sm-6">
       <h3>Bio:</h3>
       <fieldset>
         <div class="form-inputs">
-          <%= f.input :first_name, input_html: {class: "form-control"}, autofocus: true, placeholder: "First Name" %>
+          <%= f.text_field :first_name, input_html: {class: "form-control"}, autofocus: true, placeholder: "First Name" %>
         </div>
 
 
         <div class="form-inputs">
-          <%= f.input :last_name, input_html: {class: "form-control"}, placeholder: "Last Name" %>
+          <%= f.text_field :last_name, input_html: {class: "form-control"}, placeholder: "Last Name" %>
         </div>
 
         <div class="form-inputs">
-          <%= f.input :date_of_birth, input_html: {class: "form-control"}, placeholder: "dd-mm-yy" %>
+          <%= f.text_field :date_of_birth, class: "form-control", :data => {'date-format' => 'YYYY/MM/DD'}, as: :string, :placeholder => "Date of birth" %>
         </div>
 
         <div class="form-inputs">
-          <%= f.input :gender, input_html: {class: "form-control"}, as: :select, collection: Employee::GENDER, prompt: "Choose your Gender" %>
+          <%= f.select :gender, Employee::GENDER, input_html: {class: "form-control"}, prompt: "Choose your Gender" %>
         </div>
       </fieldset>
 
       <h3>Address:</h3>
       <fieldset>
         <div class="form-inputs">
-          <%= f.input :present_address, input_html: {class: "form-control"}, placeholder: "Current Address" %>
+          <%= f.text_area :present_address, input_html: {class: "form-control"}, placeholder: "Current Address" %>
         </div>
 
         <div class="form-inputs">
-          <%= f.input :perminent_address, input_html: {class: "form-control"}, placeholder: "Permenent Address" %>
+          <%= f.text_area :perminent_address, input_html: {class: "form-control"}, placeholder: "Permenent Address" %>
         </div>
 
         <div class="form-inputs">
-          <%=  f.input :phone, input_html: {class: "form-control"}, placeholder: "Contact Number" %>
+          <%=  f.phone_field :phone, input_html: {class: "form-control"}, placeholder: "Contact Number" %>
         </div>
 
         <div class="form-inputs">
-          <%=  f.input :email, input_html: {class: "form-control"}, placeholder: "Email Address" %>
+          <%= f.email_field :email, input_html: {class: "form-control"}, placeholder: "Email Address" %>
         </div>
       </fieldset>
     </div>
-    <div class="col-sm-5">
+    <div class="col-sm-6">
       <h3>Employee Information:</h3>
       <fieldset>
         <div class="form-inputs">
-          <%= f.input :employee_number, input_html: {class: "form-control"}, placeholder: "Employee Number" %>
+          <%= f.number_field :employee_number, input_html: {class: "form-control"}, placeholder: "Employee Number" %>
         </div>
 
         <div class="form-inputs">
-          <%= f.label :joining_date, required: true %>
-          <%= f.text_field :joining_date, class: "form-control", placeholder: "dd-mm-yy" %>
+          <%#= f.label :joining_date, required: true %>
+          <%= f.text_field :joining_date, class: "form-control", :data => {'date-format' => 'YYYY/MM/DD'}, as: :string, :placeholder => "Joining Date" %>
         </div>
 
         <div class="form-inputs">
-          <%= f.association :department, input_html: {class: "form-control"}, prompt: "Choose a Department" %>
+          <%= f.select :department_id, Department.all.map{|m| [m.name, m.id]}, class: "form-control", autofocus: true, prompt: "Choose a Department" %>
         </div>
 
         <div class="form-inputs">
-          <%= f.association :employee_position, input_html: {class: "form-control"}, prompt: "Your Position" %>
+          <%= f.select :employee_position_id, EmployeePosition.all.map{|m| [m.name, m.id]}, class: "form-control", autofocus: true, prompt: "Choose an Employee Position" %>
         </div>
 
         <div class="form-inputs">
-          <%= f.input :job_title, input_html: {class: "form-control"}, placeholder: "Job Title" %>
+          <%= f.text_field :job_title, input_html: {class: "form-control"}, placeholder: "Job Title" %>
         </div>
       </fieldset>
 
       <h3>Qualification and Experience:</h3>
       <fieldset>
         <div class="form-inputs">
-          <%= f.input :qualification, input_html: {class: "form-control"}, placeholder: "Qualification" %>
+          <%= f.text_field :qualification, input_html: {class: "form-control"}, placeholder: "Qualification" %>
         </div>
         <div class="form-group"></div>
         <div class="form-inputs">
-          <%= f.label :total_experience %> (In Years)
-          <%= f.input :total_experience, input_html: {class: "form-control"}, placeholder: "Total Experience", label: false %>
+          <%= f.text_field :total_experience, input_html: {class: "form-control"}, placeholder: "Total Experience", label: false %>
         </div>
       </fieldset>
       <h3>Profile Picture</h3>
@@ -85,7 +84,7 @@
   <div class="form-group"></div>
 
   <div class="form-actions">
-    <%= f.button :submit, class: "btn btn-primary" %>
+    <%= f.submit "Submit", class: "btn btn-primary" %>
   </div>
   
 <% end %>

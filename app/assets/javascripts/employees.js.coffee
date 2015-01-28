@@ -12,7 +12,8 @@ jQuery ->
 		pickTime: false
 
 
-#$(document).ready ->
+$(document).ready ->
+  $("#employees_datatable").dataTable()  
 
   #$(document).bind "ajaxSuccess", "form.employee_form", (event, xhr, settings) ->
     #$employee_form = $(event.data)

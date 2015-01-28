@@ -28,16 +28,14 @@
 
 class Employee < ActiveRecord::Base
   belongs_to :department
-  belongs_to :employee_position
-
-  has_many :employee_attendences, :dependent => :destroy
-  accepts_nested_attributes_for :employee_attendences 
+  belongs_to :employee_position 
 
 
   # validations
   validates_presence_of :employee_number,:first_name,:last_name, :department_id,
                         :job_title, :employee_position_id, :email, :phone, :date_of_birth,
-                        :joining_date, :qualification, :total_experience, :present_address
+                        :joining_date, :qualification, :total_experience, :present_address,
+                        :gender
 
   # File Upload
   has_attached_file :avatar, :styles => { :medium => "200x200>", :thumb => "100x100>"}, :default_url => "/images/:style/missing.png"

@@ -15,7 +15,8 @@ resetSelectAll = ->
     $("#edit").attr "disabled", true
   return
 
-jQuery -> 
+jQuery ->
+
 	$("#batch_start_date").datetimepicker
 		pickTime: false
 	$("#batch_end_date").datetimepicker

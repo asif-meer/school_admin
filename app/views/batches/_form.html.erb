@@ -4,7 +4,7 @@
     <%#= f.error_notification %>
 
     <div class="form-inputs">
-      <%= f.select :course, Course.all.map{|m| [m.course_name, m.id]}, class: "form-control", autofocus: true, prompt: "Choose a Course" %>
+      <%= f.select :course_id, Course.all.map{|m| [m.course_name, m.id]}, class: "form-control", autofocus: true, prompt: "Choose a Course" %>
     </div>
 
     <div class="form-group"></div>

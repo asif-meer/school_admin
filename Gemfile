@@ -30,6 +30,7 @@ gem 'bootstrap3-datetimepicker-rails', '~> 3.1.3'
 gem 'bootstrap_form'
 gem "font-awesome-rails"
 gem "highcharts-rails", "~> 3.0.0"
+gem 'jquery-minicolors-rails'
 
 
 group :development do

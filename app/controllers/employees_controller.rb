@@ -11,10 +11,6 @@ class EmployeesController < InheritedResources::Base
     add_breadcrumb "Employees"
   end
 
-  def attendance
-    
-  end
-
   def new
     @employee = Employee.new
 
@@ -90,6 +86,8 @@ class EmployeesController < InheritedResources::Base
 
   def destroy
     @employee.destroy
+    flash[:alert] = "Employee Destroyed"
+    redirect_to employees_path
   end
 
   def remove_avatar

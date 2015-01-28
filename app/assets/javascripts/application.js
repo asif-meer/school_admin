@@ -22,6 +22,8 @@
 //= require turbolinks
 //= require maskedinput
 //= require highcharts
+//= require jquery.minicolors
+//= require jquery.minicolors.simple_form
 //= require highcharts/highcharts-more 
 //= require bootstrap-sprockets
 //= require_tree .

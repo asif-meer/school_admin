@@ -6,26 +6,27 @@ class SessionsController < InheritedResources::Base
   # GET /courses.json
   def index
     @sessions = Session.all
+    @session = Session.new
     add_breadcrumb "Session"
   end
 
   # GET /courses/1
   # GET /courses/1.json
   def show
-    add_breadcrumb "Sessions", courses_url
+    add_breadcrumb "Sessions", sessions_url
     add_breadcrumb "Details"
   end
 
   # GET /courses/new
   def new
     @session = Session.new
-    add_breadcrumb "Sessions", courses_url
+    add_breadcrumb "Sessions", sessions_url
     add_breadcrumb "New Session"
   end
 
   # GET /courses/1/edit
   def edit
-    add_breadcrumb "Sessions", courses_url
+    add_breadcrumb "Sessions", sessions_url
     add_breadcrumb "Edit Session"
   end
 

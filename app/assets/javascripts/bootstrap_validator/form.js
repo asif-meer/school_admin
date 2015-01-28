@@ -1,6 +1,6 @@
-
 $(function() {
     $('form').bootstrapValidator({
+      framework: 'bootstrap',
       feedbackIcons: {
           valid: 'glyphicon glyphicon-ok',
           invalid: 'glyphicon glyphicon-remove',
@@ -28,7 +28,7 @@ $(function() {
                 }
             }
         },
-        'batch[course]': {
+        'batch[course_id]': {
             validators: {
                 notEmpty: {
                     message: 'Course cannot be empty'
@@ -103,6 +103,114 @@ $(function() {
             validators: {
                 notEmpty: {
                     message: 'Subject name cannot be empty'
+                }
+            }
+        },
+        'employee[first_name]': {
+            validators: {
+                notEmpty: {
+                    message: 'First name cannot be empty'
+                }
+            }
+        },
+        'employee[last_name]': {
+            validators: {
+                notEmpty: {
+                    message: 'Last name cannot be empty'
+                }
+            }
+        },
+        'employee[date_of_birth]': {
+            validators: {
+                notEmpty: {
+                    message: 'Date of birth cannot be empty'
+                },
+                birthday: {
+                    message: 'Date of birth is not valid'
+                }
+            }
+        },
+        'employee[gender]': {
+            validators: {
+                notEmpty: {
+                    message: 'Gender cannot be empty'
+                }
+            }
+        },
+        'employee[employee_number]': {
+            validators: {
+                notEmpty: {
+                    message: 'Employee Number cannot be empty'
+                }
+            }
+        },
+        'employee[joining_date]': {
+            validators: {
+                notEmpty: {
+                    message: 'Joining Date cannot be empty'
+                },
+                birthday: {
+                    message: 'Joining Date is not valid'
+                }
+            }
+        },
+        'employee[department_id]': {
+            validators: {
+                notEmpty: {
+                    message: 'Department cannot be empty'
+                }
+            }
+        },
+        'employee[employee_position_id]': {
+            validators: {
+                notEmpty: {
+                    message: 'Employee Position cannot be empty'
+                }
+            }
+        },
+        'employee[job_title]': {
+            validators: {
+                notEmpty: {
+                    message: 'job Title cannot be empty'
+                }
+            }
+        },
+        'employee[qualification]': {
+            validators: {
+                notEmpty: {
+                    message: 'Qualification cannot be empty'
+                }
+            }
+        },
+        'employee[total_experience]': {
+            validators: {
+                notEmpty: {
+                    message: 'Total Experience cannot be empty'
+                }
+            }
+        }
+        ,
+        'employee[present_address]': {
+            validators: {
+                notEmpty: {
+                    message: 'Address cannot be empty'
+                }
+            }
+        },
+        'employee[phone]': {
+            validators: {
+                notEmpty: {
+                    message: 'Phone cannot be empty'
+                }
+            }
+        },
+        'employee[email]': {
+            validators: {
+                notEmpty: {
+                    message: 'Email cannot be empty'
+                },
+                emailAddress: {
+                    message: 'The email address is not a valid'
                 }
             }
         }
