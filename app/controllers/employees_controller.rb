@@ -57,7 +57,11 @@ class EmployeesController < InheritedResources::Base
     @teacher = @teacher_position.employees.build(employees_params)
     if @teacher.save
       flash[:notice] = "Teacher Created Successfully"
-      redirect_to teacher_class_employees_path(@teacher)
+      if SchoolClass.present? || Classroom.present?
+        redirect_to teacher_class_employees_path(@teacher)
+      else
+        redirect_to @teacher
+      end
     else
       flash[:notice] = @employee.errors.full_messages.to_sentence
       render action: 'teacher_new'
