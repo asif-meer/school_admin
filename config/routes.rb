@@ -88,9 +88,12 @@ Rails.application.routes.draw do
       delete 'destroy_multiple'
       get ":employee_position_id/new", to: "employees#teacher_new", as: :new_teacher
       post ":employee_position_id/create", to: "employees#teacher_create", as: :create_teacher
+      get ":id/classes", to: "employees#classes", as: :teacher_class
     end
-    
   end
+
+  resources :class_teachers, only: [:create]
+  resources :classroom_teachers, only: [:create]
 
   # Departments
   resources :departments

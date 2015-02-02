@@ -1,6 +1,6 @@
-class SchoolclassTeachers < ActiveRecord::Migration
+class ClassTeachers < ActiveRecord::Migration
   def change
-  	create_table :schoolclass_teachers do |t|
+  	create_table :class_teachers do |t|
       t.integer :school_class_id
       t.integer :teacher_id
 

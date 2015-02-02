@@ -14,7 +14,6 @@ class EmployeesController < InheritedResources::Base
 
   def new
     @employee = Employee.new
-
     add_breadcrumb "Human Resources", human_resources_employees_path
     add_breadcrumb "Employees", employees_path
     add_breadcrumb "New Employee"
@@ -23,9 +22,18 @@ class EmployeesController < InheritedResources::Base
   def teacher_new
     add_breadcrumb "Human Resources", human_resources_employees_path
     add_breadcrumb "Employees", employees_path
-    add_breadcrumb "New Employee"
+    add_breadcrumb "New Teacher"
     @teacher = Employee.new
     @teacher_position = EmployeePosition.find(2)
+  end
+
+  def classes
+    add_breadcrumb "Human Resources", human_resources_employees_path
+    add_breadcrumb "Employees", employees_path
+    add_breadcrumb "Classes"
+    @teacher = Employee.find(params[:id])
+    @classes = SchoolClass.all
+    @classrooms = Classroom.all
   end
 
   def edit
@@ -38,17 +46,18 @@ class EmployeesController < InheritedResources::Base
     add_breadcrumb "Human Resources", human_resources_employees_path
     add_breadcrumb "Employees", employees_path
     add_breadcrumb "Details"
+    @teacher = Employee.find(params[:id])
   end
 
   def teacher_create
     add_breadcrumb "Human Resources", human_resources_employees_path
     add_breadcrumb "Employees", employees_path
-    add_breadcrumb "New Employee"
+    add_breadcrumb "New Teacher"
     @teacher_position = EmployeePosition.find(2)
     @teacher = @teacher_position.employees.build(employees_params)
     if @teacher.save
       flash[:notice] = "Teacher Created Successfully"
-      redirect_to employees_path
+      redirect_to teacher_class_employees_path(@teacher)
     else
       flash[:notice] = @employee.errors.full_messages.to_sentence
       render action: 'teacher_new'

@@ -37,6 +37,13 @@ ActiveRecord::Schema.define(version: 20150202062320) do
     t.datetime "updated_at"
   end
 
+  create_table "class_teachers", force: true do |t|
+    t.integer  "school_class_id"
+    t.integer  "teacher_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "classroom_teachers", force: true do |t|
     t.integer  "classroom_id"
     t.integer  "teacher_id"
@@ -175,13 +182,6 @@ ActiveRecord::Schema.define(version: 20150202062320) do
     t.text     "description"
     t.date     "start_date"
     t.date     "end_date"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "schoolclass_teachers", force: true do |t|
-    t.integer  "school_class_id"
-    t.integer  "teacher_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

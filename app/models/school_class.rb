@@ -12,6 +12,6 @@
 #
 
 class SchoolClass < ActiveRecord::Base
-  has_many :schoolclass_teachers
-  has_many :teachers, :through => :schoolclass_teachers
+  has_many :class_teachers
+  has_many :teachers, :through => :class_teachers
 end
