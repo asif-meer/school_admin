@@ -7,14 +7,14 @@
 				<ul>
 					<li>
 						<%= classes.class_name %>
-						<%= link_to "Add Class", class_teachers_path(:class_id => classes, :teacher_id => @teacher), :method => :post, class: "pull-right" %>
+						<%= link_to "Add Class", class_teachers_path(:class_id => classes, :teacher_id => @teacher), :method => :post, :remote => true, class: "pull-right create_teacher_class" %>
 					</li>
 				</ul>
 			<% end %>
-				<div class="alert alert-dismissable alert-info after-destroy" style="margin:0px !important; ">
-		      <strong>No Classes!</strong> Available.
-		    </div>
 		<% else %>
+			<div class="alert alert-dismissable alert-info after-destroy" style="margin:0px !important; ">
+	      <strong>No Classes!</strong> Available.
+	    </div>
 		<% end %>
 	</div>
 </div>
@@ -26,7 +26,7 @@
 				<ul>
 					<li>
 						<%= classroom.classroom_name %>
-						<%= link_to "Add Class", classroom_teachers_path(:classroom_id => classroom, :teacher_id => @teacher), :method => :post, class: "pull-right" %>
+						<%= link_to "Add Class", classroom_teachers_path(:classroom_id => classroom, :teacher_id => @teacher), :method => :post, :remote => true, class: "pull-right create_teacher_classroom" %>
 					</li>
 				</ul>
 			<% end %>

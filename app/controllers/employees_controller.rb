@@ -49,6 +49,7 @@ class EmployeesController < InheritedResources::Base
     @teacher = Employee.find(params[:id])
   end
 
+
   def teacher_create
     add_breadcrumb "Human Resources", human_resources_employees_path
     add_breadcrumb "Employees", employees_path
@@ -123,8 +124,12 @@ class EmployeesController < InheritedResources::Base
 
   def destroy
     @employee.destroy
-    flash[:alert] = "Employee Destroyed"
-    redirect_to employees_path
+    respond_to do |format|
+      format.html { redirect_to employees_path }
+      flash[:alert] = "Employee Destroyed"
+      format.json { head :no_content }
+      format.js   { render :layout => false }
+    end
   end
 
   def remove_avatar
