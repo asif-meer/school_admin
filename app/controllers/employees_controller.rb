@@ -6,6 +6,7 @@ class EmployeesController < InheritedResources::Base
   end
 
   def index
+    @teacher_position = EmployeePosition.find(2)
     @employees = Employee.all
     add_breadcrumb "Human Resources", human_resources_employees_path
     add_breadcrumb "Employees"
@@ -20,7 +21,11 @@ class EmployeesController < InheritedResources::Base
   end
 
   def teacher_new
+    add_breadcrumb "Human Resources", human_resources_employees_path
+    add_breadcrumb "Employees", employees_path
+    add_breadcrumb "New Employee"
     @teacher = Employee.new
+    @teacher_position = EmployeePosition.find(2)
   end
 
   def edit
@@ -33,6 +38,21 @@ class EmployeesController < InheritedResources::Base
     add_breadcrumb "Human Resources", human_resources_employees_path
     add_breadcrumb "Employees", employees_path
     add_breadcrumb "Details"
+  end
+
+  def teacher_create
+    add_breadcrumb "Human Resources", human_resources_employees_path
+    add_breadcrumb "Employees", employees_path
+    add_breadcrumb "New Employee"
+    @teacher_position = EmployeePosition.find(2)
+    @teacher = @teacher_position.employees.build(employees_params)
+    if @teacher.save
+      flash[:notice] = "Teacher Created Successfully"
+      redirect_to employees_path
+    else
+      flash[:notice] = @employee.errors.full_messages.to_sentence
+      render action: 'teacher_new'
+    end
   end
 
   def create
@@ -123,6 +143,6 @@ class EmployeesController < InheritedResources::Base
   def employees_params
     params.require(:employee).permit(:first_name, :last_name, :date_of_birth, :gender, :employee_number,
                                      :joining_date, :job_title, :qualification, :total_experience, :present_address,
-                                     :perminent_address, :phone, :email, :department_id, :employee_position_id, :avatar)
+                                     :perminent_address, :phone, :email, :department_id, :avatar)
   end
 end

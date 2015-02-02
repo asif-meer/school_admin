@@ -1,14 +1,14 @@
-<%= bootstrap_form_for @teacher, label_errors: true, class: "form-horizontal", :html => {:multipart => true} do |f| %>
+<%= bootstrap_form_for @teacher, url: create_teacher_employees_path(@teacher_position.id), label_errors: true, class: "form-horizontal", :html => {:multipart => true} do |f| %>
   <div class="row">
     <div class="col-lg-12">
-      <div class="panel panel-default bootstrap-admin-no-table-panel">
+      <div class="panel panel-info bootstrap-admin-no-table-panel">
         <div class="panel-heading">
-            <div class="text-muted bootstrap-admin-box-title">Create New Teacher</div>
+            <h4><strong>Create New Teacher</strong></h4>
         </div>
         <div class="bootstrap-admin-no-table-panel-content bootstrap-admin-panel-content collapse in">
           <div id="rootwizard">
             <div class="navbar">
-              <ul>
+              <ul class="nav nav-pills wizard_nav">
                 <li><a href="#tab1" data-toggle="tab">Bio</a></li>
                 <li><a href="#tab2" data-toggle="tab">Address</a></li>
                 <li><a href="#tab3" data-toggle="tab">Employee Information</a></li>

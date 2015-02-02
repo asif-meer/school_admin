@@ -18,3 +18,7 @@
 		padding:3px;
 	}
 }
+.wizard_nav > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+	color: #ffffff;
+	background-color: rgb(44, 182, 146) !important;
+}
