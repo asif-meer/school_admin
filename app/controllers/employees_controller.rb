@@ -53,7 +53,7 @@ class EmployeesController < InheritedResources::Base
     add_breadcrumb "Human Resources", human_resources_employees_path
     add_breadcrumb "Employees", employees_path
     add_breadcrumb "New Teacher"
-    @teacher_position = EmployeePosition.find(2)
+    @teacher_position = EmployeePosition.find_by_name("Teacher")
     @teacher = @teacher_position.employees.build(employees_params)
     if @teacher.save
       flash[:notice] = "Teacher Created Successfully"
