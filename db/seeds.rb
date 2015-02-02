@@ -65,10 +65,8 @@ depart3 =  Department.find_or_create(:name => "Calculas")
 
 puts "creating positions..."
 position1 =  EmployeePosition.find_or_create(:name => "Security Guard")
-position2 =  EmployeePosition.find_or_create(:name => "Jr. Teacher")
-position3 =  EmployeePosition.find_or_create(:name => "Senior teacher")
+position2 =  EmployeePosition.find_or_create(:name => "Teacher")
 position4 =  EmployeePosition.find_or_create(:name => "Office Incharge")
-position5 =  EmployeePosition.find_or_create(:name => "Wise Pricipal")
 position6 =  EmployeePosition.find_or_create(:name => "Pricipal")
 
 puts "creating batches..."

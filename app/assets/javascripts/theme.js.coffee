@@ -29,6 +29,8 @@ jQuery ->
           $("#select_notice").html("Select atleast one Batch")
         else if url.indexOf('http://' + host + '/courses') != -1
           $("#select_notice").html("Select atleast one Course")
+        else if url.indexOf('http://' + host + '/employees') != -1
+          $("#select_notice").html("Select atleast one Employee")
 
         if !$(".selectedId").length
           $("#select_notice").html("There is no record present")

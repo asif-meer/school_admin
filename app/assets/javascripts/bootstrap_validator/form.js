@@ -7,6 +7,31 @@ $(function() {
           validating: 'glyphicon glyphicon-refresh'
       },
       fields: {
+        'user[email]': {
+            validators: {
+                notEmpty: {
+                    message: 'The email address is required and cannot be empty'
+                },
+                emailAddress: {
+                    message: 'The email address is not a valid'
+                }
+            }
+        },
+        'user[password]': {
+            validators: {
+                notEmpty: {
+                    message: 'The password is required and cannot be empty'
+                },
+                different: {
+                    field: 'username',
+                    message: 'The password cannot be the same as username'
+                },
+                stringLength: {
+                    min: 8,
+                    message: 'The password must have at least 8 characters'
+                }
+            }
+        },
         'course[course_name]': {
             validators: {
                 notEmpty: {

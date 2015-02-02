@@ -95,6 +95,16 @@ class EmployeesController < InheritedResources::Base
     @employee.save
     redirect_to employee_path(@employee)
   end
+
+  def destroy_multiple
+    Employee.destroy(params[:employee_destroy_id])
+    flash[:notice] = "Employees were successfully destroyed."
+    respond_to do |format|
+      format.html { redirect_to employees_path }
+      format.json { head :no_content }
+      format.js   { render :layout => false }
+    end
+  end
   
   private
 

@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: sessions
+#
+#  id         :integer          not null, primary key
+#  name       :string(255)
+#  start_date :date
+#  end_date   :date
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 class Session < ActiveRecord::Base
 
 	validates_presence_of :name

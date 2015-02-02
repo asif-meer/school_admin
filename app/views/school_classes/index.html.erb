@@ -1,0 +1,18 @@
+<div class="row">
+  <div class='col-md-12'>
+    <h2>Classes</h2>
+    <% if @school_classes.present? %>
+      <%= render :partial => 'list_classes' %>
+  <% else %>
+    <div class="alert alert-dismissable alert-info after-destroy" style="margin:0px !important; ">
+      <strong>No Classes!</strong> Available.
+    </div>
+  <% end %>
+  </div>
+</div>
+<div class="row">
+  <div class='col-md-12'>
+    <h3>Create new</h3>
+    <%= render :partial => 'form' %>
+  </div>
+</div>

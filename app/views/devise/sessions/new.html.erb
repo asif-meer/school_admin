@@ -1,64 +1,4 @@
-<script type="text/javascript">
-  $(function() {
-    $('form').bootstrapValidator({
-      feedbackIcons: {
-          valid: 'glyphicon glyphicon-ok',
-          invalid: 'glyphicon glyphicon-remove',
-          validating: 'glyphicon glyphicon-refresh'
-      },
-      fields: {
-        'user[email]': {
-            validators: {
-                notEmpty: {
-                    message: 'The email address is required and cannot be empty'
-                },
-                emailAddress: {
-                    message: 'The email address is not a valid'
-                }
-            }
-        },
-        'user[password]': {
-            validators: {
-                notEmpty: {
-                    message: 'The password is required and cannot be empty'
-                },
-                different: {
-                    field: 'username',
-                    message: 'The password cannot be the same as username'
-                },
-                stringLength: {
-                    min: 8,
-                    message: 'The password must have at least 8 characters'
-                }
-            }
-        },
-        
-      }
-    })
-    
-    .on('success.form.bv', function(e) {
-        // Called when the form is valid
-        var $form = $(e.target);
-        if ($form.data('remote')) {
-            e.preventDefault();
-            return false;
-        }
-    })
-    .on('submit', function(e) {
-        var $form = $(e.target);
-        if ($form.data('remote')) {
-            var numInvalidFields = $form.data('bootstrapValidator').getInvalidFields().length;
-            if (numInvalidFields) {
-                e.preventDefault();
-                return false;
-            }
-        }
-    });
-    
-  });
-</script>
-
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), label_errors: true, :html => { :role => 'form', :class => "login-form"}) do |f| %>
+<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :role => 'form', :class => "login-form"}) do |f| %>
 
   <%#= f.alert_message "Please fix the errors below." %>
   <div class="container" style="margin-top:40px">
@@ -85,7 +25,7 @@
                         <span class="input-group-addon">
                           <span class="glyphicon glyphicon-user"></span>
                         </span>
-                        <%= f.email_field :email, class: 'form-control', :autofocus => true, placeholder: "Email Address" %>
+                        <%= f.email_field :email, class: 'form-control', :autofocus => true, placeholder: "Email Address", :label => false %>
                       </div>
                     </div>
                     <div class="form-group">
@@ -93,7 +33,7 @@
                         <span class="input-group-addon">
                           <span class="glyphicon glyphicon-lock"></span>
                         </span>
-                        <%= f.password_field :password, placeholder: "Password", class: 'form-control' %>
+                        <%= f.password_field :password, placeholder: "Password", class: 'form-control', :label => false %>
                       </div>
                     </div>
                     <div class="form-group">
@@ -122,3 +62,42 @@
     </div>
   </div>
 <% end %>
+<script type="text/javascript">
+  $(function() {
+    $('#new_user').bootstrapValidator({
+      framework: 'bootstrap',
+      feedbackIcons: {
+        valid: 'glyphicon glyphicon-ok',
+        invalid: 'glyphicon glyphicon-remove',
+        validating: 'glyphicon glyphicon-refresh'
+      },
+      fields: {
+        'user[email]': {
+          validators: {
+              notEmpty: {
+                  message: 'The email address is required and cannot be empty'
+              },
+              emailAddress: {
+                  message: 'The email address is not a valid'
+              }
+          }
+        },
+        'user[password]': {
+          validators: {
+              notEmpty: {
+                  message: 'The password is required and cannot be empty'
+              },
+              different: {
+                  field: 'username',
+                  message: 'The password cannot be the same as username'
+              },
+              stringLength: {
+                  min: 8,
+                  message: 'The password must have at least 8 characters'
+              }
+          }
+        }
+      }
+    })
+  });
+</script>

@@ -5,7 +5,7 @@
 #  id                   :integer          not null, primary key
 #  first_name           :string(255)
 #  last_name            :string(255)
-#  date_of_birth        :string(255)
+#  date_of_birth        :date(255)
 #  gender               :string(255)
 #  employee_number      :string(255)
 #  joining_date         :date
@@ -30,6 +30,14 @@ class Employee < ActiveRecord::Base
   belongs_to :department
   belongs_to :employee_position 
 
+  has_many :classroom_teachers
+  has_many :classrooms, :through => :classroom_teachers
+
+  has_many :schoolclass_teachers
+  has_many :school_classes, :through => :schoolclass_teachers
+
+
+  scope :teachers , -> { joins(:employee_position).where(employee_positions: {:name => "Teacher"}) }
 
   # validations
   validates_presence_of :employee_number,:first_name,:last_name, :department_id,

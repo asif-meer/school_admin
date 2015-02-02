@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :school_classes
+
   resources :classrooms
 
   resources :sessions
@@ -83,6 +85,7 @@ Rails.application.routes.draw do
     collection do
       post "remove_avatar/:id", to: "employees#remove_avatar", as: :delete_avatar
       get "human_resources"
+      delete 'destroy_multiple'
     end
     
   end
@@ -131,9 +134,8 @@ Rails.application.routes.draw do
   end
 
   devise_scope :user do
-
+    match '/sessions/user', to: 'devise/sessions#create', via: :post
   end
-  # root to: 'devise/sessions#new '
   devise_for :users, :controllers => { :registrations => "registrations" } 
   resources :users
 end
