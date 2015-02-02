@@ -26,4 +26,6 @@
 //= require jquery.minicolors.simple_form
 //= require highcharts/highcharts-more 
 //= require bootstrap-sprockets
+//= require jquery.validate
+//= require jquery.validate.additional-methods
 //= require_tree .

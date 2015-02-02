@@ -19,6 +19,10 @@ class EmployeesController < InheritedResources::Base
     add_breadcrumb "New Employee"
   end
 
+  def teacher_new
+    @teacher = Employee.new
+  end
+
   def edit
     add_breadcrumb "Human Resources", human_resources_employees_path
     add_breadcrumb "Employees", employees_path

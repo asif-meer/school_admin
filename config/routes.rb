@@ -86,6 +86,7 @@ Rails.application.routes.draw do
       post "remove_avatar/:id", to: "employees#remove_avatar", as: :delete_avatar
       get "human_resources"
       delete 'destroy_multiple'
+      get "teacher", to: "employees#teacher_new", as: :new_teacher
     end
     
   end

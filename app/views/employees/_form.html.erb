@@ -52,15 +52,12 @@
           <%#= f.label :joining_date, required: true %>
           <%= f.text_field :joining_date, class: "form-control", :data => {'date-format' => 'YYYY/MM/DD'}, as: :string, :placeholder => "Joining Date" %>
         </div>
-
-        <div class="form-inputs">
-          <%= f.select :department_id, Department.all.map{|m| [m.name, m.id]}, class: "form-control", autofocus: true, prompt: "Choose a Department" %>
-        </div>
-
         <div class="form-inputs">
           <%= f.select :employee_position_id, EmployeePosition.all.map{|m| [m.name, m.id]}, class: "form-control", autofocus: true, prompt: "Choose an Employee Position" %>
         </div>
-
+        <div class="form-inputs">
+          <%= f.select :department_id, Department.all.map{|m| [m.name, m.id]}, class: "form-control", autofocus: true, prompt: "Choose a Department" %>
+        </div>
         <div class="form-inputs">
           <%= f.text_field :job_title, input_html: {class: "form-control"}, placeholder: "Job Title" %>
         </div>
