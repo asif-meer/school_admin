@@ -6,7 +6,7 @@ class EmployeesController < InheritedResources::Base
   end
 
   def index
-    @teacher_position = EmployeePosition.find(2)
+    @teacher_position = EmployeePosition.find_by_name("Teacher")
     @employees = Employee.all
     add_breadcrumb "Human Resources", human_resources_employees_path
     add_breadcrumb "Employees"
@@ -24,7 +24,7 @@ class EmployeesController < InheritedResources::Base
     add_breadcrumb "Employees", employees_path
     add_breadcrumb "New Teacher"
     @teacher = Employee.new
-    @teacher_position = EmployeePosition.find(2)
+    @teacher_position = EmployeePosition.find_by_name("Teacher")
   end
 
   def classes
