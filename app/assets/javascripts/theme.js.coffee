@@ -45,6 +45,7 @@ jQuery ->
     
   $(window).click ->
       $("#select_notice").html("")
+      $("input[type='submit']").prop 'disabled', false
 
   
 

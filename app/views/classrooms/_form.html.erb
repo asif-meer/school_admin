@@ -1,5 +1,5 @@
 <fieldset>
-  <%= simple_form_for(@classroom, label_errors: true) do |f| %>
+  <%= simple_form_for(@classroom, label_errors: true, remote: true) do |f| %>
     <%#= f.error_notification %>
     <%= yield f %>
     <div class="form-inputs">

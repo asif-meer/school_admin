@@ -4,6 +4,7 @@
       <table class= "table table-striped table-bordered table-hover ">
         <thead >
           <tr>
+            <th>Id</th>
             <th class="col-sm-1">Class</th>
             <th class="col-sm-4">Short Name</th>
             <th class="col-sm-1">Color</th>
@@ -11,9 +12,10 @@
           </tr>
         </thead>
 
-        <tbody class="datables">
+        <tbody class="datables" >
           <% @school_classes.each do |school_class| %>
             <tr>
+              <td><%= school_class.id %></td>
               <td><%= school_class.class_name %></td>
               <td><%= school_class.short_name %></td>
               <td>

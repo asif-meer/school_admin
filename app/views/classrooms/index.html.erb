@@ -2,7 +2,9 @@
   <div class='col-md-12'>
   	<h2>Classrooms</h2>
   	<% if @classrooms.present? %>
-    	<%= render :partial => 'list_classrooms' %>
+      <div id="list_of_classrooms">
+        <%= render :partial => 'list_classrooms' %>
+      </div>
 	<% else %>
 		<div class="alert alert-dismissable alert-info after-destroy" style="margin:0px !important; ">
 	    <strong>No Classrooms!</strong> Available.

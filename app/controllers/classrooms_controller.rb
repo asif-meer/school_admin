@@ -33,18 +33,24 @@ class ClassroomsController < ApplicationController
   # POST /courses
   # POST /courses.json
   def create
+    @classrooms = Classroom.all
     @classroom = Classroom.new(classroom_params)
-
-    respond_to do |format|
+    # respond_to do |format|
       if @classroom.save
-        format.html { redirect_to classrooms_url, notice: 'Classroom was successfully created.' }
-        format.json { render :show, status: :created, location: @classroom }
+        respond_to do |format|
+          format.html { redirect_to classrooms_url }
+          flash[:notice] = "Classroom was successfully created."
+          format.json { head :no_content }
+          format.js   { render :layout => false }
+        end
+        # format.html { redirect_to classrooms_url, notice: 'Classroom was successfully created.' }
+        # format.json { render :show, status: :created, location: @classroom }
       else
         format.html { render :new }
         flash[:alert] = @classroom.errors.full_messages.to_sentence
         format.json { render json: @classroom.errors, status: :unprocessable_entity }
       end
-    end
+    # end
   end
 
   # PATCH/PUT /courses/1

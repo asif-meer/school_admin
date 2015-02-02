@@ -23,18 +23,25 @@ class SchoolClassesController < InheritedResources::Base
   # POST /batches
   # POST /batches.json
   def create
+    @school_classes = SchoolClass.all
     @school_class = SchoolClass.new(school_class_params)
     add_breadcrumb "School Classes", school_classes_url
     add_breadcrumb "New School Class"
-    respond_to do |format|
+    # respond_to do |format|
       if @school_class.save
-        format.html { redirect_to school_classes_url, notice: 'School Class was successfully created.' }
-        format.json { render :show, status: :created, location: @school_class }
+        respond_to do |format|
+          format.html { redirect_to school_classes_url }
+          flash[:notice] = "School Class was successfully created."
+          format.json { head :no_content }
+          format.js   { render :layout => false }
+        end
+        # format.html { redirect_to school_classes_url, notice: 'School Class was successfully created.' }
+        # format.json { render :show, status: :created, location: @school_class }
       else
         format.html { render :new }
         flash[:alert] = @school_class.errors.full_messages.to_sentence
         format.json { render json: @school_class.errors, status: :unprocessable_entity }
-      end
+      # end
     end
   end
 
@@ -80,11 +87,11 @@ class SchoolClassesController < InheritedResources::Base
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_school_class
-      begin
+      # begin
         @school_class = SchoolClass.find(params[:id])
-      rescue ActiveRecord::RecordNotFound
-        redirect_to school_classes_url, :flash => { :error => "Record not found." }
-      end
+      # rescue ActiveRecord::RecordNotFound
+      #   redirect_to school_classes_url, :flash => { :error => "Record not found." }
+      # end
     end
 
     def school_class_params
