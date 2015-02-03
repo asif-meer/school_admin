@@ -9,7 +9,9 @@
 
     <div class="form-group"></div>
     <div class="form-inputs">
-      <%= f.datetime_field :start_date, class: "form-control", :data => {'date-format' => 'YYYY/MM/DD'}, :placeholder => "dd-mm-yy" %>
+      <div id="date_range">
+        <%= f.datetime_field :start_date, class: "form-control", :data => {'date-format' => 'YYYY/MM/DD'}, :placeholder => "dd-mm-yy" %>
+      </div>
     </div>
     <div class="form-group"></div>
     <div class="form-inputs">
