@@ -40,7 +40,8 @@ class SessionsController < InheritedResources::Base
         format.html { redirect_to @session, notice: 'Session was successfully created.' }
         format.json { render :show, status: :created, location: @session }
       else
-        format.html { render :new }
+        @sessions = Session.all
+        format.html { render :index }
         flash[:alert] = @session.errors.full_messages.to_sentence
         format.json { render json: @session.errors, status: :unprocessable_entity }
       end
