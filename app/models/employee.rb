@@ -30,7 +30,7 @@ class Employee < ActiveRecord::Base
   belongs_to :department
   belongs_to :employee_position 
 
-  has_many :classroom_teachers
+  has_many :classroom_teachers, :foreign_key => :teacher_id
   has_many :classrooms, :through => :classroom_teachers
 
   has_many :class_teachers, :foreign_key => :teacher_id

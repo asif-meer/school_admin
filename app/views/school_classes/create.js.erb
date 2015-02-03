@@ -1,4 +1,5 @@
 $('#new_school_class').bind('ajax:success', function() {
     $("#notice").html("<%= escape_javascript(render :partial => 'layouts/messages' , :locals => { :flash => flash }).html_safe %>")
     $("#list_of_classes").html("<%= escape_javascript(render :partial => 'list_classes') %>")
+    $(this).closest('form').find("input[type=text], textarea").val("");
 }); 

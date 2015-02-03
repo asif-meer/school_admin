@@ -14,4 +14,6 @@
 class Classroom < ActiveRecord::Base
 	has_many :classroom_teachers
 	has_many :teachers, :through => :classroom_teachers
+
+	validates_presence_of :classroom_name, :short_name
 end
