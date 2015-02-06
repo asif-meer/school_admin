@@ -1,0 +1,5 @@
+$('.destroy_teacher_class').bind('ajax:success', function() {
+    $("#notice").html("<%= escape_javascript(render :partial => 'layouts/messages' , :locals => { :flash => flash }).html_safe %>")
+    $(this).closest("#update_assigned_classes").html("<%= escape_javascript(render partial: 'assigned_classes', :locals => { :@teacher => @class_teacher.teacher }).html_safe %>")
+    $("#update_assigning_classes").html("<%= escape_javascript(render partial: 'assigning_classes', :locals => { :@teacher => @class_teacher.teacher }).html_safe %>")
+}); 

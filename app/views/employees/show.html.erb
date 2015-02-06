@@ -15,7 +15,7 @@
       </div>
       <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
     </div>
-    <%= link_to "Add Class", teacher_class_employees_path(@teacher), class: "btn btn-success pull-right" %>
+    <%= link_to "Add Class", teacher_class_employees_path(@teacher), class: "btn btn-success pull-right" if @teacher.employee_position.name == "Teacher" %>
     <table class="table table-bordered table-hover">
       <tr>
         <td><strong>First name:</strong></td>

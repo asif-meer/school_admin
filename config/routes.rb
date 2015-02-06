@@ -92,9 +92,16 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :class_teachers, only: [:create]
-  resources :classroom_teachers, only: [:create]
-
+  resources :class_teachers, only: [:create, :destroy] do
+    collection do
+      delete ":id/destroy", to: "class_teachers#destroy", as: :destroy
+    end
+  end
+  resources :classroom_teachers, only: [:create, :destroy] do
+    collection do
+      delete ":id/destroy", to: "classroom_teachers#destroy", as: :destroy
+    end
+  end
   # Departments
   resources :departments
 

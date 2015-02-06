@@ -58,7 +58,7 @@ class EmployeesController < InheritedResources::Base
     @teacher = @teacher_position.employees.build(employees_params)
     if @teacher.save
       flash[:notice] = "Teacher Created Successfully"
-      if SchoolClass.present? || Classroom.present?
+      if SchoolClass.exists?(1) || Classroom.exists?(1)
         redirect_to teacher_class_employees_path(@teacher)
       else
         redirect_to @teacher
@@ -161,6 +161,6 @@ class EmployeesController < InheritedResources::Base
   def employees_params
     params.require(:employee).permit(:first_name, :last_name, :date_of_birth, :gender, :employee_number,
                                      :joining_date, :job_title, :qualification, :total_experience, :present_address,
-                                     :perminent_address, :phone, :email, :department_id, :avatar)
+                                     :perminent_address, :phone, :email, :department_id, :avatar, :employee_position_id)
   end
 end

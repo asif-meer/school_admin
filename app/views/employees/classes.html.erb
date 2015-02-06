@@ -1,4 +1,3 @@
-
 <div class="row">
 	<div class="col-md-6">
 		<div class="panel panel-primary">
@@ -7,39 +6,29 @@
 				<div class="row">
 					<div class="col-md-12">
 						<h3>Classes</h3>
-						<% if @classes.present? %>
-							<% @classes.each do |classes| %>
-								<ul>
-									<li>
-										<%= classes.class_name %>
-										<%= link_to "Add Class", class_teachers_path(:class_id => classes, :teacher_id => @teacher), :method => :post, :remote => true, class: "pull-right create_teacher_class" %>
-									</li>
-								</ul>
+						<div id="update_assigning_classes">
+							<% if @classes.present? %>
+								<%= render partial: "class_teachers/assigning_classes", locals: {:@teacher => @teacher} %>
+							<% else %>
+								<div class="alert alert-dismissable alert-info after-destroy" style="margin:0px !important; ">
+							      <strong>No Classes!</strong> Available.
+							    </div>
 							<% end %>
-						<% else %>
-							<div class="alert alert-dismissable alert-info after-destroy" style="margin:0px !important; ">
-					      <strong>No Classes!</strong> Available.
-					    </div>
-						<% end %>
+						</div>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-12">
 						<h3>Classrooms</h3>
-						<% if @classrooms.present? %>
-							<% @classrooms.each do |classroom| %>
-								<ul>
-									<li>
-										<%= classroom.classroom_name %>
-										<%= link_to "Add Class", classroom_teachers_path(:classroom_id => classroom, :teacher_id => @teacher), :method => :post, :remote => true, class: "pull-right create_teacher_classroom" %>
-									</li>
-								</ul>
+						<div id="update_assigning_classrooms">
+							<% if @classrooms.present? %>
+								<%= render partial: "classroom_teachers/assigning_classrooms", locals: {:@teacher => @teacher} %>
+							<% else %>
+								<div class="alert alert-dismissable alert-info after-destroy" style="margin:0px !important; ">
+							      <strong>No Classrooms!</strong> Available.
+							    </div>
 							<% end %>
-						<% else %>
-							<div class="alert alert-dismissable alert-info after-destroy" style="margin:0px !important; ">
-						      <strong>No Classrooms!</strong> Available.
-						    </div>
-						<% end %>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -52,39 +41,18 @@
 				<div class="row">
 					<div class="col-md-12">
 						<h3>Classes</h3>
-						<% if @teacher.school_classes.present? %>
-							<% @teacher.school_classes.each do |classes| %>
-								<ul>
-									<li>
-										<%= classes.class_name %>
-										<%#= link_to "Add Class", class_teachers_path(:class_id => classes, :teacher_id => @teacher), :method => :post, :remote => true, class: "pull-right create_teacher_class" %>
-									</li>
-								</ul>
-							<% end %>
-						<% else %>
-							<div class="alert alert-dismissable alert-info after-destroy" style="margin:0px !important; ">
-					      <strong>No Classes!</strong> Assigned.
-					    </div>
-						<% end %>
+						<div id="update_assigned_classes">
+							<%= render partial: "class_teachers/assigned_classes", locals: {:@teacher => @teacher} %>
+						<div>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-12">
 						<h3>Classrooms</h3>
-						<% if @teacher.classrooms.present? %>
-							<% @teacher.classrooms.each do |classroom| %>
-								<ul>
-									<li>
-										<%= classroom.classroom_name %>
-										<%#= link_to "Add Class", classroom_teachers_path(:classroom_id => classroom, :teacher_id => @teacher), :method => :post, :remote => true, class: "pull-right create_teacher_classroom" %>
-									</li>
-								</ul>
-							<% end %>
-						<% else %>
-							<div class="alert alert-dismissable alert-info after-destroy" style="margin:0px !important; ">
-						      <strong>No Classrooms!</strong> Assigned.
-						    </div>
-						<% end %>
+						<div id="update_assigned_classrooms">
+							<%= render partial: "classroom_teachers/assigned_classrooms", locals: {:@teacher => @teacher} %>
+							
+						<div>
 					</div>
 				</div>
 			</div>

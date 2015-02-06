@@ -1,5 +1,5 @@
-$('.create_teacher_classroom').bind('ajax:success', function() {
+$('.destroy_teacher_classroom').bind('ajax:success', function() {
     $("#notice").html("<%= escape_javascript(render :partial => 'layouts/messages' , :locals => { :flash => flash }).html_safe %>")
+    $(this).closest("#update_assigned_classrooms").html("<%= escape_javascript(render partial: 'assigned_classrooms', :locals => { :@teacher => @classroom_teacher.teacher }).html_safe %>")
     $("#update_assigning_classrooms").html("<%= escape_javascript(render partial: 'assigning_classrooms', :locals => { :@teacher => @classroom_teacher.teacher }).html_safe %>")
-    $("#update_assigned_classrooms").html("<%= escape_javascript(render partial: 'assigned_classrooms', :locals => { :@teacher => @classroom_teacher.teacher }).html_safe %>")
 }); 

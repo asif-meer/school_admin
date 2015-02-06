@@ -38,9 +38,13 @@ class SchoolClassesController < InheritedResources::Base
         # format.html { redirect_to school_classes_url, notice: 'School Class was successfully created.' }
         # format.json { render :show, status: :created, location: @school_class }
       else
-        format.html { render :new }
-        flash[:alert] = @school_class.errors.full_messages.to_sentence
-        format.json { render json: @school_class.errors, status: :unprocessable_entity }
+        respond_to do |format|
+          format.html { render :new }
+          flash[:alert] = @school_class.errors.full_messages.to_sentence
+          # format.json { render json: @school_class.errors, status: :unprocessable_entity }
+          format.json { head :no_content }
+          format.js   { render :layout => false }
+        end
       # end
     end
   end

@@ -92,6 +92,14 @@ ActiveRecord::Schema.define(version: 20150202062320) do
     t.datetime "updated_at"
   end
 
+  create_table "employee_attendences", force: true do |t|
+    t.integer  "employee_id"
+    t.date     "date"
+    t.integer  "label",       limit: 1
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "employee_positions", force: true do |t|
     t.string   "name"
     t.datetime "created_at"

@@ -1,0 +1,14 @@
+<% if @teacher.classrooms.present? %>
+	<% @teacher.classroom_teachers.each do |class_room| %>
+		<ul>
+			<li>
+				<%= class_room.classroom.classroom_name %>
+				<%= link_to "Remove Class", destroy_classroom_teachers_path(class_room), remote: true, :method => :delete, class: "pull-right destroy_teacher_classroom" %>
+			</li>
+		</ul>
+	<% end %>
+<% else %>
+	<div class="alert alert-dismissable alert-info after-destroy" style="margin:0px !important; ">
+      <strong>No Classrooms!</strong> Assigned.
+    </div>
+<% end %>
