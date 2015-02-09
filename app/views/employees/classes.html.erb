@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="col-md-6">
 		<div class="panel panel-primary">
-			<div class="panel-heading"><h2>Add Classes for <%= @teacher.to_s %></h2></div>
+			<div class="panel-heading">Add Classes for <%= @teacher.to_s %></div>
 			<div class="panel-body">
 				<div class="row">
 					<div class="col-md-12">
@@ -17,6 +17,9 @@
 						</div>
 					</div>
 				</div>
+			</div>
+			<div class="panel-heading">Add Classrooms for <%= @teacher.to_s %></div>
+			<div class="panel-body">
 				<div class="row">
 					<div class="col-md-12">
 						<h3>Classrooms</h3>
@@ -36,23 +39,26 @@
 	</div>
 	<div class="col-md-6">
 		<div class="panel panel-yellow">
-			<div class="panel-heading"><h2> Assigned Classes</h2></div>
+			<div class="panel-heading">Assigned Classes</div>
 			<div class="panel-body">
 				<div class="row">
 					<div class="col-md-12">
 						<h3>Classes</h3>
 						<div id="update_assigned_classes">
 							<%= render partial: "class_teachers/assigned_classes", locals: {:@teacher => @teacher} %>
-						<div>
+						</div>
 					</div>
 				</div>
+			</div>
+			<div class="panel-heading">Assigned Classrooms</div>
+			<div class="panel-body">
 				<div class="row">
 					<div class="col-md-12">
 						<h3>Classrooms</h3>
 						<div id="update_assigned_classrooms">
 							<%= render partial: "classroom_teachers/assigned_classrooms", locals: {:@teacher => @teacher} %>
 							
-						<div>
+						</div>
 					</div>
 				</div>
 			</div>
