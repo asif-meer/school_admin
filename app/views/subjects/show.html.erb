@@ -8,7 +8,7 @@
     <div class="panel-heading">
       <%= link_to 'Edit', edit_subject_path(@subject), class: "label label-info" %> |
       <%= link_to 'Back', list_subjects_path, class: "label label-default" %>
-      <%= link_to "Periods", new_period_path(@subject), class: "btn btn-success pull-right" %>
+      <%= link_to "Periods", new_periods_path(@subject), class: "btn btn-success pull-right" %>
     </div>
     <div class="panel-body">
       <h2><%= @subject.title %></h2>
@@ -27,28 +27,17 @@
         </tr>
       </table>
       <h2>Periods</h2>
-      <% if @subject.periods.present? %>
-        <% @subject.periods.each do |period| %>
-          <table class="table table-bordered table-hover">
-            <tr>
-              <td class="col-md-3"><strong>Class: </strong></td>
-              <td><%= period.school_class.class_name %></td>
-            </tr>
-            <tr>
-              <td><strong>Teacher: </strong></td>
-              <td><%= period.teacher.to_s %></td>
-            </tr>
-            <tr>
-              <td><strong>Week Days: </strong></td>
-              <td><%= period.week_days.join(", ").sub(",","") %></td>
-            </tr>
-          </table>
+      <div id="subject_period">
+        <% if @subject.periods.present? %>
+          <% @subject.periods.each do |period| %>
+            <%= render partial: "/subjects/partials/periods", locals: {period: period} %>
+          <% end %>
+        <% else %>
+          <div class="alert alert-dismissable alert-info" style="margin:0px !important;">
+            <strong>No Periods!</strong> assigned.
+          </div>
         <% end %>
-      <% else %>
-        <div class="alert alert-dismissable alert-info" style="margin:0px !important;">
-          <strong>No Periods!</strong> assigned.
-        </div>
-      <% end %>
+      </div>
     </div>
   </div>
   <!-- <div id="subjects_students">

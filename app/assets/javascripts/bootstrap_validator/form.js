@@ -131,6 +131,13 @@ $(function() {
                 }
             }
         },
+        'period[level]': {
+            validators: {
+                notEmpty: {
+                    message: 'Priority cannot be empty'
+                }
+            }
+        },
         'period[teacher_id]': {
             validators: {
                 notEmpty: {
@@ -145,7 +152,7 @@ $(function() {
                 }
             }
         },
-        'period[week_days][]': {
+        'period[week_day_id]': {
             validators: {
                 notEmpty: {
                     message: 'Week Days cannot be empty'

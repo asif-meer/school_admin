@@ -3,13 +3,9 @@ class Period < ActiveRecord::Base
 	belongs_to :subject
 	belongs_to :school_class
 	belongs_to :teacher, :class_name => "Employee", :foreign_key => :teacher_id
+	belongs_to :week_day
+	validates_presence_of :teacher_id, :school_class_id, :week_day_id, :level
 
-	validates_presence_of :teacher_id, :school_class_id, :week_days
-
-	WEEK_DAYS = ["Monday", "Tuesday", "Wednesday", "Thurday", "Friday", "Saturday", "Sunday"]
-
-	def self.week_days
-    	self.week_days.blank? ? "" : self.week_days.join(", ").sub(",","")
-    end
+	# WEEK_DAYS = ["Monday", "Tuesday", "Wednesday", "Thurday", "Friday", "Saturday", "Sunday"]
 
 end

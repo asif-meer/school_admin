@@ -1,5 +1,5 @@
 class PeriodsController < ApplicationController
-	def new_period
+	def new
 		@subject = Subject.find(params[:subject_id])
 		@period = @subject.periods.build
 		add_breadcrumb "Subjects", list_subjects_path
@@ -7,7 +7,7 @@ class PeriodsController < ApplicationController
 		add_breadcrumb "Assign Period"
 	end
 
-	def create_period
+	def create
 		@subject = Subject.find(params[:subject_id])
 		@period = @subject.periods.build(periods_params)
 		add_breadcrumb "Subjects", list_subjects_path
@@ -22,9 +22,21 @@ class PeriodsController < ApplicationController
 		end
 	end
 
+	def destroy
+		@period = Period.find(params[:id])
+		@subject = Subject.find_by_id(@period.subject.id)
+		@period.destroy
+		respond_to do |format|
+      format.html { redirect_to @subject }
+      flash.now[:notice] = "Period removed"
+      format.json { head :no_content }
+      format.js   { render :layout => false }
+    end
+	end
+
 	private
 
 	def periods_params
-		params.require(:period).permit(:teacher_id, :school_class_id, :week_days => [])
+		params.require(:period).permit(:teacher_id, :school_class_id, :level, :week_day_id)
 	end
 end

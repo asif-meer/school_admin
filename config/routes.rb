@@ -103,8 +103,13 @@ Rails.application.routes.draw do
     end
   end
 
-  match ":subject_id/periods", to: "periods#new_period", via: :get, as: :new_period
-  match ":subject_id/periods/create", to: "periods#create_period", via: :post, as: :create_period
+ 
+  resources :periods ,only: [:destroy] do
+    collection do
+      match ":subject_id/periods", to: "periods#new", via: :get, as: :new
+      match ":subject_id/periods/create", to: "periods#create", via: :post, as: :create
+    end
+  end
 
   # Departments
   resources :departments

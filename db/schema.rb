@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150209151318) do
+ActiveRecord::Schema.define(version: 20150209183838) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -169,9 +169,10 @@ ActiveRecord::Schema.define(version: 20150209151318) do
     t.integer  "subject_id"
     t.integer  "teacher_id"
     t.integer  "school_class_id"
-    t.string   "week_days"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "level"
+    t.integer  "week_day_id"
   end
 
   create_table "roles", force: true do |t|
@@ -311,5 +312,9 @@ ActiveRecord::Schema.define(version: 20150209151318) do
   end
 
   add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id"
+
+  create_table "week_days", force: true do |t|
+    t.string "name"
+  end
 
 end
