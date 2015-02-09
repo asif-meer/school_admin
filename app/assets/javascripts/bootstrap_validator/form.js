@@ -131,6 +131,27 @@ $(function() {
                 }
             }
         },
+        'period[teacher_id]': {
+            validators: {
+                notEmpty: {
+                    message: 'Teacher cannot be empty'
+                }
+            }
+        },
+        'period[school_class_id]': {
+            validators: {
+                notEmpty: {
+                    message: 'Classes cannot be empty'
+                }
+            }
+        },
+        'period[week_days][]': {
+            validators: {
+                notEmpty: {
+                    message: 'Week Days cannot be empty'
+                }
+            }
+        },
         'classroom[classroom_name]': {
             validators: {
                 notEmpty: {

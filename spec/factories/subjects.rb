@@ -2,14 +2,13 @@
 #
 # Table name: subjects
 #
-#  id           :integer          not null, primary key
-#  course_id    :integer
-#  batch_id     :integer
-#  title        :string(255)
-#  created_at   :datetime
-#  updated_at   :datetime
-#  short_name   :string(255)
-#  classroom_id :integer
+#  id         :integer          not null, primary key
+#  course_id  :integer
+#  batch_id   :integer
+#  title      :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#  short_name :string(255)
 #
 
 # Read about factories at https://github.com/thoughtbot/factory_girl

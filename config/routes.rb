@@ -102,6 +102,10 @@ Rails.application.routes.draw do
       delete ":id/destroy", to: "classroom_teachers#destroy", as: :destroy
     end
   end
+
+  match ":subject_id/periods", to: "periods#new_period", via: :get, as: :new_period
+  match ":subject_id/periods/create", to: "periods#create_period", via: :post, as: :create_period
+
   # Departments
   resources :departments
 

@@ -36,6 +36,7 @@ class Employee < ActiveRecord::Base
   has_many :class_teachers, :foreign_key => :teacher_id
   has_many :school_classes, :through => :class_teachers
 
+  has_many :periods
 
   scope :teachers , -> { joins(:employee_position).where(employee_positions: {:name => "Teacher"}) }
 

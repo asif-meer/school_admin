@@ -13,6 +13,8 @@
 class SchoolClass < ActiveRecord::Base
   has_many :class_teachers
   has_many :teachers, :through => :class_teachers
+  has_many :periods
 
+  
   validates_presence_of :class_name, :short_name
 end
