@@ -15,5 +15,8 @@ class Classroom < ActiveRecord::Base
 	has_many :classroom_teachers
 	has_many :teachers, :through => :classroom_teachers
 
+	has_many :classroom_subjects, dependent: :destroy
+  	has_many :subjects, :through => :classroom_subjects
+
 	validates_presence_of :classroom_name, :short_name
 end

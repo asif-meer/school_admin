@@ -8,21 +8,21 @@
     <div class="panel-heading">
       <h1>Subject</h1>
       <%= link_to 'Edit', edit_subject_path(@subject), class: "label label-info" %> |
-      <%= link_to 'Back', subjects_path, class: "label label-default" %>
+      <%= link_to 'Back', list_subjects_path, class: "label label-default" %>
     </div>
     <div class="panel-body">
       <table class="table table-bordered table-hover">
         <tr>
-          <td><strong>Bacth Name: </strong></td>
-          <td><%= @subject.batch %></td>
+          <td><strong>Title: </strong></td>
+          <td><%= @subject.title %></td>
         </tr>
         <tr>
-          <td><strong>Course: </strong></td>
-          <td><%= @subject.course %></td>
+          <td><strong>Short Name: </strong></td>
+          <td><%= @subject.short_name %></td>
         </tr>
         <tr>
-          <td><strong>Subject Name: </strong></td>
-          <td><%= @subject.subject_name %></td>
+          <td><strong>Classrooms: </strong></td>
+          <td><%= @subject.classrooms.map(&:classroom_name).join(", ") %></td>
         </tr>
       </table>
     </div>

@@ -2,13 +2,12 @@
 #
 # Table name: school_classes
 #
-#  id          :integer          not null, primary key
-#  class_name  :string(255)
-#  short_name  :string(255)
-#  color       :string(255)
-#  employee_id :integer
-#  created_at  :datetime
-#  updated_at  :datetime
+#  id         :integer          not null, primary key
+#  class_name :string(255)
+#  short_name :string(255)
+#  color      :string(255)
+#  created_at :datetime
+#  updated_at :datetime
 #
 
 require 'rails_helper'

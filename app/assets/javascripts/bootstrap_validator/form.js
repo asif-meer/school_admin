@@ -110,24 +110,38 @@ $(function() {
                 }
             }
         },
-        'subject[course_id]': {
+        'subject[title]': {
             validators: {
                 notEmpty: {
-                    message: 'Course cannot be empty'
+                    message: 'Title cannot be empty'
                 }
             }
         },
-        'subject[batch_id]': {
+        'subject[short_name]': {
             validators: {
                 notEmpty: {
-                    message: 'Batch cannot be empty'
+                    message: 'Short Name cannot be empty'
                 }
             }
         },
-        'subject[subject_name]': {
+        'subject[classroom_ids][]': {
             validators: {
                 notEmpty: {
-                    message: 'Subject name cannot be empty'
+                    message: 'Classroom cannot be empty'
+                }
+            }
+        },
+        'classroom[classroom_name]': {
+            validators: {
+                notEmpty: {
+                    message: 'Classroom Name cannot be empty'
+                }
+            }
+        },
+        'classroom[short_name]': {
+            validators: {
+                notEmpty: {
+                    message: 'Short Name cannot be empty'
                 }
             }
         },

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150202062320) do
+ActiveRecord::Schema.define(version: 20150209133936) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -40,6 +40,13 @@ ActiveRecord::Schema.define(version: 20150202062320) do
   create_table "class_teachers", force: true do |t|
     t.integer  "school_class_id"
     t.integer  "teacher_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "classroom_subjects", force: true do |t|
+    t.integer  "classroom_id"
+    t.integer  "subject_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -88,14 +95,6 @@ ActiveRecord::Schema.define(version: 20150202062320) do
     t.integer  "employee_id"
     t.date     "attendance_date"
     t.string   "reason"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "employee_attendences", force: true do |t|
-    t.integer  "employee_id"
-    t.date     "date"
-    t.integer  "label",       limit: 1
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -257,9 +256,10 @@ ActiveRecord::Schema.define(version: 20150202062320) do
   create_table "subjects", force: true do |t|
     t.integer  "course_id"
     t.integer  "batch_id"
-    t.string   "subject_name"
+    t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "short_name"
   end
 
   create_table "users", force: true do |t|

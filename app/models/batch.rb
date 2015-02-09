@@ -14,7 +14,7 @@
 class Batch < ActiveRecord::Base
   # associations
   belongs_to :course
-  has_many   :students
+  # has_many   :students
   has_many   :fees_particulars
   has_many   :subjects
 

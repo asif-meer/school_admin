@@ -5,9 +5,11 @@
 #  id           :integer          not null, primary key
 #  course_id    :integer
 #  batch_id     :integer
-#  subject_name :string(255)
+#  title        :string(255)
 #  created_at   :datetime
 #  updated_at   :datetime
+#  short_name   :string(255)
+#  classroom_id :integer
 #
 
 # Read about factories at https://github.com/thoughtbot/factory_girl

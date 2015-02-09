@@ -1,21 +1,22 @@
-<%= bootstrap_form_for(@subject, label_errors: true) do |f| %>
+<%= simple_form_for(@subject, label_errors: true) do |f| %>
   <%#= f.error_notification %>
   <%= yield f %>
   <div class="form-inputs">
     <%#= f.label :course_id %>
-    <%= f.select("course_id", Course.all.map{|m| [m.course_name, m.id]}, { :prompt => "--Select a Course--"}, {class: "form-control"}) %>
+    <%= f.input :title, :input_html => {class: "form-control"}, placeholder: "Subject Title" %>
   </div>
 
   <div class="form-group"></div>
   <div class="form-inputs">
     <%#= f.label :batch_id %>
-    <div class="batches"> 
-      <%= render :partial => '/subjects/partials/batches_all', :locals => {:f => f} %>
-    </div>
+    <!-- <div class="batches"> 
+      <%#= render :partial => '/subjects/partials/batches_all', :locals => {:f => f} %>
+    </div> -->
+    <%= f.input :short_name, :input_html => {class: "form-control"}, placeholder: "Short Name" %>
   </div>
   <div class="form-group"></div>
   <div class="form-inputs">
-    <%= f.text_field :subject_name, class: "form-control", placeholder: "Subject Name" %>
+    <%= f.input :classroom_ids, collection: Classroom.all.map{|m| [m.classroom_name, m.id]}, :input_html => {class: "form-control", multiple: true}, prompt: "Select Classroom"  %>
   </div>
 
   <div class="form-group"></div>
