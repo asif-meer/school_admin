@@ -7,7 +7,7 @@
     </tr>
     <tr>
       <td class="col-md-3"><strong>Class: </strong></td>
-      <td><%= period.school_class.class_name %></td>
+      <td><%= period.school_class.class_name unless period.school_class.blank? %></td>
     </tr>
     <tr>
       <td><strong>Teacher: </strong></td>
