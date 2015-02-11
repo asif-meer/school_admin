@@ -1,75 +1,85 @@
-<div class="panel panel-app">
-  <!-- <ul class="nav nav-pills nav_subjects">
-    <li><a href="#">Subjects</a></li>
-    <li><a href="#">Students</a></li>
-  </ul>
-  <br /> -->
-  <div id="subjects_subjects">
-    <div class="panel-heading">
-      <%= link_to 'Edit', edit_subject_path(@subject), class: "label label-info" %> |
-      <%= link_to 'Back', list_subjects_path, class: "label label-default" %>
-      <%= link_to "Periods", new_periods_path(@subject), class: "btn btn-success pull-right" %>
-    </div>
-    <div class="panel-body">
-      <h2><%= @subject.title %></h2>
-      <table class="table table-bordered table-hover">
-        <tr>
-          <td class="col-md-3"><strong>Title: </strong></td>
-          <td><%= @subject.title %></td>
-        </tr>
-        <tr>
-          <td><strong>Short Name: </strong></td>
-          <td><%= @subject.short_name %></td>
-        </tr>
-        <tr>
-          <td><strong>Classrooms: </strong></td>
-          <td><%= @subject.classrooms.map(&:classroom_name).join(", ") %></td>
-        </tr>
-      </table>
-      <h2>Periods</h2>
-      <div id="subject_period">
-        <%= render partial: "/subjects/partials/periods" %>
+<!-- <ul class="nav nav-pills nav_subjects">
+  <li><a href="#">Subjects</a></li>
+  <li><a href="#">Students</a></li>
+</ul>
+<br /> -->
+<div id="subjects_subjects">
+  <%= link_to 'Edit', edit_subject_path(@subject), class: "label label-info" %> |
+  <%= link_to 'Back', list_subjects_path, class: "label label-default" %>
+  <%#= link_to "Periods", new_periods_path(@subject), class: "btn btn-success pull-right" %>
+  <h2><%= @subject.title %></h2>
+  <table class="table table-bordered table-hover">
+    <tr>
+      <td class="col-md-3"><strong>Title: </strong></td>
+      <td><%= @subject.title %></td>
+    </tr>
+    <tr>
+      <td><strong>Short Name: </strong></td>
+      <td><%= @subject.short_name %></td>
+    </tr>
+    <tr>
+      <td><strong>Classrooms: </strong></td>
+      <td><%= @subject.classrooms.map(&:classroom_name).join(", ") %></td>
+    </tr>
+  </table>
+  <h2>Periods</h2>
+  <% WeekDay.all.each do |week_day| %>
+    <div class="col-md-4">
+      <div class="panel panel-success">
+        <%# s = WeekDay.all %>
+        <%# q = @subject %>
+        <%# s.map{|m| m.name } & q.periods.map{|m| m.week_day.name}  %>
+        <div class="panel-heading periods">
+          <strong><%= week_day.name %></strong>
+          <%= link_to "Assign","#", :id => '#new_period_for_'+week_day.name, "data-toggle" => "modal", 'data-target' => '#new_period_'+week_day.name, class: "label label-success pull-right" %>
+          <%= render partial: "/periods/new_period", locals: {:week_day => week_day} %>
+        </div>
+        <div class="panel-body">
+          <div id="subject_period_<%= week_day.id %>" class="for_periods">
+            <%= render partial: "/subjects/partials/periods", locals: {:week_day => week_day} %>
+          </div>
+        </div>
       </div>
     </div>
+  <% end %>
+</div>
+<!-- <div id="subjects_students">
+  <div class="panel-heading">
+    <h1>Students</h1>
   </div>
-  <!-- <div id="subjects_students">
-    <div class="panel-heading">
-      <h1>Students</h1>
-    </div>
-    <div class="panel-body">
-      <%# if @subject.students.present? %>
-        <%# for student in @subject.students %>
-          <div class="table-responsive">
-            <table class="table table-striped table-bordered table-hover">
-              <tr>
-                <td class="col-sm-2"><strong>Profile Picture</strong></td>
-                <td><strong>Student Name: </strong></td>
-                <td><strong>Gender: </strong></td>
-                <td><strong>NIC: </strong></td>
-              </tr>
-              <tr>
-                <td>
-                  <%# unless student.avatar.present? %>
-                    <%#= image_tag("school.png", style: "height: 51px;") %>
-                  <%# else %>
-                    <%#= image_tag(student.avatar.url, style: "height: 51px;") %>
-                  <%# end %>
-                </td>
-                <td><%#= student.to_s %></td>
-                <td><%#= student.gender %></td>
-                <td><%#= student.nic %></td>
-              </tr>
-            </table>
-          </div>
-        <%# end %>
-      <%# else %>
-        <div class="alert alert-dismissable alert-info" style="margin:0px !important;">
-          <strong>No Students!</strong> available in this Batch.
+  <div class="panel-body">
+    <%# if @subject.students.present? %>
+      <%# for student in @subject.students %>
+        <div class="table-responsive">
+          <table class="table table-striped table-bordered table-hover">
+            <tr>
+              <td class="col-sm-2"><strong>Profile Picture</strong></td>
+              <td><strong>Student Name: </strong></td>
+              <td><strong>Gender: </strong></td>
+              <td><strong>NIC: </strong></td>
+            </tr>
+            <tr>
+              <td>
+                <%# unless student.avatar.present? %>
+                  <%#= image_tag("school.png", style: "height: 51px;") %>
+                <%# else %>
+                  <%#= image_tag(student.avatar.url, style: "height: 51px;") %>
+                <%# end %>
+              </td>
+              <td><%#= student.to_s %></td>
+              <td><%#= student.gender %></td>
+              <td><%#= student.nic %></td>
+            </tr>
+          </table>
         </div>
       <%# end %>
-    </div>
-  </div> -->
-</div>
+    <%# else %>
+      <div class="alert alert-dismissable alert-info" style="margin:0px !important;">
+        <strong>No Students!</strong> available in this Batch.
+      </div>
+    <%# end %>
+  </div>
+</div> -->
  
 
 

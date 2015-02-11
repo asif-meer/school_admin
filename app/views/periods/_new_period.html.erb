@@ -1,0 +1,19 @@
+<div class="modal fade" id="new_period_<%= week_day.name %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title">Assign Period for <%= @subject.title %> on <%= week_day.name %></h4>
+      </div>
+      <div class="modal-body">
+        <%= render :partial => 'layouts/messages' , :locals => { :flash => flash } %>
+        <%= render partial: "periods/form", locals: {:week_day => week_day} %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" style="color:#4F4B4B;">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+

@@ -107,7 +107,7 @@ Rails.application.routes.draw do
   resources :periods ,only: [:destroy] do
     collection do
       match ":subject_id/periods", to: "periods#new", via: :get, as: :new
-      match ":subject_id/periods/create", to: "periods#create", via: :post, as: :create
+      match ":subject_id/periods/for_:week_day_name/create", to: "periods#create", via: :post, as: :create
     end
   end
 

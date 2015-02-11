@@ -8,17 +8,28 @@ class PeriodsController < ApplicationController
 	end
 
 	def create
+		@week_day = WeekDay.find_by_name(params[:week_day_name])
 		@subject = Subject.find(params[:subject_id])
 		@period = @subject.periods.build(periods_params)
+		@period.week_day_id = @week_day.id
 		add_breadcrumb "Subjects", list_subjects_path
 		add_breadcrumb "#{@subject.title}", @subject
 		add_breadcrumb "Assign Period"
 		if @period.save
-			flash[:notice] = "Period Assigned"
-			redirect_to @subject
+			respond_to do |format|
+	          format.html { redirect_to @subject }
+	          flash[:notice] = "Period Assigned"
+	          # format.json { head :no_content }
+	          # format.js   { render :layout => false }
+	        end
 		else
-			flash[:alert] = @period.errors.full_messages.to_sentence
-      		render :new
+      		respond_to do |format|
+	          format.html { render template: "/subjects/show" }
+	          flash[:alert] = @period.errors.full_messages.to_sentence
+	          # format.json { render json: @school_class.errors, status: :unprocessable_entity }
+	          # format.json { head :no_content }
+	          # format.js   { render :layout => false }
+	        end
 		end
 	end
 
@@ -37,6 +48,6 @@ class PeriodsController < ApplicationController
 	private
 
 	def periods_params
-		params.require(:period).permit(:teacher_id, :school_class_id, :level, :week_day_id)
+		params.require(:period).permit(:teacher_id, :school_class_id, :level)
 	end
 end

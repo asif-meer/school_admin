@@ -1,0 +1,6 @@
+$('#new_period_for_<%=@week_day.name%>').bind('ajax:success', function() {
+    $("#period_form").html("<%= escape_javascript(render :partial => 'layouts/messages' , :locals => { :flash => flash }).html_safe %>")
+    $("#subject_period").html("<%= escape_javascript(render partial: '/subjects/partials/periods').html_safe %>")
+    $("#new_period_<%= @week_day.name %>").modal();
+}); 
+
