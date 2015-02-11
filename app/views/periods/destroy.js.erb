@@ -1,3 +1,4 @@
 $('.destroy_period').bind('ajax:success', function() {  
     $("#notice").html("<%= escape_javascript(render :partial => 'layouts/messages' , :locals => { :flash => flash }).html_safe %>")
+    $("#subject_period").html("<%= escape_javascript(render partial: '/subjects/partials/periods').html_safe %>")
 }); 

@@ -28,15 +28,7 @@
       </table>
       <h2>Periods</h2>
       <div id="subject_period">
-        <% if @subject.periods.present? %>
-          <% @subject.periods.each do |period| %>
-            <%= render partial: "/subjects/partials/periods", locals: {period: period} %>
-          <% end %>
-        <% else %>
-          <div class="alert alert-dismissable alert-info" style="margin:0px !important;">
-            <strong>No Periods!</strong> assigned.
-          </div>
-        <% end %>
+        <%= render partial: "/subjects/partials/periods" %>
       </div>
     </div>
   </div>

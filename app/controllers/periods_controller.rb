@@ -18,7 +18,7 @@ class PeriodsController < ApplicationController
 			redirect_to @subject
 		else
 			flash[:alert] = @period.errors.full_messages.to_sentence
-      render :new_period 
+      		render :new
 		end
 	end
 
@@ -27,11 +27,11 @@ class PeriodsController < ApplicationController
 		@subject = Subject.find_by_id(@period.subject.id)
 		@period.destroy
 		respond_to do |format|
-      format.html { redirect_to @subject }
-      flash.now[:notice] = "Period removed"
-      format.json { head :no_content }
-      format.js   { render :layout => false }
-    end
+	      format.html { redirect_to @subject }
+	      flash.now[:notice] = "Period removed"
+	      format.json { head :no_content }
+	      format.js   { render :layout => false }
+	    end
 	end
 
 	private
