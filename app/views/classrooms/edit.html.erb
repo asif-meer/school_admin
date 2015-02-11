@@ -1,0 +1,32 @@
+<fieldset>
+  <%= simple_form_for(@classroom, label_errors: true) do |f| %>
+    <%#= f.error_notification %>
+    <%= yield f %>
+    <div class="form-inputs">
+      <%= f.input :classroom_name, input_html: {class: "form-control"}, autofocus: true, placeholder: "Classroom Name" %>
+    </div>
+
+
+    <div class="form-inputs">
+      <%= f.input :short_name, input_html: {class: "form-control"}, placeholder: "Short Name" %>
+    </div>
+
+    <div class="form-inputs">
+      <%= f.input :shared, as: :boolean, as: :boolean, boolean_style: :inline %>
+    </div>
+
+    <div class="form-inputs">
+      <%= f.input :color, as: :minicolors, input_html: {data: {
+          minicolors: {theme: :bootstrap}}} %>
+    </div>
+
+    <div class="form-group"></div>
+
+    <div class="form-actions">
+      <%= f.submit "Save", class: "btn btn-primary pull-right" %>
+    </div>
+    
+    <div class="form-group"></div>
+      
+  <% end %>
+</fieldset>

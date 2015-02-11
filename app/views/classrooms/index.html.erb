@@ -1,5 +1,11 @@
 <div class="row">
   <div class='col-md-12'>
+    <h3>Create new</h3>
+    <%= render :partial => 'form' %>
+  </div>
+</div>
+<div class="row">
+  <div class='col-md-12'>
   	<h2>Classrooms</h2>
     <div id="list_of_classrooms">
     	<% if @classrooms.present? %>
@@ -10,11 +16,5 @@
     	  </div>
     	<% end %>
     </div>
-  </div>
-</div>
-<div class="row">
-  <div class='col-md-12'>
-  	<h3>Create new</h3>
-    <%= render :partial => 'form' %>
   </div>
 </div>

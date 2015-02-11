@@ -22,6 +22,7 @@
                 <span style="padding: 4px 53px 4px 0px;background-color: <%=class_room.color%>;"></span>
               <td>
                 <%#= link_to 'Details', class_room, class: "btn btn-link" %>
+                <%= link_to 'Edit', edit_classroom_path(class_room), class: "label label-primary", :style => "padding:3px;" %>
                 <%= link_to 'Destroy', class_room, method: :delete, remote: true, data: { confirm: 'Are you sure?' }, class: "label label-danger delete_classroom", :style => "padding:3px;" %>
               </td>
             </tr>

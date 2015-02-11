@@ -20,6 +20,11 @@ class SchoolClassesController < InheritedResources::Base
     add_breadcrumb "Details"
   end
 
+  def edit
+    add_breadcrumb "School Classes", school_classes_url
+    add_breadcrumb "Edit Class"
+  end
+
   # POST /batches
   # POST /batches.json
   def create
@@ -56,7 +61,7 @@ class SchoolClassesController < InheritedResources::Base
     add_breadcrumb "Edit"
     respond_to do |format|
       if @school_class.update(school_class_params)
-        format.html { redirect_to @school_class, notice: 'School Class was successfully updated.' }
+        format.html { redirect_to school_classes_url, notice: 'School Class was successfully updated.' }
         format.json { render :show, status: :ok, location: @school_class }
       else
         format.html { render :edit }
