@@ -20,7 +20,8 @@
           <td><%= subject.classrooms.map(&:classroom_name).join(", ") %></td>
           <td>
             <span style="padding: 4px 53px 4px 0px;background-color: <%=subject.color%>;"></span>
-          <td>
+          </td>
+          </td>
           <td><%= link_to 'Details', subject, class: "label label-info" %></td>
           <td><%= link_to 'Edit', edit_subject_path(subject), class: "label label-primary" %></td>
           <td><%= link_to 'Destroy', subject, method: :delete, remote: true, data: { confirm: 'Are you sure?' }, class: "label label-danger destroy_subject" %></td>
