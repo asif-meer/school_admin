@@ -18,11 +18,11 @@ class PeriodsController < ApplicationController
 		add_breadcrumb "Assign Period"
 		if @period.save
 			respond_to do |format|
-        format.html { redirect_to @subject }
-        flash[:notice] = "Period Assigned"
-        # format.json { head :no_content }
-        # format.js   { render :layout => false }
-      end
+		        format.html { redirect_to @subject }
+		        flash[:notice] = "Period Assigned"
+		        # format.json { head :no_content }
+		        # format.js   { render :layout => false }
+		    end
 		else
   		respond_to do |format|
         format.html { render template: "/subjects/show" }

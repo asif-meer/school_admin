@@ -7,6 +7,7 @@
         <th>Short Name</th>
         <th>Classrooms</th>
         <th>Color</th>
+        <th>Assigned for</th>
         <th colspan="3" align="center">Actions</th>
       </tr>
     </thead>
@@ -21,7 +22,7 @@
           <td>
             <span style="padding: 4px 53px 4px 0px;background-color: <%=subject.color%>;"></span>
           </td>
-          </td>
+          <td><%= subject.periods.count %> periods</td>
           <td><%= link_to 'Details', subject, class: "label label-info" %></td>
           <td><%= link_to 'Edit', edit_subject_path(subject), class: "label label-primary" %></td>
           <td><%= link_to 'Destroy', subject, method: :delete, remote: true, data: { confirm: 'Are you sure?' }, class: "label label-danger destroy_subject" %></td>

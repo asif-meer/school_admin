@@ -13,44 +13,9 @@
 				<% end %>
       </div>
     </div>
-    <% if @class.present? %>
-    	<h3>Class <%=  @class.class_name  %> Time Table</h3>
-  	<% end %>
-		<table class="table table-bordered">
-			<thead>
-				<tr id="time_table_week_days">
-					<td class="heading" colspan="2">Periods</td>
-					<td colspan="7" class="heading">Week Days</td>
-				</tr>
-				<tr>
-					<td colspan="2"></td>
-					<% @week_days.each do |week_day| %>
-						<td><%= week_day.name %></td>
-					<% end %>
-				</tr>
-			</thead>
-			<tbody>
-				<% (1..8).each do |n| %>
-					<tr>
-						<td colspan="2"><%= n %></td>
-						<% @week_days.each do |week_day| %>
-							<td style="text-align:center;">
-								<% if @class.present? %>
-									<% if @class.periods.includes(:subject).where("week_day_id = ? AND level = ?", week_day, n).each do |period| %>
-										<%= content_tag(:span, style: "background-color:"+period.subject.color+";padding:5.2px;color:#fff;") do %>
-											<%= period.subject.short_name %>
-										<% end %>
-									<% end.empty? %>
-										--
-									<% end %>
-								<% else %>
-									--
-								<% end %>
-							</td>
-						<% end %>
-					</tr>
-				<% end %>
-			</tbody>
-		</table>
+  	<%#= link_to 'print', 'your_link_here', :onclick => 'window.print();return false;'%>
+    <div id="time_table_subjects">
+	    <%= render partial: "time_table" %>
+		</div>
 	</div>
 </div>
