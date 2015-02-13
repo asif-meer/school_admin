@@ -8,14 +8,14 @@
       <div class="panel-body">
         <%= form_tag time_table_index_path, method: "get" do %>
 					<%= select_tag :search_class, options_for_select(SchoolClass.all.collect{|m| [m.class_name, m.class_name]}, :selected => params[:search_class]), :class => 'form-control', prompt: "--Select--"  %>
-					<%#= text_field_tag :search_class, params[:search_class], class: "form-control" %>
-						<%#= link_to "Clear", batches_path, :class => "btn btn-primary btn-sm pull-right", :style => "margin-left: 5px;" %>
 					<br />
-	        <%= submit_tag "Find", :name => nil, :class => "btn btn-info btn-sm pull-right" %>
+	        <%= submit_tag "View", :name => nil, :class => "btn btn-info" %>
 				<% end %>
       </div>
     </div>
-
+    <% if @class.present? %>
+    	<h3>Class <%=  @class.class_name  %> Time Table</h3>
+  	<% end %>
 		<table class="table table-bordered">
 			<thead>
 				<tr id="time_table_week_days">
@@ -34,13 +34,17 @@
 					<tr>
 						<td colspan="2"><%= n %></td>
 						<% @week_days.each do |week_day| %>
-							<td>
+							<td style="text-align:center;">
 								<% if @class.present? %>
-									<% @class.periods.includes(:subject).where("week_day_id = ? AND level = ?", week_day, n).each do |period| %>
-										<%= content_tag(:span, style: "background-color:"+@class.color+";margin-right:1px;padding:1.2px;color:#fff;") do %>
+									<% if @class.periods.includes(:subject).where("week_day_id = ? AND level = ?", week_day, n).each do |period| %>
+										<%= content_tag(:span, style: "background-color:"+period.subject.color+";padding:5.2px;color:#fff;") do %>
 											<%= period.subject.short_name %>
 										<% end %>
+									<% end.empty? %>
+										--
 									<% end %>
+								<% else %>
+									--
 								<% end %>
 							</td>
 						<% end %>

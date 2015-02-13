@@ -6,7 +6,9 @@ class ApplicationController < ActionController::Base
   # before_filter :log_controller_event
   add_breadcrumb "Dashboard", :root_path, :options => { :title => "Home" }
   # before_filter :log_controller_error
-
+  include ActionView::Helpers::TagHelper
+  include ActionView::Context
+  
   def authenticate_admin_user!
     authenticate_user!
     unless current_user.admin?

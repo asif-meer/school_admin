@@ -17,7 +17,7 @@ class Subject < ActiveRecord::Base
   # belongs_to :batch
   has_many :classroom_subjects, dependent: :destroy
   has_many :classrooms, :through => :classroom_subjects
-  has_many :periods
+  has_many :periods, dependent: :destroy
 
   # validations
   validates_presence_of :title

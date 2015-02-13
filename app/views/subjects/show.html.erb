@@ -21,6 +21,10 @@
       <td><strong>Classrooms: </strong></td>
       <td><%= @subject.classrooms.map(&:classroom_name).join(", ") %></td>
     </tr>
+    <tr>
+      <td><strong>Color: </strong></td>
+      <td><span style="padding: 4px 53px 4px 0px;background-color: <%=@subject.color%>;"></span></td>
+    </tr>
   </table>
   <h2>Periods</h2>
   <% WeekDay.all.each do |week_day| %>

@@ -1,4 +1,5 @@
 class PeriodsController < ApplicationController
+	
 	def new
 		@subject = Subject.find(params[:subject_id])
 		@period = @subject.periods.build
@@ -17,19 +18,24 @@ class PeriodsController < ApplicationController
 		add_breadcrumb "Assign Period"
 		if @period.save
 			respond_to do |format|
-	          format.html { redirect_to @subject }
-	          flash[:notice] = "Period Assigned"
-	          # format.json { head :no_content }
-	          # format.js   { render :layout => false }
-	        end
+        format.html { redirect_to @subject }
+        flash[:notice] = "Period Assigned"
+        # format.json { head :no_content }
+        # format.js   { render :layout => false }
+      end
 		else
-      		respond_to do |format|
-	          format.html { render template: "/subjects/show" }
-	          flash[:alert] = @period.errors.full_messages.to_sentence
-	          # format.json { render json: @school_class.errors, status: :unprocessable_entity }
-	          # format.json { head :no_content }
-	          # format.js   { render :layout => false }
-	        end
+  		respond_to do |format|
+        format.html { render template: "/subjects/show" }
+        flash[:alert] =
+      	content_tag :strong do
+        	content_tag :ul do
+	     			@period.errors.full_messages.map{|m| content_tag(:li, m)}.join("").html_safe
+     			end
+   			end
+        # format.json { render json: @school_class.errors, status: :unprocessable_entity }
+        # format.json { head :no_content }
+        # format.js   { render :layout => false }
+      end
 		end
 	end
 
@@ -38,11 +44,11 @@ class PeriodsController < ApplicationController
 		@subject = Subject.find_by_id(@period.subject.id)
 		@period.destroy
 		respond_to do |format|
-	      format.html { redirect_to @subject }
-	      flash.now[:notice] = "Period removed"
-	      format.json { head :no_content }
-	      format.js   { render :layout => false }
-	    end
+      format.html { redirect_to @subject }
+      flash.now[:notice] = "Period removed"
+      format.json { head :no_content }
+      format.js   { render :layout => false }
+    end
 	end
 
 	private
