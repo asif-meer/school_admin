@@ -9,6 +9,7 @@
 #  created_at :datetime
 #  updated_at :datetime
 #  short_name :string(255)
+#  color      :string(255)
 #
 
 # require 'rails_helper'

@@ -9,6 +9,7 @@
 #  created_at :datetime
 #  updated_at :datetime
 #  short_name :string(255)
+#  color      :string(255)
 #
 
 class Subject < ActiveRecord::Base
@@ -17,7 +18,12 @@ class Subject < ActiveRecord::Base
   # belongs_to :batch
   has_many :classroom_subjects, dependent: :destroy
   has_many :classrooms, :through => :classroom_subjects
-  has_many :periods, dependent: :destroy
+
+  has_many :lessons, dependent: :destroy
+  has_many :periods, through: :lessons
+
+  has_many :lessons, dependent: :destroy, foreign_key: :teacher_id
+  has_many :teachers, through: :lessons
 
   # validations
   validates_presence_of :title

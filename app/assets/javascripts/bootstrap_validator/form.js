@@ -110,6 +110,34 @@ $(function() {
                 }
             }
         },
+        'period[name]': {
+            validators: {
+                notEmpty: {
+                    message: 'Name cannot be empty'
+                }
+            }
+        },
+        'period[short]': {
+            validators: {
+                notEmpty: {
+                    message: 'Short Name cannot be empty'
+                }
+            }
+        },
+        'period[start_time]': {
+            validators: {
+                notEmpty: {
+                    message: 'Start Time cannot be empty'
+                }
+            }
+        },
+        'period[end_time]': {
+            validators: {
+                notEmpty: {
+                    message: 'End Time cannot be empty'
+                }
+            }
+        },
         'subject[title]': {
             validators: {
                 notEmpty: {

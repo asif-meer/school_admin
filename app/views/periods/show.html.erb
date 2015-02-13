@@ -1,0 +1,33 @@
+<%= link_to 'Edit', edit_period_path(@period), class: "label label-info" %> |
+<%= link_to 'Back', periods_path, class: "label label-default" %>
+<div class="panel panel-app">
+  <div class="panel-heading">
+    <h1><%= @period.name %> Period</h1>
+  </div>
+  <div class="panel-body">
+    <table class="table table-bordered table-hover">
+      <tr>
+        <td><strong>Name: </strong></td>
+        <td><%= @period.name %></td>
+      </td>
+      <tr>
+        <td><strong>Start Date: </strong></td>
+        <td><%= @period.short %></td>
+      </tr>
+      <tr>
+        <td><strong>Start Time: </strong></td>
+        <td><%= @period.start_time %></td>
+      </tr>
+      <tr>
+        <td><strong>End Time: </strong></td>
+        <td><%= @period.end_time %></td>
+      </tr>
+      <tr>
+        <td><strong>Period Duration: </strong></td>
+        <td><%= distance_of_time_in_words(@period.start_time, @period.end_time) %></td>
+      </tr>
+    </table>
+  </div>
+</div>
+ 
+

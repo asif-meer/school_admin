@@ -1,0 +1,22 @@
+<div class="row">
+  <div class='col-md-12'>
+    <h3>Create new Period</h3>
+    <div>
+      <%= render :partial => 'form' %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class='col-md-12'>
+    <h2>Periods</h2>
+    <div id="list_of_periods">
+      <% if @periods.present? %>
+          <%= render :partial => 'list_periods' %>
+      <% else %>
+        <div class="alert alert-dismissable alert-info after-destroy" style="margin:0px !important; ">
+          <strong>No Periods!</strong> Available.
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

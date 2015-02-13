@@ -1,6 +1,9 @@
-$('#new_period_for_<%=@week_day.name%>').bind('ajax:success', function() {
-    $("#period_form").html("<%= escape_javascript(render :partial => 'layouts/messages' , :locals => { :flash => flash }).html_safe %>")
-    $("#subject_period").html("<%= escape_javascript(render partial: '/subjects/partials/periods').html_safe %>")
-    $("#new_period_<%= @week_day.name %>").modal();
-}); 
-
+<% if @period.save %>
+	$('#new_period').bind('ajax:success', function() {
+	    $("#notice").html("<%= escape_javascript(render :partial => 'layouts/messages' , :locals => { :flash => flash }).html_safe %>")
+	    $("#list_of_periods").html("<%= escape_javascript(render :partial => 'list_periods') %>")
+	    $(this).closest('form').find("input[type=text], textarea").val("");
+	})
+<% else %>
+	$("#notice").html("<%= escape_javascript(render :partial => 'layouts/messages' , :locals => { :flash => flash }).html_safe %>")
+<% end %>
