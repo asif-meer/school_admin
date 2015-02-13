@@ -1,4 +1,4 @@
-$('.destroy_period').bind('ajax:success', function() {  
+$('.destroy_lesson').bind('ajax:success', function() {  
     $("#notice").html("<%= escape_javascript(render :partial => 'layouts/messages' , :locals => { :flash => flash }).html_safe %>")
-    $("#subject_period_<%= @period.week_day.id %>").html("<%= escape_javascript(render partial: '/subjects/partials/periods', locals: {:week_day => @period.week_day}).html_safe %>")
+    $("#subject_lesson_<%= @lesson.week_day.id %>").html("<%= escape_javascript(render partial: '/subjects/partials/lessons', locals: {:week_day => @lesson.week_day}).html_safe %>")
 }); 

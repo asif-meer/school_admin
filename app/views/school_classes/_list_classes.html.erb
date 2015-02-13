@@ -4,9 +4,9 @@
       <table class= "table table-striped table-bordered table-hover ">
         <thead >
           <tr>
-            <th class="col-sm-1">Classes</th>
-            <th class="col-sm-4">Short Name</th>
-            <th class="col-sm-1">Color</th>
+            <th>Classes</th>
+            <th>Short Name</th>
+            <th>Color</th>
             <th align="center">Actions</th>
           </tr>
         </thead>
@@ -19,7 +19,7 @@
               <td>
                 <span style="padding: 4px 53px 4px 0px;background-color: <%=school_class.color%>;"></span>
               <td>
-                <%#= link_to 'Details', class_room, class: "btn btn-link" %>
+                <%= link_to 'Details', school_class, class: "label label-info", :style => "padding:3px;" %>
                 <%= link_to 'Edit', edit_school_class_path(school_class), class: "label label-primary", :style => "padding:3px;" %>
                 <%= link_to 'Destroy', school_class, method: :delete, remote: true, data: { confirm: 'Are you sure?' }, class: "label label-danger delete_class", :style => "padding:3px;" %>
               </td>

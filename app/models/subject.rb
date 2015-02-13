@@ -19,15 +19,13 @@ class Subject < ActiveRecord::Base
   has_many :classroom_subjects, dependent: :destroy
   has_many :classrooms, :through => :classroom_subjects
 
-  has_many :lessons, dependent: :destroy
-  has_many :periods, through: :lessons
-
-  has_many :lessons, dependent: :destroy, foreign_key: :teacher_id
+  has_many :lessons, dependent: :destroy, foreign_key: :subject_id
+  
+  has_many :period, through: :lessons
   has_many :teachers, through: :lessons
 
   # validations
-  validates_presence_of :title
-  validates_presence_of :classroom_ids, :short_name
+  validates_presence_of :title, :short_name
 
   def to_s
     title

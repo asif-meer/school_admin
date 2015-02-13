@@ -103,13 +103,13 @@ Rails.application.routes.draw do
     end
   end
 
-  #Periods
-  # resources :periods ,only: [:destroy] do
-  #   collection do
-  #     match ":subject_id/periods", to: "periods#new", via: :get, as: :new
-  #     match ":subject_id/periods/for_:week_day_name/create", to: "periods#create", via: :post, as: :create
-  #   end
-  # end
+  # Lessons
+  resources :lessons, only: [:destroy] do
+    collection do
+      match ":subject_id/lessons", to: "lessons#new", via: :get, as: :new
+      match ":subject_id/lessons/for_:week_day_name/create", to: "lessons#create", via: :post, as: :create
+    end
+  end
 
   resources :periods
 

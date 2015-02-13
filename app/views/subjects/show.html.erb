@@ -18,10 +18,6 @@
       <td><%= @subject.short_name %></td>
     </tr>
     <tr>
-      <td><strong>Classrooms: </strong></td>
-      <td><%= @subject.classrooms.map(&:classroom_name).join(", ") %></td>
-    </tr>
-    <tr>
       <td><strong>Color: </strong></td>
       <td><span style="padding: 4px 53px 4px 0px;background-color: <%=@subject.color%>;"></span></td>
     </tr>
@@ -35,12 +31,12 @@
         <%# s.map{|m| m.name } & q.periods.map{|m| m.week_day.name}  %>
         <div class="panel-heading periods">
           <strong><%= week_day.name %></strong>
-          <%= link_to "Assign","#", :id => '#new_period_for_'+week_day.name, "data-toggle" => "modal", 'data-target' => '#new_period_'+week_day.name, class: "label label-success pull-right" %>
-          <%= render partial: "/periods/new_period", locals: {:week_day => week_day} %>
+          <%= link_to "Assign","#", :id => '#new_lesson_for_'+week_day.name, "data-toggle" => "modal", 'data-target' => '#new_lesson_'+week_day.name, class: "label label-success pull-right" %>
+          <%= render partial: "/lessons/new_lesson", locals: {:week_day => week_day} %>
         </div>
         <div class="panel-body">
-          <div id="subject_period_<%= week_day.id %>" class="for_periods">
-            <%= render partial: "/subjects/partials/periods", locals: {:week_day => week_day} %>
+          <div id="subject_lesson_<%= week_day.id %>" class="for_periods">
+            <%= render partial: "/subjects/partials/lessons", locals: {:week_day => week_day} %>
           </div>
         </div>
       </div>
