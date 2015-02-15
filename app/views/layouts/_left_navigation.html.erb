@@ -15,7 +15,7 @@
           <%= image_tag("glyphicons-264-bank.png") %>
           <i class="glyphicon glyphicon-chevron-right"></i>Setup Institute</a>
 
-          <div class="collapse" id="demo3">
+          <div class="collapse sub-nav" id="demo3">
             <!-- <a href="#SubMenu1" class="list-group-item" data-toggle="collapse" data-parent="#SubMenu1">Subitem 1 <i class="fa fa-caret-down"></i></a>
             <div class="collapse list-group-submenu" id="SubMenu1">
               <a href="#" class="list-group-item" data-parent="#SubMenu1">Subitem 1 a</a>
@@ -27,14 +27,36 @@
               </div>
               <a href="#" class="list-group-item" data-parent="#SubMenu1">Subitem 4 d</a>
             </div> -->
-            <%= link_to "School Sessions", sessions_path, class: "list-group-item" %>
-            <%= link_to "Students", students_path, class: "list-group-item" %>
-            <%= link_to "Courses", courses_path, class: "list-group-item" %>
-            <%= link_to "Batches", batches_path, class: "list-group-item" %>
-            <%= link_to "Classrooms", classrooms_path, class: "list-group-item" %>
-            <%= link_to "Classes", classes_path, class: "list-group-item" %>
-            <%= link_to "Periods", periods_path, class: "list-group-item" %>
-            <%= link_to "Subjects", list_subjects_path, class: "list-group-item" %>
+            
+            <%= link_to sessions_path, class: "list-group-item" do %>
+                <%= image_tag("glyphicons-58-history.png") %>
+                Sessions
+            <% end %>
+            <%= link_to students_path, class: "list-group-item" do %>
+                <%= image_tag("glyphicons-501-education.png") %>
+                Students
+            <% end %>
+            <%= link_to courses_path, class: "list-group-item" do %>
+                <%= image_tag("glyphicons-352-book-open.png") %>
+                Courses
+            <% end %>
+            <%#= link_to "Batches", batches_path, class: "list-group-item" %>
+            <%= link_to classrooms_path, class: "list-group-item" do %>
+                <%= image_tag("glyphicons-371-globe-af.png") %>
+                Classrooms
+            <% end %>
+            <%= link_to classes_path, class: "list-group-item" do %>
+                <%= image_tag("glyphicons-352-book-open.png") %>
+                Classes
+            <% end %>
+            <%= link_to periods_path, class: "list-group-item" do %>
+                <%= image_tag("glyphicons-577-uk-rat-r18.png") %>
+                Periods
+            <% end %>
+            <%= link_to list_subjects_path, class: "list-group-item" do %>
+                <%= image_tag("glyphicons-412-package.png") %>
+                Subjects
+            <% end %>
           </div>
           <!-- <a href="#demo4" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">Item 4</a>
           <div class="collapse" id="demo4">
