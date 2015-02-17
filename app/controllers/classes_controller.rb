@@ -1,8 +1,7 @@
 class ClassesController < ApplicationController
 	before_action :set_class, only: [:edit, :update, :destroy]
   before_filter :authenticate_user!
-  # GET /batches
-  # GET /batches.json
+
   def index
     @classes = SchoolClass.all
     add_breadcrumb "Classes"
@@ -13,8 +12,13 @@ class ClassesController < ApplicationController
 
   end
 
-  # GET /batches/1
-  # GET /batches/1.json
+  def new
+    add_breadcrumb "Classes", classes_url
+    add_breadcrumb "New Class"
+    @class = SchoolClass.new
+  end
+
+
   def show
     @class = SchoolClass.find_by_class_name(params[:class_name])
     @lesson = @class.lessons.build
@@ -29,6 +33,16 @@ class ClassesController < ApplicationController
     @lesson = @class.lessons.build
     @class_subjects = @class.subjects
     @class_teachers = @class.teachers
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def class_details_for_periods
+    @class = SchoolClass.find(params[:id])
+    @lesson = @class.lessons.build
+    @week_days = WeekDay.all
+    @periods = Period.all
     respond_to do |format|
       format.js
     end
@@ -98,7 +112,7 @@ class ClassesController < ApplicationController
   end
 
   def destroy_multiple
-    @class.destroy(params[:class_destroy_id])
+    SchoolClass.destroy(params[:class_destroy_id])
     flash[:notice] = "Classes were successfully destroyed."
     respond_to do |format|
       format.html { redirect_to classes_url }

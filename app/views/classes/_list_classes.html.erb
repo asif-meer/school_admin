@@ -1,27 +1,40 @@
 <div class="row">
   <div class="col-sm-12">
     <div class="table-responsive">
-      <table class= "table table-striped table-bordered table-hover ">
+      <table class= "table table-striped">
         <thead >
           <tr>
+            <th class="">Mark All <input type="checkbox" id="select_all"/></th>
             <th>Classes</th>
             <th>Short Name</th>
             <th>Color</th>
-            <th align="center">Actions</th>
+            <th align="center" colspan="3">Actions</th>
           </tr>
         </thead>
 
         <tbody class="datables" >
           <% @classes.each do |_class| %>
             <tr>
+              <td class="selectedId"><%= check_box_tag "class_destroy_id[]", _class.id %></td>
               <td><%= _class.class_name %></td>
               <td><%= _class.short_name %></td>
               <td>
                 <span style="padding: 4px 53px 4px 0px;background-color: <%=_class.color%>;"></span>
+              </td>
               <td>
-                <%= link_to 'Details', class_name_path(_class.class_name), class: "label label-info", :style => "padding:3px;" %>
-                <%= link_to 'Edit', edit_class_path(_class.class_name), class: "label label-primary", :style => "padding:3px;" %>
-                <%= link_to 'Destroy', destroy_class_path(_class.class_name), method: :delete, remote: true, data: { confirm: 'Are you sure?' }, class: "label label-danger delete_class", :style => "padding:3px;" %>
+                <%= link_to class_name_path(_class.class_name) do %>
+                  <span class="glyphicon glyphicon-eye-open"></span>
+                <% end %>
+              </td>
+              <td>
+                <%= link_to edit_class_path(_class.class_name) do %>
+                  <span class="glyphicon glyphicon-edit"></span>
+                <% end %>
+              </td>
+              <td>
+                <%= link_to destroy_class_path(_class.class_name), method: :delete, remote: true, data: { confirm: 'Are you sure?' }, class: "delete_class" do %>
+                  <span class="glyphicon glyphicon-trash"></span>
+                <% end %>
               </td>
             </tr>
           <% end %>

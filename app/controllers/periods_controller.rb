@@ -7,6 +7,12 @@ class PeriodsController < ApplicationController
 		@period = Period.new
 	end
 
+	def new
+		add_breadcrumb "Periods", periods_path
+		add_breadcrumb "New"
+		@period = Period.new
+	end
+
 	def create
 		@periods = Period.all
 		@period = Period.new(period_params)
@@ -60,7 +66,7 @@ class PeriodsController < ApplicationController
 		@period_edit = Period.find(params[:id])
 		respond_to do |format|
       format.html { render :edit }
-      flash[:notice] = "Edit #{@period.name} period"
+      # flash[:notice] = "Edit #{@period.name} period"
       format.json { head :no_content }
       format.js   { render :layout => false }
     end
@@ -73,12 +79,22 @@ class PeriodsController < ApplicationController
 	def destroy
 		@period.destroy
 		respond_to do |format|
-	      format.html { redirect_to periods_path }
-	      flash.now[:notice] = "Period was successfully destroyed."
-	      format.json { head :no_content }
-	      format.js   { render :layout => false }
-	    end
+      format.html { redirect_to periods_path }
+      flash.now[:notice] = "Period was successfully destroyed."
+      format.json { head :no_content }
+      format.js   { render :layout => false }
+    end
 	end
+
+	def destroy_multiple
+    Period.destroy(params[:period_destroy_id])
+    flash[:notice] = "Periods were successfully destroyed."
+    respond_to do |format|
+      format.html { redirect_to periods_url }
+      format.json { head :no_content }
+      format.js   { render :layout => false }
+    end
+  end
 
 	private
 

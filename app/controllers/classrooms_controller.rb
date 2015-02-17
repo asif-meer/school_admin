@@ -84,6 +84,16 @@ class ClassroomsController < ApplicationController
     end
   end
 
+  def destroy_multiple
+    Classroom.destroy(params[:classroom_destroy_id])
+    flash[:notice] = "Classrooms were successfully destroyed."
+    respond_to do |format|
+      format.html { redirect_to classrooms_url }
+      format.json { head :no_content }
+      format.js   { render :layout => false }
+    end
+  end
+
   private
 
  		def set_classroom

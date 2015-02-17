@@ -2,7 +2,7 @@
     <div id="upar">
       <h4>Welcome Admin!</h4>
     </div>
-    <div class="row">
+    <!-- <div class="row">
       <div class="col-md-12">
         <div class="col-md-2 dashboard-width">
           <div class="course dashboard-icon">
@@ -78,7 +78,7 @@
         </div>
       </div>
     </div>
-    </div>
+    </div> -->
     <br />
     <div class="row">
     <div class="col-lg-3 col-md-6">
@@ -251,7 +251,7 @@
             type: 'column'
         },
         title: {
-            text: 'Students by Batches'
+            text: 'User Graph'
         },
         subtitle: {
             text: ''
@@ -273,12 +273,12 @@
             // ]
             type: "integer",
             title: {
-                text: 'Student Counts'
+                text: 'Users'
             }
         },
         yAxis: {
             title: {
-                text: 'Units'
+                text: 'Total Users'
             }
         },
         // tooltip: {
@@ -297,23 +297,11 @@
         },
         series: [
         {
-            name: '2009',
-            data: [<%= Student.joins(:batch).where(:batches => {:batch_name => "2009"}).count %>]
+            name: 'Students',
+            data: [<%= Student.all.count %>]
         }, {
-            name: '2010',
-            data: [<%= Student.joins(:batch).where(:batches => {:batch_name => "2010"}).count %>]
-        }, {
-            name: '2011',
-            data: [<%= Student.joins(:batch).where(:batches => {:batch_name => "2011"}).count %>]
-        }, {
-            name: '2012',
-            data: [<%= Student.joins(:batch).where(:batches => {:batch_name => "2012"}).count %>]
-        }, {
-            name: '2013',
-            data: [<%= Student.joins(:batch).where(:batches => {:batch_name => "2013"}).count %>]
-        }, {
-            name: '2014',
-            data: [<%= Student.joins(:batch).where(:batches => {:batch_name => "2014"}).count %>]
+            name: 'Teachers',
+            data: [<%= Employee.teachers.count %>]
         }
 
 

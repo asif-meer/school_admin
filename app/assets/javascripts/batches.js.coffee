@@ -19,8 +19,18 @@ jQuery ->
 
 	$("#batch_start_date").datetimepicker
 		pickTime: false
+
+  $("#batch_start_date")
+    .on 'change', (e) ->
+      $('form').data('bootstrapValidator').revalidateField 'batch[start_date]'
+      return
 	$("#batch_end_date").datetimepicker
 		pickTime: false
+
+  $("#batch_end_date")
+    .on 'change', (e) ->
+      $('form').data('bootstrapValidator').revalidateField 'batch[end_date]'
+      return
 
 jQuery ->
 	$("#search_by_course").change ->

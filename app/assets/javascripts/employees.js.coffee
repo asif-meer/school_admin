@@ -5,11 +5,18 @@ jQuery ->
 	$("#employee_date_of_birth").datetimepicker
 		pickTime: false
 
+  $("#employee_date_of_birth")
+    .on 'change', (e) ->
+      $('form').data('bootstrapValidator').revalidateField 'employee[date_of_birth]'
+      return
+
 	$("#employee_joining_date").datetimepicker
 		pickTime: false
 
-	$("#employee_employee_attendences_attributes_0_date").datetimepicker
-		pickTime: false
+  $("#employee_joining_date")
+    .on 'change', (e) ->
+      $('form').data('bootstrapValidator').revalidateField 'employee[joining_date]'
+      return
 
 
 $(document).ready ->

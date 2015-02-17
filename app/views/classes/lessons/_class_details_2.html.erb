@@ -1,0 +1,52 @@
+<%# if @class_teachers.present? || @class_subjects.present? %>
+  <h3>Lessons Assigned</h3>
+	<div class="tree">
+    <ul>
+      <li>
+        <span><i class="glyphicon glyphicon-calendar"></i> <%= Date.today.year %> <%= Date.today.strftime("%B").to_s %>, <%= Date.today.strftime("%d").to_i %></span>
+        <% @week_days.each do |week_day| %>
+          <ul>
+            <li>
+            	<span class="label <%= week_day.name == "Monday" ? 'label-success' : week_day.name == "Tuesday" ? 'label-primary' : week_day.name == "Wednesday" ? 'label-info' : week_day.name == "Thursday" ? 'label-warning' : week_day.name == "Friday" ? 'label-danger' : week_day.name == "Saturday" ? 'label-sunset' : week_day.name == "Sunday" ? 'label-water' : 'label-primary' %>"><i class="glyphicon glyphicon-minus-sign"></i> <%= week_day.name %></span>
+            		<% @periods.each do |period| %>
+                  <ul>
+                    <li>
+                      <span><i class="glyphicon glyphicon-time"></i> <%= period.name %> (<%= period.start_time.strftime("%I:%M %p") %>-<%= period.end_time.strftime("%I:%M %p") %>)</span>
+                      <ul>
+                        <li>
+                        	<% if @class.lessons.includes(:week_day, :period).where('week_day_id = ? AND period_id = ?', week_day, period).each do |class_subject| %>
+	                        	<a href="/subjects/list" data-toggle="tooltip" data-placement="top" title="Visit Subjects Page"><span><%= image_tag("glyphicons-412-package.png", class: "glyphicon_image") %> Subjects</span> &ndash; <%= class_subject.subject.title %> <span class="class_details_subject_tree" style="background-color: <%= class_subject.subject.color %>;"><%= class_subject.subject.short_name %></span></a>
+                        	<% end.empty? %>
+                        		<a href="">&ndash;&ndash;&ndash;</a>
+                        	<% end %>
+                        </li>
+                        <li>
+                        	<% if @class.lessons.includes(:week_day, :period).where('week_day_id = ? AND period_id = ?', week_day, period).each do |class_subject| %>
+	                        	<a href="" data-toggle="tooltip" data-placement="top" title="Visit Teachers Page"><span><%= image_tag("glyphicons-25-parents.png", class: "glyphicon_image") %> Teachers</span> &ndash; <%= class_subject.teacher.to_s %></a>
+                        	<% end.empty? %>
+                        		<a href="">&ndash;&ndash;&ndash;</a>
+                        	<% end %>
+                        </li>
+                        <li>
+                        	<% if @class.lessons.includes(:week_day, :period).where('week_day_id = ? AND period_id = ?', week_day, period).each do |class_subject| %>
+	                        	<a href="" data-toggle="tooltip" data-placement="top" title="Visit Classrooms Page"><span><%= image_tag("glyphicons-371-globe-af.png", class: "glyphicon_image") %> Classrooms</span> &ndash; <%= class_subject.classroom.classroom_name %></a>
+                        	<% end.empty? %>
+                        		<a href="">&ndash;&ndash;&ndash;</a>
+                        	<% end %>
+                        </li>
+	                    </ul>
+                    </li>
+                  </ul>
+                <% end %>
+            </li>
+          </ul>
+        <% end %>
+      </li>
+    </ul>
+</div>
+<%# else %>
+	<!-- <div class="alert alert-dismissable alert-info after-destroy" style="margin:0px !important; ">
+		<i class="glyphicon glyphicon-info-sign"></i>
+    <strong>No subjects and teachers assigned.</strong>
+  </div> -->
+<%# end %>

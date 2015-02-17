@@ -15,12 +15,13 @@ $(document).ajaxStart ->
   $.blockUI
     message: "<h2><span class='glyphicon glyphicon-refresh glyphicon-refresh-animate'></span>Loading...</h2>"
     timeout:500
+    fadeIn:300
     css:
       border: 'none'
-      padding: '15px'
-      backgroundColor: '#000'
-      '-webkit-border-radius': '10px'
-      '-moz-border-radius': '10px'
+      padding: '7px 0px 15px'
+      backgroundColor: 'rgb(255, 255, 255)'
+      '-webkit-border-radius': '11px'
+      '-moz-border-radius': '11px'
       opacity: .5
       color: '#fff'
       'margin-left': '73px'
@@ -46,6 +47,12 @@ jQuery ->
           $("#select_notice").html("Select atleast one Course")
         else if url.indexOf('http://' + host + '/employees') != -1
           $("#select_notice").html("Select atleast one Employee")
+        else if url.indexOf('http://' + host + '/classrooms') != -1
+          $("#select_notice").html("Select atleast one classroom")
+        else if url.indexOf('http://' + host + '/classes') != -1
+          $("#select_notice").html("Select atleast one class")
+        else if url.indexOf('http://' + host + '/periods') != -1
+          $("#select_notice").html("Select atleast one period")
 
         if !$(".selectedId").length
           $("#select_notice").html("There is no record present")

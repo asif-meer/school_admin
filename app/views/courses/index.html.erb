@@ -29,9 +29,21 @@
                 <td><%= course.course_name %></td>
                 <td><%= course.section_name %></td>
                 <td><%= course.code %></td>
-                <td><%= link_to 'View Details', course, class: "btn btn-link" %></td>
-                <td><%= link_to 'Edit', edit_course_path(course), class: "btn btn-link" %></td>
-                <td><%= link_to 'Destroy',  course , method: :delete, remote: true, data: { confirm: 'Are you sure?' }, class: "btn btn-link delete_course" %></td>
+                <td>
+                  <%= link_to course do %>
+                    <span class="glyphicon glyphicon-eye-open"></span>
+                  <% end %>
+                </td>
+                <td>
+                  <%= link_to edit_course_path(course) do %>
+                    <span class="glyphicon glyphicon-edit"></span>
+                  <% end %>
+                </td>
+                <td>
+                  <%= link_to course, method: :delete, remote: true, data: { confirm: 'Are you sure?' }, class: "delete_course" do %>
+                    <span class="glyphicon glyphicon-trash"></span>
+                  <% end %>
+                </td>
               </tr>
             <% end %>
           </tbody>

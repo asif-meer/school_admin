@@ -36,6 +36,10 @@
                 <%= image_tag("glyphicons-501-education.png") %>
                 Students
             <% end %>
+            <%= link_to employees_path, class: "list-group-item" do %>
+                <%= image_tag("glyphicons-25-parents.png") %>
+                Teachers
+            <% end %>
             <%= link_to courses_path, class: "list-group-item" do %>
                 <%= image_tag("glyphicons-352-book-open.png") %>
                 Courses

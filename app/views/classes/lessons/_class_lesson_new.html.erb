@@ -1,7 +1,7 @@
-<div class="row">
-	<div class="col-md-6">
-		<h3>Add Lesson for <%= @class.class_name %></h3>
-		<%= simple_form_for(@lesson, url: create_lessons_path(@class.id), label_errors: true, :method => :post) do |f| %>
+<%= simple_form_for(@lesson, url: create_lessons_path(@class.id), label_errors: true, :method => :post) do |f| %>
+	<h3>Add Lesson for <%= @class.class_name %></h3>
+	<div class="row">
+		<div class="col-md-6">
 		  <%#= f.error_notification %>
 		  <%#= yield f %>
 		  <div class="form-inputs">
@@ -15,8 +15,9 @@
 		  <div class="form-inputs">
 		    <%= f.input :classroom_id, collection: Classroom.all.map{|m| [m.classroom_name, m.id]}, :input_html => {class: "form-control"}, prompt: "Select Classes"  %>
 		  </div>
-
-		  <div class="form-group"></div>
+		</div>
+		<div class="col-md-6">
+			<div class="form-group"></div>
 		  <div class="form-inputs">
 		    <%= f.input :subject_id, collection: Subject.all.map{|m| [m.title, m.id]}, :input_html => {class: "form-control"}, prompt: "Select Subjects"  %>
 		  </div>
@@ -25,14 +26,11 @@
 		  <div class="form-inputs">
 		    <%= f.input :week_day_id, collection: WeekDay.all.map{|m| [m.name, m.id]}, :input_html => {class: "form-control"}, prompt: "Select Week Days"  %>
 		  </div>
-		  
-		  <div class="form-group"></div>
-
-		  <div class="form-actions">
-		    <%= f.submit "Create", class: "btn btn-primary" %> 
-		  </div>
-		  
-		  <div class="form-group"></div>
-		<% end %>
+		</div>
 	</div>
-</div>
+	<div class="form-group"></div>
+
+  <div class="form-actions">
+    <%= f.submit "Create", class: "btn btn-primary" %> 
+  </div>
+<% end %>

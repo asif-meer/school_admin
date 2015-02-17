@@ -5,20 +5,23 @@
 	<div class="col-md-12 column">
 		<ul class="nav nav-tabs">
 			<li >
-				<a href="/" id="class_details_1"> Subjects</a>
+				<a href="/" id="class_details_1" data-toggle="tooltip" data-placement="top" title="Subjects and Teachers"> Subjects and Teachers</a>
 				<%=hidden_field_tag "details_class", @class.id%>
 			</li>
 			<li>
-				<a href="#">Periods</a>
+				<a href="/" id="class_details_2" data-toggle="tooltip" data-placement="top" title="Assigned Lessons with Periods">Lessons</a>
+				<%=hidden_field_tag "details_class_2", @class.id %>
 			</li>
 			<li>
-				<a href="#">Add New</a>
+				<a href="#">Add New Lesson</a>
 			</li>
 		</ul>
 		
 	</div>
 </div>
 <br />
+
+<script src="src/easyTree.js"></script>
 <div class="row">
 	<div class="col-md-12">
 		<div id="class_details_tab_1">

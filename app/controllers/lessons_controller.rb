@@ -15,18 +15,17 @@ class LessonsController < ApplicationController
 		@lesson = @class.lessons.build(lessons_params)
 		# @lesson.week_day_id = @week_day.id
 		add_breadcrumb "Classes", list_subjects_path
-		add_breadcrumb "#{@class.class_name}", class_name_path(@class.name)
 		add_breadcrumb "Assign Lesson"
 		if @lesson.save
 			respond_to do |format|
-		        format.html { redirect_to classes_path(@class.class_name) }
+		        format.html { redirect_to class_name_path(@class.class_name) }
 		        flash[:notice] = "Lesson Assigned"
 		        # format.json { head :no_content }
 		        # format.js   { render :layout => false }
 		    end
 		else
   		respond_to do |format|
-        format.html { render template: "/school_classes/show" }
+        format.html { render template: "/classes/show" }
         flash[:alert] =
       	content_tag :strong do
         	content_tag :ul do

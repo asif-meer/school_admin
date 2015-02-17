@@ -2,16 +2,22 @@ Rails.application.routes.draw do
 
   # School Classes
   # resources :classes
-  match "/classes/:class_name/", to: "classes#show", via: :get, as: :class_name
-  match "/classes/:class_name/", to: "classes#edit", via: :get, as: :edit_class
-  match "/classes/:class_name/update/", to: "classes#update", via: :post, as: :update_class
+  match "/classes/class-:class_name/", to: "classes#show", via: :get, as: :class_name
+  match "/classes/:class_name/edit", to: "classes#edit", via: :get, as: :edit_class
+  match "/classes/:class_name/update/", to: "classes#update", via: :patch, as: :update_class
   match "/classes/new/", to: "classes#new", via: :get, as: :new_class
   match "/classes/create/", to: "classes#create", via: :post, as: :create_class
   match "/classes/:class_name/destroy/", to: "classes#destroy", via: :delete, as: :destroy_class
   match "/classes/", to: "classes#index", via: :get, as: :classes
   match "classes/:id/class_details/", to: "classes#class_details", via: :get, as: :class_details
+  match "classes/:id/class_details_for_periods/", to: "classes#class_details_for_periods", via: :get, as: :class_details_for_periods
+  match "classes/destroy_multiple/", to: "classes#destroy_multiple", via: :delete, as: :destroy_multiple_classes
 
-  resources :classrooms
+  resources :classrooms do
+    collection do
+      delete 'destroy_multiple'
+    end
+  end
 
   resources :sessions
 
@@ -120,7 +126,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :periods
+  resources :periods do
+    collection do
+      delete 'destroy_multiple'
+    end
+  end
 
   #Timetable
   resources :time_table, only: [:index]

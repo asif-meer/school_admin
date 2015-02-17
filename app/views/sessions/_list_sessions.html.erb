@@ -5,7 +5,7 @@
         <th class="col-sm-2">Name</th>
         <th>Start Date</th>
         <th>End Date</th>
-        <th align="center">Actions</th>
+        <th align="center" colspan="3">Actions</th>
       </tr>
     </thead>
 
@@ -16,9 +16,20 @@
           <td><%= session.start_date %></td>
           <td><%= session.end_date %></td>
           <td>
-          <%= link_to 'View Details', session, class: "label label-info" %>
-          <%= link_to 'Edit', edit_session_path(session), class: "label label-primary" %>
-          <%= link_to 'Destroy',  session , method: :delete, remote: true, data: { confirm: 'Are you sure?' }, class: "label label-danger delete_session" %></td>
+            <%= link_to session do %>
+              <span class="glyphicon glyphicon-eye-open"></span>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to edit_session_path(session) do %>
+              <span class="glyphicon glyphicon-edit"></span>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to session, method: :delete, remote: true, data: { confirm: 'Are you sure?' }, class: "delete_session" do %>
+              <span class="glyphicon glyphicon-trash"></span>
+            <% end %>
+          </td>
         </tr>
       <% end %>
     </tbody>
