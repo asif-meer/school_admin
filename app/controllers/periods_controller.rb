@@ -1,5 +1,5 @@
 class PeriodsController < ApplicationController
-	before_filter :set_period, only: [:show, :edit, :destroy]
+	before_filter :set_period, only: [:show, :edit, :destroy, :update]
 
 	def index
     add_breadcrumb "Periods"
@@ -31,8 +31,13 @@ class PeriodsController < ApplicationController
 
 	def update
 		add_breadcrumb "Periods", periods_path
-		@period = Period.update_attributes(period_params)
-		if @period.save
+		@period_edit = Period.find(params[:id])
+		@period_new = Period.new
+		@periods = Period.all
+		@period_edit.update_attributes(period_params)
+		if @period_edit.save
+				@period_edit.duration = @period_edit.time_diff(@period_edit.start_time, @period_edit.end_time)
+				@period_edit.save
 	      respond_to do |format|
 	        format.html { redirect_to periods_url }
 	        flash[:notice] = "Period was successfully Updated."
@@ -41,8 +46,8 @@ class PeriodsController < ApplicationController
 	      end
 	    else
 	      respond_to do |format|
-	        format.html { render :index }
-	        flash[:alert] = @period.errors.full_messages.to_sentence
+	        format.html { render :edit }
+	        flash[:alert] = @period_edit.errors.full_messages.to_sentence
 	        format.json { head :no_content }
 	        format.js   { render :layout => false }
 	      end
@@ -52,6 +57,13 @@ class PeriodsController < ApplicationController
 	def edit
 		add_breadcrumb "Periods", periods_path
 		add_breadcrumb "Edit"
+		@period_edit = Period.find(params[:id])
+		respond_to do |format|
+      format.html { render :edit }
+      flash[:notice] = "Edit #{@period.name} period"
+      format.json { head :no_content }
+      format.js   { render :layout => false }
+    end
 	end
 
 	def show

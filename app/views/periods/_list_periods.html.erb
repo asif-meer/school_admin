@@ -23,7 +23,7 @@
               <td><%= distance_of_time_in_words(period.start_time, period.end_time) %></td>
               <td>
                 <%#= link_to 'Details', class_room, class: "btn btn-link" %>
-                <%= link_to 'Edit', edit_period_path(period), class: "label label-primary", :style => "padding:3px;" %>
+                <%= link_to 'Edit', edit_period_path(period), class: "label label-primary edit_period", :style => "padding:3px;", remote: true %>
                 <%= link_to 'Destroy', period, method: :delete, remote: true, data: { confirm: 'Are you sure?' }, class: "label label-danger delete_period", :style => "padding:3px;" %>
               </td>
             </tr>
