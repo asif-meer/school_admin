@@ -27,6 +27,7 @@ class EmployeesController < InheritedResources::Base
     @teacher_position = EmployeePosition.find_by_name("Teacher")
   end
 
+
   def classes
     add_breadcrumb "Human Resources", human_resources_employees_path
     add_breadcrumb "Employees", employees_path

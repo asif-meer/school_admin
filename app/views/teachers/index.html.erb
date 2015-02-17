@@ -1,0 +1,59 @@
+<h1>Teachers</h1>
+
+<%= form_tag destroy_multiple_teachers_path, method: :delete do %>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="pull-left">
+        <%= link_to 'New Teacher', new_teacher_path, class: "btn btn-success", data: { no_turbolink: true } %>
+      </div>
+      <div class="pull-right">
+        <%= button_tag "Delete selected", :remote => true, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm destroy-all pull-right", id: "my" %><br />
+        <span id="select_notice" style="font-size:13px;" class="pull-right"></span>
+      </div>
+    </div>
+  </div>
+  <hr />
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="table-responsive">
+        <table id="employees_datatable" class= "table table-striped ">
+          <thead >
+            <tr>
+              <th>Mark All <input type="checkbox" id="select_all"/></th>
+              <th>Name</th>
+              <th>Gender</th>
+              <th>Job title</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @teachers.each do |teacher| %>
+              <tr>
+                <td class="selectedId"><%= check_box_tag "teacher_destroy_id[]", teacher.id %></td>
+                <td><%= teacher.first_name %></td>
+                <td><%= teacher.gender %></td>
+                <td><%= teacher.job_title %></td>
+                <td class="dataTable_actions">
+                  
+                  <%= link_to teacher_path(teacher) do %>
+                    <span class="glyphicon glyphicon-eye-open"></span>
+                  <% end %>
+                  <%= link_to edit_teacher_path(teacher) do %>
+                    <span class="glyphicon glyphicon-edit"></span>
+                  <% end %>
+                  <%= link_to teacher_destroy_path(teacher), method: :delete, remote: true, data: { confirm: 'Are you sure?' }, class: "delete_teacher" do %>
+                    <span class="glyphicon glyphicon-trash"></span>
+                  <% end %>
+                  
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+

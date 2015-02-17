@@ -20,6 +20,7 @@
 #  course_id               :integer
 #  batch_id                :integer
 #  roll_number             :string(255)
+#  school_class_id         :integer
 #
 
 # Read about factories at https://github.com/thoughtbot/factory_girl

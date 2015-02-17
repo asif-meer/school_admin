@@ -20,6 +20,7 @@ class SchoolClass < ActiveRecord::Base
   has_many :lessons
   has_many :subjects, :through => :lessons
 
+  has_many :students
   
   validates_presence_of :class_name, :short_name
   validates_uniqueness_of :class_name

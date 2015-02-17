@@ -1,5 +1,5 @@
-<% if @class_teachers.present? || @class_subjects.present? %>
-	<h3>Subjects and Teachers</h3>
+<% if @class_teachers.present? || @class_subjects.present? || @class_students.present? %>
+	<h3>Details</h3>
 	<div class="tree">
     <ul>
       <li>
@@ -60,6 +60,17 @@
 	        <ul>
 	            <li>
 	            	<span><i class="icon-leaf"></i> <%= teacher.to_s %></span> <a href=""></a>
+	      			</li>
+		    	</ul>
+	    	<% end %>
+      </li>
+      <li>
+				<span><%= image_tag("glyphicons-501-education.png", class: "glyphicon_image") %></i>Students</span> <a href=""></a>
+			
+      	<% @class_students.all.each do |student| %>
+	        <ul>
+	            <li>
+	            	<span><i class="icon-leaf"></i> <%= student.to_s %></span> <a href=""></a>
 	      			</li>
 		    	</ul>
 	    	<% end %>

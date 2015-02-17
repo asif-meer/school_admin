@@ -24,6 +24,7 @@ class ClassesController < ApplicationController
     @lesson = @class.lessons.build
     @class_subjects = @class.subjects
     @class_teachers = @class.teachers
+    @class_students = @class.students
     add_breadcrumb "Classes", classes_url
     add_breadcrumb "Details"
   end
@@ -33,6 +34,7 @@ class ClassesController < ApplicationController
     @lesson = @class.lessons.build
     @class_subjects = @class.subjects
     @class_teachers = @class.teachers
+    @class_students = @class.students
     respond_to do |format|
       format.js
     end

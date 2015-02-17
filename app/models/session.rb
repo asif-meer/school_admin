@@ -18,6 +18,8 @@ class Session < ActiveRecord::Base
   
   validate :session_name_validations
 
+  has_many :students
+
 	def session_name_validations
     errors.add :base, "Session name cannot be greater than current year" if self.name.to_i > Date.today.year
   end

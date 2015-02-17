@@ -20,13 +20,17 @@
 #  course_id               :integer
 #  batch_id                :integer
 #  roll_number             :string(255)
+#  school_class_id         :integer
 #
 
 class Student < ActiveRecord::Base
-  validates_presence_of :first_name, :last_name, :address, :nic, :gender,
-                        :course_id, :batch_id, :joining_date, :date_of_birth, :roll_number
+  validates_presence_of :first_name, :last_name, :address, :gender, :joining_date, :date_of_birth,
+                        :school_class_id, :session_id
   validates_uniqueness_of :general_register_number
   validates_uniqueness_of :roll_number
+
+  belongs_to :school_class
+  belongs_to :session
 
   has_many :emergency_contacts, :dependent => :destroy
   accepts_nested_attributes_for :emergency_contacts
@@ -54,7 +58,7 @@ class Student < ActiveRecord::Base
 
   before_create :increment_register_no
 
-  after_create :generate_roll_number
+  # after_create :generate_roll_number
 
   def generate_roll_number
     unless self.class.last.nil?

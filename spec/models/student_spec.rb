@@ -20,6 +20,7 @@
 #  course_id               :integer
 #  batch_id                :integer
 #  roll_number             :string(255)
+#  school_class_id         :integer
 #
 
 require 'rails_helper'

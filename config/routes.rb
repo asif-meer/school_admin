@@ -60,6 +60,7 @@ Rails.application.routes.draw do
     collection do
       post "remove_avatar/:id", to: "students#remove_avatar", as: :delete_avatar
       get "admissions"
+      delete 'destroy_multiple'
     end
   end
   
@@ -101,11 +102,28 @@ Rails.application.routes.draw do
       post "remove_avatar/:id", to: "employees#remove_avatar", as: :delete_avatar
       get "human_resources"
       delete 'destroy_multiple'
-      get ":employee_position_id/new", to: "employees#teacher_new", as: :new_teacher
-      post ":employee_position_id/create", to: "employees#teacher_create", as: :create_teacher
+      # get ":employee_position_id/new", to: "employees#teacher_new", as: :new_teacher
+      # post ":employee_position_id/create", to: "employees#teacher_create", as: :create_teacher
       get ":id/classes", to: "employees#classes", as: :teacher_class
     end
   end
+
+  # Teachers
+  get "/teachers", to: "teachers#index", as: :teachers
+  get "/teachers/new", to: "teachers#new", as: :new_teacher
+  post "/teachers/create", to: "teachers#create", as: :create_teacher
+  get "/teachers/:id/edit", to: "teachers#edit", as: :edit_teacher
+  post "/teachers/:id/update", to: "teachers#update", as: :update_teacher
+  get "/teachers/:id", to: "teachers#show", as: :teacher
+  delete "/teachers/:id/destroy", to: "teachers#destroy", as: :teacher_destroy
+  delete "teachers/destroy_multiple/", to: "teachers#destroy_multiple", as: :destroy_multiple_teachers
+  post "teacher/:id/remove_avatar", to: "teachers#remove_avatar", as: :delete_avatar_teacher
+  # match "/classes/:class_name/edit", to: "classes#edit", via: :get, as: :edit_class
+  # match "/classes/:class_name/update/", to: "classes#update", via: :patch, as: :update_class
+  # match "/classes/new/", to: "classes#new", via: :get, as: :new_class
+  # match "/classes/create/", to: "classes#create", via: :post, as: :create_class
+  # match "/classes/:class_name/destroy/", to: "classes#destroy", via: :delete, as: :destroy_class
+  # match "/classes/", to: "classes#index", via: :get, as: :classes
 
   resources :class_teachers, only: [:create, :destroy] do
     collection do

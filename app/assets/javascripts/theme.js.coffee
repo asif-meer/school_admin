@@ -53,6 +53,10 @@ jQuery ->
           $("#select_notice").html("Select atleast one class")
         else if url.indexOf('http://' + host + '/periods') != -1
           $("#select_notice").html("Select atleast one period")
+        else if url.indexOf('http://' + host + '/teachers') != -1
+          $("#select_notice").html("Select atleast one teacher")
+        else if url.indexOf('http://' + host + '/students') != -1
+          $("#select_notice").html("Select atleast one student")
 
         if !$(".selectedId").length
           $("#select_notice").html("There is no record present")

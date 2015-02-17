@@ -4,32 +4,28 @@ class StudentsController < ApplicationController
 
 
   def admissions
-    add_breadcrumb "Admissions"
+    add_breadcrumb "Students"
   end
 
   def index
     # @TODO display students after the user select course and batch.
     @students = Student.order(created_at: :desc)
 
-    add_breadcrumb "Admissions", admissions_students_path
-    add_breadcrumb "Students list"
+    add_breadcrumb "Students", students_path
   end
 
   def edit
-    @course_edit = @student.course
-    @batches_edit = @course_edit.batches
-    @courses = Course.all
-    @batches_all = []
+    # @course_edit = @student.course
+    # @batches_edit = @course_edit.batches
+    # @courses = Course.all
+    # @batches_all = []
 
-    add_breadcrumb "Admissions", admissions_students_path
-    add_breadcrumb "Students list", students_path
+    add_breadcrumb "Students", students_path
     add_breadcrumb "Edit Student Information"
   end
 
   def show
-
-    add_breadcrumb "Admissions", admissions_students_path
-    add_breadcrumb "Students list", students_path
+    add_breadcrumb "Students", students_path
     add_breadcrumb "Details"
   end
 
@@ -40,10 +36,10 @@ class StudentsController < ApplicationController
       flash[:notice] = "Student Successfully Updated"
       redirect_to student_path(@student)
     else
-      @course = @student.course
-      if @course
-        @batches = @course.batches
-      end
+      # @course = @student.course
+      # if @course
+      #   @batches = @course.batches
+      # end
       render :new
       flash[:alert] = @student.errors.full_messages.to_sentence
     end
@@ -58,6 +54,16 @@ class StudentsController < ApplicationController
     @student.avatar = nil
     @student.save
     redirect_to student_path(@student)
+  end
+
+  def destroy_multiple
+    Student.destroy(params[:student_destroy_id])
+    flash[:notice] = "Students were successfully destroyed."
+    respond_to do |format|
+      format.html { redirect_to students_url }
+      format.json { head :no_content }
+      format.js   { render :layout => false }
+    end
   end
 
   private

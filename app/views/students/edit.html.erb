@@ -1,32 +1,38 @@
 <%= simple_form_for @student do |f| %>
   <%#= f.error_notification %>
+  <%#= Array.new(20){[*"A".."Z", *"0".."9"].sample}.join %>
   <legend><h1>New Student</h1></legend>
   <div class="row">
-    <div class="col-sm-8">
+    <div class="col-sm-6">
       <div class="form-group"></div>
       <h3> Student Information </h3>
       <div class="form-inputs">
-        <%= f.input :general_register_number, input_html: {class: "form-control"}, autofocus: true, placeholder: "General Register Number", disabled: true %>
+        <%= f.input :general_register_number, input_html: {class: "form-control", :value => @student.increment_register_no}, autofocus: true, placeholder: "General Register Number", disabled: true %>
       </div>
-      <div class="form-inputs">
-        <%= f.input :roll_number, input_html: {class: "form-control"}, autofocus: true, placeholder: "Roll Number", disabled: false %>
-      </div>
+      
+      
       <div class="form-group"></div>
       <div class="form-inputs">
-        <%= f.label :joining_date, required: true %>
-        <%= f.text_field :joining_date, class: "form-control", placeholder: "dd-mm-yy" %>
+        <%= f.input :joining_date, input_html: {class: "form-control", :data => {'date-format' => 'YYYY/MM/DD'}}, placeholder: "dd-mm-yy", :as => :string %>
       </div>
 
       <div class="form-group"></div>
       <div class="form-inputs">
-        <%= select("student", "course_id", @courses.map{|m| [m.course_name, m.id]}, { :prompt => "--Select a Course--"}, {class: "form-control"}) %>
+        <%= f.input :school_class_id, collection: SchoolClass.all.map{|m| [m.class_name, m.id]}, input_html: {class: "form-control"}, prompt: "--Select Class--" %>
+      </div>
+
+      <!-- <div class="form-group"></div>
+      <div class="form-inputs">
+        <%#= f.label :course_id %>
+        <%#= select("student", "course_id", Course.all.map{|m| [m.course_name, m.id]}, { :prompt => "--Select a Course--"}, {class: "form-control"}) %>
       </div>
       <div class="form-group"></div>
       <div class="form-inputs">
-        <div class="batches">
-          <%= render :partial => 'admission/batches_all' %>
+        <%#= f.label :batch_id %>
+        <div class="batches"> 
+          <%#= render :partial => 'batches_all', :f => p %>
         </div> 
-      </div>
+      </div> -->
 
      <div class="form-group"></div>
       <h3> Personal Information </h3>
@@ -41,65 +47,202 @@
 
       <div class="form-group"></div>
       <div class="form-inputs">
-        <%= f.label :date_of_birth, required: true %>
-        <%= f.text_field :date_of_birth, class: "form-control", placeholder: "dd-mm-yy" %>
+        <%= f.input :date_of_birth, input_html: {class: "form-control", :data => {'date-format' => 'YYYY/MM/DD'}}, placeholder: "dd-mm-yy", :as => :string %>
       </div>
 
-    <div class="form-group"></div>
-    <div class="form-inputs">
-      <%= f.input :nic, input_html: {class: "form-control"}, placeholder: "XXXX-XXXXXX-X" %>
-    </div>
+      <div class="form-inputs">
+        <%= f.input :address, input_html: {class: "form-control"}, placeholder: "Your current address" %>
+      </div>
 
-    <div class="form-inputs">
-      <%= f.input :address, input_html: {class: "form-control"}, placeholder: "Your current address" %>
-    </div>
+      <div class="form-inputs">
+        <%= f.input :gender, as: :radio_buttons, collection: Student::GENDER %>
+      </div>
 
-    <div class="form-inputs">
-      <%= f.input :gender, input_html: {class: "form-control"}, as: :select, collection: Student::GENDER, prompt: "Choose your Gender" %>
-    </div>
-
-    <div class="form-group"></div>
-    <h3> Contact Information </h3>
-    <div class="form-inputs">
-      <%= f.simple_fields_for :emergency_contacts  do |p| %>    
-         <fieldset>
-          <%= render "admission/emergency_contacts_fields",  :f => p  %>
-        </fieldset>
-      <% end %>
+      
       
     </div>
     <div class="form-group"></div>
-
-    <div class="form-actions">
-      <%= f.button :submit, class: "btn btn-primary" %>
+    <div class="col-sm-6"> 
+      <div class="form-group"></div>
+      <h3> Guardian Contact Information </h3>
+      <div class="form-inputs">
+        <%= f.simple_fields_for :emergency_contacts  do |p| %>    
+           <fieldset>
+            <%= render "admission/emergency_contacts_fields",  :f => p  %>
+          </fieldset>
+        <% end %>
+        
+      </div>
+      <legend><h3>Student Picture</h3></legend>
+      <div class="fileinput fileinput-new" data-provides="fileinput">
+        <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+          <%= image_tag("school.png") %>
+        </div>
+        <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
+        <div>
+          <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><%= f.file_field :avatar, label: false %></span>
+          <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+        </div>
+      </div> 
     </div>
   </div>
   <div class="form-group"></div>
-  <div class="col-sm-4"> 
-    
 
-
-    <div class="fileinput fileinput-new" data-provides="fileinput">
-      <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
-        <% unless @student.avatar.present? %>
-          <%= image_tag("school.png") %>
-        <% else %>
-          <%= image_tag @student.avatar.url %>
-        <% end %>
-      </div>
-      <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
-      <div>
-        <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><%= f.file_field :avatar, label: false %></span>
-        <% unless @student.avatar.present? %>
-          <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
-        <% else %>
-          <% if f.file_field nil, :class => "fileinput-exists" %>
-            <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
-          <% end %>
-          <%= link_to "Remove Picture", delete_avatar_students_path, :method => :post, class: "btn btn-default", data: {confirm: "Are you sure?"} %>
-        <% end %>
-      </div>
-    </div>
-
+  <div class="form-actions">
+    <%= f.button :submit, class: "btn btn-primary" %>
   </div>
 <% end %>
+<!-- <div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default bootstrap-admin-no-table-panel">
+            <div class="panel-heading">
+                <div class="text-muted bootstrap-admin-box-title">Form Wizard</div>
+            </div>
+            <div class="bootstrap-admin-no-table-panel-content bootstrap-admin-panel-content collapse in">
+                <div id="rootwizard">
+                    <div class="navbar">
+                        <ul>
+                            <li><a href="#tab1" data-toggle="tab">Step 1</a></li>
+                            <li><a href="#tab2" data-toggle="tab">Step 2</a></li>
+                            <li><a href="#tab3" data-toggle="tab">Step 3</a></li>
+                        </ul>
+                    </div>
+                    <div id="bar" class="progress  progress-striped active">
+                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <div class="tab-content">
+                        <div class="tab-pane" id="tab1">
+                            <form class="form-horizontal">
+                                <fieldset>
+                                    <div class="form-group">
+                                        <label class="col-lg-2 control-label" for="focusedInput1">Name</label>
+                                        <div class="col-lg-10">
+                                            <input class="form-control" id="focusedInput1" type="text" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-2 control-label" for="focusedInput2">Email</label>
+                                        <div class="col-lg-10">
+                                            <input class="form-control" id="focusedInput2" type="text" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-2 control-label" for="focusedInput3">Phone</label>
+                                        <div class="col-lg-10">
+                                            <input class="form-control" id="focusedInput3" type="text" value="">
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                        <div class="tab-pane" id="tab2">
+                            <form class="form-horizontal">
+                                <fieldset>
+                                    <div class="form-group">
+                                        <label class="col-lg-2 control-label" for="focusedInput4">Address</label>
+                                        <div class="col-lg-10">
+                                            <input class="form-control" id="focusedInput4" type="text" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-2 control-label" for="focusedInput5">City</label>
+                                        <div class="col-lg-10">
+                                            <input class="form-control" id="focusedInput5" type="text" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-2 control-label" for="focusedInput6">State</label>
+                                        <div class="col-lg-10">
+                                            <input class="form-control" id="focusedInput6" type="text" value="">
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                        <div class="tab-pane" id="tab3">
+                            <form class="form-horizontal">
+                                <fieldset>
+                                    <div class="form-group">
+                                        <label class="col-lg-2 control-label" for="focusedInput7">Company Name</label>
+                                        <div class="col-lg-10">
+                                            <input class="form-control" id="focusedInput7" type="text" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-2 control-label" for="focusedInput8">Contact Name</label>
+                                        <div class="col-lg-10">
+                                            <input class="form-control" id="focusedInput8" type="text" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-2 control-label" for="focusedInput9">Contact Phone</label>
+                                        <div class="col-lg-10">
+                                            <input class="form-control" id="focusedInput9" type="text" value="">
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                        <ul class="pager wizard">
+                            <li class="previous first" style="display:none;"><a href="javascript:void(0);">First</a></li>
+                            <li class="previous"><a href="javascript:void(0);">Previous</a></li>
+                            <li class="next last" style="display:none;"><a href="javascript:void(0);">Last</a></li>
+                            <li class="next"><a href="javascript:void(0);">Next</a></li>
+                            <li class="next finish" style="display:none;"><a href="javascript:;">Finish</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+<script type="text/javascript" src="/assets/twitter-bootstrap-wizard-master"></script>
+<script type="text/javascript">
+  $(function(){
+    $('#rootwizard').bootstrapWizard({
+        'nextSelector': '.next',
+        'previousSelector': '.previous',
+        onNext: function(tab, navigation, index) {
+            var $total = navigation.find('li').length;
+            var $current = index + 1;
+            var $percent = ($current / $total) * 100;
+            $('#rootwizard').find('.progress-bar').css('width', $percent + '%');
+            // If it's the last tab then hide the last button and show the finish instead
+            if ($current >= $total) {
+                $('#rootwizard').find('.pager .next').hide();
+                $('#rootwizard').find('.pager .finish').show();
+                $('#rootwizard').find('.pager .finish').removeClass('disabled');
+            } else {
+                $('#rootwizard').find('.pager .next').show();
+                $('#rootwizard').find('.pager .finish').hide();
+            }
+        },
+        onPrevious: function(tab, navigation, index) {
+            var $total = navigation.find('li').length;
+            var $current = index + 1;
+            var $percent = ($current / $total) * 100;
+            $('#rootwizard').find('.progress-bar').css('width', $percent + '%');
+            // If it's the last tab then hide the last button and show the finish instead
+            if ($current >= $total) {
+                $('#rootwizard').find('.pager .next').hide();
+                $('#rootwizard').find('.pager .finish').show();
+                $('#rootwizard').find('.pager .finish').removeClass('disabled');
+            } else {
+                $('#rootwizard').find('.pager .next').show();
+                $('#rootwizard').find('.pager .finish').hide();
+            }
+        },
+        onTabShow: function(tab, navigation, index) {
+            var $total = navigation.find('li').length;
+            var $current = index + 1;
+            var $percent = ($current / $total) * 100;
+            $('#rootwizard').find('.bar').css({width: $percent + '%'});
+        }
+    });
+    $('#rootwizard .finish').click(function() {
+        alert('Finished!, Starting over!');
+        $('#rootwizard').find('a[href*=\'tab1\']').trigger('click');
+    });
+  });
+</script>
+

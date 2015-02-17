@@ -18,16 +18,21 @@
 
       <div class="form-group"></div>
       <div class="form-inputs">
-        <%= f.label :course_id %>
-        <%= select("student", "course_id", Course.all.map{|m| [m.course_name, m.id]}, { :prompt => "--Select a Course--"}, {class: "form-control"}) %>
+        <%= f.input :school_class_id, collection: SchoolClass.all.map{|m| [m.class_name, m.id]}, input_html: {class: "form-control"}, prompt: "--Select Class--" %>
+      </div>
+
+      <!-- <div class="form-group"></div>
+      <div class="form-inputs">
+        <%#= f.label :course_id %>
+        <%#= select("student", "course_id", Course.all.map{|m| [m.course_name, m.id]}, { :prompt => "--Select a Course--"}, {class: "form-control"}) %>
       </div>
       <div class="form-group"></div>
       <div class="form-inputs">
-        <%= f.label :batch_id %>
+        <%#= f.label :batch_id %>
         <div class="batches"> 
-          <%= render :partial => 'batches_all', :f => p %>
+          <%#= render :partial => 'batches_all', :f => p %>
         </div> 
-      </div>
+      </div> -->
 
      <div class="form-group"></div>
       <h3> Personal Information </h3>
@@ -45,11 +50,6 @@
         <%= f.input :date_of_birth, input_html: {class: "form-control", :data => {'date-format' => 'YYYY/MM/DD'}}, placeholder: "dd-mm-yy", :as => :string %>
       </div>
 
-      <div class="form-group"></div>
-      <div class="form-inputs">
-        <%= f.input :nic, input_html: {class: "form-control", :"data-mask" => "999-999-9999"}, placeholder: "XXX-XXX-XXXX" %>
-      </div>
-
       <div class="form-inputs">
         <%= f.input :address, input_html: {class: "form-control"}, placeholder: "Your current address" %>
       </div>
@@ -64,7 +64,7 @@
     <div class="form-group"></div>
     <div class="col-sm-6"> 
       <div class="form-group"></div>
-      <h3> Contact Information </h3>
+      <h3> Guardian Contact Information </h3>
       <div class="form-inputs">
         <%= f.simple_fields_for :emergency_contacts  do |p| %>    
            <fieldset>
