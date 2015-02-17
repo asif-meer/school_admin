@@ -1,0 +1,33 @@
+<% if @class_teachers.present? || @class_subjects.present? %>
+	<table class="table table-hover table-condensed">
+		<thead>
+			<tr>
+				<th class="col-md-3">
+					Subjects
+				</th>
+				<th>
+					Teacher
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<% @class_subjects.all.each do |subject| %>
+					<td>
+						<%= subject.title %>
+					</td>
+				<% end %>
+				<% @class_teachers.all.each do |teacher| %>
+					<td>
+						<%= teacher.to_s %>
+					</td>
+				<% end %>
+			</tr>
+		</tbody>
+	</table>
+<% else %>
+	<div class="alert alert-dismissable alert-info after-destroy" style="margin:0px !important; ">
+		<i class="glyphicon glyphicon-info-sign"></i>
+    <strong>No subjects and teachers assigned.</strong>
+  </div>
+<% end %>

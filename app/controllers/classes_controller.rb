@@ -18,8 +18,20 @@ class ClassesController < ApplicationController
   def show
     @class = SchoolClass.find_by_class_name(params[:class_name])
     @lesson = @class.lessons.build
+    @class_subjects = @class.subjects
+    @class_teachers = @class.teachers
     add_breadcrumb "Classes", classes_url
     add_breadcrumb "Details"
+  end
+
+  def class_details
+    @class = SchoolClass.find(params[:id])
+    @lesson = @class.lessons.build
+    @class_subjects = @class.subjects
+    @class_teachers = @class.teachers
+    respond_to do |format|
+      format.js
+    end
   end
 
   def edit

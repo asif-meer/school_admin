@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   match "/classes/create/", to: "classes#create", via: :post, as: :create_class
   match "/classes/:class_name/destroy/", to: "classes#destroy", via: :delete, as: :destroy_class
   match "/classes/", to: "classes#index", via: :get, as: :classes
+  match "classes/:id/class_details/", to: "classes#class_details", via: :get, as: :class_details
 
   resources :classrooms
 

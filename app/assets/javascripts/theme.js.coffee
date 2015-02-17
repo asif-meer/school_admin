@@ -11,6 +11,21 @@ $ ->
 
   return
 
+$(document).ajaxStart ->
+  $.blockUI
+    message: "<h2><span class='glyphicon glyphicon-refresh glyphicon-refresh-animate'></span>Loading...</h2>"
+    timeout:500
+    css:
+      border: 'none'
+      padding: '15px'
+      backgroundColor: '#000'
+      '-webkit-border-radius': '10px'
+      '-moz-border-radius': '10px'
+      opacity: .5
+      color: '#fff'
+      'margin-left': '73px'
+      width: '17%'
+      
 jQuery ->
   $("#select_all").hide()  if !$(".selectedId").length
 

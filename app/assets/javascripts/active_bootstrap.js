@@ -22,22 +22,36 @@ $(function(){
 	$('.nav-pills li:first-child a').css("background-color", "#25458B")
 
 
-	$('#class_lesson_new').hide()
-	$('.nav-tabs li:first-child').click(function(e) {
-		$('#class_lessons').show()
-		$('#class_lesson_new').hide()
-		$('.nav-tabs li:first-child').addClass( "active" );
-		$('.nav-tabs li:last-child').removeClass( "active" );
+	$('#class_details_tab_2').hide()
+	$('#class_details_tab_3').hide()
+	$('.nav-tabs li:nth-child(1)').click(function(e) {
+		$('#class_details_tab_1').show()
+		$('#class_details_tab_2').hide()
+		$('#class_details_tab_3').hide()
+		$('.nav-tabs li:nth-child(1)').addClass( "active" );
+		$('.nav-tabs li:nth-child(2)').removeClass( "active" );
+		$('.nav-tabs li:nth-child(3)').removeClass( "active" );
 		e.preventDefault();
 	});
-	$('.nav-tabs li:last-child').click(function(e) {
-		$('#class_lessons').hide()
-		$('#class_lesson_new').show()
-		$('.nav-tabs li:first-child').removeClass( "active" );
-		$('.nav-tabs li:last-child').addClass( "active" );
+	$('.nav-tabs li:nth-child(2)').click(function(e) {
+		$('#class_details_tab_1').hide()
+		$('#class_details_tab_2').show()
+		$('#class_details_tab_3').hide()
+		$('.nav-tabs li:nth-child(1)').removeClass( "active" );
+		$('.nav-tabs li:nth-child(2)').addClass( "active" );
+		$('.nav-tabs li:nth-child(3)').removeClass( "active" );
 		e.preventDefault();
 	});
-	$('.nav-tabs li:first-child').addClass( "active" );
+	$('.nav-tabs li:nth-child(3)').click(function(e) {
+		$('#class_details_tab_1').hide()
+		$('#class_details_tab_2').hide()
+		$('#class_details_tab_3').show()
+		$('.nav-tabs li:nth-child(1)').removeClass( "active" );
+		$('.nav-tabs li:nth-child(2)').removeClass( "active" );
+		$('.nav-tabs li:nth-child(3)').addClass( "active" );
+		e.preventDefault();
+	});
+	$('.nav-tabs li:nth-child(1)').addClass( "active" );
 
 
 	// $("#subjects_students").hide()

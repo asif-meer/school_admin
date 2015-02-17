@@ -5,7 +5,11 @@
 	<div class="col-md-12 column">
 		<ul class="nav nav-tabs">
 			<li >
-				<a href="#">Lesson</a>
+				<a href="/" id="class_details_1"> Subjects</a>
+				<%=hidden_field_tag "details_class", @class.id%>
+			</li>
+			<li>
+				<a href="#">Periods</a>
 			</li>
 			<li>
 				<a href="#">Add New</a>
@@ -17,11 +21,13 @@
 <br />
 <div class="row">
 	<div class="col-md-12">
-		<div id="class_lessons">
-			<%= render :partial => "/classes/lessons/class_lessons" %>
+		<div id="class_details_tab_1">
+			<%= render :partial => "/classes/lessons/class_details" %>
 		</div>
-		<div id="class_lesson_new">
-		<%= render :partial => "/classes/lessons/class_lesson_new" %>
+		<div id="class_details_tab_2">
+		</div>
+		<div id="class_details_tab_3">
+			<%= render :partial => "/classes/lessons/class_lesson_new" %>
 		</div>
 	</div>
 </div>
