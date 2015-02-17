@@ -110,6 +110,20 @@ $(function() {
                 }
             }
         },
+        'school_class[class_name]': {
+            validators: {
+                notEmpty: {
+                    message: 'Class name cannot be empty'
+                }
+            }
+        },
+        'school_class[short_name]': {
+            validators: {
+                notEmpty: {
+                    message: 'Short Name cannot be empty'
+                }
+            }
+        },
         'period[name]': {
             validators: {
                 notEmpty: {
@@ -159,31 +173,45 @@ $(function() {
                 }
             }
         },
-        'period[level]': {
+        'lesson[period_id]': {
             validators: {
                 notEmpty: {
-                    message: 'Priority cannot be empty'
+                    message: 'Period cannot be empty'
                 }
             }
         },
-        'period[teacher_id]': {
+        'lesson[teacher_id]': {
             validators: {
                 notEmpty: {
                     message: 'Teacher cannot be empty'
                 }
             }
         },
-        'period[school_class_id]': {
+        'lesson[school_class_id]': {
             validators: {
                 notEmpty: {
                     message: 'Classes cannot be empty'
                 }
             }
         },
-        'period[week_day_id]': {
+        'lesson[subject_id]': {
+            validators: {
+                notEmpty: {
+                    message: 'Subject cannot be empty'
+                }
+            }
+        },
+        'lesson[week_day_id]': {
             validators: {
                 notEmpty: {
                     message: 'Week Days cannot be empty'
+                }
+            }
+        },
+        'lesson[classroom_id]': {
+            validators: {
+                notEmpty: {
+                    message: 'Classroom cannot be empty'
                 }
             }
         },

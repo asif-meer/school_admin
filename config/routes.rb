@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
 
-  resources :school_classes
+  # School Classes
+  # resources :classes
+  match "/classes/:class_name/", to: "classes#show", via: :get, as: :class_name
+  match "/classes/:class_name/", to: "classes#edit", via: :get, as: :edit_class
+  match "/classes/:class_name/update/", to: "classes#update", via: :post, as: :update_class
+  match "/classes/new/", to: "classes#new", via: :get, as: :new_class
+  match "/classes/create/", to: "classes#create", via: :post, as: :create_class
+  match "/classes/:class_name/destroy/", to: "classes#destroy", via: :delete, as: :destroy_class
+  match "/classes/", to: "classes#index", via: :get, as: :classes
 
   resources :classrooms
 
@@ -106,8 +114,8 @@ Rails.application.routes.draw do
   # Lessons
   resources :lessons, only: [:destroy] do
     collection do
-      match ":subject_id/lessons", to: "lessons#new", via: :get, as: :new
-      match ":subject_id/lessons/for_:week_day_name/create", to: "lessons#create", via: :post, as: :create
+      match ":school_class_id/lessons", to: "lessons#new", via: :get, as: :new
+      match ":school_class_id/create", to: "lessons#create", via: :post, as: :create
     end
   end
 

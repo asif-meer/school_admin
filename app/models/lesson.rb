@@ -27,13 +27,15 @@ class Lesson < ActiveRecord::Base
 	before_create :check_priority
 
 	def check_priority
-    lesson = self.subject.lessons.all
+    lesson = self.school_class.lessons.all
     lesson.each do |l|
     	if l.week_day == self.week_day
 		    if self.period == l.period
 		    	if self.school_class == l.school_class
-	      		errors.add :base, "This Lesson is already assigned for #{l.subject.title} subject on #{l.week_day.name} for class #{l.school_class.class_name}."
-      		end
+	    			if self.subject = l.subject
+		      			errors.add :base, "This Lesson is already assigned for #{l.subject.title} subject on #{l.week_day.name} for class #{l.school_class.class_name}."
+	      			end
+	      		end
 		    end
 	    end 
     end

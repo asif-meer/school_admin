@@ -22,6 +22,7 @@ class Classroom < ActiveRecord::Base
  	has_many :subjects, through: :lessons
 
 	validates_presence_of :classroom_name, :short_name
+	validates_uniqueness_of :classroom_name
 
 	def self.find_or_create(attributes)
     	Classroom.where(attributes).first || Classroom.create(attributes)

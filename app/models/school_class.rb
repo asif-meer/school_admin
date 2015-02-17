@@ -22,6 +22,7 @@ class SchoolClass < ActiveRecord::Base
 
   
   validates_presence_of :class_name, :short_name
+  validates_uniqueness_of :class_name
 
   def self.find_or_create(attributes)
     SchoolClass.where(attributes).first || SchoolClass.create(attributes)

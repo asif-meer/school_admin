@@ -22,7 +22,7 @@
 				<% (1..8).each do |n| %>
 					<td style="text-align:center;">
 						<% if @class.present? %>
-							<% if @class.periods.includes(:subject).where("week_day_id = ? AND level = ?", week_day, n).each do |period| %>
+							<% if @class.lessons.includes(:subject).where("week_day_id = ? AND level = ?", week_day, n).each do |period| %>
 								<%#= content_tag(:span, style: "background-color:"+period.subject.color+";padding:5.2px;color:#fff;") do %>
 									<div class="dropdown dropup period_dropup">
 			              <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="background-color:<%=period.subject.color%>;padding:5.2px;color:#fff;text-decoration:none;"><%= period.subject.short_name %><b class=""></b></a>

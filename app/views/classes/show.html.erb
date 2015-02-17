@@ -1,0 +1,57 @@
+<%#= link_to 'Edit', edit_class_path(@class), class: "label label-info" %>
+<%= link_to 'Back', classes_path, class: "label label-default" %>
+<br /><br />
+<div class="row clearfix">
+	<div class="col-md-12 column">
+		<ul class="nav nav-tabs">
+			<li >
+				<a href="#">Lesson</a>
+			</li>
+			<li>
+				<a href="#">Add New</a>
+			</li>
+		</ul>
+		
+	</div>
+</div>
+<br />
+<div class="row">
+	<div class="col-md-12">
+		<div id="class_lessons">
+			<%= render :partial => "/classes/lessons/class_lessons" %>
+		</div>
+		<div id="class_lesson_new">
+		<%= render :partial => "/classes/lessons/class_lesson_new" %>
+		</div>
+	</div>
+</div>
+<!-- <div class="col-md-4">
+      <div class="panel panel-success">
+        <%# s = WeekDay.all %>
+        <%# q = @subject %>
+        <%# s.map{|m| m.name } & q.periods.map{|m| m.week_day.name}  %>
+        <div class="panel-heading periods">
+          <h3 class="panel-title"><%#= week_day.name %></h3>
+          <%#= link_to "Assign","#", :id => '#new_lesson_for_'+week_day.name, "data-toggle" => "modal", 'data-target' => '#new_lesson_'+week_day.name, class: "label label-success pull-right" %>
+          <%#= render partial: "/lessons/new_lesson", locals: {:week_day => week_day} %>
+        </div>
+        <div class="panel-body">
+          <div id="subject_lesson_<%#= week_day.id %>" class="for_periods">
+            <%#= render partial: "/subjects/partials/lessons", locals: {:week_day => week_day} %>
+          </div>
+        </div>
+      </div>
+    </div> 
+  
+		<div class="panel panel-success">
+			<div class="panel-heading">
+				<h3 class="panel-title">
+					Panel title
+				</h3>
+			</div>
+			<div class="panel-body">
+			</div>
+			<div class="panel-footer">
+			</div>
+		</div>
+	</div> -->

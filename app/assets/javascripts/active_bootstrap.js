@@ -22,6 +22,24 @@ $(function(){
 	$('.nav-pills li:first-child a').css("background-color", "#25458B")
 
 
+	$('#class_lesson_new').hide()
+	$('.nav-tabs li:first-child').click(function(e) {
+		$('#class_lessons').show()
+		$('#class_lesson_new').hide()
+		$('.nav-tabs li:first-child').addClass( "active" );
+		$('.nav-tabs li:last-child').removeClass( "active" );
+		e.preventDefault();
+	});
+	$('.nav-tabs li:last-child').click(function(e) {
+		$('#class_lessons').hide()
+		$('#class_lesson_new').show()
+		$('.nav-tabs li:first-child').removeClass( "active" );
+		$('.nav-tabs li:last-child').addClass( "active" );
+		e.preventDefault();
+	});
+	$('.nav-tabs li:first-child').addClass( "active" );
+
+
 	// $("#subjects_students").hide()
 	// $('.nav_subjects li:last-child a').click(function(e) {
 	// 	$("#subjects_subjects").show()

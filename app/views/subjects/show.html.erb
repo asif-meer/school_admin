@@ -22,26 +22,26 @@
       <td><span style="padding: 4px 53px 4px 0px;background-color: <%=@subject.color%>;"></span></td>
     </tr>
   </table>
-  <h2>Periods</h2>
-  <% WeekDay.all.each do |week_day| %>
+  <!-- <h2>Periods</h2>
+  <%# WeekDay.all.each do |week_day| %>
     <div class="col-md-4">
       <div class="panel panel-success">
         <%# s = WeekDay.all %>
         <%# q = @subject %>
         <%# s.map{|m| m.name } & q.periods.map{|m| m.week_day.name}  %>
         <div class="panel-heading periods">
-          <strong><%= week_day.name %></strong>
-          <%= link_to "Assign","#", :id => '#new_lesson_for_'+week_day.name, "data-toggle" => "modal", 'data-target' => '#new_lesson_'+week_day.name, class: "label label-success pull-right" %>
-          <%= render partial: "/lessons/new_lesson", locals: {:week_day => week_day} %>
+          <strong><%#= week_day.name %></strong>
+          <%#= link_to "Assign","#", :id => '#new_lesson_for_'+week_day.name, "data-toggle" => "modal", 'data-target' => '#new_lesson_'+week_day.name, class: "label label-success pull-right" %>
+          <%#= render partial: "/lessons/new_lesson", locals: {:week_day => week_day} %>
         </div>
         <div class="panel-body">
-          <div id="subject_lesson_<%= week_day.id %>" class="for_periods">
-            <%= render partial: "/subjects/partials/lessons", locals: {:week_day => week_day} %>
+          <div id="subject_lesson_<%#= week_day.id %>" class="for_periods">
+            <%#= render partial: "/subjects/partials/lessons", locals: {:week_day => week_day} %>
           </div>
         </div>
       </div>
     </div>
-  <% end %>
+  <%# end %> -->
 </div>
 <!-- <div id="subjects_students">
   <div class="panel-heading">

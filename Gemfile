@@ -5,7 +5,7 @@ gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
-gem 'turbolinks'
+# gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
@@ -17,7 +17,7 @@ gem 'simple_form'
 gem 'therubyracer', :platform=>:ruby
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem "rolify", :git => "git://github.com/EppO/rolify.git"
-gem 'jquery-turbolinks'
+# gem 'jquery-turbolinks'
 gem "paperclip", "~> 4.1"
 gem "jquery-ui-rails"
 # gem 'redis', '2.1.1'
