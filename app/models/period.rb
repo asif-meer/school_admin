@@ -31,4 +31,8 @@ class Period < ActiveRecord::Base
 	def time_diff(start_time, end_time)
 		hours = ((end_time - start_time) / 60).round
 	end
+
+	def self.find_or_create(attributes)
+    Period.where(attributes).first || Period.create(attributes)
+  end
 end

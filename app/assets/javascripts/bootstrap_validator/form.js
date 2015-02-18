@@ -336,6 +336,75 @@ $(function() {
                     message: 'The email address is not a valid'
                 }
             }
+        },
+        'student[school_class_id]': {
+            validators: {
+                notEmpty: {
+                    message: 'Class cannot be empty'
+                }
+            }
+        },
+        'student[joining_date]': {
+            validators: {
+                notEmpty: {
+                    message: 'Joining Date cannot be empty'
+                },
+                birthday: {
+                    message: 'Joining Date is not valid'
+                }
+            }
+        },
+        'student[first_name]': {
+            validators: {
+                notEmpty: {
+                    message: 'First Name cannot be empty'
+                }
+            }
+        },
+        'student[last_name]': {
+            validators: {
+                notEmpty: {
+                    message: 'Last Name cannot be empty'
+                }
+            }
+        },
+        'student[date_of_birth]': {
+            validators: {
+                notEmpty: {
+                    message: 'Date of  Birth cannot be empty'
+                },
+                birthday: {
+                    message: 'Joining Date is not valid'
+                }
+            }
+        },
+        'student[address]': {
+            validators: {
+                notEmpty: {
+                    message: 'Address cannot be empty'
+                }
+            }
+        },
+        'student[gender]': {
+            validators: {
+                notEmpty: {
+                    message: 'Plese select the Gender'
+                }
+            }
+        },
+        'student[emergency_contacts_attributes][0][name]': {
+            validators: {
+                notEmpty: {
+                    message: 'Guardian Name cannot be empty'
+                }
+            }
+        },
+        'student[emergency_contacts_attributes][0][phone]': {
+            validators: {
+                notEmpty: {
+                    message: 'Guardian contact number cannot be empty'
+                }
+            }
         }
       }
     })

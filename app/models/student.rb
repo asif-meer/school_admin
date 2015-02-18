@@ -27,7 +27,7 @@ class Student < ActiveRecord::Base
   validates_presence_of :first_name, :last_name, :address, :gender, :joining_date, :date_of_birth,
                         :school_class_id, :session_id
   validates_uniqueness_of :general_register_number
-  validates_uniqueness_of :roll_number
+  # validates_uniqueness_of :roll_number
 
   belongs_to :school_class
   belongs_to :session

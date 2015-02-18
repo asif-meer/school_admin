@@ -30,3 +30,26 @@
 
 //require jquery.turbolinks
 //require turbolinks
+
+var startBlockUI;
+
+startBlockUI = function(obj) {
+  obj.block({
+    message: "<h2><span class='glyphicon glyphicon-refresh glyphicon-refresh-animate'></span>Loading...</h2>",
+    fadeIn: 300,
+    timeout: 300,
+    css: {
+      border: 'none',
+      padding: '7px 0px 15px',
+      'top': '184px',
+      'left': '264.5px',
+      backgroundColor: 'rgba(0, 0, 0, 0.21)',
+      '-webkit-border-radius': '11px',
+      '-moz-border-radius': '11px',
+      opacity: .5,
+      color: '#fff',
+      margin: '-85px 0px 0px -12px',
+      width: '28%'
+    }
+  });
+};

@@ -47,7 +47,12 @@ class StudentsController < ApplicationController
 
   def destroy
     @student.destroy
-    redirect_to students_path
+    flash[:notice] = "Student was successfully destroyed."
+    respond_to do |format|
+      format.html { redirect_to students_url }
+      format.json { head :no_content }
+      format.js   { render :layout => false }
+    end
   end
 
   def remove_avatar

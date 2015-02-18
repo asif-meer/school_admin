@@ -10,6 +10,8 @@ $ ->
     return
 
   return
+  
+
 
 $(document).ajaxStart ->
   $.blockUI
@@ -26,6 +28,10 @@ $(document).ajaxStart ->
       color: '#fff'
       'margin-left': '73px'
       width: '17%'
+
+
+  
+
       
 jQuery ->
   $("#select_all").hide()  if !$(".selectedId").length

@@ -15,6 +15,23 @@
 
 /***body***/
 
+/*Block ui */
+.blockOverlay {
+  z-index: 1000 !important;
+  border: none !important;
+  margin: 0px !important;
+  padding: 0px !important;
+  width: 100% !important;
+  height: 100% !important;
+  top: 0px !important;
+  left: 0px !important;
+  opacity: 0.8 !important;
+  cursor: wait !important;
+  position: absolute!important;
+  background-color: #fff !important;
+  border-radius: 14px !important;
+}
+
 .checkbox input[type="checkbox"], .checkbox-inline input[type="checkbox"] {
   margin-left: 0px;
 }

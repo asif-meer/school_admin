@@ -19,13 +19,13 @@
 		<% @week_days.each do |week_day| %>
 			<tr>
 				<td><%= week_day.name %></td>
-				<% (1..8).each do |n| %>
+				<% Period.all.each do |period| %>
 					<td style="text-align:center;">
 						<% if @class.present? %>
-							<% if @class.lessons.includes(:subject).where("week_day_id = ? AND level = ?", week_day, n).each do |period| %>
+							<% if @class.lessons.includes(:subject).where("week_day_id = ? AND period_id = ?", week_day, period).each do |time_table| %>
 								<%#= content_tag(:span, style: "background-color:"+period.subject.color+";padding:5.2px;color:#fff;") do %>
 									<div class="dropdown dropup period_dropup">
-			              <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="background-color:<%=period.subject.color%>;padding:5.2px;color:#fff;text-decoration:none;"><%= period.subject.short_name %><b class=""></b></a>
+			              <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="background-color:<%=time_table.subject.color%>;padding:5.2px;color:#fff;text-decoration:none;"><%= time_table.subject.short_name %><b class=""></b></a>
 			              <div class="dropdown-menu period_hover" style="background-color:rgb(255, 255, 255);margin-bottom: 8px;">
 			                <table class="period_table table table-striped">
 			                	<tr>
@@ -33,7 +33,7 @@
 			                    	Subject:
 			                    </td>
 			                    <td>
-			                    	<%= period.subject.title %>
+			                    	<%= time_table.subject.title %>
 			                    </td>
 			                  </tr>
 			                  <tr>
@@ -41,7 +41,7 @@
 			                    	Teacher:
 			                    </td>
 			                    <td>
-			                    	<%= period.teacher.to_s %>
+			                    	<%= time_table.teacher.to_s %>
 			                    </td>
 			                  </tr>
 			                  <tr>
@@ -49,7 +49,7 @@
 			                    	Classroom:
 			                    </td>
 			                    <td>
-			                    	<%= period.subject.classrooms.map{|m| m.classroom_name}.join(", ") %>
+			                    	<%= time_table.classroom.classroom_name %>
 			                    </td>
 			                  </tr>
 			                </table>

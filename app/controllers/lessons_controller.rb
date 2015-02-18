@@ -11,7 +11,11 @@ class LessonsController < ApplicationController
 	def create
 		# @week_day = WeekDay.find_by_name(params[:week_day_name])
 		# @subject = Subject.find(params[:subject_id])
+
 		@class = SchoolClass.find(params[:school_class_id])
+		@class_subjects = @class.subjects
+    @class_teachers = @class.teachers
+    @class_students = @class.students
 		@lesson = @class.lessons.build(lessons_params)
 		# @lesson.week_day_id = @week_day.id
 		add_breadcrumb "Classes", list_subjects_path

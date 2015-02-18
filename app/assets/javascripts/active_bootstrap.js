@@ -52,7 +52,20 @@ $(function(){
 		e.preventDefault();
 	});
 	$('.nav-tabs li:nth-child(1)').addClass( "active" );
+	var host, url, class_id;
 
+	url = window.location.href;
+	class_id = $('#details_class').val();
+	host = window.location.host;
+
+	if (url.indexOf('http://' + host + '/lessons/'+class_id+'/create') !== -1) {
+		$('.nav-tabs li:nth-child(3)').addClass( "active" );
+		$('.nav-tabs li:nth-child(1)').removeClass( "active" );
+		$('#class_details_tab_1').hide()
+		$('#class_details_tab_2').hide()
+		$('#class_details_tab_3').show()
+	  return;
+	}
 
 	// $("#subjects_students").hide()
 	// $('.nav_subjects li:last-child a').click(function(e) {
