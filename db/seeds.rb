@@ -82,16 +82,16 @@ puts "creating batches..."
 @batch10 =  Batch.find_or_create(:batch_name => "2018", :course_id => @course5.id, :start_date => "7/Jan/2013", :end_date => "13/Nov/2017")
 # Subjects
 puts "creating subjects"
-Subject.find_or_create(:subject_name => "Physics", :batch_id => @batch1.id, :course_id => @course1.id)
-Subject.find_or_create(:subject_name => "English Basics", :batch_id => @batch2.id, :course_id => @course1.id)
-Subject.find_or_create(:subject_name => "Maths", :batch_id => @batch3.id, :course_id => @course2.id)
-Subject.find_or_create(:subject_name => "Advanced Science", :batch_id => @batch4.id, :course_id => @course2.id)
-Subject.find_or_create(:subject_name => "Basics Science", :batch_id => @batch5.id, :course_id => @course3.id)
-Subject.find_or_create(:subject_name => "Social Studies", :batch_id => @batch6.id, :course_id => @course3.id)
-Subject.find_or_create(:subject_name => "Arts and Science", :batch_id => @batch7.id, :course_id => @course4.id)
-Subject.find_or_create(:subject_name => "Literature", :batch_id => @batch8.id, :course_id => @course4.id)
-Subject.find_or_create(:subject_name => "Enlish Grammar", :batch_id => @batch9.id, :course_id => @course5.id)
-Subject.find_or_create(:subject_name => "Psychology", :batch_id => @batch10.id, :course_id => @course5.id)
+Subject.find_or_create(:title => "Physics", :short_name => "Phy")
+Subject.find_or_create(:title => "English Basics", :short_name => "En(B)")
+Subject.find_or_create(:title => "Maths", :short_name => "Ma")
+Subject.find_or_create(:title => "Advanced Science", :short_name => "Sci(Adv)")
+Subject.find_or_create(:title => "Basics Science", :short_name => "Sci(B)")
+Subject.find_or_create(:title => "Social Studies", :short_name => "SST")
+Subject.find_or_create(:title => "Arts and Science", :short_name => "A&S")
+Subject.find_or_create(:title => "Literature", :short_name => "En(L)")
+Subject.find_or_create(:title => "Enlish Grammar", :short_name => "En(G)")
+Subject.find_or_create(:title => "Psychology", :short_name => "Psy")
 #Roles
 puts "Creating Roles"
 Role.find_or_create(:name => 'admin')

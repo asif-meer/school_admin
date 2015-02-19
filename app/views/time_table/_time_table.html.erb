@@ -10,8 +10,8 @@
 		</tr>
 		<tr id="time_table_periods">
 			<td></td>
-			<% (1..8).each do |n| %>
-				<td class="period_no col-md-1"><%= n %></td>
+			<% Period.all.each do |period| %>
+				<td class="period_no col-md-1"><%= period.name %></td>
 			<% end %>
 		</tr>
 	</thead>

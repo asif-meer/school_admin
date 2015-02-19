@@ -58,7 +58,7 @@ $(function(){
 	class_id = $('#details_class').val();
 	host = window.location.host;
 
-	if (url.indexOf('http://' + host + '/lessons/'+class_id+'/create') !== -1) {
+	if (url.indexOf('https://' + host + '/lessons/'+class_id+'/create') !== -1 || url.indexOf(host + '/lessons/'+class_id+'/create') !== -1) {
 		$('.nav-tabs li:nth-child(3)').addClass( "active" );
 		$('.nav-tabs li:nth-child(1)').removeClass( "active" );
 		$('#class_details_tab_1').hide()

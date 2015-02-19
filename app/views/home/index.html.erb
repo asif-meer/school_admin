@@ -113,14 +113,14 @@
                         <i class="fa fa-users fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class="huge"><%= Employee.count %></div>
-                        <div><h4>Employees!</h4></div>
+                        <div class="huge"><%= Employee.teachers.count %></div>
+                        <div><h4>Teachers!</h4></div>
                     </div>
                 </div>
             </div>
             <a href="#">
                 <div class="panel-footer">
-                    <%= link_to employees_path do %>
+                    <%= link_to teachers_path do %>
                       <span class="pull-left">View Details</span>
                       <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                     <% end %>
@@ -161,8 +161,8 @@
                         <i class="fa fa-building-o fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class="huge"><%= Department.count %></div>
-                        <div><h4>Departments</h4></div>
+                        <div class="huge"><%= SchoolClass.count %></div>
+                        <div><h4>Classes</h4></div>
                     </div>
                 </div>
             </div>

@@ -44,24 +44,23 @@ jQuery ->
     if !$(":checkbox").is(':checked')
         url = window.location.href
         host = window.location.host
-        if url.indexOf('http://' + host + '/subjects/list') != -1
-        
-          $("#select_notice").html("Select atleast one Subject")
-        else if url.indexOf('http://' + host + '/batches') != -1
+        if url.indexOf('https://' + host + '/subjects/list') != -1 or url.indexOf(host + '/subjects/list') != -1
+          $("#select_notice").html("Select atleast one Subject") 
+        else if url.indexOf('https://' + host + '/batches') != -1 or url.indexOf(host + '/batches') != -1
           $("#select_notice").html("Select atleast one Batch")
-        else if url.indexOf('http://' + host + '/courses') != -1
+        else if url.indexOf('https://' + host + '/courses') != -1 or url.indexOf(host + '/courses') != -1
           $("#select_notice").html("Select atleast one Course")
-        else if url.indexOf('http://' + host + '/employees') != -1
+        else if url.indexOf('https://' + host + '/employees') != -1 or url.indexOf(host + '/employees') != -1
           $("#select_notice").html("Select atleast one Employee")
-        else if url.indexOf('http://' + host + '/classrooms') != -1
-          $("#select_notice").html("Select atleast one classroom")
-        else if url.indexOf('http://' + host + '/classes') != -1
+        else if url.indexOf('https://' + host + '/classrooms') != -1 or url.indexOf(host + '/classrooms') != -1
+          $("#select_notice").html("Select atleast one classroom") or url.indexOf(host + '/teachers') != -1
+        else if url.indexOf('https://' + host + '/classes') != -1 or url.indexOf(host + '/classes') != -1
           $("#select_notice").html("Select atleast one class")
-        else if url.indexOf('http://' + host + '/periods') != -1
+        else if url.indexOf('https://' + host + '/periods') != -1 or url.indexOf(host + '/periods') != -1
           $("#select_notice").html("Select atleast one period")
-        else if url.indexOf('http://' + host + '/teachers') != -1
+        else if url.indexOf('https://' + host + '/teachers') != -1 or url.indexOf(host + '/teachers') != -1
           $("#select_notice").html("Select atleast one teacher")
-        else if url.indexOf('http://' + host + '/students') != -1
+        else if url.indexOf('https://' + host + '/students') != -1 or url.indexOf(host + '/students') != -1
           $("#select_notice").html("Select atleast one student")
 
         if !$(".selectedId").length
