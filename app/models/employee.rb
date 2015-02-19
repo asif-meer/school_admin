@@ -49,10 +49,10 @@ class Employee < ActiveRecord::Base
 
   # has_many :periods
 
-  has_many :educations, :foreign_key => :teacher_id
+  has_many :educations, :foreign_key => :teacher_id, dependent: :destroy
   accepts_nested_attributes_for :educations
 
-  has_many :experiences, :foreign_key => :teacher_id
+  has_many :experiences, :foreign_key => :teacher_id, dependent: :destroy
   accepts_nested_attributes_for :experiences
 
   scope :teachers , -> { joins(:employee_position).where(employee_positions: {:name => "Teacher"}) }

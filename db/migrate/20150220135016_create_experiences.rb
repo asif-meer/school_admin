@@ -6,7 +6,7 @@ class CreateExperiences < ActiveRecord::Migration
       t.date :from_date
       t.date :to_date
       t.integer :teacher_id
-      t.boolean :still_attending
+      t.boolean :still_attending, default: :false
       t.timestamps
     end
   end

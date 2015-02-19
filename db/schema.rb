@@ -157,7 +157,7 @@ ActiveRecord::Schema.define(version: 20150220135016) do
     t.date     "from_date"
     t.date     "to_date"
     t.integer  "teacher_id"
-    t.boolean  "still_attending"
+    t.boolean  "still_attending", default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

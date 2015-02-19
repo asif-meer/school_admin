@@ -18,7 +18,7 @@
 		$("input[name='employee[experiences_attributes][0][still_attending]']").change(function(){
 			if ($(this).val() === 'true') {
 				$("#employee_experience_to_date").hide();
-				$("#employee_experience_to_date").val() = "";
+				$("input[name='employee[experiences_attributes][0][to_date]']").val("");
 			}
 			else if($(this).val() === 'false'){
 				$("#employee_experience_to_date").show();

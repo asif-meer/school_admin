@@ -21,7 +21,7 @@
 		$("input[name='employee[educations_attributes][0][still_attending]']").change(function(){
 			if ($(this).val() === 'true') {
 				$("#employee_education_completion_date").hide();
-				$("#employee_education_completion_date").val() = "";
+				$("input[name='employee[educations_attributes][0][completion_date]']").val("");
 			}
 			else if($(this).val() === 'false'){
 				$("#employee_education_completion_date").show();
