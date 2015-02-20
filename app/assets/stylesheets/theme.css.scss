@@ -14,8 +14,15 @@
 }
 
 /***body***/
-
+@media(max-width:480px) {
+  .navmenu, .navbar-offcanvas {
+    width:280px;
+  }
+}
 body {
+  @media(max-width:480px) {
+    width: 90%;
+  }
   width: 95%;
   margin: 0 auto;
 }
