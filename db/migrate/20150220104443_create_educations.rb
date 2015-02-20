@@ -5,7 +5,7 @@ class CreateEducations < ActiveRecord::Migration
       t.string :degree
       t.date :start_date
       t.date :completion_date
-      t.boolean :still_attending
+      t.boolean :still_attending, default: :false
       t.integer :teacher_id
       t.timestamps
     end

@@ -12,32 +12,65 @@
       </div>
     </div>
   </div>
+
   <hr />
-  <div class="row">
-    <div class="col-sm-12">
-      <div class="table-responsive">
-        <table id="employees_datatable" class= "table table-striped ">
-          <thead >
+  <script src="//cdn.datatables.net/1.10.5/js/jquery.dataTables.min.js"></script>
+  <script src="//cdn.datatables.net/plug-ins/f2c75b7247b/integration/bootstrap/3/dataTables.bootstrap.js"></script>
+  <link rel="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+  <link rel="//cdn.datatables.net/plug-ins/f2c75b7247b/integration/bootstrap/3/dataTables.bootstrap.css" />
+  <link rel="//cdn.datatables.net/responsive/1.0.4/css/dataTables.responsive.css" />
+  <style type="text/css">
+    body { font-size: 140% }
+ 
+    table.dataTable th,
+    table.dataTable td {
+        white-space: nowrap;
+    }
+  </style>
+  <script type="text/javascript">
+    $(document).ready(function() {
+        
+        <% if mobile_devise? %>
+          $('#example').dataTable( {
+            "oLanguage": {
+              "oPaginate": {
+                "sNext": ">",
+                "sPrevious": "<"
+              }
+            }
+          } );
+        <% else %>
+          $('#example').dataTable();
+        <% end %>
+    } );
+  </script>
+    <div id="no-more-tables">
+      <table id="example" class="table table-striped table-hover dt-responsive table-condensed cf" cellspacing="0" width="100%">
+
+        <thead class="cf">
             <tr>
-              <th class="col-md-2">Mark All <input type="checkbox" id="select_all"/></th>
+              
+              <th class="out_responsive_table">Mark All <input type="checkbox" id="select_all"/></th>
               <th>Name</th>
               <th>Gender</th>
               <th>Job title</th>
-              <th>Actions</th>
+              <th>Joining Date</th>
+              <th></th>
             </tr>
-          </thead>
-
-          <tbody>
+        </thead>
+   
+        <tbody>
             <% @teachers.each do |teacher| %>
               <tr>
-                <td class="selectedId"><%= check_box_tag "teacher_destroy_id[]", teacher.id %></td>
-                <td><%= teacher.first_name %></td>
-                <td><%= teacher.gender %></td>
-                <td><%= teacher.job_title %></td>
-                <td class="dataTable_actions">
-                  
+                <td class="selectedId" data-title="Mark"><%= check_box_tag "teacher_destroy_id[]", teacher.id %></td>
+                <td data-title="First Name"><%= teacher.first_name %></td>
+                <td data-title="Last Name"><%= teacher.gender %></td>
+                <td data-title="Job Title"><%= teacher.job_title %></td>
+                
+                <td data-title="Joining Date"><%= teacher.joining_date.strftime("%d %b, %Y") %></td>
+                <td>
                   <%= link_to teacher_path(teacher) do %>
-                    <span class="glyphicon glyphicon-eye-open"></span>
+                  <span class="glyphicon glyphicon-eye-open"></span>
                   <% end %> |
                   <%= link_to edit_teacher_path(teacher) do %>
                     <span class="glyphicon glyphicon-edit"></span>
@@ -45,15 +78,69 @@
                   <%= link_to teacher_destroy_path(teacher), method: :delete, remote: true, data: { confirm: 'Are you sure?' }, class: "delete_teacher" do %>
                     <span class="glyphicon glyphicon-trash"></span>
                   <% end %>
-                  
                 </td>
               </tr>
             <% end %>
-          </tbody>
-        </table>
-      </div>
+            
+        </tbody>
+      </table>
     </div>
-  </div>
 <% end %>
+
+<script type="text/javascript">
+  // $(function(){
+  //   $('#wizard').smartWizard();
+  // })
+</script>
+<!-- <link href="smart_wizard.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="jquery.smartWizard.js"></script> -->
+<!-- <div id="wizard" class="swMain">
+  <ul>
+    <li><a href="#step-1">
+          <label class="stepNumber">1</label>
+          <span class="stepDesc">
+             Step 1<br />
+             <small>Step 1 description</small>
+          </span>
+      </a></li>
+    <li><a href="#step-2">
+          <label class="stepNumber">2</label>
+          <span class="stepDesc">
+             Step 2<br />
+             <small>Step 2 description</small>
+          </span>
+      </a></li>
+    <li><a href="#step-3">
+          <label class="stepNumber">3</label>
+          <span class="stepDesc">
+             Step 3<br />
+             <small>Step 3 description</small>
+          </span>                   
+       </a></li>
+    <li><a href="#step-4">
+          <label class="stepNumber">4</label>
+          <span class="stepDesc">
+             Step 4<br />
+             <small>Step 4 description</small>
+          </span>                   
+      </a></li>
+  </ul>
+  <div id="step-1">   
+      <h2 class="StepTitle">Step 1 Content</h2>
+ 
+  </div>
+  <div id="step-2">
+      <h2 class="StepTitle">Step 2 Content</h2> 
+      
+  </div>                      
+  <div id="step-3">
+      <h2 class="StepTitle">Step 3 Title</h2>   
+       
+  </div>
+  <div id="step-4">
+      <h2 class="StepTitle">Step 4 Title</h2>   
+                              
+  </div>
+</div> -->
 
 

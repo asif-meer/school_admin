@@ -37,7 +37,7 @@ startBlockUI = function(obj) {
   obj.block({
     message: "<h2><span class='glyphicon glyphicon-refresh glyphicon-refresh-animate'></span>Loading...</h2>",
     fadeIn: 300,
-    timeout: 300,
+    timeout: 350,
     css: {
       border: 'none',
       padding: '7px 0px 15px',
@@ -48,7 +48,7 @@ startBlockUI = function(obj) {
       '-moz-border-radius': '11px',
       opacity: .5,
       color: '#fff',
-      margin: '-85px 0px 0px -12px',
+      margin: '24px 0px 0px -12px',
       width: '28%'
     }
   });

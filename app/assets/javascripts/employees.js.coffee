@@ -2,48 +2,60 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 jQuery ->
-	$("#employee_date_of_birth").datetimepicker
-		pickTime: false
+	
 
   $("#employee_date_of_birth")
     .on 'change', (e) ->
       $('form').data('bootstrapValidator').revalidateField 'employee[date_of_birth]'
       return
 
-	$("#employee_joining_date").datetimepicker
-		pickTime: false
+  $("#employee_date_of_birth").datepicker
+    format: 'yyyy-mm-dd'
+    todayHighlight: true
+
+  $("#employee_joining_date").datepicker
+    format: 'yyyy-mm-dd'
+    todayHighlight: true
+	
+  $("#employee_educations_attributes_0_start_date").datepicker
+    format: 'yyyy-mm-dd'
+    todayHighlight: true
+
+  $("#employee_educations_attributes_0_completion_date").datepicker
+    format: 'yyyy-mm-dd'
+    todayHighlight: true
 
   $("#employee_joining_date")
     .on 'change', (e) ->
       $('form').data('bootstrapValidator').revalidateField 'employee[joining_date]'
       return
 
-  $("#employee_educations_attributes_0_start_date").datetimepicker
-    pickTime: false
+  
 
   $("#employee_educations_attributes_0_start_date")
     .on 'change', (e) ->
       $('form').data('bootstrapValidator').revalidateField 'employee[educations_attributes][0][start_date]'
       return
 
-  $("#employee_educations_attributes_0_completion_date").datetimepicker
-    pickTime: false
+  
 
   $("#employee_educations_attributes_0_completion_date")
     .on 'change', (e) ->
       $('form').data('bootstrapValidator').revalidateField 'employee[educations_attributes][0][completion_name]'
       return
 
-  $("#employee_experiences_attributes_0_from_date").datetimepicker
-    pickTime: false
+  $("#employee_experiences_attributes_0_from_date").datepicker
+    format: 'yyyy-mm-dd'
+    todayHighlight: true
 
   $("#employee_experiences_attributes_0_from_date")
     .on 'change', (e) ->
       $('form').data('bootstrapValidator').revalidateField 'employee[experiences_attributes][0][from_date]'
       return
 
-  $("#employee_experiences_attributes_0_to_date").datetimepicker
-    pickTime: false
+  $("#employee_experiences_attributes_0_to_date").datepicker
+    format: 'yyyy-mm-dd'
+    todayHighlight: true 
 
   $("#employee_experiences_attributes_0_to_date")
     .on 'change', (e) ->

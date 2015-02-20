@@ -43,6 +43,44 @@ body {
   border-radius: 14px !important;
 }
 
+.blockPage {
+  z-index: 1011 !important;
+  position: fixed !important;
+  padding: 1px 0px 8px 0px !important;
+  margin: 0px !important;
+  width: 22% !important;
+  top: 43% !important;
+  left: 39% !important;
+  -webkit-border-radius: 10px; 
+  -moz-border-radius: 10px;
+  text-align: center !important;
+  color: #fff !important;
+  opacity: .7;
+  border: 1px solid rgb(170, 170, 170) !important;
+  cursor: wait !important;
+  background-color: #000 !important;
+}
+
+/*Wizard*/
+#wizard_for_mobile {
+  display:none;
+}
+@media(max-width:990px) {
+  #wizard_for_mobile {
+    display:block;
+  }
+  #wizard_for_desktop {
+    display:none;
+  }
+}
+
+@media(max-width:480px) {
+  div.dataTables_paginate {
+    float: left !important;
+    margin: 0;
+  }
+}
+
 .checkbox input[type="checkbox"], .checkbox-inline input[type="checkbox"] {
   margin-left: 0px;
 }

@@ -86,5 +86,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  private
+
+  def mobile_devise?
+    request.user_agent =~ /Mobile|webOS/
+  end
+
+  helper_method :mobile_devise?
 
 end

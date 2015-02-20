@@ -7,16 +7,29 @@
         </div>
         <div class="bootstrap-admin-no-table-panel-content bootstrap-admin-panel-content collapse in">
           <div id="rootwizard">
-            <div class="navbar">
-              <ul class="nav nav-pills wizard_nav">
-                <li><a href="#tab1" data-toggle="tab" enabled="false">Bio</a></li>
-                <li><a href="#tab2" data-toggle="tab">Address</a></li>
-                <li><a href="#tab3" data-toggle="tab">Employee Information</a></li>
-                <li><a href="#tab4" data-toggle="tab">Qualification</a></li>
-                <li><a href="#tab5" data-toggle="tab">Experience</a></li>
-                <li><a href="#tab6" data-toggle="tab">Avatar</a></li>
-              </ul>
-            </div>
+            <% unless mobile_devise? %>
+              <div class="navbar wizard_navbar" style="">
+                <ul class="nav nav-pills wizard_nav">
+                  <li><a href="#tab1" data-toggle="tab" enabled="false">Bio</a></li>
+                  <li><a href="#tab2" data-toggle="tab">Address</a></li>
+                  <li><a href="#tab3" data-toggle="tab">Employee Information</a></li>
+                  <li><a href="#tab4" data-toggle="tab">Qualification</a></li>
+                  <li><a href="#tab5" data-toggle="tab">Experience</a></li>
+                  <li><a href="#tab6" data-toggle="tab">Avatar</a></li>
+                </ul>
+              </div>
+            <% else %>
+              <div class="navbar" style="">
+                <ul class="nav nav-pills wizard_nav nav-stacked">
+                  <li><a href="#tab1" data-toggle="tab" enabled="false">Bio</a></li>
+                  <li><a href="#tab2" data-toggle="tab">Address</a></li>
+                  <li><a href="#tab3" data-toggle="tab">Employee Information</a></li>
+                  <li><a href="#tab4" data-toggle="tab">Qualification</a></li>
+                  <li><a href="#tab5" data-toggle="tab">Experience</a></li>
+                  <li><a href="#tab6" data-toggle="tab">Avatar</a></li>
+                </ul>
+              </div>
+            <% end %>
             <div id="bar" class="progress  progress-striped active">
                 <div class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
@@ -154,8 +167,8 @@
                   </li>
                   
               </ul>
-              
             </div>
+
           </div>
         </div>
       </div>

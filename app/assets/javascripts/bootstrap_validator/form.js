@@ -249,7 +249,7 @@ $(function() {
                     message: 'Date of birth cannot be empty'
                 },
                 date: {
-                    format: 'YYYY/MM/DD',
+                    format: 'YYYY-MM-DD',
                     message: 'Date of birth is not valid'
                 }
             }
@@ -274,7 +274,7 @@ $(function() {
                     message: 'Joining Date cannot be empty'
                 },
                 date: {
-                    format: 'YYYY/MM/DD',
+                    format: 'YYYY-MM-DD',
                     message: 'Joining Date is not valid'
                 }
             }
@@ -357,8 +357,17 @@ $(function() {
                 notEmpty: {
                     message: 'Start Date cannot be empty'
                 },
-                birthday: {
+                date: {
+                    format: 'YYYY-MM-DD',
                     message: 'Start Date is not valid'
+                }
+            }
+        },
+        'employee[educations_attributes][0][completion_date]': {
+            validators: {
+                date: {
+                    format: 'YYYY-MM-DD',
+                    message: 'Completion Date is not valid'
                 }
             }
         },
@@ -381,14 +390,16 @@ $(function() {
                 notEmpty: {
                     message: 'From Date cannot be empty'
                 },
-                birthday: {
+                date: {
+                    format: 'YYYY-MM-DD',
                     message: 'From Date is not valid'
                 }
             }
         },
         'employee[experiences_attributes][0][to_date]': {
             validators: {
-                birthday: {
+                date: {
+                    format: 'YYYY-MM-DD',
                     message: 'To Date is not valid'
                 }
             }
