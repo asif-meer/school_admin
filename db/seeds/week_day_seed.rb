@@ -1,3 +1,4 @@
+puts "Creating week days"
 WeekDay.create(:name => "Monday")
 WeekDay.create(:name => "Tuesday")
 WeekDay.create(:name => "Wednesday")

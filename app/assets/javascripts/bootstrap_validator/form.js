@@ -298,21 +298,20 @@ $(function() {
                 }
             }
         },
-        'employee[qualification]': {
-            validators: {
-                notEmpty: {
-                    message: 'Qualification cannot be empty'
-                }
-            }
-        },
-        'employee[total_experience]': {
-            validators: {
-                notEmpty: {
-                    message: 'Total Experience cannot be empty'
-                }
-            }
-        }
-        ,
+        // 'employee[qualification]': {
+        //     validators: {
+        //         notEmpty: {
+        //             message: 'Qualification cannot be empty'
+        //         }
+        //     }
+        // },
+        // 'employee[total_experience]': {
+        //     validators: {
+        //         notEmpty: {
+        //             message: 'Total Experience cannot be empty'
+        //         }
+        //     }
+        // },
         'employee[present_address]': {
             validators: {
                 notEmpty: {

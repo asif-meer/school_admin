@@ -1,3 +1,4 @@
+puts "Creating periods"
 Period.find_or_create(:name => "1rst", :short => "1rst", :start_time => "2000-01-01 08:30:00.000000", :end_time => "2000-01-01 09:15:00.000000", :duration => "45")
 Period.find_or_create(:name => "2nd", :short => "2nd", :start_time => "2000-01-01 09:15:00.000000", :end_time => "2000-01-01 10:00:00.000000", :duration => "45")
 Period.find_or_create(:name => "3rd", :short => "3rd", :start_time => "2000-01-01 10:00:00.000000", :end_time => "2000-01-01 10:45:00.000000", :duration => "45")

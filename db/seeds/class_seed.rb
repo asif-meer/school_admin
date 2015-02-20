@@ -1,3 +1,4 @@
+puts "Creating classes"
 SchoolClass.find_or_create(:class_name => "1-A", short_name:"1-A")
 SchoolClass.find_or_create(:class_name => "1-B", short_name:"1-B")
 SchoolClass.find_or_create(:class_name => "1-C", short_name:"1-C")

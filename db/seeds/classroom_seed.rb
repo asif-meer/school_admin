@@ -1,3 +1,4 @@
+puts "Creating classrooms"
 Classroom.find_or_create(:classroom_name => "1-A", short_name:"1-A")
 Classroom.find_or_create(:classroom_name => "1-B", short_name:"1-B")
 Classroom.find_or_create(:classroom_name => "1-C", short_name:"1-C")

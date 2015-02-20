@@ -13,21 +13,9 @@ $ ->
   
 
 
-$(document).ajaxStart ->
-  $.blockUI
-    message: "<h2><span class='glyphicon glyphicon-refresh glyphicon-refresh-animate'></span>Loading...</h2>"
-    timeout:500
-    fadeIn:300
-    css:
-      border: 'none'
-      padding: '7px 0px 15px'
-      backgroundColor: 'rgb(255, 255, 255)'
-      '-webkit-border-radius': '11px'
-      '-moz-border-radius': '11px'
-      opacity: .5
-      color: '#fff'
-      'margin-left': '73px'
-      width: '17%'
+
+
+$(document).ajaxStart($.blockUI).ajaxStop($.unblockUI)
 
 
   

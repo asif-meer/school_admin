@@ -15,6 +15,10 @@
 
 /***body***/
 
+body {
+  width: 95%;
+  margin: 0 auto;
+}
 /*Block ui */
 .blockOverlay {
   z-index: 1000 !important;

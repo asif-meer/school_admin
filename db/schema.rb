@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150217213823) do
+ActiveRecord::Schema.define(version: 20150219192200) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -99,6 +99,14 @@ ActiveRecord::Schema.define(version: 20150217213823) do
     t.datetime "updated_at"
   end
 
+  create_table "employee_attendences", force: true do |t|
+    t.integer  "employee_id"
+    t.date     "date"
+    t.integer  "label",       limit: 1
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "employee_positions", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -167,13 +175,13 @@ ActiveRecord::Schema.define(version: 20150217213823) do
 
   create_table "lessons", force: true do |t|
     t.integer  "subject_id"
+    t.integer  "period_id"
     t.integer  "teacher_id"
     t.integer  "school_class_id"
+    t.integer  "classroom_id"
+    t.integer  "week_day_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "week_day_id"
-    t.integer  "classroom_id"
-    t.integer  "period_id"
   end
 
   create_table "periods", force: true do |t|

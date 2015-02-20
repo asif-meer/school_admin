@@ -1,7 +1,7 @@
 <%= bootstrap_form_for @teacher, url: create_teacher_path, method: :post, label_errors: true, class: "form-horizontal", :html => {:multipart => true} do |f| %>
   <div class="row">
     <div class="col-lg-12">
-      <div class="panel panel-primary bootstrap-admin-no-table-panel">
+      <div class="panel panel-default bootstrap-admin-no-table-panel">
         <div class="panel-heading">
             <h4><strong>Create New Teacher</strong></h4>
         </div>
@@ -95,10 +95,10 @@
                       </div>
                     </div>
                     <div class="col-sm-6">
-                      <div class="form-inputs">
+                      <!-- <div class="form-inputs">
                         <span class="validate_department" style="color:#000;"></span>
-                        <%= f.select :department_id, Department.all.map{|m| [m.name, m.id]}, class: "form-control", autofocus: true, prompt: "Choose a Department", hide_label: :true %>
-                      </div>
+                        <%#= f.select :department_id, Department.all.map{|m| [m.name, m.id]}, class: "form-control", autofocus: true, prompt: "Choose a Department", hide_label: :true %>
+                      </div> -->
                       <div class="form-inputs">
                         <span class="validate_job_title" style="color:#000;"></span>
                         <%= f.text_field :job_title, input_html: {class: "form-control"}, placeholder: "Job Title", hide_label: :true %>
