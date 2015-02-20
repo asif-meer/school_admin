@@ -13,7 +13,7 @@
     </div>
   </div>
 
-  <hr />
+  <hr />  
   <script src="//cdn.datatables.net/1.10.5/js/jquery.dataTables.min.js"></script>
   <script src="//cdn.datatables.net/plug-ins/f2c75b7247b/integration/bootstrap/3/dataTables.bootstrap.js"></script>
   <link rel="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
@@ -44,6 +44,10 @@
         <% end %>
     } );
   </script>
+    <% if mobile_devise? %>
+      <strong class="">Mark All <input type="checkbox" id="select_all_out"/></strong>
+      <br />
+    <% end %>
     <div id="no-more-tables">
       <table id="example" class="table table-striped table-hover dt-responsive table-condensed cf" cellspacing="0" width="100%">
 
@@ -58,8 +62,9 @@
               <th></th>
             </tr>
         </thead>
-   
+      
         <tbody>
+
             <% @teachers.each do |teacher| %>
               <tr>
                 <td class="selectedId" data-title="Mark"><%= check_box_tag "teacher_destroy_id[]", teacher.id %></td>

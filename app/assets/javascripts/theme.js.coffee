@@ -7,6 +7,7 @@ $ ->
   $(".nav li a").each ->
     currentPage = stripTrailingSlash($(this).attr("href"))
     $(this).parent().addClass "active"  if activePage is currentPage
+    $(this).addClass "active"  if activePage is currentPage
     return
 
   return
@@ -27,8 +28,14 @@ $(document).ajaxStop($.unblockUI);
 jQuery ->
   $("#select_all").hide()  if !$(".selectedId").length
 
+  $("#select_all_out").hide()  if !$(".selectedId").length
+
   $(document).on "click", "#select_all", ->
     $(this).closest("table").find(":checkbox").prop "checked", @checked
+    return
+
+  $(document).on "click", "#select_all_out", ->
+    $("table").find(":checkbox").prop "checked", @checked
     return
     
   $(".destroy-all").on "click", ->
