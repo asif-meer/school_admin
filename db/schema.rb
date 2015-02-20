@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150219192200) do
+ActiveRecord::Schema.define(version: 20150220135016) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -82,6 +82,17 @@ ActiveRecord::Schema.define(version: 20150219192200) do
     t.datetime "updated_at"
   end
 
+  create_table "educations", force: true do |t|
+    t.string   "institute_name"
+    t.string   "degree"
+    t.date     "start_date"
+    t.date     "completion_date"
+    t.boolean  "still_attending"
+    t.integer  "teacher_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "emergency_contacts", force: true do |t|
     t.string   "name"
     t.string   "phone"
@@ -139,6 +150,17 @@ ActiveRecord::Schema.define(version: 20150219192200) do
 
   add_index "employees", ["department_id"], name: "index_employees_on_department_id"
   add_index "employees", ["employee_position_id"], name: "index_employees_on_employee_position_id"
+
+  create_table "experiences", force: true do |t|
+    t.string   "company"
+    t.string   "position"
+    t.date     "from_date"
+    t.date     "to_date"
+    t.integer  "teacher_id"
+    t.boolean  "still_attending"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "fees_categories", force: true do |t|
     t.string   "name"

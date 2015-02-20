@@ -248,7 +248,8 @@ $(function() {
                 notEmpty: {
                     message: 'Date of birth cannot be empty'
                 },
-                birthday: {
+                date: {
+                    format: 'YYYY/MM/DD',
                     message: 'Date of birth is not valid'
                 }
             }
@@ -272,7 +273,8 @@ $(function() {
                 notEmpty: {
                     message: 'Joining Date cannot be empty'
                 },
-                birthday: {
+                date: {
+                    format: 'YYYY/MM/DD',
                     message: 'Joining Date is not valid'
                 }
             }
@@ -333,6 +335,61 @@ $(function() {
                 },
                 emailAddress: {
                     message: 'The email address is not a valid'
+                }
+            }
+        },
+        'employee[educations_attributes][0][institute_name]': {
+            validators: {
+                notEmpty: {
+                    message: 'Institue name cannot be empty'
+                }
+            }
+        },
+        'employee[educations_attributes][0][degree]': {
+            validators: {
+                notEmpty: {
+                    message: 'Degree cannot be empty'
+                }
+            }
+        },
+        'employee[educations_attributes][0][start_date]': {
+            validators: {
+                notEmpty: {
+                    message: 'Start Date cannot be empty'
+                },
+                birthday: {
+                    message: 'Start Date is not valid'
+                }
+            }
+        },
+        'employee[experiences_attributes][0][company]': {
+            validators: {
+                notEmpty: {
+                    message: 'Company cannot be empty'
+                }
+            }
+        },
+        'employee[experiences_attributes][0][position]': {
+            validators: {
+                notEmpty: {
+                    message: 'Position Date is not valid'
+                }
+            }
+        },
+        'employee[experiences_attributes][0][from_date]': {
+            validators: {
+                notEmpty: {
+                    message: 'From Date cannot be empty'
+                },
+                birthday: {
+                    message: 'From Date is not valid'
+                }
+            }
+        },
+        'employee[experiences_attributes][0][to_date]': {
+            validators: {
+                birthday: {
+                    message: 'To Date is not valid'
                 }
             }
         },

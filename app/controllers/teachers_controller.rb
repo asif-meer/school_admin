@@ -11,8 +11,9 @@ class TeachersController < ApplicationController
 	def new
 		add_breadcrumb "Teachers", teachers_url
     add_breadcrumb "New Teacher"
-    @teacher = Employee.new
-    @teacher_position = EmployeePosition.find_by_name("Teacher")
+    @teacher = Employee.teachers_position
+    @teacher.educations.build
+    @teacher.experiences.build
 	end
 
 	def edit
@@ -27,18 +28,12 @@ class TeachersController < ApplicationController
 	def create
     add_breadcrumb "Teachers", teachers_url
     add_breadcrumb "New Teacher"
-    @teacher_position = EmployeePosition.find_by_name("Teacher")
-    @teacher = @teacher_position.employees.build(teacher_params)
-    if @teacher.save
+    @teacher = Employee.teachers_position(teacher_params)
+    if @teacher
       flash[:notice] = "Teacher Created Successfully"
       redirect_to teachers_path
-      # if SchoolClass.exists?(1) || Classroom.exists?(1)
-      #   redirect_to teacher_class_employees_path(@teacher)
-      # else
-      #   redirect_to @teacher
-      # end
     else
-      flash[:notice] = @teacher.errors.full_messages.to_sentence
+      flash[:alert] = @teacher.errors.full_messages.to_sentence
       render action: 'new'
     end
   end
@@ -50,11 +45,6 @@ class TeachersController < ApplicationController
     if @teacher.save
       flash[:notice] = "Teacher was Updated Successfully"
       redirect_to teacher_path(@teacher)
-      # if SchoolClass.exists?(1) || Classroom.exists?(1)
-      #   redirect_to teacher_class_employees_path(@teacher)
-      # else
-      #   redirect_to @teacher
-      # end
     else
       flash[:notice] = @teacher.errors.full_messages.to_sentence
       render action: 'edit'
@@ -99,6 +89,11 @@ class TeachersController < ApplicationController
 	def teacher_params
 		params.require(:employee).permit(:first_name, :last_name, :date_of_birth, :gender, :employee_number,
                                      :joining_date, :job_title, :qualification, :total_experience, :present_address,
-                                     :perminent_address, :phone, :email, :department_id, :avatar, :employee_position_id)
+                                     :perminent_address, :phone, :email, :department_id, :avatar, :employee_position_id,
+                                     :educations_attributes => [:degree, :start_date, :completion_date, :institute_name,
+                                      :still_attending],
+                                     :experiences_attributes => [:company, :position, :to_date, 
+                                      :from_date, :still_attending]
+                                     )
 	end
 end

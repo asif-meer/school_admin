@@ -21,6 +21,7 @@
 #  batch_id                :integer
 #  roll_number             :string(255)
 #  school_class_id         :integer
+#  session_id              :integer
 #
 
 require 'rails_helper'

@@ -1,0 +1,33 @@
+<div class="row">
+	<div class="col-md-6">
+		<span class="validate_institute_name" style="color:#000;"></span>
+		<%= f.input :institute_name, input_html: {class: "form-control"}, placeholder: "Institute" %>
+		<span class="validate_degree" style="color:#000;"></span>
+		<%= f.input :degree, input_html: {class: "form-control"}, placeholder: "Degree" %>
+		<span class="validate_start_date" style="color:#000;"></span>
+		<%= f.input :start_date, input_html: {class: "form-control", :data => {'date-format' => 'YYYY/MM/DD'}}, placeholder: "Start Date", :as => :string %>
+	</div>
+	<div class="col-md-6">
+		<div id="employee_education_completion_date">
+			<%= f.input :completion_date, input_html: {class: "form-control", :data => {'date-format' => 'YYYY/MM/DD'}}, placeholder: "Completion Date", :as => :string %>
+		</div>
+
+		<%= f.input :still_attending, as: :radio_buttons %>
+	</div>
+</div>
+
+<script type="text/javascript">
+	$(function(){
+		$("input[name='employee[educations_attributes][0][still_attending]']").change(function(){
+			if ($(this).val() === 'true') {
+				$("#employee_education_completion_date").hide();
+				$("#employee_education_completion_date").val() = "";
+			}
+			else if($(this).val() === 'false'){
+				$("#employee_education_completion_date").show();
+			}
+		})
+	});
+</script>
+
+

@@ -1,0 +1,30 @@
+<div class="row">
+	<div class="col-md-6">
+		<%= f.input :company, input_html: {class: "form-control"}, placeholder: "Company" %>
+
+		<%= f.input :position, input_html: {class: "form-control"}, placeholder: "Position" %>
+		<%= f.input :from_date, input_html: {class: "form-control", :data => {'date-format' => 'YYYY/MM/DD'}}, placeholder: "From Date", :as => :string %>
+	</div>
+	<div class="col-md-6">
+	<div id="employee_experience_to_date">
+		<%= f.input :to_date, input_html: {class: "form-control", :data => {'date-format' => 'YYYY/MM/DD'}}, placeholder: "To Date", :as => :string %>
+	</div>
+		<%= f.input :still_attending, as: :radio_buttons %>
+	
+</div>
+
+<script type="text/javascript">
+	$(function(){
+		$("input[name='employee[experiences_attributes][0][still_attending]']").change(function(){
+			if ($(this).val() === 'true') {
+				$("#employee_experience_to_date").hide();
+				$("#employee_experience_to_date").val() = "";
+			}
+			else if($(this).val() === 'false'){
+				$("#employee_experience_to_date").show();
+			}
+		})
+	});
+</script>
+
+

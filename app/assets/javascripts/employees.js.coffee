@@ -18,6 +18,40 @@ jQuery ->
       $('form').data('bootstrapValidator').revalidateField 'employee[joining_date]'
       return
 
+  $("#employee_educations_attributes_0_start_date").datetimepicker
+    pickTime: false
+
+  $("#employee_educations_attributes_0_start_date")
+    .on 'change', (e) ->
+      $('form').data('bootstrapValidator').revalidateField 'employee[educations_attributes][0][start_date]'
+      return
+
+  $("#employee_educations_attributes_0_completion_date").datetimepicker
+    pickTime: false
+
+  $("#employee_educations_attributes_0_completion_date")
+    .on 'change', (e) ->
+      $('form').data('bootstrapValidator').revalidateField 'employee[educations_attributes][0][completion_name]'
+      return
+
+  $("#employee_experiences_attributes_0_from_date").datetimepicker
+    pickTime: false
+
+  $("#employee_experiences_attributes_0_from_date")
+    .on 'change', (e) ->
+      $('form').data('bootstrapValidator').revalidateField 'employee[experiences_attributes][0][from_date]'
+      return
+
+  $("#employee_experiences_attributes_0_to_date").datetimepicker
+    pickTime: false
+
+  $("#employee_experiences_attributes_0_to_date")
+    .on 'change', (e) ->
+      $('form').data('bootstrapValidator').revalidateField 'employee[experiences_attributes][0][to_date]'
+      return
+
+  #$("#employee_phone").mask('(990) 999-99')
+
 
 $(document).ready ->
   $("#employees_datatable").dataTable()  
@@ -38,3 +72,4 @@ $(document).ready ->
     #$error_container.show()  if $error_container.is(":hidden")
     #$.each jqxhr.responseJSON, (index, message) ->
       #$("<li>").html(message).appendTo $error_container_ul
+

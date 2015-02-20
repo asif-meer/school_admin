@@ -49,12 +49,18 @@ class Employee < ActiveRecord::Base
 
   # has_many :periods
 
+  has_many :educations, :foreign_key => :teacher_id
+  accepts_nested_attributes_for :educations
+
+  has_many :experiences, :foreign_key => :teacher_id
+  accepts_nested_attributes_for :experiences
+
   scope :teachers , -> { joins(:employee_position).where(employee_positions: {:name => "Teacher"}) }
 
   # validations
-  validates_presence_of :employee_number,:first_name,:last_name, :department_id,
+  validates_presence_of :employee_number,:first_name,:last_name,
                         :job_title, :employee_position_id, :email, :phone, :date_of_birth,
-                        :joining_date, :qualification, :total_experience, :present_address,
+                        :joining_date, :present_address,
                         :gender
 
   # File Upload
@@ -86,20 +92,16 @@ class Employee < ActiveRecord::Base
     end
   end
 
-  # def set_atten
-  #   if self.employee_attendences.present?
-  #     emp = self.employee_attendences.first
-  #     if emp.date > dated.to_date || emp.date < dated.to_date
-  #       "x"
-  #     else
-  #       if emp.Absent?
-  #         "A"
-  #       else
-  #         "P"
-  #       end
-  #     end
-  #   else
-  #     "x"
-  #   end
-  # end
+  def self.teachers_position(*args)
+    if args.size == 0 
+      position = EmployeePosition.find_by_name("Teacher")
+      teacher = position.employees.build    
+    else  
+      if args.size == 1  
+        position = EmployeePosition.find_by_name("Teacher")
+        teacher = position.employees.build(args.first)
+        teacher.save
+      end  
+    end      
+  end
 end

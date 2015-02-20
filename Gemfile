@@ -49,6 +49,7 @@ group :development do
   gem 'letter_opener'
   gem 'annotate', github: 'ctran/annotate_models'
   # gem 'debugger'
+  # gem 'pry-byebug'
 end
 group :development, :test do
   gem 'factory_girl_rails'

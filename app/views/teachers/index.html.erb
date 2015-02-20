@@ -19,7 +19,7 @@
         <table id="employees_datatable" class= "table table-striped ">
           <thead >
             <tr>
-              <th>Mark All <input type="checkbox" id="select_all"/></th>
+              <th class="col-md-2">Mark All <input type="checkbox" id="select_all"/></th>
               <th>Name</th>
               <th>Gender</th>
               <th>Job title</th>
@@ -38,10 +38,10 @@
                   
                   <%= link_to teacher_path(teacher) do %>
                     <span class="glyphicon glyphicon-eye-open"></span>
-                  <% end %>
+                  <% end %> |
                   <%= link_to edit_teacher_path(teacher) do %>
                     <span class="glyphicon glyphicon-edit"></span>
-                  <% end %>
+                  <% end %> |
                   <%= link_to teacher_destroy_path(teacher), method: :delete, remote: true, data: { confirm: 'Are you sure?' }, class: "delete_teacher" do %>
                     <span class="glyphicon glyphicon-trash"></span>
                   <% end %>
