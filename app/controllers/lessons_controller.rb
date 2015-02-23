@@ -24,8 +24,8 @@ class LessonsController < ApplicationController
 			respond_to do |format|
 		        format.html { redirect_to class_name_path(@class.class_name) }
 		        flash[:notice] = "Lesson Assigned"
-		        # format.json { head :no_content }
-		        # format.js   { render :layout => false }
+		        format.json { head :no_content }
+		        format.js   { render :layout => false }
 		    end
 		else
   		respond_to do |format|
@@ -36,9 +36,9 @@ class LessonsController < ApplicationController
 	     			@lesson.errors.full_messages.map{|m| content_tag(:li, m)}.join("").html_safe
      			end
    			end
-        # format.json { render json: @class.errors, status: :unprocessable_entity }
-        # format.json { head :no_content }
-        # format.js   { render :layout => false }
+        format.json { render json: @class.errors, status: :unprocessable_entity }
+        format.json { head :no_content }
+        format.js   { render :layout => false }
       end
 		end
 	end

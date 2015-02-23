@@ -82,16 +82,16 @@ puts "creating batches..."
 @batch10 =  Batch.find_or_create(:batch_name => "2018", :course_id => @course5.id, :start_date => "7/Jan/2013", :end_date => "13/Nov/2017")
 # Subjects
 puts "creating subjects"
-Subject.find_or_create(:title => "Physics", :short_name => "Phy")
+Subject.find_or_create(:title => "Physics", :short_name => "Phy", color: "#a80de0")
 Subject.find_or_create(:title => "English Basics", :short_name => "En(B)", color: "#3636c7")
-Subject.find_or_create(:title => "Maths", :short_name => "Ma")
-Subject.find_or_create(:title => "Advanced Science", :short_name => "Sci(Adv)")
-Subject.find_or_create(:title => "Basics Science", :short_name => "Sci(B)")
-Subject.find_or_create(:title => "Social Studies", :short_name => "SST")
-Subject.find_or_create(:title => "Arts and Science", :short_name => "A&S")
-Subject.find_or_create(:title => "Literature", :short_name => "En(L)")
-Subject.find_or_create(:title => "Enlish Grammar", :short_name => "En(G)")
-Subject.find_or_create(:title => "Psychology", :short_name => "Psy")
+Subject.find_or_create(:title => "Maths", :short_name => "Ma", color: "#e60909")
+Subject.find_or_create(:title => "Advanced Science", :short_name => "Sci(Adv)", color: "#0fc7d1")
+Subject.find_or_create(:title => "Basics Science", :short_name => "Sci(B)", color: "#05f063")
+Subject.find_or_create(:title => "Social Studies", :short_name => "SST", color: "#a3f56c")
+Subject.find_or_create(:title => "Arts and Science", :short_name => "A&S", color: "#05c9f0")
+Subject.find_or_create(:title => "Literature", :short_name => "En(L)", color: "#0874f0")
+Subject.find_or_create(:title => "Enlish Grammar", :short_name => "En(G)", color: "#eded09")
+Subject.find_or_create(:title => "Psychology", :short_name => "Psy", color: "#ffbb00")
 #Roles
 puts "Creating Roles"
 Role.find_or_create(:name => 'admin')
@@ -102,4 +102,6 @@ StudentCategory.find_or_create(:name => 'Regular Student')
 StudentCategory.find_or_create(:name => 'Guest Student (non degree seeking student)')
 StudentCategory.find_or_create(:name => 'Scholarship Student')
 
+puts "Creating School Session"
 
+Session.find_or_create(:name => "2015--2016", :start_date => "2015-02-11", end_date: "2016-03-24")

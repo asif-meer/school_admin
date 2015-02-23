@@ -29,4 +29,8 @@ class Session < ActiveRecord::Base
       errors.add :base, "End Date can't be less than Start Date" if session.end_date < session.start_date
     end
   end
+
+  def self.find_or_create(attributes)
+      Session.where(attributes).first || Session.create(attributes)
+  end
 end

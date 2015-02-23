@@ -8,15 +8,15 @@ class TimeTableController < ApplicationController
 
 	def view
 		@week_days = WeekDay.all
-		@class = SchoolClass.find_by_class_name(params[:search_class])
+		@class = SchoolClass.find_by_class_name(params[:school_class_name])
 		@subjects = Subject.all
-		respond_to do |format|
-      # format.html { redirect_to classes_url }
-      format.json { head :no_content }
-      format.js   { render :layout => false }
+		# respond_to do |format|
+  #     # format.html { redirect_to classes_url }
+  #     format.json { head :no_content }
+  #     format.js   { render :layout => false }
+  #   end
+    respond_to do |format|
+      format.js
     end
-    # respond_to do |format|
-    #   format.js
-    # end
 	end
 end

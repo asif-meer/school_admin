@@ -6,7 +6,7 @@
         <h3 class="panel-title">Generate Time Table</h3>
       </div>
       <div class="panel-body">
-        <%= form_tag view_time_table_index_path, method: "get", id: "time_table_form", remote: true do %>
+        <%= form_tag "#", method: "", id: "time_table_form" do %>
 					<%= select_tag :search_class, options_for_select(SchoolClass.all.collect{|m| [m.class_name, m.class_name]}, :selected => params[:search_class]), :class => 'form-control', prompt: "--Select--"  %>
 					<br />
 	        <%= submit_tag "View", :name => nil, :class => "btn btn-info", id: "find_time_table" %>

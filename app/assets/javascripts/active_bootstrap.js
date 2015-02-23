@@ -67,6 +67,10 @@ $(function(){
 	  return;
 	}
 
+	$("#time_table_dropup").click(function(){
+		alert("cdc")
+	})
+
 	// $("#subjects_students").hide()
 	// $('.nav_subjects li:last-child a').click(function(e) {
 	// 	$("#subjects_subjects").show()
@@ -96,18 +100,6 @@ $(function(){
         },
         function() {
             $('.student_profile_hover', this).stop( true, true ).fadeOut("fast");
-            $(this).toggleClass('open');
-            // $('b', this).toggleClass("caret caret-up");                
-        });
-
-	$(".period_dropup").hover(            
-        function() {
-            $('.period_hover', this).stop( true, true ).fadeIn("fast");
-            $(this).toggleClass('open');
-            // $('b', this).toggleClass("caret caret-up");                
-        },
-        function() {
-            $('.period_hover', this).stop( true, true ).fadeOut("fast");
             $(this).toggleClass('open');
             // $('b', this).toggleClass("caret caret-up");                
         });

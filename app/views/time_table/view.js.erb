@@ -1,6 +1,13 @@
+$("#time_table_subjects").html("<%= escape_javascript(render :partial => 'time_table' ).html_safe %>")
 
-$('#time_table_form').bind('ajax:success', function() {
-    $("#notice").html("<%= escape_javascript(render :partial => 'layouts/messages' , :locals => { :flash => flash }).html_safe %>")
-    $("#time_table_subjects").html("<%= escape_javascript(render :partial => 'time_table' ).html_safe %>")
-    // alert("<%= @class %>")
-});
+$(".time_table_dropup").hover(            
+        function() {
+            $('.time_table_hover', this).stop( true, true ).fadeIn("fast");
+            $(this).toggleClass('open');
+            // $('b', this).toggleClass("caret caret-up");                
+        },
+        function() {
+            $('.time_table_hover', this).stop( true, true ).fadeOut("fast");
+            $(this).toggleClass('open');
+            // $('b', this).toggleClass("caret caret-up");                
+        });
