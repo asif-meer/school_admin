@@ -32,6 +32,7 @@ gem "font-awesome-rails"
 gem "highcharts-rails", "~> 3.0.0"
 gem 'jquery-minicolors-rails'
 gem 'jquery-validation-rails'
+gem "cocoon"
 
 
 group :development do

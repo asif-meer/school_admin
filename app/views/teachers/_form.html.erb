@@ -92,7 +92,7 @@
                 </fieldset>
               </div>
               <div class="tab-pane" id="tab3">
-                <h3>Employee Information:</h3>
+                <h3>Teacher Details:</h3>
                 <fieldset>
                   <div class="row">
                     <div class="col-sm-6">
@@ -103,8 +103,7 @@
 
                       <div class="form-inputs">
                         <%#= f.label :joining_date, required: true %>
-                        <span class="validate_joining_date" style="color:#000;"></span>
-                        <%= f.input :joining_date, input_html: {class: "form-control", :data => {'date-format' => 'YYYY/MM/DD'}}, placeholder: "dd-mm-yy", :as => :string %>
+                        <%= f.input :joining_date, input_html: {class: "form-control", :data => {'date-format' => 'YYYY/MM/DD'}}, placeholder: "Joining Date", :as => :string %>
                       </div>
                     </div>
                     <div class="col-sm-6">
@@ -122,29 +121,23 @@
               </div>
               <div class="tab-pane" id="tab4">
                 <h3>Qualification:</h3>
-                <fieldset>
                   <div class="form-inputs">
-                    <span class="validate_qualification" style="color:#000;"></span>
-                    <%#= f.text_field :qualification, class: "form-control", placeholder: "Qualification", hide_label: :true %>
-                    <%= f.simple_fields_for :educations  do |e| %>    
-                       <fieldset>
-                        <%= render "education",  :f => e  %>
-                      </fieldset>
+                    <%= f.simple_fields_for :educations  do |builder| %>
+                      <%= render "education_fields",  :f => builder %>
                     <% end %>
+                    <%= link_to_add_fields_assocaitions 'Add Fields', f, :educations %><br /><br />
                   </div>
-                </fieldset>
               </div>
               <div class="tab-pane" id="tab5">
                 <h3>Experience:</h3>
-                <fieldset>
-                  <div class="form-inputs">
-                    <%= f.simple_fields_for :experiences  do |e| %>    
-                       <fieldset>
-                        <%= render "experience",  :f => e  %>
-                      </fieldset>
-                    <% end %>
-                  </div>
-                </fieldset>
+                <div class="form-inputs">
+
+                  <%= f.simple_fields_for :experiences  do |builder| %> 
+                      <%= render "experience_fields",  :f => builder  %>
+                  <% end %>
+                  <%= link_to_add_fields_assocaitions 'Add Fields', f, :experiences %>
+                  <br /><br />
+                </div>
               </div>
               <div class="tab-pane" id="tab6">
                 <h3>Profile Avatar</h3>
@@ -211,15 +204,38 @@
         'employee[department_id]': {
           required: true
         },
-        'employee[educations][institute_name]': {
+        'employee[educations_attributes][0][institute_name]': {
           required: true
         },
-        'employee[educations][degree]': {
+        'employee[educations_attributes][0][degree]': {
           required: true
         },
-        'employee[educations][start_date]': {
+        'employee[educations_attributes][0][start_date]': {
+          required: true
+        },
+        'employee[educations_attributes][0][completion_date]': {
+          required: true
+        },
+        'employee[educations_attributes][0][still_attending]': {
+          required: true
+        },
+        'employee[experiences_attributes][0][company]': {
+          required: true
+        },
+        'employee[experiences_attributes][0][position]': {
+          required: true
+        },
+        'employee[experiences_attributes][0][from_date]': {
+          required: true
+        },
+        'employee[experiences_attributes][0][to_date]': {
           required: true
         }
+        ,
+        'employee[experiences_attributes][0][still_attending]': {
+          required: true
+        }
+
         // ,
         // 'employee[qualification]': {
         //   required: true

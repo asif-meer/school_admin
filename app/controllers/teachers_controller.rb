@@ -14,6 +14,7 @@ class TeachersController < ApplicationController
     @teacher = Employee.teachers_position
     @teacher.educations.build
     @teacher.experiences.build
+    
 	end
 
 	def edit
@@ -90,10 +91,10 @@ class TeachersController < ApplicationController
 		params.require(:employee).permit(:first_name, :last_name, :date_of_birth, :gender, :employee_number,
                                      :joining_date, :job_title, :qualification, :total_experience, :present_address,
                                      :perminent_address, :phone, :email, :department_id, :avatar, :employee_position_id,
-                                     :educations_attributes => [:degree, :start_date, :completion_date, :institute_name,
-                                      :still_attending],
-                                     :experiences_attributes => [:company, :position, :to_date, 
-                                      :from_date, :still_attending]
+                                     :educations_attributes => [:id, :degree, :start_date, :completion_date, :institute_name,
+                                      :still_attending, :_destroy],
+                                     :experiences_attributes => [:id, :company, :position, :to_date, 
+                                      :from_date, :still_attending, :_destroy]
                                      )
 	end
 end

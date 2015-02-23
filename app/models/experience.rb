@@ -15,4 +15,6 @@
 
 class Experience < ActiveRecord::Base
 	belongs_to :teacher, :class_name => "Employee", :foreign_key => :teacher_id
+
+	# validates_presence_of :company, :position, :from_date, :still_attending
 end

@@ -11,16 +11,18 @@ jQuery ->
           #alert 'success'
       
 jQuery ->
-  $("#student_date_of_birth").datetimepicker
-    pickTime: false
+  $("#student_date_of_birth").datepicker
+    format: 'yyyy-mm-dd'
+    todayHighlight: true
 
   $("#student_date_of_birth")
     .on 'change', (e) ->
       $('form').data('bootstrapValidator').revalidateField 'student[date_of_birth]'
       return
 
-  $("#student_joining_date").datetimepicker
-    pickTime: false
+  $("#student_joining_date").datepicker
+    format: 'yyyy-mm-dd'
+    todayHighlight: true
 
 
   $("#student_joining_date")

@@ -16,5 +16,5 @@
 class Education < ActiveRecord::Base
 	belongs_to :teacher, :class_name => "Employee", :foreign_key => :teacher_id
 
-	# validate_presence_of :institute_name, :deg
+	# validates_presence_of :institute_name, :degree, :start_date, :still_attending
 end

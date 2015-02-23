@@ -10,6 +10,16 @@
   content: '';
 }
 
+.btn:hover, .btn:focus, .btn.focus {
+  
+  text-decoration: none;
+}
+.btn-default:hover, .btn-default:focus {
+  background-color: #D7D7D7 !important;
+  background-position: 0 -15px !important;
+  color: #8B8585 !important;
+}
+
 /*Classes Periods*/
 
 .label-sunset {

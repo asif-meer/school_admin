@@ -50,10 +50,12 @@ class Employee < ActiveRecord::Base
   # has_many :periods
 
   has_many :educations, :foreign_key => :teacher_id, dependent: :destroy
-  accepts_nested_attributes_for :educations
 
   has_many :experiences, :foreign_key => :teacher_id, dependent: :destroy
-  accepts_nested_attributes_for :experiences
+  accepts_nested_attributes_for :experiences, :allow_destroy => true
+  accepts_nested_attributes_for :educations, :allow_destroy => true
+  # , reject_if: lamda {|a| a["institute_name"].blank?}
+  # , reject_if: lamda {|a| a["company"].blank?}
 
   scope :teachers , -> { joins(:employee_position).where(employee_positions: {:name => "Teacher"}) }
 

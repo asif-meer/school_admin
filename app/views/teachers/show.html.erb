@@ -61,12 +61,51 @@
     <!--/col-3-->
     <div class="col-sm-9" contenteditable="false" style="">
       <div class="panel panel-default">
-        <div class="panel-heading"><%= @teacher.to_s %> Experience</div>
-        <div class="panel-body"> <%= @teacher.total_experience %>
+        <div class="panel-heading"><%= @teacher.to_s %> Qualification</div>
+        <div class="panel-body">
+          <div class="row">
+            <% @teacher.educations.each do |edu| %>
+              <div class='col-md-6'>
+                <ul class="list-group">
+                  <!-- <li class="list-group-item text-muted" contenteditable="false">Past Experience</li> -->
+                  <li class="list-group-item text-right"><span class="pull-left"><strong class="">Institute/School Name</strong></span> <%= edu.institute_name %></li>
+                  <li class="list-group-item text-right"><span class="pull-left"><strong class="">Degree</strong></span> <%= edu.degree %></li>
+                  <li class="list-group-item text-right"><span class="pull-left"><strong class="">Start Date</strong></span><%= edu.start_date.strftime("%b, %y") %></li>
+                  <% if edu.still_attending == true %>
+                    <li class="list-group-item text-right"><span class="pull-left"><strong class=""></strong></span>Present</li>
+                  <% else %>
+                    <li class="list-group-item text-right"><span class="pull-left"><strong class="">Completion Date</strong></span><%= edu.completion_date.strftime("%b, %y") %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading"><%= @teacher.to_s %>'s Experience</div>
+        <div class="panel-body">
+          <div class="row">
+            <% @teacher.experiences.each do |exp| %>
+              <div class='col-md-6'>
+                <ul class="list-group">
+                  <!-- <li class="list-group-item text-muted" contenteditable="false">Past Experience</li> -->
+                  <li class="list-group-item text-right"><span class="pull-left"><strong class="">Company</strong></span> <%= exp.company %></li>
+                  <li class="list-group-item text-right"><span class="pull-left"><strong class="">Position</strong></span> <%= exp.position %></li>
+                  <li class="list-group-item text-right"><span class="pull-left"><strong class="">From</strong></span><%= exp.from_date.strftime("%b, %y") %></li>
+                  <% if exp.still_attending == true %>
+                    <li class="list-group-item text-right"><span class="pull-left"><strong class=""></strong></span>Present</li>
+                  <% else %>
+                    <li class="list-group-item text-right"><span class="pull-left"><strong class="">To</strong></span><%= exp.to_date.strftime("%b, %y") %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+          </div>
         </div>
       </div>
       <div class="panel panel-default target">
-        <div class="panel-heading" contenteditable="false">Pets I Own</div>
+        <div class="panel-heading" contenteditable="false"></div>
         <div class="panel-body">
           <div class="row">
             <div class="col-md-4">
@@ -117,11 +156,7 @@
           </div>
         </div>
       </div>
-      <div class="panel panel-default">
-        <div class="panel-heading">Starfox221's Bio</div>
-        <div class="panel-body"> A long description about me.
-        </div>
-      </div>
+      
     </div>
     <div id="push"></div>
   </div>

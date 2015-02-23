@@ -416,7 +416,8 @@ $(function() {
                 notEmpty: {
                     message: 'Joining Date cannot be empty'
                 },
-                birthday: {
+                date: {
+                    format: 'YYYY-MM-DD',
                     message: 'Joining Date is not valid'
                 }
             }
@@ -440,8 +441,9 @@ $(function() {
                 notEmpty: {
                     message: 'Date of  Birth cannot be empty'
                 },
-                birthday: {
-                    message: 'Joining Date is not valid'
+                date: {
+                    format: 'YYYY-MM-DD',
+                    message: 'Date of birth is not valid'
                 }
             }
         },

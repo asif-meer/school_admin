@@ -41,37 +41,74 @@
           <%= f.input :email, input_html: {class: "form-control"}, placeholder: "Email Address" %>
         </div>
       </fieldset>
+
     </div>
     <div class="col-sm-6">
-      <h3>Employee Information:</h3>
+      
+      <h3>Teacher Details:</h3>
       <fieldset>
         <div class="form-inputs">
           <%= f.input :employee_number, input_html: {class: "form-control"}, placeholder: "Employee Number", as: :integer %>
         </div>
 
         <div class="form-inputs">
-          <%#= f.label :joining_date, required: true %>
           <%= f.input :joining_date, input_html: {class: "form-control", :data => {'date-format' => 'YYYY/MM/DD'}}, placeholder: "Joining Date", :as => :string %>
         </div>
-        <!-- <div class="form-inputs">
-          <%#= f.input :department_id, Department.all.map{|m| [m.name, m.id]}, class: "form-control", autofocus: true, prompt: "Choose a Department" %>
-        </div> -->
+
         <div class="form-inputs">
           <%= f.input :job_title, input_html: {class: "form-control"}, placeholder: "Job Title" %>
         </div>
       </fieldset>
-
-      <!-- <h3>Qualification and Experience:</h3> -->
+      <fieldset>
+        <legend>Teacher Picture</legend>
+        <%= render :partial => 'teacher_avatar', locals: {:f => f} %>
+      </fieldset>
       
-      <h3>Profile Picture</h3>
-      <%= render :partial => 'teacher_avatar', locals: {:f => f} %>
+      
     </div>
   </div>
-        
+  <div class="panel panel-default">
+    <div class="panel-heading"><strong>Education:</strong></div>
+    <div class="panel-body">
+      <div class="row">
+      <div class="col-md-6">
+        <h3>Qualification:</h3>
+        <fieldset>
+          <div class="form-inputs">
+            <%= f.simple_fields_for :educations  do |builder| %>    
+               <fieldset>
+                <%= render "education_fields",  :f => builder  %>
+              </fieldset>
+            <% end %>
+            <%= link_to_add_fields_assocaitions 'Add Fields', f, :educations %>
+          </div>
+        </fieldset>
+      </div>
+      <div class="col-md-6">
+        <h3>Experience:</h3>
+        <fieldset>
+          <div class="form-inputs">
+            <%= f.simple_fields_for :experiences  do |builder| %>    
+               <fieldset>
+                <%= render "experience_fields",  :f => builder  %>
+              </fieldset>
+            <% end %>
+            <%= link_to_add_fields_assocaitions 'Add Fields', f, :educations %>
+          </div>
+        </fieldset>
+      </div>
+      </div>
+    </div>
+  </div>
   <div class="form-group"></div>
 
   <div class="form-actions">
-    <%= f.submit "Submit", class: "btn btn-primary" %>
+    <div class="panel panel-default">
+      <div class="panel-footer">
+        <%= f.submit "Update", class: "btn btn-primary" %>
+        <%= link_to 'Cancel', teachers_path, class: "btn btn-default", style: "color:#8B7C7C;" %>
+      </div>
+    </div>
   </div>
   
 <% end %>

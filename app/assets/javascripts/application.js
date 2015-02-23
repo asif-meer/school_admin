@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery-ui
 //= require jquery_ujs
+//= require cocoon
 //= require bootstrapValidator.min
 //= require moment
 //= require bootstrap-datetimepicker
@@ -53,3 +54,30 @@ startBlockUI = function(obj) {
     }
   });
 };
+
+function add_fields(link, association, content) {
+  var new_id = new Date().getTime();
+  var regexp = new RegExp("new_" + association, "g");
+  $(link).up().insert({
+        before: content.replace(regexp, new_id)
+  });
+}
+$(function() {
+   function check_to_hide_or_show_add_link() {
+     if ($('#educations .nested-fields').length == 1) {
+       $('#educations .links a').hide();
+     } else {
+       $('#educations .links a').show();
+     }
+   }
+
+   $('#educations').bind('cocoon:after-insert', function() {
+     check_to_hide_or_show_add_link();
+   });
+
+   $('#educations').bind('cocoon:after-remove', function() {
+     check_to_hide_or_show_add_link();
+   });
+
+   check_to_hide_or_show_add_link();     
+ });
