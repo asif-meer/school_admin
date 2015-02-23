@@ -19,7 +19,7 @@ class AdmissionController < ApplicationController
   def create
     add_breadcrumb "Students", students_path
     add_breadcrumb "New Admission"
-    @session = Session.where("DATE() >= start_date AND DATE() <= end_date").first
+    @session = Session.where("? >= start_date AND ? <= end_date", DateTime.now, DateTime.now).first
     @student = @session.students.build(admission_params)
     respond_to do |format|
       # @student.roll_number = @student.generate_roll_number

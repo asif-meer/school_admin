@@ -14,11 +14,6 @@
   </div>
 
   <hr />  
-  <script src="//cdn.datatables.net/1.10.5/js/jquery.dataTables.min.js"></script>
-  <script src="//cdn.datatables.net/plug-ins/f2c75b7247b/integration/bootstrap/3/dataTables.bootstrap.js"></script>
-  <link rel="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
-  <link rel="//cdn.datatables.net/plug-ins/f2c75b7247b/integration/bootstrap/3/dataTables.bootstrap.css" />
-  <link rel="//cdn.datatables.net/responsive/1.0.4/css/dataTables.responsive.css" />
   <style type="text/css">
     body { font-size: 140% }
  
@@ -39,6 +34,7 @@
               }
             }
           } );
+          $(".out_responsive_table").html("");
         <% else %>
           $('#example').dataTable();
         <% end %>
@@ -54,7 +50,7 @@
         <thead class="cf">
             <tr>
               
-              <th class="out_responsive_table">Mark All <input type="checkbox" id="select_all"/></th>
+              <th class="out_responsive_table col-md-1">Mark All <input type="checkbox" id="select_all"/></th>
               <th>Name</th>
               <th>Gender</th>
               <th>Job title</th>
