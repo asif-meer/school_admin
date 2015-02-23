@@ -19,7 +19,7 @@ $ ->
 $(document).ajaxStart ->
   $.blockUI({ message: "<h2><span class='glyphicon glyphicon-refresh glyphicon-refresh-animate'></span>Loading...</h2>" });
 
-#$(document).ajaxStop($.unblockUI);
+$(document).ajaxStop($.unblockUI);
 
 
   
