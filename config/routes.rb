@@ -151,7 +151,11 @@ Rails.application.routes.draw do
   end
 
   #Timetable
-  resources :time_table, only: [:index]
+  resources :time_table, only: [:index] do
+    collection do
+      get 'view'
+    end
+  end
 
   # Departments
   resources :departments

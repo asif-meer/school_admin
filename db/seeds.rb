@@ -83,7 +83,7 @@ puts "creating batches..."
 # Subjects
 puts "creating subjects"
 Subject.find_or_create(:title => "Physics", :short_name => "Phy")
-Subject.find_or_create(:title => "English Basics", :short_name => "En(B)")
+Subject.find_or_create(:title => "English Basics", :short_name => "En(B)", color: "#3636c7")
 Subject.find_or_create(:title => "Maths", :short_name => "Ma")
 Subject.find_or_create(:title => "Advanced Science", :short_name => "Sci(Adv)")
 Subject.find_or_create(:title => "Basics Science", :short_name => "Sci(B)")
