@@ -517,20 +517,20 @@
         ]
     });
 
-    // Morris.Donut({
-    //     element: 'morris-donut-chart',
-    //     data: [{
-    //         label: "Teachers",
-    //         value: <%= Employee.teachers.count %>
-    //     }, {
-    //         label: "Students",
-    //         value: <%= Student.all.count %>
-    //     }, {
-    //         label: "Classes",
-    //         value: <%= SchoolClass.all.count %>
-    //     }],
-    //     resize: true
-    // });
+    Morris.Donut({
+        element: 'morris-donut-chart',
+        data: [{
+            label: "Teachers",
+            value: <%= Employee.teachers.count %>
+        }, {
+            label: "Students",
+            value: <%= Student.all.count %>
+        }, {
+            label: "Classes",
+            value: <%= SchoolClass.all.count %>
+        }],
+        resize: true
+    });
   });
 
 </script>
