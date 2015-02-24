@@ -124,8 +124,13 @@
                   <div class="form-inputs">
                     <%= f.simple_fields_for :educations  do |builder| %>
                       <%= render "education_fields",  :f => builder %>
+                      <%= link_to_add_association f, :educations, class: "btn btn-success pull-right" do %>
+                        <i class="glyphicon glyphicon-plus"></i>Add Fields
+                      <% end %>
                     <% end %>
-                    <%= link_to_add_fields_assocaitions 'Add Fields', f, :educations %><br /><br />
+                    <%#= link_to_add_fields_assocaitions 'Add Fields', f, :educations %>
+                    
+                    <br /><br />
                   </div>
               </div>
               <div class="tab-pane" id="tab5">
@@ -134,8 +139,11 @@
 
                   <%= f.simple_fields_for :experiences  do |builder| %> 
                       <%= render "experience_fields",  :f => builder  %>
+                      <%= link_to_add_association f, :experiences, class: "btn btn-success pull-right" do %>
+                        <i class="glyphicon glyphicon-plus"></i>Add Fields
+                      <% end %>
                   <% end %>
-                  <%= link_to_add_fields_assocaitions 'Add Fields', f, :experiences %>
+                  <%#= link_to_add_fields_assocaitions 'Add Fields', f, :experiences %>
                   <br /><br />
                 </div>
               </div>

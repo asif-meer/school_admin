@@ -151,11 +151,17 @@ Rails.application.routes.draw do
   end
 
   #Timetable
-  resources :time_table, only: [:index] do
-    collection do
-      get 'view'
-    end
-  end
+  # resources :time_table do
+  #   collection do
+  #     get 'view'
+  #     get 'allocate_subjects'
+  #   end
+  # end
+
+  get "/time_table", to: "time_table#index", as: :time_table
+  get "/time_table/view", to: "time_table#view"
+  get "/time_table/allocate_subjects", to: "time_table#allocate_subjects"
+  get "/time_table/pdf/:class_name", to: "time_table#pdf_time_table", as: :pdf_time_table
 
   # Departments
   resources :departments

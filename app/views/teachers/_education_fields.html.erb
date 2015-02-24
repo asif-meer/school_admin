@@ -3,13 +3,13 @@
 		<div class="col-md-6">
 			<%= f.input :institute_name, input_html: {class: "form-control"}, placeholder: "Institute" %>
 			<%= f.input :degree, input_html: {class: "form-control"}, placeholder: "Degree" %>
-			<%= f.input :start_date, input_html: {class: "form-control", :data => {'date-format' => 'YYYY/MM/DD'}}, placeholder: "Start Date", :as => :string %>
+			<%= f.input :start_date, input_html: {class: "form-control start_date", :data => {'date-format' => 'YYYY/MM/DD'}}, placeholder: "Start Date", :as => :string %>
 		</div>
 		<div class="col-md-6">
 			<div id="employee_education_completion_date">
-				<%= f.input :completion_date, input_html: {class: "form-control", :data => {'date-format' => 'YYYY/MM/DD'}}, placeholder: "Completion Date", :as => :string %>
+				<%= f.input :completion_date, input_html: {class: "form-control complete_date", :data => {'date-format' => 'YYYY/MM/DD'}}, placeholder: "Completion Date", :as => :string %>
 			</div>
-			<%= f.input :still_attending, as: :radio_buttons %>
+			<%= f.input :still_attending, input_html: {:id => "education_still_attending"}, as: :radio_buttons %>
 			<%=hidden_field_tag "teacher_education", @teacher.id %>
 		</div>
 	</div>
@@ -23,21 +23,30 @@
 	$(function(){
 		$("input[name='employee[educations_attributes][0][still_attending]']").change(function(){
 			if ($(this).val() === 'true') {
-				$("#employee_education_completion_date").hide();
+				$("input[name='employee[educations_attributes][0][completion_date]']").hide();
 				$("input[name='employee[educations_attributes][0][completion_date]']").val("");
 			}
 			else if($(this).val() === 'false'){
-				$("#employee_education_completion_date").show();
+				$("input[name='employee[educations_attributes][0][completion_date]']").show();
 			}
 		})
 
+		$(".complete_date").datepicker({
+			format: "yyyy-mm-dd",
+			todayHighlight: true
+		});
+
+		$(".start_date").datepicker({
+			format: "yyyy-mm-dd",
+			todayHighlight: true
+		});
 		
 		
 
 		<% if @teacher.educations.first.still_attending == true %>
-			$("#employee_education_completion_date").hide();
+			$("input[name='employee[educations_attributes][0][completion_date]']").hide();
 		<% else %>
-			$("#employee_education_completion_date").show();
+			$("input[name='employee[educations_attributes][0][completion_date]']").show();
 		<% end %>
 
 

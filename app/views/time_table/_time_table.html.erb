@@ -1,6 +1,6 @@
 <% if @class.present? %>
 	<h3>Class <%=  @class.class_name  %> Time Table</h3>
-	
+	<%= link_to "Printable Time Table", pdf_time_table_path(@class.class_name)%>
 <% end %>
 
 <table class="table table-striped">
@@ -13,8 +13,8 @@
 			<td></td>
 			<% Period.all.each do |period| %>
 				<td class="period_no col-md-1">
-					<%= period.name %><br />
-					<span><%= period.start_time.strftime("%I:%M %p") %>-<%= period.end_time.strftime("%I:%M %p") %></span>
+					(<%= period.name %>)<br />
+					<p style="line-height: 95%;margin-top: 3px;"><%= period.start_time.strftime("%I:%M %p") %><br />&dash;<br /><%= period.end_time.strftime("%I:%M %p") %></p>
 				</td>
 			<% end %>
 		</tr>

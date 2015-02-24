@@ -4,11 +4,11 @@
 			<%= f.input :company, input_html: {class: "form-control"}, placeholder: "Company" %>
 
 			<%= f.input :position, input_html: {class: "form-control"}, placeholder: "Position" %>
-			<%= f.input :from_date, input_html: {class: "form-control", :data => {'date-format' => 'YYYY/MM/DD'}}, placeholder: "From Date", :as => :string %>
+			<%= f.input :from_date, input_html: {class: "form-control from-date", :data => {'date-format' => 'YYYY/MM/DD'}}, placeholder: "From Date", :as => :string %>
 		</div>
 		<div class="col-md-6">
 		<div id="employee_experience_to_date">
-			<%= f.input :to_date, input_html: {class: "form-control", :data => {'date-format' => 'YYYY/MM/DD'}}, placeholder: "To Date", :as => :string, label: "To Date" %>
+			<%= f.input :to_date, input_html: {class: "form-control to-date", :data => {'date-format' => 'YYYY/MM/DD'}}, placeholder: "To Date", :as => :string, label: "To Date" %>
 		</div>
 			<%= f.input :still_attending, as: :radio_buttons %>
 			<%=hidden_field_tag "teacher_experience", @teacher.id %>
@@ -24,18 +24,28 @@
 	$(function(){
 		$("input[name='employee[experiences_attributes][0][still_attending]']").change(function(){
 			if ($(this).val() === 'true') {
-				$("#employee_experience_to_date").hide();
+				$("input[name='employee[experiences_attributes][0][to_date]']").hide();
 				$("input[name='employee[experiences_attributes][0][to_date]']").val("");
 			}
 			else if($(this).val() === 'false'){
-				$("#employee_experience_to_date").show();
+				$("input[name='employee[experiences_attributes][0][to_date]']").show();
 			}
 		})
 
+		$(".from-date").datepicker({
+			format: "yyyy-mm-dd",
+			todayHighlight: true
+		});
+
+		$(".to-date").datepicker({
+			format: "yyyy-mm-dd",
+			todayHighlight: true
+		});
+
 		<% if @teacher.experiences.first.still_attending == true %>
-			$("#employee_experience_to_date").hide();
+			$("input[name='employee[experiences_attributes][0][to_date]']").hide();
 		<% else %>
-			$("#employee_experience_to_date").show();
+			$("input[name='employee[experiences_attributes][0][to_date]']").show();
 		<% end %>
 	});
 </script>

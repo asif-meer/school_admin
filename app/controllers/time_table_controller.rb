@@ -10,13 +10,18 @@ class TimeTableController < ApplicationController
 		@week_days = WeekDay.all
 		@class = SchoolClass.find_by_class_name(params[:school_class_name])
 		@subjects = Subject.all
-		# respond_to do |format|
-  #     # format.html { redirect_to classes_url }
-  #     format.json { head :no_content }
-  #     format.js   { render :layout => false }
-  #   end
     respond_to do |format|
       format.js
     end
+	end
+
+	def pdf_time_table
+		@class = SchoolClass.find_by_class_name(params[:class_name])
+		@week_days = WeekDay.all
+		@subjects = Subject.all
+	end
+
+	def allocate_subjects
+		
 	end
 end
