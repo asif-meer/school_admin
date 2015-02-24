@@ -1,12 +1,3 @@
- 
-<!-- <script src="jQuery.print.js"></script> -->
-<script type="text/javascript">
-	$(function(){
-		$('.pdf').find(".print").on('click', function() {
-			$.print(".pdf")
-		});
-	})
-</script>
 <div class="pdf">
 	<% if @class.present? %>
 		<h3>Class <%=  @class.class_name  %> Time Table</h3>
