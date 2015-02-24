@@ -194,7 +194,7 @@
                     <i class="fa fa-bar-chart-o fa-fw"></i> Donut Chart
                 </div>
                 <div class="panel-body">
-                    <!-- <div id="morris-donut-chart"></div> -->
+                    <div id="morris-donut-chart"></div>
                     <!-- <a href="#" class="btn btn-default btn-block">View Details</a> -->
                 </div>
                 <!-- /.panel-body -->
@@ -517,20 +517,20 @@
         ]
     });
 
-    // Morris.Donut({
-    //     element: 'morris-donut-chart',
-    //     data: [{
-    //         label: "Teachers",
-    //         value: <%= Employee.teachers.count %>
-    //     }, {
-    //         label: "Students",
-    //         value: <%= Student.all.count %>
-    //     }, {
-    //         label: "Classes",
-    //         value: <%= SchoolClass.all.count %>
-    //     }],
-    //     resize: true
-    // });
+    Morris.Donut({
+        element: 'morris-donut-chart',
+        data: [{
+            label: "Teachers",
+            value: <%= Employee.teachers.count %>
+        }, {
+            label: "Students",
+            value: <%= Student.all.count %>
+        }, {
+            label: "Classes",
+            value: <%= SchoolClass.all.count %>
+        }],
+        resize: true
+    });
   });
 
 </script>
