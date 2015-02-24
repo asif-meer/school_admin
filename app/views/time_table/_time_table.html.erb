@@ -1,13 +1,13 @@
 <script type="text/javascript">
-	// $(function(){
-	// 	$('.pdf').find(".print").on('click', function() {
-	// 		$.print(".pdf")
-	// 	});
-	// })
+	$(function(){
+		$('.pdf').find(".print").on('click', function() {
+			$.print(".pdf")
+		});
+	})
 </script>
 <div class="pdf">
 	<% if @class.present? %>
-		<%#= link_to "Printable Time Table", "#", class: "print" %>
+		<%= link_to "Printable Time Table", "#", class: "print" %>
 		<h3>Class <%=  @class.class_name  %> Time Table</h3>
 	<% end %>
 
