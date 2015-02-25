@@ -1,3 +1,4 @@
+
 <div class="row">
 	<div class='col-md-12'>
 		<h2>
@@ -19,10 +20,11 @@
       </div>
       <div class="panel-body">
         <%= form_tag "#", method: "", id: "time_table_form" do %>
-					<%= select_tag :search_class, options_for_select(SchoolClass.all.collect{|m| [m.class_name, m.class_name]}, :selected => params[:search_class]), :class => 'form-control', prompt: "--Select--"  %>
+					<%= select_tag :search_class, options_for_select(SchoolClass.all.collect{|m| [m.class_name, m.class_name]}, :selected => @class.blank? ? "" : @class.class_name), :class => 'form-control', prompt: "--Select--"  %>
 					<br />
 	        <%= submit_tag "View", :name => nil, :class => "btn btn-info", id: "find_time_table" %>
 				<% end %>
+				<%#=hidden_field_tag "period_id", @class.id%>
       </div>
     </div>
   	

@@ -162,6 +162,9 @@ Rails.application.routes.draw do
   get "/time_table/view", to: "time_table#view"
   get "/time_table/allocate_subjects", to: "time_table#allocate_subjects"
   get "/time_table/pdf/:class_name", to: "time_table#pdf_time_table", as: :pdf_time_table
+  post "/time_table/:class_name/update/:period_id", to: "time_table#update", as: :update_time_table
+  post "/time_table/:class_name/remove_subject/:period_id", to: "time_table#remove_subject", as: :remove_subject
+
 
   # Departments
   resources :departments

@@ -15,7 +15,7 @@
                       <ul>
                         <li>
                         	<% if @class.lessons.includes(:week_day, :period).where('week_day_id = ? AND period_id = ?', week_day, period).each do |class_subject| %>
-	                        	<a href="/subjects/list" data-toggle="tooltip" data-placement="top" title="Visit Subjects Page"><span><%= image_tag("glyphicons-412-package.png", class: "glyphicon_image") %> Subjects</span> &ndash; <%= class_subject.subject.title %> <span class="class_details_subject_tree" style="background-color: <%= class_subject.subject.color %>;"><%= class_subject.subject.short_name %></span></a>
+	                        	<a href="/subjects/list" data-toggle="tooltip" data-placement="top" title="Visit Subjects Page"><span><%= image_tag("glyphicons-412-package.png", class: "glyphicon_image") %> Subjects</span> &ndash; <%= class_subject.subject.title unless class_subject.subject.blank? %> <span class="class_details_subject_tree" style="background-color: <%= class_subject.subject.color unless class_subject.subject.blank? %>;color: <%= class_subject.subject.blank? ? "#373737;" : "#fff;" %>"><%= class_subject.subject.blank? ? "N/A" : class_subject.subject.short_name %></span></a>
                         	<% end.empty? %>
                         		<a href="">&ndash;&ndash;&ndash;</a>
                         	<% end %>
