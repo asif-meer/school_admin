@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-class Session < ActiveRecord::Base
-=======
 # == Schema Information
 #
 # Table name: sessions
@@ -36,5 +33,4 @@ class Session < ActiveRecord::Base
   def self.find_or_create(attributes)
       Session.where(attributes).first || Session.create(attributes)
   end
->>>>>>> bae63b7b592d41b65ae4748748d344198f45160e
 end
