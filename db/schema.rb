@@ -11,7 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20150321113128) do
 
   create_table "active_admin_comments", force: true do |t|
@@ -38,10 +37,12 @@ ActiveRecord::Schema.define(version: 20150321113128) do
     t.datetime "updated_at"
   end
 
-<<<<<<< HEAD
   create_table "class_categories", force: true do |t|
     t.string   "name"
-=======
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "class_teachers", force: true do |t|
     t.integer  "school_class_id"
     t.integer  "teacher_id"
@@ -68,7 +69,6 @@ ActiveRecord::Schema.define(version: 20150321113128) do
     t.string   "short_name"
     t.boolean  "shared"
     t.string   "color"
->>>>>>> bae63b7b592d41b65ae4748748d344198f45160e
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -119,7 +119,7 @@ ActiveRecord::Schema.define(version: 20150321113128) do
   create_table "employee_attendences", force: true do |t|
     t.integer  "employee_id"
     t.date     "date"
-    t.integer  "label",       limit: 1
+    t.integer  "label",       limit: 1, default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -234,14 +234,8 @@ ActiveRecord::Schema.define(version: 20150321113128) do
   add_index "roles", ["name"], name: "index_roles_on_name"
 
   create_table "school_classes", force: true do |t|
-<<<<<<< HEAD
     t.string   "name"
     t.integer  "class_category_id"
-=======
-    t.string   "class_name"
-    t.string   "short_name"
-    t.string   "color"
->>>>>>> bae63b7b592d41b65ae4748748d344198f45160e
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -275,13 +269,8 @@ ActiveRecord::Schema.define(version: 20150321113128) do
 
   create_table "sessions", force: true do |t|
     t.string   "name"
-<<<<<<< HEAD
     t.date     "from_date"
     t.string   "to_date"
-=======
-    t.date     "start_date"
-    t.date     "end_date"
->>>>>>> bae63b7b592d41b65ae4748748d344198f45160e
     t.datetime "created_at"
     t.datetime "updated_at"
   end
