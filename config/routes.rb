@@ -26,7 +26,8 @@ Rails.application.routes.draw do
   match 'fees_particulars/new/:id' => 'fees_particulars#new', :via => :get, as: :new_fees_particulars
   match 'fees_particulars/create/:id' => 'fees_particulars#create', :via => :post, as: :create_fees_particulars
   match 'fees_particulars/update/:id' => 'fees_particulars#update', :via => :post, as: :update_fees_particulars
-  get 'home/index'
+  # get 'home/index'
+  root :to => "home#index"
 
   # match "/settings/" => 'home#settings', :as => :settings
 
@@ -121,14 +122,14 @@ Rails.application.routes.draw do
   match '/general/settings/update', to: 'school#update', :via => :post, as: :school_update
 
   ActiveAdmin.routes(self)
-  authenticated :user do
-    root :to => "home#index"
-  end
-  unauthenticated :user do
-    devise_scope :user do 
-      get "/" => "devise/sessions#new"
-    end
-  end
+  # authenticated :user do
+  #   root :to => "home#index"
+  # end
+  # unauthenticated :user do
+  #   devise_scope :user do 
+  #     get "/" => "devise/sessions#new"
+  #   end
+  # end
 
   devise_scope :user do
 
