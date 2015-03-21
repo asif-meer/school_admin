@@ -6,21 +6,35 @@ class EmployeesController < InheritedResources::Base
   end
 
   def index
+    @teacher_position = EmployeePosition.find_by_name("Teacher")
     @employees = Employee.all
     add_breadcrumb "Human Resources", human_resources_employees_path
     add_breadcrumb "Employees"
   end
 
-  def attendance
-    
-  end
-
   def new
     @employee = Employee.new
-
     add_breadcrumb "Human Resources", human_resources_employees_path
     add_breadcrumb "Employees", employees_path
     add_breadcrumb "New Employee"
+  end
+
+  def teacher_new
+    add_breadcrumb "Human Resources", human_resources_employees_path
+    add_breadcrumb "Employees", employees_path
+    add_breadcrumb "New Teacher"
+    @teacher = Employee.new
+    @teacher_position = EmployeePosition.find_by_name("Teacher")
+  end
+
+
+  def classes
+    add_breadcrumb "Human Resources", human_resources_employees_path
+    add_breadcrumb "Employees", employees_path
+    add_breadcrumb "Classes"
+    @teacher = Employee.find(params[:id])
+    @classes = SchoolClass.all
+    @classrooms = Classroom.all
   end
 
   def edit
@@ -33,6 +47,27 @@ class EmployeesController < InheritedResources::Base
     add_breadcrumb "Human Resources", human_resources_employees_path
     add_breadcrumb "Employees", employees_path
     add_breadcrumb "Details"
+    @teacher = Employee.find(params[:id])
+  end
+
+
+  def teacher_create
+    add_breadcrumb "Human Resources", human_resources_employees_path
+    add_breadcrumb "Employees", employees_path
+    add_breadcrumb "New Teacher"
+    @teacher_position = EmployeePosition.find_by_name("Teacher")
+    @teacher = @teacher_position.employees.build(employees_params)
+    if @teacher.save
+      flash[:notice] = "Teacher Created Successfully"
+      if SchoolClass.exists?(1) || Classroom.exists?(1)
+        redirect_to teacher_class_employees_path(@teacher)
+      else
+        redirect_to @teacher
+      end
+    else
+      flash[:notice] = @employee.errors.full_messages.to_sentence
+      render action: 'teacher_new'
+    end
   end
 
   def create
@@ -90,12 +125,28 @@ class EmployeesController < InheritedResources::Base
 
   def destroy
     @employee.destroy
+    respond_to do |format|
+      format.html { redirect_to employees_path }
+      flash[:alert] = "Employee Destroyed"
+      format.json { head :no_content }
+      format.js   { render :layout => false }
+    end
   end
 
   def remove_avatar
     @employee.avatar = nil
     @employee.save
     redirect_to employee_path(@employee)
+  end
+
+  def destroy_multiple
+    Employee.destroy(params[:employee_destroy_id])
+    flash[:notice] = "Employees were successfully destroyed."
+    respond_to do |format|
+      format.html { redirect_to employees_path }
+      format.json { head :no_content }
+      format.js   { render :layout => false }
+    end
   end
   
   private
@@ -111,6 +162,6 @@ class EmployeesController < InheritedResources::Base
   def employees_params
     params.require(:employee).permit(:first_name, :last_name, :date_of_birth, :gender, :employee_number,
                                      :joining_date, :job_title, :qualification, :total_experience, :present_address,
-                                     :perminent_address, :phone, :email, :department_id, :employee_position_id, :avatar)
+                                     :perminent_address, :phone, :email, :department_id, :avatar, :employee_position_id)
   end
 end

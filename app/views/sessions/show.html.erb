@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -17,3 +18,30 @@
 
 <%= link_to 'Edit', edit_session_path(@session) %> |
 <%= link_to 'Back', sessions_path %>
+=======
+<%= link_to 'Edit', edit_session_path(@session), class: "label label-info" %> |
+<%= link_to 'Back', sessions_path, class: "label label-default" %>
+<div class="panel panel-app">
+  <div class="panel-heading">
+    <h1>Session Detail</h1>
+  </div>
+  <div class="panel-body">
+    <table class="table table-bordered table-hover">
+      <tr>
+        <td><strong>Name: </strong></td>
+        <td><%= @session.name %></td>
+      </td>
+      <tr>
+        <td><strong>Start Date: </strong></td>
+        <td><%= @session.start_date %></td>
+      </tr>
+      <tr>
+        <td><strong>End Date: </strong></td>
+        <td><%= @session.end_date %></td>
+      </tr>
+    </table>
+  </div>
+</div>
+ 
+
+>>>>>>> bae63b7b592d41b65ae4748748d344198f45160e

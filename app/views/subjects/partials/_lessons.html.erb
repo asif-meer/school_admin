@@ -1,0 +1,26 @@
+<% if @subject.lessons.where(:week_day_id => week_day).each do |lesson| %>
+  <table class="table table-bordered table-hover">
+    <%= link_to "Remove", lesson_path(lesson), remote: true, :method => :delete, class: "label label-danger pull-right destroy_lesson", data: {confirm: "Are you sure?"} %>
+    <br />
+    <tr>
+      <td class="col-md-3"><strong>Class: </strong></td>
+      <td><%= lesson.school_class.class_name unless lesson.school_class.blank? %></td>
+    </tr>
+    <tr>
+      <td class="col-md-3"><strong>Classroom: </strong></td>
+      <td><%= lesson.classroom.classroom_name unless lesson.classroom.blank? %></td>
+    </tr>
+    <tr>
+      <td class="col-md-3"><strong>Period: </strong></td>
+      <td><%= lesson.period.name unless lesson.period.blank? %></td>
+    </tr>
+    <tr>
+      <td><strong>Teacher: </strong></td>
+      <td><%= lesson.teacher.to_s %></td>
+    </tr>
+  </table>
+<% end.empty? %>
+  <div class="alert alert-dismissable alert-info" style="margin:0px !important; padding: 4px 0px 4px 12px;">
+    <strong>No Lessons!</strong> assigned for <%= week_day.name %>.
+  </div>
+<% end %>

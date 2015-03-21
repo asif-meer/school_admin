@@ -40,6 +40,7 @@ class CoursesController < ApplicationController
         format.json { render :show, status: :created, location: @course }
       else
         format.html { render :new }
+        flash[:alert] = @course.errors.full_messages.to_sentence
         format.json { render json: @course.errors, status: :unprocessable_entity }
       end
     end

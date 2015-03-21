@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20150321113128) do
+=======
+ActiveRecord::Schema.define(version: 20150220135016) do
+>>>>>>> bae63b7b592d41b65ae4748748d344198f45160e
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -37,8 +41,37 @@ ActiveRecord::Schema.define(version: 20150321113128) do
     t.datetime "updated_at"
   end
 
+<<<<<<< HEAD
   create_table "class_categories", force: true do |t|
     t.string   "name"
+=======
+  create_table "class_teachers", force: true do |t|
+    t.integer  "school_class_id"
+    t.integer  "teacher_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "classroom_subjects", force: true do |t|
+    t.integer  "classroom_id"
+    t.integer  "subject_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "classroom_teachers", force: true do |t|
+    t.integer  "classroom_id"
+    t.integer  "teacher_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "classrooms", force: true do |t|
+    t.string   "classroom_name"
+    t.string   "short_name"
+    t.boolean  "shared"
+    t.string   "color"
+>>>>>>> bae63b7b592d41b65ae4748748d344198f45160e
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -58,6 +91,17 @@ ActiveRecord::Schema.define(version: 20150321113128) do
     t.datetime "updated_at"
   end
 
+  create_table "educations", force: true do |t|
+    t.string   "institute_name"
+    t.string   "degree"
+    t.date     "start_date"
+    t.date     "completion_date"
+    t.boolean  "still_attending", default: false
+    t.integer  "teacher_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "emergency_contacts", force: true do |t|
     t.string   "name"
     t.string   "phone"
@@ -67,10 +111,18 @@ ActiveRecord::Schema.define(version: 20150321113128) do
     t.datetime "updated_at"
   end
 
+  create_table "employee_attendances", force: true do |t|
+    t.integer  "employee_id"
+    t.date     "attendance_date"
+    t.string   "reason"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "employee_attendences", force: true do |t|
     t.integer  "employee_id"
     t.date     "date"
-    t.integer  "label",       limit: 1, default: 0
+    t.integer  "label",       limit: 1
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -84,7 +136,7 @@ ActiveRecord::Schema.define(version: 20150321113128) do
   create_table "employees", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "date_of_birth"
+    t.date     "date_of_birth",        limit: 255
     t.string   "gender"
     t.string   "employee_number"
     t.date     "joining_date"
@@ -107,6 +159,17 @@ ActiveRecord::Schema.define(version: 20150321113128) do
 
   add_index "employees", ["department_id"], name: "index_employees_on_department_id"
   add_index "employees", ["employee_position_id"], name: "index_employees_on_employee_position_id"
+
+  create_table "experiences", force: true do |t|
+    t.string   "company"
+    t.string   "position"
+    t.date     "from_date"
+    t.date     "to_date"
+    t.integer  "teacher_id"
+    t.boolean  "still_attending", default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "fees_categories", force: true do |t|
     t.string   "name"
@@ -141,6 +204,27 @@ ActiveRecord::Schema.define(version: 20150321113128) do
     t.integer  "fees_particular_id"
   end
 
+  create_table "lessons", force: true do |t|
+    t.integer  "subject_id"
+    t.integer  "period_id"
+    t.integer  "teacher_id"
+    t.integer  "school_class_id"
+    t.integer  "classroom_id"
+    t.integer  "week_day_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "periods", force: true do |t|
+    t.string   "name"
+    t.string   "short"
+    t.time     "start_time"
+    t.time     "end_time"
+    t.integer  "duration"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "roles", force: true do |t|
     t.string   "name"
     t.integer  "resource_id"
@@ -153,8 +237,14 @@ ActiveRecord::Schema.define(version: 20150321113128) do
   add_index "roles", ["name"], name: "index_roles_on_name"
 
   create_table "school_classes", force: true do |t|
+<<<<<<< HEAD
     t.string   "name"
     t.integer  "class_category_id"
+=======
+    t.string   "class_name"
+    t.string   "short_name"
+    t.string   "color"
+>>>>>>> bae63b7b592d41b65ae4748748d344198f45160e
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -164,6 +254,14 @@ ActiveRecord::Schema.define(version: 20150321113128) do
     t.text     "description"
     t.date     "start_date"
     t.date     "end_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "school_periods", force: true do |t|
+    t.integer  "period_id"
+    t.integer  "week_day_id"
+    t.integer  "school_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -180,8 +278,13 @@ ActiveRecord::Schema.define(version: 20150321113128) do
 
   create_table "sessions", force: true do |t|
     t.string   "name"
+<<<<<<< HEAD
     t.date     "from_date"
     t.string   "to_date"
+=======
+    t.date     "start_date"
+    t.date     "end_date"
+>>>>>>> bae63b7b592d41b65ae4748748d344198f45160e
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -209,6 +312,9 @@ ActiveRecord::Schema.define(version: 20150321113128) do
     t.date     "joining_date"
     t.integer  "course_id"
     t.integer  "batch_id"
+    t.string   "roll_number"
+    t.integer  "school_class_id"
+    t.integer  "session_id"
   end
 
   create_table "subject_allocations", force: true do |t|
@@ -230,9 +336,11 @@ ActiveRecord::Schema.define(version: 20150321113128) do
   create_table "subjects", force: true do |t|
     t.integer  "course_id"
     t.integer  "batch_id"
-    t.string   "subject_name"
+    t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "short_name"
+    t.string   "color"
   end
 
   create_table "users", force: true do |t|
@@ -275,5 +383,9 @@ ActiveRecord::Schema.define(version: 20150321113128) do
   end
 
   add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id"
+
+  create_table "week_days", force: true do |t|
+    t.string "name"
+  end
 
 end

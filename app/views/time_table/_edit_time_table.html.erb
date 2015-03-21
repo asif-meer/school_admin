@@ -1,0 +1,48 @@
+<div class="modal fade" id="edit_time_table_<%= time_table.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="margin-top:65px;">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title">Update Subject <%= for_subject.title unless for_subject.blank? %></h4>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for(time_table, url: update_time_table_path(with_class.class_name, time_table.period_id), label_errors: true, html: {:method => :post}) do |f| %>
+          <%#= f.error_notification %>
+          <%#= yield f %>
+          <div class="form-inputs">
+            <%= f.input :period_id, :input_html => {class: "form-control", value: time_table.period.name}, :disabled => true, as: :string  %>
+          </div>
+          <div class="form-inputs">
+            <%= f.input :teacher_id, :input_html => {class: "form-control", value: time_table.teacher.to_s}, :disabled => true, as: :string  %>
+          </div>
+
+          <div class="form-group"></div>
+          <div class="form-inputs">
+            <%= f.input :school_class_id, :input_html => {class: "form-control", value: with_class.class_name}, :disabled => true, as: :string  %>
+          </div>
+
+          <div class="form-group"></div>
+          <div class="form-inputs">
+            <%= f.input :classroom_id, collection: Classroom.all.map{|m| [m.classroom_name, m.id]}, :input_html => {class: "form-control"}, prompt: "Select Classroom"  %>
+          </div>
+
+          <div class="form-group"></div>
+          <div class="form-inputs">
+            <%= f.input :subject_id, collection: Subject.all.map{|m| [m.title, m.id]}, :input_html => {class: "form-control"}, prompt: "Select Classes" %>
+          </div>
+          
+          <div class="form-group"></div>
+
+          <div class="form-actions">
+            <%= f.submit "Save", class: "btn btn-primary" %> 
+          </div>
+          
+          <div class="form-group"></div>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" style="color:#4F4B4B;">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

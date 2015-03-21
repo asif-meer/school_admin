@@ -1,35 +1,127 @@
-<% if user_signed_in? %>
-  <div class="navbar navbar navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <%= link_to image_tag("small-user.png", :class => "navbar-toggle", :data => {:toggle => "collapse", :target => ".navbar-responsive-collapse"}) %>
-        <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button> -->
-        <% if user_signed_in? %>
-          <%= link_to 'Dashboard', root_path, class: 'navbar-brand' %>
+<nav id="myNavmenu" class="navmenu  navmenu-inverse navmenu-fixed-left offcanvas nav_collaspe" role="navigation">
+
+  <ul class="nav navbar-nav in_collaspe">
+    <li>
+      <%= link_to root_path do %>
+          <%= image_tag("glyphicons-332-dashboard.png") %>
+          <i class="glyphicon glyphicon-chevron-right"></i>
+          Dashboard
+      <% end %>
+    </li>
+
+    <li id="MainMenu">
+      <a href="#demo10" data-toggle="collapse" data-parent="#MainMenu">
+      <%= image_tag("glyphicons-264-bank.png") %>
+      <i class="glyphicon glyphicon-chevron-right"></i>Setup Institute</a>
+
+      <div class="collapse sub-nav" id="demo10">
+        
+        <%= link_to sessions_path, class: "list-group-item" do %>
+            <%= image_tag("glyphicons-58-history.png") %>
+            Sessions
+        <% end %>
+        <%= link_to students_path, class: "list-group-item" do %>
+            <%= image_tag("glyphicons-501-education.png") %>
+            Students
+        <% end %>
+        <%= link_to teachers_path, class: "list-group-item" do %>
+            <%= image_tag("glyphicons-25-parents.png") %>
+            Teachers
+        <% end %>
+        <%= link_to courses_path, class: "list-group-item" do %>
+            <%= image_tag("glyphicons-352-book-open.png") %>
+            Courses
+        <% end %>
+        <%#= link_to "Batches", batches_path, class: "list-group-item" %>
+        <%= link_to classrooms_path, class: "list-group-item" do %>
+            <%= image_tag("glyphicons-371-globe-af.png") %>
+            Classrooms
+        <% end %>
+        <%= link_to classes_path, class: "list-group-item" do %>
+            <%= image_tag("glyphicons-352-book-open.png") %>
+            Classes
+        <% end %>
+        <%= link_to periods_path, class: "list-group-item" do %>
+            <%= image_tag("glyphicons-577-uk-rat-r18.png") %>
+            Periods
+        <% end %>
+        <%= link_to list_subjects_path, class: "list-group-item" do %>
+            <%= image_tag("glyphicons-412-package.png") %>
+            Subjects
         <% end %>
       </div>
-      <div class="navbar-collapse collapse navbar-responsive-collapse">
-        <!-- <ul class="nav navbar-nav">
-          <%#= render "layouts/navigation_links" %>
-        </ul> -->
-        <ul class="nav navbar-nav navbar-right">
-          <% unless user_signed_in? %>
-          <% else %>
-            <li class="nav-icon"><%= image_tag("Folder-Users-icon.png") %></li>
-            <li><%= link_to 'Log out', destroy_user_session_path, :method=>'delete' %></li>
-            <!-- <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">School<span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><%#= link_to 'Settings', school_edit_path %></li>
-              </ul>
-            </li> -->
-          <% end %>
-        </ul>
-      </div>
+    </li>
+
+    
+    <li>
+        <%= link_to time_table_path do %>
+            <%= image_tag("glyphicons-530-list-alt.png") %>
+            <i class="glyphicon glyphicon-chevron-right"></i> 
+            Time Table
+        <% end %>
+    </li>
+    <li>
+        <%= link_to school_edit_path do %>
+            <%= image_tag("glyphicons-281-settings.png") %>
+            <i class="glyphicon glyphicon-chevron-right"></i> 
+            Preferences
+        <% end %>
+    </li>
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+      <%= image_tag("glyphicons-459-money.png", class: "fees") %>
+      <i class="glyphicon glyphicon-chevron-right"></i>Fees</a>
+      <ul class="dropdown-menu" role="menu">
+        <li><%= link_to "Fees Category", fees_categories_path %></li>
+        <li><%= link_to "Fees Period", fees_periods_path %></li>
+      </ul>
+    </li>
+    
+    <li>
+        <a href="#"><span class="badge pull-right">2,221</span> Messages</a>
+    </li>
+    <li>
+        <a href="#"><span class="badge pull-right">11</span> Reports</a>
+    </li>
+    <li>
+        <a href="#"><span class="badge pull-right">83</span> Errors</a>
+    </li>
+    <li>
+        <a href="#"><span class="badge pull-right">4,231</span> Logs</a>
+    </li>
+  </ul>
+</nav>
+<div class="navbar navbar-inverse navbar-fixed-top custom-navbar">
+  <div class="container">
+    <div class="navbar-header">
+      <%#= link_to image_tag("small.png", :class => "navbar-toggle", :data => {:toggle => "collapse", :target => ".navbar-responsive-collapse"}) %>
+      
+      <%# if user_signed_in? %>
+        <%#= link_to 'Dashboard', "#", class: 'navbar-brand' %>
+      <%# end %>
+      <button type="button" class="navbar-toggle pull-left nav_button" data-toggle="offcanvas" data-target="#myNavmenu" data-canvas="body">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="navbar-collapse collapse navbar-responsive-collapse">
+      <!-- <ul class="nav navbar-nav">
+        <%#= render "layouts/navigation_links" %>
+      </ul> -->
+      <ul class="nav navbar-nav navbar-right">
+        <% unless user_signed_in? %>
+        <% else %>
+          <li><%= link_to 'Log out', destroy_user_session_path, :method=>'delete' %></li>
+          <!-- <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">School<span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><%#= link_to 'Settings', school_edit_path %></li>
+            </ul>
+          </li> -->
+        <% end %>
+      </ul>
     </div>
   </div>
-<% end %>
+  
+</div>

@@ -12,3 +12,25 @@
 .nil {
   background-color:#ffff;
 }
+
+.dataTable_actions {
+	a {
+		padding:3px;
+	}
+}
+.wizard_nav > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+	color: #ffffff;
+	background-color: rgb(44, 182, 146) !important;
+}
+
+.wizard_nav > li > a {
+	background-color: transparent !important;
+}
+
+.wizard_nav {
+	padding: 5px;
+}
+
+.wizard_navbar {
+  min-height: 53px !important;
+}

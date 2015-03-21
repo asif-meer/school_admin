@@ -1,0 +1,66 @@
+<h3>Students</h3>
+<% if @batch.students.present? %>
+  <% for student in @batch.students %>
+    <div class="">
+      <table class="table table-striped table-bordered">
+        <tr>
+          <td class="col-sm-2"><strong>Profile Picture</strong></td>
+          <td><strong>Student Name: </strong></td>
+          <td><strong>Gender: </strong></td>
+          <td><strong>NIC: </strong></td>
+        </tr>
+        <tr>
+          <td>
+            <% unless student.avatar.present? %>
+              <%= image_tag("school.png", style: "height: 51px;") %>
+            <% else %>
+              <%= image_tag(student.avatar.url, style: "height: 51px; border-radius: 10px;") %>
+            <% end %>
+          </td>
+          <td>
+            <div class="dropdown dropup student_dropdown">
+              <button href="#" class="dropdown-toggle btn btn-link" data-toggle="dropdown"><%= student.to_s %> <b class=""></b></button>
+              <div class="dropdown-menu student_profile_hover" style="background-color:rgb(255, 255, 255);">
+                <table class="student_profile_table">
+                  <tr>
+                    <td>
+                      <% unless student.avatar.present? %>
+                        <%= image_tag("school.png", style: "height: 51px;") %>
+                      <% else %>
+                        <%= image_tag(student.avatar.url, style: "height: 51px;") %>
+                      <% end %>
+                    </td>
+                    <td>
+                      <h4 style="color:#000;"><%= student.to_s %></h4>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td><%= student.batch.batch_name %>-<%= student.course.course_name %></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td><%= student.gender %></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td><%= student.date_of_birth.strftime("%d %B, %Y") %></td>
+                    <td><%= link_to "View Profile", student,:class => "btn btn-primary btn-sm " %></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </td>
+          <td><%= student.gender %></td>
+          <td><%= student.nic %></td>
+        </tr>
+      </table>
+    </div>
+  <% end %>
+<% else %>
+  <div class="alert alert-dismissable alert-info" style="margin:0px !important;">
+    <strong>No Students!</strong> available in this Batch.
+  </div>
+<% end %>

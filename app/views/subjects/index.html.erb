@@ -1,12 +1,21 @@
-<div class="row">
-	<div class="col-sm-3">
-		<h1>
-			<%= link_to "Subjects", list_subjects_path %>
-		</h1>
-	</div>
-	<div class="col-sm-4">
-		<h1>
-			<%= link_to "Subjects Allocations", subject_allocations_path %>
-		</h1>
-	</div>
+<div class="col-md-2 dashboard-width">
+  <div class="subjects_dashboard dashboard-icon">
+    <%= link_to image_tag("subjects.png"), {:action => 'index', :controller => 'subjects'} %>
+    <br />
+    Subjects
+  </div>
+</div>
+<div class="col-md-9">
+	<ul>
+		<li>
+			<h1>
+				<%= link_to "Subjects", list_subjects_path %>
+			</h1>
+		</li>
+		<li>
+			<h1>
+				<%= link_to "Subjects Allocations", subject_allocations_path %>
+			</h1>
+		</li>
+	</ul>
 </div>

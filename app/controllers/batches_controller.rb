@@ -1,11 +1,15 @@
 class BatchesController < ApplicationController
   before_action :set_batch, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
-  
   # GET /batches
   # GET /batches.json
   def index
-    @batches = Batch.all
+    @batches = BatchSearch.search_batches(params)
+    # Return Batches after Search
+    # @batches.each do |m|
+    #   @course = m.course
+    # end
+    # @batches_update = @course.batches if @course.present?
     add_breadcrumb "Batches"
   end
 
@@ -14,7 +18,14 @@ class BatchesController < ApplicationController
   def show
     add_breadcrumb "Batches", batches_url
     add_breadcrumb "Details"
-    
+  end
+
+  def update_batches
+    @course = Course.find(params[:course_id])
+    @batches_update = @course.batches
+    respond_to do |format|
+      format.js
+    end
   end
 
   # GET /batches/new

@@ -20,9 +20,12 @@ class Batch < ActiveRecord::Base
 
   # validations
   validates_presence_of :batch_name
+  validates_uniqueness_of :batch_name
   validates_presence_of :start_date, :end_date
   validates_presence_of :course_id
   
+  validate :batch_name_validates
+
   def to_s
     batch_name
   end
@@ -30,4 +33,15 @@ class Batch < ActiveRecord::Base
   def self.find_or_create(attributes)
     Batch.where(attributes).first || Batch.create(attributes)
   end
+
+  def batch_name_validates
+    errors.add :base, "Batch name cannot be less than current year" if self.batch_name.to_i > Date.today.year
+  end
+
+  validate do |batch|
+    if batch.end_date && batch.start_date
+      errors.add :base, "End Date can't be less than Start Date" if batch.end_date < batch.start_date
+    end
+  end
+
 end

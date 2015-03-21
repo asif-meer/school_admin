@@ -1,0 +1,33 @@
+<% if @batches.present? %>
+  <table class= "table table-striped table-bordered table-hover ">
+    <thead >
+      <tr>
+        <th class="">Mark All <input type="checkbox" id="select_all"/></th>
+        <th class="col-sm-2">Name</th>
+        <th>Course</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th colspan="3" align="center">Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @batches.each do |batch| %>
+        <tr>
+          <td class="selectedId"><%= check_box_tag "batch_destroy_id[]", batch.id %></td>
+          <td><%= batch.batch_name %></td>
+          <td><%= batch.course %></td>
+          <td><%= batch.start_date.strftime("%d/%b/%Y") %></td>
+          <td><%= batch.end_date.strftime("%d/%b/%Y") %></td>
+          <td><%= link_to 'View Details', batch, class: "btn btn-link" %></td>
+          <td><%= link_to 'Edit', edit_batch_path(batch), class: "btn btn-link" %></td>
+          <td><%= link_to 'Destroy', batch, method: :delete, remote: true, data: { confirm: 'Are you sure?' }, class: "btn btn-link destroy_batch" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div class="alert alert-dismissable alert-info" style="margin:0px !important;">
+    <strong>No Batches!</strong> Available.
+  </div>
+<% end %>

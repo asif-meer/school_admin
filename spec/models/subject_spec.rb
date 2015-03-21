@@ -2,12 +2,14 @@
 #
 # Table name: subjects
 #
-#  id           :integer          not null, primary key
-#  course_id    :integer
-#  batch_id     :integer
-#  subject_name :string(255)
-#  created_at   :datetime
-#  updated_at   :datetime
+#  id         :integer          not null, primary key
+#  course_id  :integer
+#  batch_id   :integer
+#  title      :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#  short_name :string(255)
+#  color      :string(255)
 #
 
 # require 'rails_helper'

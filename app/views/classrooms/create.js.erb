@@ -1,0 +1,5 @@
+$('#new_classroom').bind('ajax:success', function() {
+    $("#notice").html("<%= escape_javascript(render :partial => 'layouts/messages' , :locals => { :flash => flash }).html_safe %>")
+    $("#list_of_classrooms").html("<%= escape_javascript(render :partial => 'list_classrooms') %>")
+    $(this).closest('form').find("input[type=text], textarea").val("");
+}); 

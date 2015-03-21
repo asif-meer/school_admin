@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: fees_particulars
+#
+#  id               :integer          not null, primary key
+#  fees_category_id :integer
+#  name             :string(255)
+#  description      :text
+#  all              :boolean          default(FALSE)
+#  roll_no          :string(255)
+#  batch_id         :integer
+#  amount           :string(255)
+#  created_at       :datetime
+#  updated_at       :datetime
+#
+
 class FeesParticular < ActiveRecord::Base
   belongs_to :fees_category
   has_many :fees_periods

@@ -1,0 +1,44 @@
+.for_periods, .periods {
+	a {
+		padding: 6px;
+		margin-bottom: 5px;
+	}
+	.destroy_period {
+		margin:3px;
+	}
+}
+
+//Time Table
+
+#time_table_week_days {
+	.heading {
+		text-align:center;
+		font-size: 16px;
+		font-weight: bold;
+	}
+}
+
+#time_table_periods {
+	.period_no {
+		text-align:center;
+		font-weight:bold;
+	}
+}
+
+
+
+.period_table {
+	padding:15px;
+	color: #4A4040;
+	a {
+		margin-left: 24px;
+	}
+	img {
+		border-radius: 44px;
+	}
+}
+
+.time_table_hover {
+	width: 260px !important;
+	padding: 12px !important;
+}

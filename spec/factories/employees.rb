@@ -5,8 +5,8 @@
 #  id                   :integer          not null, primary key
 #  first_name           :string(255)
 #  last_name            :string(255)
-#  date_of_birth        :string(255)
-#  gender               :string(1)
+#  date_of_birth        :date(255)
+#  gender               :string(255)
 #  employee_number      :string(255)
 #  joining_date         :date
 #  department_id        :integer
@@ -20,6 +20,10 @@
 #  email                :string(255)
 #  created_at           :datetime
 #  updated_at           :datetime
+#  avatar_file_name     :string(255)
+#  avatar_content_type  :string(255)
+#  avatar_file_size     :integer
+#  avatar_updated_at    :datetime
 #
 
 # Read about factories at https://github.com/thoughtbot/factory_girl

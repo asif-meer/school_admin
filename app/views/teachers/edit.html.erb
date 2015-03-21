@@ -1,0 +1,114 @@
+<h3>Edit Teacher</h3>
+<%= simple_form_for @teacher, url: update_teacher_path(@teacher), method: :post, label_errors: true, class: "form-horizontal", :html => {:multipart => true} do |f| %>
+  <%#= f.error_notification %>
+  <div class="row">
+    <div class="col-sm-6">
+      <h3>Bio:</h3>
+      <fieldset>
+        <div class="form-inputs">
+          <%= f.input :first_name, input_html: {class: "form-control"}, autofocus: true, placeholder: "First Name" %>
+        </div>
+
+
+        <div class="form-inputs">
+          <%= f.input :last_name, input_html: {class: "form-control"}, placeholder: "Last Name" %>
+        </div>
+
+        <div class="form-inputs">
+          <%= f.input :date_of_birth, input_html: {class: "form-control", :data => {'date-format' => 'YYYY/MM/DD'}}, placeholder: "Date of Birth", :as => :string %>
+        </div>
+
+        <div class="form-inputs">
+          <%= f.input :gender, collection: Employee::GENDER, as: :select, input_html: {class: "form-control"}, prompt: "Choose your Gender" %>
+        </div>
+      </fieldset>
+
+      <h3>Address:</h3>
+      <fieldset>
+        <div class="form-inputs">
+          <%= f.input :present_address, input_html: {class: "form-control"}, placeholder: "Current Address" %>
+        </div>
+
+        <div class="form-inputs">
+          <%= f.input :perminent_address, input_html: {class: "form-control"}, placeholder: "Permenent Address" %>
+        </div>
+
+        <div class="form-inputs">
+          <%=  f.input :phone, input_html: {class: "form-control"}, placeholder: "Contact Number" %>
+        </div>
+
+        <div class="form-inputs">
+          <%= f.input :email, input_html: {class: "form-control"}, placeholder: "Email Address" %>
+        </div>
+      </fieldset>
+
+    </div>
+    <div class="col-sm-6">
+      
+      <h3>Teacher Details:</h3>
+      <fieldset>
+        <div class="form-inputs">
+          <%= f.input :employee_number, input_html: {class: "form-control"}, placeholder: "Employee Number", as: :integer %>
+        </div>
+
+        <div class="form-inputs">
+          <%= f.input :joining_date, input_html: {class: "form-control", :data => {'date-format' => 'YYYY/MM/DD'}}, placeholder: "Joining Date", :as => :string %>
+        </div>
+
+        <div class="form-inputs">
+          <%= f.input :job_title, input_html: {class: "form-control"}, placeholder: "Job Title" %>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Teacher Picture</legend>
+        <%= render :partial => 'teacher_avatar', locals: {:f => f} %>
+      </fieldset>
+      
+      
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading"><strong>Education:</strong></div>
+    <div class="panel-body">
+      <div class="row">
+      <div class="col-md-6">
+        <h3>Qualification:</h3>
+        <fieldset>
+          <div class="form-inputs">
+            <%= f.simple_fields_for :educations  do |builder| %>    
+               <fieldset>
+                <%= render "education_fields",  :f => builder  %>
+              </fieldset>
+            <% end %>
+            <%= link_to_add_fields_assocaitions 'Add Fields', f, :educations %>
+          </div>
+        </fieldset>
+      </div>
+      <div class="col-md-6">
+        <h3>Experience:</h3>
+        <fieldset>
+          <div class="form-inputs">
+            <%= f.simple_fields_for :experiences  do |builder| %>    
+               <fieldset>
+                <%= render "experience_fields",  :f => builder  %>
+              </fieldset>
+            <% end %>
+            <%= link_to_add_fields_assocaitions 'Add Fields', f, :educations %>
+          </div>
+        </fieldset>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group"></div>
+
+  <div class="form-actions">
+    <div class="panel panel-default">
+      <div class="panel-footer">
+        <%= f.submit "Update", class: "btn btn-primary" %>
+        <%= link_to 'Cancel', teachers_path, class: "btn btn-default", style: "color:#8B7C7C;" %>
+      </div>
+    </div>
+  </div>
+  
+<% end %>

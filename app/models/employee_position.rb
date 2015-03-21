@@ -12,6 +12,8 @@ class EmployeePosition < ActiveRecord::Base
   # validations
   validates_presence_of :name
 
+  has_many :employees
+
   def to_s
     name
   end

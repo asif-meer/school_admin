@@ -1,0 +1,41 @@
+<% if @sessions.present? %>
+  <table class= "table table-striped">
+    <thead >
+      <tr>
+        <th class="col-sm-2">Name</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th align="center" colspan="3">Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @sessions.each do |session| %>
+        <tr>
+          <td><%= session.name %></td>
+          <td><%= session.start_date %></td>
+          <td><%= session.end_date %></td>
+          <td>
+            <%= link_to session do %>
+              <span class="glyphicon glyphicon-eye-open"></span>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to edit_session_path(session) do %>
+              <span class="glyphicon glyphicon-edit"></span>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to session, method: :delete, remote: true, data: { confirm: 'Are you sure?' }, class: "delete_session" do %>
+              <span class="glyphicon glyphicon-trash"></span>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div class="alert alert-dismissable alert-info" style="margin:0px !important;">
+    <strong>No Sessions!</strong> Available.
+  </div>
+<% end %>

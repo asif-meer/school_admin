@@ -1,0 +1,34 @@
+<fieldset>
+  <%= simple_form_for(@class, url: create_class_path, label_errors: true) do |f| %>
+    <%#= f.error_notification %>
+    <%= yield f %>
+    <div class="row">
+      <div class="col-md-6">
+    
+        <div class="form-inputs">
+          <%= f.input :class_name, input_html: {class: "form-control"}, autofocus: true, placeholder: "Class Name" %>
+        </div>
+
+
+        <div class="form-inputs">
+          <%= f.input :short_name, input_html: {class: "form-control"}, placeholder: "Short Name" %>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-inputs">
+          <%= f.input :color, as: :minicolors, input_html: {data: {
+              minicolors: {theme: :bootstrap}}} %>
+        </div>
+      </div>
+    </div>
+    <div class="form-group"></div>
+
+    <div class="form-actions">
+      <%= f.submit "Create", class: "btn btn-primary" %>
+      <%= link_to 'Cancel', classes_path, class: "btn btn-default", style: "color:#8B7C7C;" %>
+    </div>
+    
+    <div class="form-group"></div>
+      
+  <% end %>
+</fieldset>

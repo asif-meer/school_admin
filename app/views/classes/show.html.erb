@@ -1,0 +1,66 @@
+<%#= link_to 'Edit', edit_class_path(@class), class: "label label-info" %>
+<%= link_to 'Back', classes_path, class: "label label-default" %>
+<br /><br />
+<div class="row clearfix">
+	<div class="col-md-12 column">
+		<ul class="nav nav-tabs">
+			<li >
+				<a href="/" id="class_details_1" data-toggle="tooltip" data-placement="top" title="Details">Details</a>
+				<%=hidden_field_tag "details_class", @class.id%>
+			</li>
+			<li>
+				<a href="/" id="class_details_2" data-toggle="tooltip" data-placement="top" title="Assigned Lessons with Periods">Lessons</a>
+				<%=hidden_field_tag "details_class_2", @class.id %>
+			</li>
+			<li>
+				<a href="#">Add New Lesson</a>
+			</li>
+		</ul>
+		
+	</div>
+</div>
+<br />
+
+<script src="src/easyTree.js"></script>
+<div class="row">
+	<div class="col-md-12" id="classes_all_details">
+		<div id="class_details_tab_1">
+			<%= render :partial => "/classes/lessons/class_details" %>
+		</div>
+		<div id="class_details_tab_2">
+		</div>
+		<div id="class_details_tab_3">
+			<%= render :partial => "/classes/lessons/class_lesson_new" %>
+		</div>
+	</div>
+</div>
+<!-- <div class="col-md-4">
+      <div class="panel panel-success">
+        <%# s = WeekDay.all %>
+        <%# q = @subject %>
+        <%# s.map{|m| m.name } & q.periods.map{|m| m.week_day.name}  %>
+        <div class="panel-heading periods">
+          <h3 class="panel-title"><%#= week_day.name %></h3>
+          <%#= link_to "Assign","#", :id => '#new_lesson_for_'+week_day.name, "data-toggle" => "modal", 'data-target' => '#new_lesson_'+week_day.name, class: "label label-success pull-right" %>
+          <%#= render partial: "/lessons/new_lesson", locals: {:week_day => week_day} %>
+        </div>
+        <div class="panel-body">
+          <div id="subject_lesson_<%#= week_day.id %>" class="for_periods">
+            <%#= render partial: "/subjects/partials/lessons", locals: {:week_day => week_day} %>
+          </div>
+        </div>
+      </div>
+    </div> 
+  
+		<div class="panel panel-success">
+			<div class="panel-heading">
+				<h3 class="panel-title">
+					Panel title
+				</h3>
+			</div>
+			<div class="panel-body">
+			</div>
+			<div class="panel-footer">
+			</div>
+		</div>
+	</div> -->

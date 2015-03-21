@@ -1,0 +1,264 @@
+<%= bootstrap_form_for @teacher, url: create_teacher_employees_path(@teacher_position.id), label_errors: true, class: "form-horizontal", :html => {:multipart => true} do |f| %>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="panel panel-info bootstrap-admin-no-table-panel">
+        <div class="panel-heading">
+            <h4><strong>Create New Teacher</strong></h4>
+        </div>
+        <div class="bootstrap-admin-no-table-panel-content bootstrap-admin-panel-content collapse in">
+          <div id="rootwizard">
+            <div class="navbar">
+              <ul class="nav nav-pills wizard_nav">
+                <li><a href="#tab1" data-toggle="tab">Bio</a></li>
+                <li><a href="#tab2" data-toggle="tab">Address</a></li>
+                <li><a href="#tab3" data-toggle="tab">Employee Information</a></li>
+                <li><a href="#tab4" data-toggle="tab">Qualification</a></li>
+                <li><a href="#tab5" data-toggle="tab">Experience</a></li>
+                <li><a href="#tab6" data-toggle="tab">Avatar</a></li>
+              </ul>
+            </div>
+            <div id="bar" class="progress  progress-striped active">
+                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="tab-content">
+              <div class="tab-pane" id="tab1">
+                <h3>Bio:</h3>
+                <fieldset>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      
+                      <div class="form-inputs">
+                        <span class="validate_first_name" style="color:#000;"></span>
+                        <%= f.text_field :first_name, class: "form-control", autofocus: true, placeholder: "First Name", hide_label: :true %>
+                      </div>
+                      
+                      <div class="form-inputs">
+                        <span class="validate_last_name" style="color:#000;"></span>
+                        <%= f.text_field :last_name, class: "form-control", placeholder: "Last Name", hide_label: :true %>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-inputs">
+                        <span class="validate_date_of_birth" style="color:#000;"></span>
+                        <%= f.text_field :date_of_birth, class: "form-control", :data => {'date-format' => 'YYYY/MM/DD'}, as: :string, :placeholder => "Date of birth", hide_label: :true %>
+                      </div>
+                      <div class="form-inputs">
+                        <span class="validate_gender" style="color:#000;"></span>
+                        <%= f.select :gender, Employee::GENDER, class: "form-control", prompt: "Choose your Gender", hide_label: :true %>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+              <div class="tab-pane" id="tab2">
+                <h3>Address:</h3>
+                <fieldset>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-inputs">
+                        <span class="validate_present_address" style="color:#000;"></span>
+                        <%= f.text_area :present_address, input_html: {class: "form-control"}, placeholder: "Current Address", hide_label: :true %>
+                      </div>
+
+                      <div class="form-inputs">
+                        <%= f.text_area :perminent_address, input_html: {class: "form-control"}, placeholder: "Permenent Address", hide_label: :true %>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-inputs">
+                        <span class="validate_phone" style="color:#000;"></span>
+                        <%=  f.phone_field :phone, input_html: {class: "form-control"}, placeholder: "Contact Number", hide_label: :true %>
+                      </div>
+
+                      <div class="form-inputs">
+                        <span class="validate_email" style="color:#000;"></span>
+                        <%= f.email_field :email, input_html: {class: "form-control"}, placeholder: "Email Address", hide_label: :true %>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+              <div class="tab-pane" id="tab3">
+                <h3>Employee Information:</h3>
+                <fieldset>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-inputs">
+                        <span class="validate_employee_number" style="color:#000;"></span>
+                        <%= f.number_field :employee_number, input_html: {class: "form-control"}, placeholder: "Employee Number", hide_label: :true %>
+                      </div>
+
+                      <div class="form-inputs">
+                        <%#= f.label :joining_date, required: true %>
+                        <span class="validate_joining_date" style="color:#000;"></span>
+                        <%= f.text_field :joining_date, class: "form-control", :data => {'date-format' => 'YYYY/MM/DD'}, as: :string, :placeholder => "Joining Date", hide_label: :true %>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-inputs">
+                        <span class="validate_department" style="color:#000;"></span>
+                        <%= f.select :department_id, Department.all.map{|m| [m.name, m.id]}, class: "form-control", autofocus: true, prompt: "Choose a Department", hide_label: :true %>
+                      </div>
+                      <div class="form-inputs">
+                        <span class="validate_job_title" style="color:#000;"></span>
+                        <%= f.text_field :job_title, input_html: {class: "form-control"}, placeholder: "Job Title", hide_label: :true %>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+              <div class="tab-pane" id="tab4">
+                <h3>Qualification:</h3>
+                <fieldset>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-inputs">
+                        <span class="validate_qualification" style="color:#000;"></span>
+                        <%= f.text_field :qualification, class: "form-control", placeholder: "Qualification", hide_label: :true %>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+              <div class="tab-pane" id="tab5">
+                <h3>Experience:</h3>
+                <fieldset>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-inputs">
+                        <span class="employee_total_experience" style="color:#000;"></span>
+                        <%= f.text_field :total_experience, input_html: {class: "form-control"}, placeholder: "Total Experience", hide_label: :true %>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+              <div class="tab-pane" id="tab6">
+                <h3>Profile Avatar</h3>
+                <fieldset>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <%= render :partial => 'employee_picture', locals: {:f => f} %>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+              <ul class="pager wizard">
+                  <li class="previous first" style="display:none;"><a href="javascript:void(0);">First</a></li>
+                  <li class="previous"><a href="javascript:void(0);">Previous</a></li>
+                  <!-- <li class="next last" style="display:none;"><a href="javascript:void(0);">Last</a></li> -->
+                  <li class="next"><a href="javascript:void(0);">Next</a></li>
+                  <!-- <li class="next finish" style="display:none;"><a href="javascript:;">Finish</a></li> -->
+                  <li class="next finish" style="display:none;">
+                  <%#= link_to 'Submit', "", :onclick => "$('#new_employee').submit()" %><%= f.submit "Submit", class: "btn btn-primary pull-right" %>
+                  </li>
+                  
+              </ul>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+<!-- <script type="text/javascript" src="/assets/jquery.bootstrap.wizard.js"></script>
+<script type="text/javascript" src="/assets/jquery.bootstrap.wizard.min.js"></script> -->
+<script type="text/javascript">
+  $(function(){
+    var $validator = $("#new_employee").validate({
+      rules: {
+        'employee[first_name]': {
+          required: true
+        },
+        'employee[last_name]': {
+          required: true
+        },
+        'employee[date_of_birth]': {
+          required: true
+        },
+        'employee[gender]': {
+          required: true
+        },
+        'employee[present_address]': {
+          required: true
+        },
+        'employee[phone]': {
+          required: true
+        },
+        'employee[email]': {
+          required: true
+        },
+        'employee[employee_number]': {
+          required: true
+        },
+        'employee[joining_date]': {
+          required: true
+        },
+        'employee[department_id]': {
+          required: true
+        },
+        'employee[job_title]': {
+          required: true
+        },
+        'employee[qualification]': {
+          required: true
+        },
+        'employee[total_experience]': {
+          required: true
+        }
+      }
+    });
+    $('#rootwizard').bootstrapWizard({
+        'nextSelector': '.next',
+        'previousSelector': '.previous',
+        onNext: function(tab, navigation, index) {
+
+            var $valid = $("#new_employee").valid();
+            if(!$valid) {
+              $validator.focusInvalid();
+              return false;
+            }
+            var $total = navigation.find('li').length;
+            var $current = index + 1;
+            var $percent = ($current / $total) * 100;
+            $('#rootwizard').find('.progress-bar').css('width', $percent + '%');
+            // If it's the last tab then hide the last button and show the finish instead
+            if ($current >= $total) {
+                $('#rootwizard').find('.pager .next').hide();
+                $('#rootwizard').find('.pager .finish').show();
+                $('#rootwizard').find('.pager .finish').removeClass('disabled');
+            } else {
+                $('#rootwizard').find('.pager .next').show();
+                $('#rootwizard').find('.pager .finish').hide();
+            }
+
+        },
+        onPrevious: function(tab, navigation, index) {
+            var $total = navigation.find('li').length;
+            var $current = index + 1;
+            var $percent = ($current / $total) * 100;
+            $('#rootwizard').find('.progress-bar').css('width', $percent + '%');
+            // If it's the last tab then hide the last button and show the finish instead
+            if ($current >= $total) {
+                $('#rootwizard').find('.pager .next').hide();
+                $('#rootwizard').find('.pager .finish').show();
+                $('#rootwizard').find('.pager .finish').removeClass('disabled');
+            } else {
+                $('#rootwizard').find('.pager .next').show();
+                $('#rootwizard').find('.pager .finish').hide();
+            }
+        },
+        onTabShow: function(tab, navigation, index) {
+            var $total = navigation.find('li').length;
+            var $current = index + 1;
+            var $percent = ($current / $total) * 100;
+            $('#rootwizard').find('.bar').css({width: $percent + '%'});
+        }
+    });
+    // $('#rootwizard .finish').click(function() {
+    //     alert('Finished!, Starting over!');
+    //     $('#rootwizard').find('a[href*=\'tab1\']').trigger('click');
+    // });
+  });
+</script>

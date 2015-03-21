@@ -1,0 +1,39 @@
+<fieldset>
+  <%= simple_form_for(@period, label_errors: true) do |f| %>
+    <%#= f.error_notification %>
+    <%= yield f %>
+    <div class="row">
+      <div class="col-md-6">
+    
+        <div class="form-inputs">
+          <%= f.input :name, input_html: {class: "form-control"}, autofocus: true, placeholder: "Name" %>
+        </div>
+
+
+        <div class="form-inputs">
+          <%= f.input :short, input_html: {class: "form-control"}, placeholder: "Short Name" %>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-inputs" id="date_picker">
+          <%= f.input :start_time, input_html: {class: "form-control"}, placeholder: "Start Time", :data => {'date-format' => 'YYYY/MM/DD'}, as: :string %>
+        </div>
+
+        <div class="form-inputs">
+
+          <%= f.input :end_time, input_html: {class: "form-control"}, placeholder: "End Time", :data => {'date-format' => 'YYYY/MM/DD'}, as: :string %>
+        </div>
+      </div>
+    </div>
+    <div class="form-group"></div>
+
+    <div class="form-actions">
+      <%= f.submit "Save", class: "btn btn-primary" %>
+      <%= link_to "Cancel", "/periods", class: "btn btn-default", style: "margin-right: 10px;color:#8B7C7C;", id: "cancel_period" %>
+    </div>
+    
+    <div class="form-group"></div>
+      
+  <% end %>
+</fieldset>
+

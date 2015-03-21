@@ -12,11 +12,72 @@
 //
 //= require jquery
 //= require jquery-ui
-//= require jquery.turbolinks
 //= require jquery_ujs
+//= require cocoon
+//= require bootstrapValidator.min
+//= require moment
+//= require bootstrap-datetimepicker
 //= require dataTables/jquery.dataTables
 //= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
-//= require turbolinks
 //= require maskedinput
+//= require highcharts
+//= require jquery.minicolors
+//= require jquery.minicolors.simple_form
+//= require highcharts/highcharts-more 
 //= require bootstrap-sprockets
+//= require jquery.validate
+//= require jquery.validate.additional-methods
 //= require_tree .
+
+//require jquery.turbolinks
+//require turbolinks
+
+var startBlockUI;
+
+startBlockUI = function(obj) {
+  obj.block({
+    message: "<h2><span class='glyphicon glyphicon-refresh glyphicon-refresh-animate'></span>Loading...</h2>",
+    fadeIn: 300,
+    timeout: 350,
+    css: {
+      border: 'none',
+      padding: '7px 0px 15px',
+      'top': '184px',
+      'left': '264.5px',
+      backgroundColor: 'rgba(0, 0, 0, 0.21)',
+      '-webkit-border-radius': '11px',
+      '-moz-border-radius': '11px',
+      opacity: .5,
+      color: '#fff',
+      margin: '24px 0px 0px -12px',
+      width: '28%'
+    }
+  });
+};
+
+function add_fields(link, association, content) {
+  var new_id = new Date().getTime();
+  var regexp = new RegExp("new_" + association, "g");
+  $(link).up().insert({
+        before: content.replace(regexp, new_id)
+  });
+}
+$(function() {
+   function check_to_hide_or_show_add_link() {
+     if ($('#educations .nested-fields').length == 1) {
+       $('#educations .links a').hide();
+     } else {
+       $('#educations .links a').show();
+     }
+   }
+
+   $('#educations').bind('cocoon:after-insert', function() {
+     check_to_hide_or_show_add_link();
+   });
+
+   $('#educations').bind('cocoon:after-remove', function() {
+     check_to_hide_or_show_add_link();
+   });
+
+   check_to_hide_or_show_add_link();     
+ });

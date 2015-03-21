@@ -1,0 +1,5 @@
+<% if @update_batches %>
+	<%= select_tag :search_by_batch_in_subjects, options_for_select(@update_batches.all.collect{|m| [m.batch_name, m.id]}, :selected => params[:search]), :class => 'form-control', prompt: "--Select Batch--"  %>
+<% else %>
+	<%= select_tag :search_by_batch_in_subjects, options_for_select([]), :class => 'form-control', prompt: "--Select Course--"  %>
+<% end %>

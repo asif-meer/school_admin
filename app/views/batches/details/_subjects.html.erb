@@ -1,0 +1,22 @@
+<h3>Subjects</h3>
+<% if @batch.subjects.present? %>
+	<% for subject in @batch.subjects %>
+		<div class="table-responsive">
+		  <table class="table table-striped">
+		    <tr>
+		      <td><strong>Subject Name: </strong></td>
+		      <td></td>
+		    </tr>
+		    <tr>
+		      <td><%= subject.subject_name %></td>
+		      <td></td>
+		    </tr>
+		  </table>
+		  <hr />
+	  </div>
+	<% end %>
+<% else %>
+	<div class="alert alert-dismissable alert-info" style="margin:0px !important;">
+	    <strong>No Subjects!</strong> available in this Batch.
+	  </div>
+<% end %>

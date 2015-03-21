@@ -51,11 +51,11 @@ puts "creating school information..."
 school1 =  School.find_or_create(:school_name => 'abc school name', :school_email => "abc@schooladmin.com", :school_address => 'abc area , xyz city pakistan', :school_phone => "(999)-9999-99",:user_id => User.last.id)
 
 puts "creating course information..."
-@course1 =  Course.find_or_create(:course_name => 'Course A', :section_name => 'Section A', :code => "AA1" )
-@course2 =  Course.find_or_create(:course_name => 'Course B', :section_name => 'Section B', :code => "BB1" )
-@course3 =  Course.find_or_create(:course_name => 'Course C', :section_name => 'Section C', :code => "CC1" )
-@course4 =  Course.find_or_create(:course_name => 'Course D', :section_name => 'Section D', :code => "DD1" )
-@course5 =  Course.find_or_create(:course_name => 'Course E', :section_name => 'Section E', :code => "EE1" )
+@course1 =  Course.find_or_create(:course_name => 'B-Tech', :section_name => 'Section A', :code => "AA1" )
+@course2 =  Course.find_or_create(:course_name => 'BS CS', :section_name => 'Section B', :code => "BB1" )
+@course3 =  Course.find_or_create(:course_name => 'BE', :section_name => 'Section C', :code => "CC1" )
+@course4 =  Course.find_or_create(:course_name => 'IT', :section_name => 'Section D', :code => "DD1" )
+@course5 =  Course.find_or_create(:course_name => 'Diploma', :section_name => 'Section E', :code => "EE1" )
 
 puts "creating departments..."
 depart1 =  Department.find_or_create(:name => "Electronics")
@@ -65,10 +65,8 @@ depart3 =  Department.find_or_create(:name => "Calculas")
 
 puts "creating positions..."
 position1 =  EmployeePosition.find_or_create(:name => "Security Guard")
-position2 =  EmployeePosition.find_or_create(:name => "Jr. Teacher")
-position3 =  EmployeePosition.find_or_create(:name => "Senior teacher")
+position2 =  EmployeePosition.find_or_create(:name => "Teacher")
 position4 =  EmployeePosition.find_or_create(:name => "Office Incharge")
-position5 =  EmployeePosition.find_or_create(:name => "Wise Pricipal")
 position6 =  EmployeePosition.find_or_create(:name => "Pricipal")
 
 puts "creating batches..."
@@ -84,16 +82,16 @@ puts "creating batches..."
 @batch10 =  Batch.find_or_create(:batch_name => "2018", :course_id => @course5.id, :start_date => "7/Jan/2013", :end_date => "13/Nov/2017")
 # Subjects
 puts "creating subjects"
-Subject.find_or_create(:subject_name => "Physics", :batch_id => @batch1.id, :course_id => @course1.id)
-Subject.find_or_create(:subject_name => "English Basics", :batch_id => @batch2.id, :course_id => @course1.id)
-Subject.find_or_create(:subject_name => "Maths", :batch_id => @batch3.id, :course_id => @course2.id)
-Subject.find_or_create(:subject_name => "Advanced Science", :batch_id => @batch4.id, :course_id => @course2.id)
-Subject.find_or_create(:subject_name => "Basics Science", :batch_id => @batch5.id, :course_id => @course3.id)
-Subject.find_or_create(:subject_name => "Social Studies", :batch_id => @batch6.id, :course_id => @course3.id)
-Subject.find_or_create(:subject_name => "Arts and Science", :batch_id => @batch7.id, :course_id => @course4.id)
-Subject.find_or_create(:subject_name => "Literature", :batch_id => @batch8.id, :course_id => @course4.id)
-Subject.find_or_create(:subject_name => "Enlish Grammar", :batch_id => @batch9.id, :course_id => @course5.id)
-Subject.find_or_create(:subject_name => "Psychology", :batch_id => @batch10.id, :course_id => @course5.id)
+Subject.find_or_create(:title => "Physics", :short_name => "Phy", color: "#a80de0")
+Subject.find_or_create(:title => "English Basics", :short_name => "En(B)", color: "#3636c7")
+Subject.find_or_create(:title => "Maths", :short_name => "Ma", color: "#e60909")
+Subject.find_or_create(:title => "Advanced Science", :short_name => "Sci(Adv)", color: "#0fc7d1")
+Subject.find_or_create(:title => "Basics Science", :short_name => "Sci(B)", color: "#05f063")
+Subject.find_or_create(:title => "Social Studies", :short_name => "SST", color: "#a3f56c")
+Subject.find_or_create(:title => "Arts and Science", :short_name => "A&S", color: "#05c9f0")
+Subject.find_or_create(:title => "Literature", :short_name => "En(L)", color: "#0874f0")
+Subject.find_or_create(:title => "Enlish Grammar", :short_name => "En(G)", color: "#eded09")
+Subject.find_or_create(:title => "Psychology", :short_name => "Psy", color: "#ffbb00")
 #Roles
 puts "Creating Roles"
 Role.find_or_create(:name => 'admin')
@@ -104,4 +102,6 @@ StudentCategory.find_or_create(:name => 'Regular Student')
 StudentCategory.find_or_create(:name => 'Guest Student (non degree seeking student)')
 StudentCategory.find_or_create(:name => 'Scholarship Student')
 
+puts "Creating School Session"
 
+Session.find_or_create(:name => "2015--2016", :start_date => "2015-02-11", end_date: "2016-03-24")

@@ -1,0 +1,85 @@
+<% if @class_teachers.present? || @class_subjects.present? || @class_students.present? %>
+	<h3>Details</h3>
+	<div class="tree">
+    <ul>
+      <li>
+        <span><%= image_tag("glyphicons-412-package.png", class: "glyphicon_image") %></i> Subjects</span> <a href=""></a>
+        <% @class_subjects.all.each do |subject| %>
+        	<ul>
+	          <li>
+
+	          	<span></i><%= subject.title %></span> <a href=""></a>
+	            <!-- <ul>
+	              <li>
+	                <span><i class="icon-leaf"></i> Grand Child</span> <a href="">Goes somewhere</a>
+	              </li>
+	            </ul> -->
+	          </li>
+	          <!-- <li>
+	          	<span><i class="icon-minus-sign"></i> Child</span> <a href="">Goes somewhere</a>
+	            <ul>
+	              <li>
+	                <span><i class="icon-leaf"></i> Grand Child</span> <a href="">Goes somewhere</a>
+	              </li>
+	              <li>
+	              	<span><i class="icon-minus-sign"></i> Grand Child</span> <a href="">Goes somewhere</a>
+	                  <ul>
+	                      <li>
+	                        <span><i class="icon-minus-sign"></i> Great Grand Child</span> <a href="">Goes somewhere</a>
+	                      <ul>
+	                          <li>
+	                            <span><i class="icon-leaf"></i> Great great Grand Child</span> <a href="">Goes somewhere</a>
+	                          </li>
+	                          <li>
+	                            <span><i class="icon-leaf"></i> Great great Grand Child</span> <a href="">Goes somewhere</a>
+	                          </li>
+	                       </ul>
+	                      </li>
+	                      <li>
+	                        <span><i class="icon-leaf"></i> Great Grand Child</span> <a href="">Goes somewhere</a>
+	                      </li>
+	                      <li>
+	                        <span><i class="icon-leaf"></i> Great Grand Child</span> <a href="">Goes somewhere</a>
+	                      </li>
+	                  </ul>
+	              </li>
+	              <li>
+	                <span><i class="icon-leaf"></i> Grand Child</span> <a href="">Goes somewhere</a>
+	              </li>
+	            </ul>
+	          </li> -->
+	        </ul>
+					
+				<% end %>
+        
+      </li>
+      <li>
+				<span><%= image_tag("glyphicons-25-parents.png", class: "glyphicon_image") %></i>Teachers</span> <a href=""></a>
+			
+      	<% @class_teachers.all.each do |teacher| %>
+	        <ul>
+	            <li>
+	            	<span><i class="icon-leaf"></i> <%= teacher.to_s %></span> <a href=""></a>
+	      			</li>
+		    	</ul>
+	    	<% end %>
+      </li>
+      <li>
+				<span><%= image_tag("glyphicons-501-education.png", class: "glyphicon_image") %></i>Students</span> <a href=""></a>
+			
+      	<% @class_students.all.each do |student| %>
+	        <ul>
+	            <li>
+	            	<span><i class="icon-leaf"></i> <%= student.to_s %></span> <a href=""></a>
+	      			</li>
+		    	</ul>
+	    	<% end %>
+      </li>
+    </ul>
+	</div>
+<% else %>
+	<div class="alert alert-dismissable alert-info after-destroy" style="margin:0px !important; ">
+		<i class="glyphicon glyphicon-info-sign"></i>
+    <strong>No Details.</strong>
+  </div>
+<% end %>

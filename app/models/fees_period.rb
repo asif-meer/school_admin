@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: fees_periods
+#
+#  id                 :integer          not null, primary key
+#  fees_category_id   :integer
+#  batch_id           :integer
+#  start_date         :date
+#  end_date           :date
+#  due_date           :date
+#  created_at         :datetime
+#  updated_at         :datetime
+#  fees_particular_id :integer
+#
+
 class FeesPeriod < ActiveRecord::Base
   belongs_to :fees_category
   belongs_to :fees_particular

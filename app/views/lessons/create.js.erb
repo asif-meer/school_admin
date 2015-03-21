@@ -1,0 +1,9 @@
+<% if @lesson.save %>
+	$('#new_lesson').bind('ajax:success', function() {
+	    $("#notice").html("<%= escape_javascript(render :partial => 'layouts/messages' , :locals => { :flash => flash }).html_safe %>")
+	    $(this).closest('form').find("input[type=text], textarea").val("");
+	});
+<% else %>
+	$("#notice").html("<%= escape_javascript(render :partial => 'layouts/messages' , :locals => { :flash => flash }).html_safe %>")
+<% end %> 
+

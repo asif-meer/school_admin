@@ -12,18 +12,25 @@ jQuery ->
       
 jQuery ->
   $("#student_date_of_birth").datepicker
-    changeYear: true
-    yearRange: "1950:2025"
-    changeMonth: true
-    showOtherMonths: true
-    dateFormat: "dd/mm/yy"
+    format: 'yyyy-mm-dd'
+    todayHighlight: true
+
+  $("#student_date_of_birth")
+    .on 'change', (e) ->
+      $('form').data('bootstrapValidator').revalidateField 'student[date_of_birth]'
+      return
 
   $("#student_joining_date").datepicker
-    changeYear: true
-    yearRange: "1950:2025"
-    changeMonth: true
-    showOtherMonths: true
-    dateFormat: "dd/mm/yy"
+    format: 'yyyy-mm-dd'
+    todayHighlight: true
+
+
+  $("#student_joining_date")
+    .on 'change', (e) ->
+      $('form').data('bootstrapValidator').revalidateField 'student[joining_date]'
+      return
+
+
 
 jQuery ->
   $("#students_datatable").dataTable()

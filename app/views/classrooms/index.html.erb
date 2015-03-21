@@ -1,0 +1,27 @@
+<%= form_tag destroy_multiple_classrooms_path, method: :delete do %>
+  <div class="row">
+    <div class='col-md-12'>
+      <div class="pull-left">
+        <%= link_to 'Add Classroom', new_classroom_path, class: "btn btn-success" %>
+      </div>
+      <div class="pull-right">
+        <%= button_tag "Delete selected", :remote => true, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm destroy-all pull-right", id: "my" %><br />
+        <span id="select_notice" style="font-size:13px;" class="pull-right"></span>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class='col-md-12'>
+    	<h2>Classrooms</h2>
+      <div id="list_of_classrooms">
+      	<% if @classrooms.present? %>
+          <%= render :partial => 'list_classrooms' %>
+      	<% else %>
+      		<div class="alert alert-dismissable alert-info after-destroy" style="margin:0px !important; ">
+      	    <strong>No Classrooms!</strong> Available.
+      	  </div>
+      	<% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

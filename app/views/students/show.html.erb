@@ -1,98 +1,72 @@
-<div class="panel panel-app">
-  <div class="panel-body">
-  <div class="panel-heading">
-    <h1>Student Detail</h1>
+<h1>Student Detail</h1>
+<%= link_to 'Edit', edit_student_path(@student), class: "label label-info" %> |
+<%= link_to 'Back', students_path, class: "label label-default" %>
+<br /><br />
+<div class="fileinput fileinput-new" data-provides="fileinput">
+  <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+    <% unless @student.avatar.present? %>
+      <%= image_tag("school.png") %>
+    <% else %>
+      <%= image_tag @student.avatar.url %>
+    <% end %>
   </div>
-  <div class="panel-body">
-    <div class="fileinput fileinput-new" data-provides="fileinput">
-      <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
-        <% unless @student.avatar.present? %>
-          <%= image_tag("school.png") %>
-        <% else %>
-          <%= image_tag @student.avatar.url %>
-        <% end %>
-      </div>
-      <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
-    </div>
-    <table class="table table-bordered table-hover">
-      <tr>
-        <td><strong>Registraton Number: </strong></td>
-        <td><%= @student.general_register_number %></td>
-      </td>
-      <tr>
-        <td><strong>Joining Date: </strong></td>
-        <td><%= @student.joining_date.strftime("%d/%b/%Y") %></td>
-      </td>
-      <tr>
-        <td><strong>First Name: </strong></td>
-        <td><%= @student.first_name %></td>
-      </td>
-      <tr>
-        <td><strong>Last Name: </strong></td>
-        <td><%= @student.last_name %></td>
-      </tr>
-      <tr>
-        <td><strong>NIC: </strong></td>
-        <td><%= @student.nic %></td>
-      </tr>
-      <tr>
-        <td><strong>Date of Birth: </strong></td>
-        <td><%= @student.date_of_birth.strftime("%d/%b/%Y") %></td>
-      </tr>
-      <tr>
-        <td><strong>Address: </strong></td>
-        <td><%= @student.address %></td>
-      </tr>
-      <tr>
-        <td><strong>Gender: </strong></td>
-        <td><%= @student.gender %></td>
-      </tr>
-      <tr>
-        <td><strong>Course: </strong></td>
-        <td><%= @student.course unless @student.course.blank? %></td>
-      </tr>
-      <tr>
-        <td><strong>Batch: </strong></td>
-        <td><%= @student.batch unless @student.batch.blank? %></td>
-      </tr>
-    </table>
-    <div class="panel-heading">
-      <h2>Contact Details</h2>
-    </div>
-    <br />
-    <h4>Contact info #1</h4>
-    <table class="table table-bordered table-hover">
-      <tr>
-        <td style="width: 49%;"><strong>Name: </strong></td>
-        <td><%= @student.emergency_contacts.first.name %></td>
-      </tr>
-      <tr>
-        <td><strong>Phone: </strong></td>
-        <td><%= @student.emergency_contacts.first.phone %></td>
-      </tr>
-      <tr>
-        <td><strong>Relationship: </strong></td>
-        <td><%= @student.emergency_contacts.first.relationship %></td>
-      </tr>
-    </table>
-    <h4>Contact info #2</h4>
-    <table class="table table-bordered table-hover">
-      <tr>
-        <td style="width: 49%;"><strong>Name: </strong></td>
-        <td><%= @student.emergency_contacts[1].name %></td>
-      </tr>
-      <tr>
-        <td><strong>Phone: </strong></td>
-        <td><%= @student.emergency_contacts[1].phone %></td>
-      </tr>
-      <tr>
-        <td><strong>Relationship: </strong></td>
-        <td><%= @student.emergency_contacts[1].relationship %></td>
-      </tr>
-    </table>
-  </div>
+  <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
 </div>
+<table class="table table-striped">
+  <tr>
+    <td style="width: 32%;"><strong>Registraton Number: </strong></td>
+    <td><%= @student.general_register_number %></td>
+  </td>
+  <tr>
+    <td><strong>Joining Date: </strong></td>
+    <td><%= @student.joining_date.strftime("%d/%b/%Y") %></td>
+  </td>
+  <tr>
+    <td><strong>First Name: </strong></td>
+    <td><%= @student.first_name %></td>
+  </td>
+  <tr>
+    <td><strong>Last Name: </strong></td>
+    <td><%= @student.last_name %></td>
+  </tr>
+  <tr>
+    <td><strong>Date of Birth: </strong></td>
+    <td><%= @student.date_of_birth.strftime("%d/%b/%Y") %></td>
+  </tr>
+  <tr>
+    <td><strong>Address: </strong></td>
+    <td><%= @student.address %></td>
+  </tr>
+  <tr>
+    <td><strong>Gender: </strong></td>
+    <td><%= @student.gender %></td>
+  </tr>
+  <tr>
+    <td><strong>Class: </strong></td>
+    <td><%= @student.school_class.class_name unless @student.school_class.blank? %></td>
+  </tr>
+  <tr>
+    <td><strong>Session: </strong></td>
+    <td><%= @student.session.name unless @student.session.blank? %></td>
+  </tr>
+</table>
+
+<h2>Guardian Contact Details</h2>
+
+<table class="table table-striped">
+  <tr>
+    <td style="width: 32%;"><strong>Name: </strong></td>
+    <td><%= @student.emergency_contacts.first.name %></td>
+  </tr>
+  <tr>
+    <td><strong>Phone: </strong></td>
+    <td><%= @student.emergency_contacts.first.phone %></td>
+  </tr>
+  <tr>
+    <td><strong>Relationship: </strong></td>
+    <td><%= @student.emergency_contacts.first.relationship %></td>
+  </tr>
+</table>
  
-<%= link_to 'Edit', edit_student_path(@student), class: "btn btn-link" %> |
-<%= link_to 'Back', students_path, class: "btn btn-link" %>
+
 

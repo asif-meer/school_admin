@@ -1,0 +1,16 @@
+<% @classes.all.each do |classes| %>
+	<% if !classes.teachers.find_by_id(@teacher.id).present? %>
+		<ul>
+			<li>
+				<%= classes.class_name %>
+				<%= link_to "Add Class", class_teachers_path(:class_id => classes, :teacher_id => @teacher), :method => :post, :remote => true, class: "pull-right create_teacher_class" %>
+			</li>
+		</ul>
+	<% elsif @teacher.school_classes.count == @classes.count %>
+		<div class="alert alert-dismissable alert-info after-destroy" style="margin:0px !important; ">
+	      <strong>No Classes!</strong> to assign.
+	    </div>
+		<% break %>
+	<% end %>
+<% end %>
+

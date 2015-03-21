@@ -1,0 +1,67 @@
+<div class="row">
+	<div class="col-md-6">
+		<div class="panel panel-primary">
+			<div class="panel-heading">Add Classes for <%= @teacher.to_s %></div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-12">
+						<h3>Classes</h3>
+						<div id="update_assigning_classes">
+							<% if @classes.present? %>
+								<%= render partial: "class_teachers/assigning_classes", locals: {:@teacher => @teacher} %>
+							<% else %>
+								<div class="alert alert-dismissable alert-info after-destroy" style="margin:0px !important; ">
+							      <strong>No Classes!</strong> Available.
+							    </div>
+							<% end %>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="panel-heading">Add Classrooms for <%= @teacher.to_s %></div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-12">
+						<h3>Classrooms</h3>
+						<div id="update_assigning_classrooms">
+							<% if @classrooms.present? %>
+								<%= render partial: "classroom_teachers/assigning_classrooms", locals: {:@teacher => @teacher} %>
+							<% else %>
+								<div class="alert alert-dismissable alert-info after-destroy" style="margin:0px !important; ">
+							      <strong>No Classrooms!</strong> Available.
+							    </div>
+							<% end %>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="panel panel-yellow">
+			<div class="panel-heading">Assigned Classes</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-12">
+						<h3>Classes</h3>
+						<div id="update_assigned_classes">
+							<%= render partial: "class_teachers/assigned_classes", locals: {:@teacher => @teacher} %>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="panel-heading">Assigned Classrooms</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-12">
+						<h3>Classrooms</h3>
+						<div id="update_assigned_classrooms">
+							<%= render partial: "classroom_teachers/assigned_classrooms", locals: {:@teacher => @teacher} %>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

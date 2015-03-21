@@ -4,6 +4,8 @@
 	border-width: 0px 1px 1px;
 	border-radius: 4px 4px 0px 0px;
 }
+
+
 #upar {
 	
 	background-image: linear-gradient(rgba(4, 81, 155, 0.6), rgba(4, 70, 135, 0.78) 60%, rgba(3, 55, 105, 0.74));
@@ -23,6 +25,34 @@
 	}
 }
 */
+.glyphicon_image {
+	width: 14px;
+	margin-bottom: 2px;
+}
+
+.left-nav > li {
+	img {
+		width: 19px;
+	}
+	.fees {
+		width: 11px;
+		margin-right: 7px;
+	}
+}
+.left-nav {
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+}
+.sub-nav {
+	a {
+		padding: 6px 23px;
+
+		img {
+			width: 13px;
+			margin-bottom: 2px;
+		}
+	}
+}
 #upar {
 	padding-left: 14px;
 }
@@ -51,38 +81,5 @@
 	}
 }
 .lower-width {
-	width:20%;
-}
-.course {
-	background: rgba(242, 146, 146, 0.52);
-	border: 3px solid rgba(213, 120, 120, 1);
-}
-.batches_dashboard {
-    background: none repeat scroll 0% 0% rgba(146, 235, 242, 0.52);
-    border: 3px solid #3DC4F0;
-}
-.subjects_dashboard {
-    background: none repeat scroll 0% 0% rgba(84, 131, 245, 0.52);
-    border: 3px solid rgba(39, 95, 230, 1);
-}
-
-.employees {
-    background: none repeat scroll 0% 0% rgba(20, 26, 39, 0.52);
-    border: 3px solid rgba(4, 11, 29, 1);
-}
-.departments_dashboard {
-    background: none repeat scroll 0% 0% rgba(223, 239, 76, 0.52);
-    border: 3px solid rgba(215, 205, 12, 1);
-}
-.students {
-    background: none repeat scroll 0% 0% rgba(137, 239, 76, 0.52);
-    border: 3px solid rgba(24, 215, 12, 1);
-}
-.fees {
-    background: none repeat scroll 0% 0% rgba(246, 162, 35, 0.52);
-    border: 3px solid rgba(215, 141, 12, 1);
-}
-.settings {
-    background: none repeat scroll 0% 0% rgba(144, 123, 6, 0.52);
-    border: 3px solid rgba(138, 114, 9, 1);
+	width:13%;
 }

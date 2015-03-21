@@ -26,6 +26,9 @@ $ ->
 
   return
 
+  
+
+
 jQuery ->
   $('#particulars_datatable').dataTable()
 
@@ -74,4 +77,12 @@ jQuery ->
 
   return
 
-
+$ ->
+  $('#fees_particular_batch_id').change ->
+    $.ajax
+        type: "GET"
+        url: "/fees_particulars/update_students"
+        data: "batch_id=" + this.value
+        success: ->
+          #alert 'success'
+    #alert(this.value)

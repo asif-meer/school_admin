@@ -5,7 +5,7 @@ gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
-gem 'turbolinks'
+# gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
@@ -17,14 +17,22 @@ gem 'simple_form'
 gem 'therubyracer', :platform=>:ruby
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem "rolify", :git => "git://github.com/EppO/rolify.git"
-gem 'jquery-turbolinks'
+# gem 'jquery-turbolinks'
 gem "paperclip", "~> 4.1"
 gem "jquery-ui-rails"
 # gem 'redis', '2.1.1'
 gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
 gem 'maskedinput-rails'
 gem "breadcrumbs_on_rails"
-
+gem 'bootstrap-validator-rails'
+gem 'momentjs-rails', '>= 2.8.1'
+gem 'bootstrap3-datetimepicker-rails', '~> 3.1.3'
+gem 'bootstrap_form'
+gem "font-awesome-rails"
+gem "highcharts-rails", "~> 3.0.0"
+gem 'jquery-minicolors-rails'
+gem 'jquery-validation-rails'
+gem "cocoon"
 
 
 group :development do
@@ -40,8 +48,9 @@ group :development do
   gem 'rb-fsevent', :require=>false
   gem 'rb-inotify', :require=>false
   gem 'letter_opener'
-  gem 'annotate', '~> 2.6.5'
+  gem 'annotate', github: 'ctran/annotate_models'
   # gem 'debugger'
+  # gem 'pry-byebug'
 end
 group :development, :test do
   gem 'factory_girl_rails'
@@ -58,9 +67,10 @@ group :test do
   gem 'selenium-webdriver'
   gem 'simplecov', :require => false
 end
+
 group :production do
   gem 'passenger'
-  gem 'pg'
+  gem 'pg'  
   gem 'rails_12factor'
 end
 
