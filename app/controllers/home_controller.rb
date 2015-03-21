@@ -1,9 +1,6 @@
 class HomeController < ApplicationController
-<<<<<<< HEAD
-  before_filter :authenticate_user!, :except => [:index]
-=======
-  before_filter :authenticate_user!, except: [:bootstrap_form_test]
->>>>>>> bae63b7b592d41b65ae4748748d344198f45160e
+  before_filter :authenticate_user!, :except => [:index, :bootstrap_form_test]
+
 
   def index
   end
@@ -12,14 +9,11 @@ class HomeController < ApplicationController
     
   end
 
-<<<<<<< HEAD
+
   def settings
     
   end
 
-=======
-  
->>>>>>> bae63b7b592d41b65ae4748748d344198f45160e
 
   # def log
   #   # logger.debug params

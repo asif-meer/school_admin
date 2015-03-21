@@ -11,11 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
+
 ActiveRecord::Schema.define(version: 20150321113128) do
-=======
-ActiveRecord::Schema.define(version: 20150220135016) do
->>>>>>> bae63b7b592d41b65ae4748748d344198f45160e
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"

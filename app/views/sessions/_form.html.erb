@@ -1,18 +1,3 @@
-<<<<<<< HEAD
-<%= simple_form_for(@session) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :from_date %>
-    <%= f.input :to_date %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
-=======
 <fieldset>
   <%= bootstrap_form_for @session, label_errors: true, class: "form-horizontal" do |f| %>
     <%= yield f %>
@@ -43,4 +28,3 @@
     <div class="form-group"></div>
   <% end %>
 </fieldset>
->>>>>>> bae63b7b592d41b65ae4748748d344198f45160e

@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # == Schema Information
 #
 # Table name: sessions
@@ -12,7 +10,6 @@
 #  updated_at :datetime
 #
 
->>>>>>> bae63b7b592d41b65ae4748748d344198f45160e
 require 'rails_helper'
 
 RSpec.describe Session, :type => :model do

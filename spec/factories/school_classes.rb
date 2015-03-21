@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-FactoryGirl.define do
-  factory :school_class do
-    name "MyString"
-class_category_id 1
-=======
 # == Schema Information
 #
 # Table name: school_classes
@@ -18,11 +12,5 @@ class_category_id 1
 
 FactoryGirl.define do
   factory :school_class do
-     ""
-short_name "MyString"
-color "MyString"
-employee_id 1
->>>>>>> bae63b7b592d41b65ae4748748d344198f45160e
   end
-
 end

@@ -1,11 +1,4 @@
 class SessionsController < InheritedResources::Base
-<<<<<<< HEAD
-
-  private
-
-    def session_params
-      params.require(:session).permit(:name, :from_date, :to_date)
-=======
 	before_filter :authenticate_user!
   before_action :set_session, only: [:show, :edit, :update, :destroy]
 
@@ -90,7 +83,6 @@ class SessionsController < InheritedResources::Base
 
     def session_params
       params.require(:session).permit(:name, :start_date, :end_date)
->>>>>>> bae63b7b592d41b65ae4748748d344198f45160e
     end
 end
 

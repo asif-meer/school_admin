@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-class SchoolClass < ActiveRecord::Base
-=======
 # == Schema Information
 #
 # Table name: school_classes
@@ -31,5 +28,4 @@ class SchoolClass < ActiveRecord::Base
   def self.find_or_create(attributes)
     SchoolClass.where(attributes).first || SchoolClass.create(attributes)
   end
->>>>>>> bae63b7b592d41b65ae4748748d344198f45160e
 end

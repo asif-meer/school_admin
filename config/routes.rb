@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
 
-<<<<<<< HEAD
   resources :school_classes
-
   resources :class_categories
-=======
   # School Classes
   # resources :classes
   match "/classes/class-:class_name/", to: "classes#show", via: :get, as: :class_name
@@ -23,7 +20,7 @@ Rails.application.routes.draw do
       delete 'destroy_multiple'
     end
   end
->>>>>>> bae63b7b592d41b65ae4748748d344198f45160e
+
 
   resources :sessions
 
