@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  resources :school_classes
+
+  resources :class_categories
+
+  resources :sessions
+
   # Fees Criteria
   resources :fees_particulars, only: [:destroy, :edit, :update, :show] do
     collection do
@@ -22,6 +28,7 @@ Rails.application.routes.draw do
   match 'fees_particulars/update/:id' => 'fees_particulars#update', :via => :post, as: :update_fees_particulars
   get 'home/index'
 
+  # match "/settings/" => 'home#settings', :as => :settings
 
   # Test logs with Redis
   # match "/log/" => 'home#log', :via => [:post]

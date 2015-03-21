@@ -5,6 +5,11 @@ class HomeController < ApplicationController
     
   end
 
+  def settings
+    
+  end
+
+
   # def log
   #   # logger.debug params
   #   # e = Event.new(
